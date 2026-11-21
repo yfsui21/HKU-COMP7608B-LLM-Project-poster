@@ -1,6 +1,8 @@
 """Bounded poster generation, review and transactional dialogue edits."""
 import copy
 import json
+import io
+import shutil
 import math
 import os
 import re
@@ -8,6 +10,8 @@ import time
 import uuid
 from pathlib import Path
 from . import extract, model, source
+from .details import enrich
+from PIL import Image
 from .render import IDS, render, scene
 
 ORDERS = {"joint":["content","layout"]*2, "content-first":["content"]*2+["layout"]*2,
@@ -41,7 +45,16 @@ def prepare(pdf,folder,size,api):
         plan = source.fixture_plan(pdf)
     else:
         plan = extract.plan(pdf,pages)
+    enrich(plan,pages)
     source.verify(plan,pages)
+    secondary=plan.get("secondary")
+    if secondary and size[1]>=640:
+        picture=source.page_png(pdf,secondary["page"],secondary["box"])
+        with Image.open(io.BytesIO(picture)) as im:
+            secondary["aspect"]=im.width/im.height
+        (folder/"support.png").write_bytes(picture)
+    else:
+        plan.pop("secondary",None)
     ev = plan["evidence"]
     if api.live:
         ev["box"] = api.ask(model.CROP,ev,source.page_png(pdf,ev["page"]))["box"]
@@ -56,6 +69,11 @@ def prepare(pdf,folder,size,api):
 def width(s,asset):
     items,_ = scene(s,asset)
     return next(a["w"] for a in items if a["id"]=="figure")
+
+def copy_evidence(origin,destination):
+    for filename in ("evidence.png","support.png"):
+        if (origin/filename).is_file():
+            shutil.copy2(origin/filename,destination/filename)
 
 def freeze_boxes(s,asset):
     items,_=scene(s,asset)
@@ -140,7 +158,7 @@ def generate(pdf,folder,size,condition,api,initial=None):
     try:
         if initial:
             s=copy.deepcopy(read(initial/"initial.json"))
-            (folder/"evidence.png").write_bytes((initial/"evidence.png").read_bytes())
+            copy_evidence(initial,folder)
         else:
             s=prepare(pdf,folder,size,api)
         s["condition"]=condition

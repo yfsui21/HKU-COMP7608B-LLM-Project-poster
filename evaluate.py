@@ -8,7 +8,7 @@ import random
 import shutil
 from pathlib import Path
 
-from paper_canvas.agent import ORDERS, edit, generate, read, write
+from paper_canvas.agent import ORDERS, edit, generate, read, write, copy_evidence
 from paper_canvas.model import Model
 from paper_canvas.source import EXAMPLE
 
@@ -64,7 +64,7 @@ def run(args):
                     s=read(initial/"state.json")
                     s["condition"]=condition
                     write(dest/"state.json",s)
-                    shutil.copy2(initial/"evidence.png",dest/"evidence.png")
+                    copy_evidence(initial,dest)
                     shutil.copytree(initial/s["artifact"],dest/s["artifact"])
                     for request,label in plan["dialogues"][name]:
                         s=edit(dest,request,api)

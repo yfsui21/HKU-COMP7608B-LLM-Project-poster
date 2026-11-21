@@ -1,6 +1,7 @@
 """Local extractive planner for English text PDFs with captioned evidence."""
 import re
 import pdfplumber
+from .details import secondary_evidence
 
 HEADINGS = {
     "question": r"(research question|introduction|abstract|objective|background)",
@@ -56,6 +57,13 @@ def figure_options(path):
                         break
                     caption+=" "+continuation["text"]
                     previous=continuation
+                photos=[im for im in page.images if 0<=line["top"]-im["bottom"]<=18
+                        and im["width"]>page.width*.25 and im["height"]>40]
+                if len(photos)==1:
+                    im=photos[0]
+                    box=[im["x0"]/page.width,im["top"]/page.height,im["x1"]/page.width,im["bottom"]/page.height]
+                    options.append(dict(page=idx,caption=caption,box=box))
+                    continue
                 # Locate visual marks above the caption; ignore page borders and background fills.
                 marks=[v for v in [*page.images,*page.rects,*page.curves,*page.lines]
                        if v["bottom"]<=line["top"]+2 and line["top"]-v["bottom"]<page.height*.45
@@ -83,6 +91,7 @@ def figure_options(path):
 def plan(path,pages):
     pool=passages(pages)
     evidence=figure_options(path)
+    all_evidence=evidence
     if not evidence:
         raise ValueError("未定位到带图注的可提取图表。请使用图注位于图表下方的文本型 PDF，或切换视觉模型模式。")
     sections=[]
@@ -125,6 +134,9 @@ def plan(path,pages):
     if not title or title.lower() in ("untitled","anonymous"):
         title=pages[0]["text"].splitlines()[0]
     output=dict(title=title,sections=sections,evidence=ev,planner="extractive")
+    secondary=secondary_evidence(pool,all_evidence,ev)
+    if secondary:
+        output["secondary"]=secondary
     if title=="Evaluation of ChatGPT as a diagnostic tool for medical learners and clinicians" and any(
             "journal.pone.0307383" in p["text"] for p in pages):
         output["credit"]="Adapted from Hadi, Tran, Nagarajan & Kirpalani (2024), PLOS ONE. doi:10.1371/journal.pone.0307383. CC BY."

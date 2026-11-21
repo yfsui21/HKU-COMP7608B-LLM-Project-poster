@@ -121,22 +121,22 @@ function display(next,previous) {
   $("comparePrompt").textContent="当前请求 · "+requestText();
 }
 function evidence(index) {
-  const items=[...state.sections,state.evidence], entry=items[index];
+  const items=[...state.sections,state.evidence,...(state.additional||[])], entry=items[index];
   $("evidenceList").replaceChildren(...items.map((e,i)=>{
-    const b=button(labels[keys[i]],()=>evidence(i),"item"+(index===i?" active":""));
+    const b=button(labels[keys[i]] || e.label,()=>evidence(i),"item"+(index===i?" active":""));
     b.append(node("small","p. "+e.page));
     return b;
   }));
   $("sourcePage").src="/source/"+state.session+"/"+entry.page;
   $("pageLabel").textContent="第 "+entry.page+" 页";
-  const isFig=index===3;
+  const isFig=Boolean(entry.box);
   $("crop").hidden=!isFig;
   if(isFig){
     const [l,t,r,b]=entry.box;
     Object.assign($("crop").style,{left:l*100+"%",top:t*100+"%",width:(r-l)*100+"%",height:(b-t)*100+"%"});
   }
   $("citation").replaceChildren(node("h3",isFig?"对应图注":"海报文字"),node("blockquote",isFig?entry.caption:entry.text));
-  if(!isFig) $("citation").append(node("h3","原文依据"),node("blockquote",[entry.quote,entry.additional_quote].filter(Boolean).join(" ")),node("small","修订时保留"),node("p",entry.required.join(" · ")));
+  if(entry.required) $("citation").append(node("h3","原文依据"),node("blockquote",[entry.quote,entry.additional_quote].filter(Boolean).join(" ")),node("small","修订时保留"),node("p",entry.required.join(" · ")));
 }
 function history() {
   const steps=[{name:"初稿检查",version:"00-initial",detail:"核对初始文字与图表位置。"}];
@@ -204,7 +204,9 @@ $("inputNote").textContent=live?"所选论文将发送给已配置的视觉模�
 $("mode").textContent=live?"视觉模型在线模式":"本地运行";
 form();
 work("正在载入海报…",async()=>{
-  const sid=sessionStorage.getItem("studioSession");
+  const requested=new URLSearchParams(location.search).get("session");
+  const sid=requested || sessionStorage.getItem("studioSession");
+  if(requested) window.history.replaceState(null,"",location.pathname);
   if(sid){try {display(await api("resume",{session:sid}));return;}catch{sessionStorage.removeItem("studioSession");}}
   if(live) $("input").showModal();
   else await generate();

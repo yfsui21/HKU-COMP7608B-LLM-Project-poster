@@ -9,7 +9,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
-from .agent import generate, edit, read, write
+from .agent import generate, edit, read, write, copy_evidence
 from .source import EXAMPLE, page_png
 from .model import Model
 
@@ -20,6 +20,15 @@ MIME = {"preview.png":"image/png","poster.pptx":"application/vnd.openxmlformats-
 VERSION = re.compile(r"(?:0[0-4]-(?:initial|layout|content)|edit-[0-9a-f]{10})")
 def events(folder):
     return [json.loads(line) for line in (folder/"trace.jsonl").read_text(encoding="utf8").splitlines()]
+
+def additional_sources(state):
+    out=list(state.get("notes",[]))
+    if state.get("definition"):
+        out.append(dict(label="Outcome measure",**state["definition"]))
+    if fig:=state.get("secondary"):
+        out.extend([dict(label="Supporting figure",**fig),
+                    dict(label="Supporting result",page=fig["claim_page"],text=fig["claim"])])
+    return out
 
 def snapshot(folder):
     state=read(folder/"state.json")
@@ -32,7 +41,7 @@ def snapshot(folder):
             versions.append(name)
     return dict(session=folder.name,artifact=state["artifact"],title=state["title"],history=state["history"],
                 size=state["size"],protected=list(state["protected"]),sections=state["sections"],
-                evidence=state["evidence"],trace=stream,elements=review["elements"],issues=review["issues"],
+                evidence=state["evidence"],additional=additional_sources(state),trace=stream,elements=review["elements"],issues=review["issues"],
                 versions=versions,planner=state.get("planner","vision" if state["model"]!="offline-fixture" else "fixture"))
 
 def comparison(root,folder,request,live):
@@ -45,7 +54,7 @@ def comparison(root,folder,request,live):
         state=dict(original,condition=condition)
         state.pop("fixed_boxes",None)
         write(branch/"state.json",state)
-        shutil.copy2(folder/"evidence.png",branch/"evidence.png")
+        copy_evidence(folder,branch)
         shutil.copytree(folder/state["artifact"],branch/state["artifact"])
         current=edit(branch,request,Model(live))
         attempts=[e for e in events(branch) if e["event"]=="attempt"]
@@ -99,7 +108,7 @@ def serve(port,live):
                     folder=session(parts[1])
                     s=read(folder/"state.json")
                     page=int(parts[2])
-                    if page in {p["page"] for p in [*s["sections"],s["evidence"]]}:
+                    if page in {p["page"] for p in [*s["sections"],s["evidence"],*additional_sources(s)]}:
                         pdf=folder/"source.pdf"
                         if not pdf.is_file():
                             legacy=root/(folder.name+".pdf")

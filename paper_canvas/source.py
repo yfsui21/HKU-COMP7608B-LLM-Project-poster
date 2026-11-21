@@ -75,3 +75,6 @@ def verify(plan,pages):
     ev = plan["evidence"]
     if not on_page(ev["page"],ev["caption"]):
         raise ValueError("Missing verifiable figure/table caption")
+    if secondary:=plan.get("secondary"):
+        if not (on_page(secondary["page"],secondary["caption"]) and on_page(secondary["claim_page"],secondary["claim"])):
+            raise ValueError("Supporting result or caption is missing from its cited page")

@@ -17,6 +17,9 @@ def main():
         extracted=generate(EXAMPLE.with_name("retrieval_study.pdf"),session,[1008,540],"joint",api)
         assert extracted["planner"]=="extractive" and extracted["evidence"]["page"]==2
         assert "84%" in extracted["sections"][2]["text"]
+        assert [m["value"] for m in extracted["measures"]]==["200","2048"]
+        slide=Presentation(session/extracted["artifact"]/"poster.pptx").slides[0]
+        assert {"definition","note-0","note-1","value-0","figure"} <= {shape.name for shape in slide.shapes}
         before=(session/"state.json").read_bytes()
         pair=comparison(root,session,"enlarge figure by 35% and protect result",False)
         assert [row["decision"]["accepted"] for row in pair]==[True,False]
