@@ -7,7 +7,7 @@ import shutil
 import uuid
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 from .agent import generate, edit, read, write, copy_evidence
 from .source import EXAMPLE, page_png
@@ -19,6 +19,41 @@ SAMPLES = {"field": EXAMPLE, "retrieval": EXAMPLE.with_name("retrieval_study.pdf
 OPEN_PAPER = Path("runs/open-papers/hadi-2024.pdf")
 MIME = {"preview.png":"image/png","poster.pptx":"application/vnd.openxmlformats-officedocument.presentationml.presentation"}
 VERSION = re.compile(r"(?:0[0-4]-(?:initial|layout|content)|edit-[0-9a-f]{10})")
+REPLAY = STATIC.parent / "runs/posterforest-replay"
+REPLAY_FILES = {"poster.pptx": MIME["poster.pptx"], "report.json": "application/json",
+                "before.jpg": "image/jpeg", "reference.jpg": "image/jpeg"}
+
+
+def replay_page(query):
+    params = parse_qs(query)
+    orientation = "portrait" if params.get("orientation") == ["portrait"] else "landscape"
+    stage = "before" if params.get("stage") == ["before"] else "reference"
+    folder = REPLAY / orientation
+    prefix = "/replay/" + orientation + "/"
+    def link(o, s, label):
+        current = ' aria-current="page"' if (o, s) == (orientation, stage) else ""
+        return f'<a class="secondary"{current} href="/posterforest?orientation={o}&amp;stage={s}">{label}</a>'
+
+    stages = {"before": "反馈前", "reference": "终稿"}
+    image = ""
+    audit = '<p>在项目目录运行 <code>python examples/replay_posterforest.py --fetch</code> 后刷新，即可查看本机复现结果。</p>'
+    if (folder / "report.json").is_file() and (folder / "poster.pptx").is_file():
+        report = read(folder / "report.json")
+        name = stage + ".jpg"
+        if (folder / name).is_file():
+            image = f'<a href="{prefix}{name}"><img src="{prefix}{name}" alt="作者{stages[stage]}海报"></a>'
+        rows = [("分区", report["panels"]), ("文字框", report["textboxes"]), ("图表", report["pictures"])]
+        audit = '<dl class="stats">' + "".join(f"<div><dt>{k}</dt><dd>{int(v)}</dd></div>" for k,v in rows) + "</dl>"
+        count = int(report["compared_parts"])
+        status = f"画布尺寸一致，{count} 个文件部件逐字节匹配。" if report["matched"] else "比对发现差异，请查看校验报告。"
+        audit += f'<p>{status}</p><a class="secondary" href="{prefix}poster.pptx" download>下载本机生成的 PPTX</a><p><a href="{prefix}report.json">查看校验报告</a></p>'
+    values = dict(DIRECTIONS="".join(link(o,stage,t) for o,t in [("landscape","横版"),("portrait","竖版")]),
+                  STAGES="".join(link(orientation,s,t) for s,t in stages.items()), CAPTION="作者"+stages[stage],
+                  AUDIT=audit, IMAGE=image, EDIT='<a class="secondary" href="/?example=forest">用 PaperCanvas 生成同篇论文 →</a>' if forest_example.PATH.exists() else "")
+    page = (STATIC / "posterforest.html").read_text(encoding="utf-8")
+    for key, value in values.items():
+        page = page.replace("{{" + key + "}}", value)
+    return page.encode()
 def events(folder):
     return [json.loads(line) for line in (folder/"trace.jsonl").read_text(encoding="utf8").splitlines()]
 
@@ -100,6 +135,8 @@ def serve(port,live):
             if self.headers.get("Host")!=f"127.0.0.1:{port}":
                 return self.reply(403,"text/plain",b"Local address required")
             path=urlparse(self.path).path
+            if path=="/posterforest":
+                return self.reply(200,"text/html; charset=utf-8",replay_page(urlparse(self.path).query))
             if path=="/":
                 page=(STATIC/"demo.html").read_text(encoding="utf8")
                 option='<option value="published">开放论文 · Hadi 等（PLOS ONE，20 页）</option>' if OPEN_PAPER.exists() else ""
@@ -111,6 +148,8 @@ def serve(port,live):
                 return self.reply(200,mime+"; charset=utf-8",(STATIC/path[1:]).read_bytes())
             parts=path.strip("/").split("/")
             try:
+                if len(parts)==3 and parts[0]=="replay" and parts[1] in ("portrait","landscape") and parts[2] in REPLAY_FILES:
+                    return self.reply(200,REPLAY_FILES[parts[2]],(REPLAY/parts[1]/parts[2]).read_bytes())
                 if parts[0]=="artifact" and len(parts) in (3,4) and parts[-1] in MIME:
                     folder=session(parts[1])
                     version=parts[2] if len(parts)==4 else read(folder/"state.json")["artifact"]

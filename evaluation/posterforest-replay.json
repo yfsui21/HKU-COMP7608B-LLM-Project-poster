@@ -1,0 +1,36 @@
+[
+  {
+    "matched": true,
+    "different_parts": [],
+    "compared_parts": 34,
+    "same_canvas": true,
+    "canvas_inches": [
+      48.0,
+      36.0
+    ],
+    "shapes": 57,
+    "revision": "dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9",
+    "orientation": "landscape",
+    "source_run": "outputs/20260612_180322_vllm_qwen3_vllm_qwen3_vl_2026_ACL",
+    "panels": 25,
+    "textboxes": 25,
+    "pictures": 7
+  },
+  {
+    "matched": true,
+    "different_parts": [],
+    "compared_parts": 34,
+    "same_canvas": true,
+    "canvas_inches": [
+      36.0,
+      48.0
+    ],
+    "shapes": 57,
+    "revision": "dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9",
+    "orientation": "portrait",
+    "source_run": "outputs/20260612_181802_vllm_qwen3_vllm_qwen3_vl_2026_ACL",
+    "panels": 25,
+    "textboxes": 25,
+    "pictures": 7
+  }
+]

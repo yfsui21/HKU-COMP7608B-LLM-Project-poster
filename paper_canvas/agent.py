@@ -54,7 +54,7 @@ def prepare(pdf,folder,size,api):
     conference.save_exhibits(plan,pdf,folder)
     source.verify(plan,pages)
     secondary=plan.get("secondary")
-    if secondary and size[1]>=640:
+    if secondary and (size[1]>=640 or plan.get("conference")):
         picture=source.page_png(pdf,secondary["page"],secondary["box"])
         with Image.open(io.BytesIO(picture)) as im:
             secondary["aspect"]=im.width/im.height
@@ -66,7 +66,7 @@ def prepare(pdf,folder,size,api):
         ev["box"] = api.ask(model.CROP,ev,source.page_png(pdf,ev["page"]))["box"]
     asset = source.page_png(pdf,ev["page"],ev["box"])
     (folder/"evidence.png").write_bytes(asset)
-    state=dict(**plan,size=size,left_fraction=.43,figure_fraction=.40,figure_scale=.80,
+    state=dict(**plan,size=size,left_fraction=.43,figure_fraction=.40,figure_scale=1.0 if plan.get("conference") else .80,
                history=[],protected={},limits={},model=api.name)
     if api.live:
         layout_pass(state,["Allocate initial space from the selected evidence and canvas size."],api)

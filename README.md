@@ -67,6 +67,23 @@ Use a fresh output directory for each generation. Sessions keep initial.json, ev
 
 ## Poster composition
 
+### Reproduce the PosterForest rendering baseline
+
+The [pinned upstream revision](https://github.com/kaist-cvml/poster-forest/tree/dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9) includes two runs on the same ACL paper. Each starts with a different canvas and has its own final arrangement. With the project requirements installed, run from the repository root:
+
+```sh
+python examples/replay_posterforest.py --fetch
+python papercanvas.py demo
+```
+
+Open [the local comparison](http://127.0.0.1:8765/posterforest). Switch between the authors' before-feedback and final images for either canvas. The download contains the locally regenerated single-slide PowerPoint. To repeat offline, run `python examples/replay_posterforest.py` after the first download. The input manifest pins each file by its Git blob ID.
+
+The replay reads the authors' step 6 layout, text and crops, applies the step 7 unit and style settings, and calls their unmodified PowerPoint code generator. It opens the reference deck after generation to compare slide size, slide XML, masters, layouts, theme, relationships and embedded media. Each canvas matched on all 34 compared parts, with 25 panels, 25 text boxes and seven pictures. See the [recorded audit](evaluation/posterforest-replay.json). Steps 1–6 use published checkpoints. The replay makes zero model calls and does not measure end-to-end generation quality or reproduce the human study.
+
+### Generate with PaperCanvas
+
+Open the [PaperCanvas output](examples/forest/poster.pptx) or [view its preview](examples/forest/preview.png). PaperCanvas measures the wrapped text and figures in the outer section groups to select their widths, and fits the main figure to its available panel. The scientific content of this example uses the reviewed outline described below.
+
 For a same-paper visual comparison, run `python examples/fetch_open_paper.py --paper forest`, then choose the ACL 2026 PosterForest example in the import dialog. Compare its single slide with the landscape preview in the [authors' repository](https://github.com/kaist-cvml/poster-forest#preview). The example uses a reviewed outline, checked figure crops and values from the paper's Table 2. PaperCanvas measures and renders the panels locally; the example does not invoke PosterForest or reproduce its evaluation. External PDFs are cached under runs/open-papers.
 
 Landscape posters at least 880 × 620 pt with sufficient distinct evidence can use three section groups with nested text, images and tables. The Hadi and PosterForest examples have reviewed editorial selections. Other inputs use extractive figure captions and the available source metadata. The ordinary compact layout remains available for shorter papers.

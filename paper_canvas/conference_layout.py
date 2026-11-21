@@ -55,8 +55,6 @@ def compose(s,asset,wrap):
     aspects.update({"exhibit-"+str(i):e["aspect"] for i,e in enumerate(s.get("exhibits",[]))})
     total=inner-2*gap
     middle=total*(.39+.43-s["left_fraction"])
-    left=(total-middle)*.50
-    widths=[left,middle,total-left-middle]
 
     def panel(p,key,x,y,bw,allow_image,draw):
         # The same routine measures and emits content, so wrapping drives each row height.
@@ -117,6 +115,27 @@ def compose(s,asset,wrap):
                 issues.append(name+" exceeds its conference panel")
             y+=allow_image
         return y+4
+
+    # Keep the middle column under the editor's control. Measure the two outside
+    # subtrees at candidate widths before committing space to either sibling.
+    def column_cost(group, bw):
+        panels=group["panels"]
+        available=bottom-(top+32)-9*(len(panels)-1)
+        fixed=sum(panel(p,"",0,0,bw,0,False) for p in panels)
+        natural=sum(bw/aspects[p["asset"]] for p in panels if "asset" in p)
+        return max(0,fixed-available), fixed+natural
+
+    side=total-middle
+    candidates=[]
+    groups=tree["columns"]
+    for fraction in (.40,.425,.45,.475,.50,.525,.55,.575,.60):
+        left=side*fraction
+        a=column_cost(groups[0],left)
+        b=column_cost(groups[2],side-left)
+        cost=(max(a[0],b[0]),max(a[1],b[1]),abs(fraction-.5))
+        candidates.append((cost,left))
+    left=min(candidates)[1]
+    widths=[left,middle,side-left]
 
     x=m
     for col,(group,bw) in enumerate(zip(tree["columns"],widths)):

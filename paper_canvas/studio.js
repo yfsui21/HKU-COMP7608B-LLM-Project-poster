@@ -205,7 +205,14 @@ $("inputNote").textContent=live?"所选论文将发送给已配置的视觉模�
 $("mode").textContent=live?"视觉模型在线模式":"本地运行";
 form();
 work("正在载入海报…",async()=>{
-  const requested=new URLSearchParams(location.search).get("session");
+  const params=new URLSearchParams(location.search);
+  if(params.get("example")==="forest" && $("sample").querySelector('option[value="forest"]')){
+    $("sample").value="forest";
+    $("sample").onchange();
+    if(live) $("input").showModal(); else await generate();
+    return;
+  }
+  const requested=params.get("session");
   const sid=requested || sessionStorage.getItem("studioSession");
   if(requested) window.history.replaceState(null,"",location.pathname);
   if(sid){try {display(await api("resume",{session:sid}));return;}catch{sessionStorage.removeItem("studioSession");}}
