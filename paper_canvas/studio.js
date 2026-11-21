@@ -113,7 +113,7 @@ function display(next,previous) {
   $("download").hidden=$("preview").hidden=false;
   $("metrics").replaceChildren(metric(state.size.map(Math.round).join(" × "),"pt"),metric(widthOf(state).toFixed(1),"pt 图宽"),metric(state.history.filter(h=>h.accepted).length,"次已接受修改"));
   $("locks").textContent=state.protected.length?"文字锁定 · "+state.protected.map(k=>labels[k]).join("、"):"";
-  $("mode").textContent=live?"视觉模型在线模式":state.planner==="fixture"?"本地运行 · 预设语义样例":"本地运行 · 原文抽取";
+  $("mode").textContent=state.editorial?"源文校对提纲 · 本地排版":live?"视觉模型在线模式":state.planner==="fixture"?"本地运行 · 预设语义样例":"本地运行 · 原文抽取";
   feedback(previous);
   evidence(3);
   history();
@@ -188,8 +188,9 @@ $("new").onclick=()=>$("input").showModal();
 $("close").onclick=()=>$("input").close();
 $("sample").onchange=()=>{
   $("upload").hidden=$("sample").value!=="upload";
-  $("width").value=$("sample").value==="published"?1120:1008;
-  $("height").value=$("sample").value==="published"?760:540;
+  const conference=["published","forest"].includes($("sample").value);
+  $("width").value=conference?1120:1008;
+  $("height").value=conference?760:540;
 };
 $("op").onchange=$("gain").oninput=form;
 $("paperform").onsubmit=e=>{e.preventDefault();work("正在解析论文、排版并检查候选海报…",generate);};

@@ -67,6 +67,10 @@ Use a fresh output directory for each generation. Sessions keep initial.json, ev
 
 ## Poster composition
 
+For a same-paper visual comparison, run `python examples/fetch_open_paper.py --paper forest`, then choose the ACL 2026 PosterForest example in the import dialog. Compare its single slide with the landscape preview in the [authors' repository](https://github.com/kaist-cvml/poster-forest#preview). The example uses a reviewed outline, checked figure crops and values from the paper's Table 2. PaperCanvas measures and renders the panels locally; the example does not invoke PosterForest or reproduce its evaluation. External PDFs are cached under runs/open-papers.
+
+Landscape posters at least 880 × 620 pt with sufficient distinct evidence can use three section groups with nested text, images and tables. The Hadi and PosterForest examples have reviewed editorial selections. Other inputs use extractive figure captions and the available source metadata. The ordinary compact layout remains available for shorter papers.
+
 The one-slide PPTX includes individually editable text boxes and figure crops. The masthead uses quantities verified in the method passage. The findings panel pairs the main claim with its cited figure. When the paper provides them, the poster includes outcome definitions, evaluation details and limitations with page references. On canvases at least 640 pt tall, the extractive planner can add a second result that explicitly cites another detected figure. The evidence index links these additions to the paper.
 
 ## Implementation and checks

@@ -9,6 +9,7 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.utils import ImageReader
 import pypdfium2 as pdfium
+from .conference_layout import compose
 
 IDS=("question","method","result")
 INK, NAVY, ACCENT, QUIET = "202937","202E49","A5462E","485568"
@@ -30,6 +31,9 @@ def wrap(text,width,font,size):
 
 def scene(s,asset):
     w,h=s["size"]
+    if s.get("conference"):
+        items,issues=compose(s,asset,wrap)
+        return checked_scene(s,items,issues)
     margin,gutter=.035*w,.026*w
     inside=w-2*margin
     items,issues=[],[]
@@ -142,6 +146,10 @@ def scene(s,asset):
     if fw>width+.1:
         issues.append("figure wider than allocated result column")
 
+    return checked_scene(s,items,issues)
+
+def checked_scene(s,items,issues):
+    w,h=s["size"]
     fixed=s.get("fixed_boxes",{})
     for item in items:
         if item["id"] in fixed:
@@ -176,14 +184,49 @@ def render(s,asset,folder):
         x,y,bw,bh=(a[k] for k in ("x","y","w","h"))
         coords=list(map(Pt,(x,y,bw,bh)))
         if a["kind"]=="image":
-            data=asset if a["id"]=="figure" else (folder.parent/"support.png").read_bytes()
+            data=asset if a["id"]=="figure" else (folder.parent/(a["id"]+".png")).read_bytes()
             shape=slide.shapes.add_picture(io.BytesIO(data),*coords)
             pdf.drawImage(ImageReader(io.BytesIO(data)),x,h-y-bh,bw,bh)
+        elif a["kind"]=="table":
+            shape=slide.shapes.add_table(len(a["rows"]),len(a["widths"]),*coords)
+            table=shape.table
+            for j,width in enumerate(a["widths"]):
+                table.columns[j].width=Pt(width)
+            yy=y
+            for i,row in enumerate(a["rows"]):
+                xx=x
+                rh=a["heights"][i]
+                table.rows[i].height=Pt(rh)
+                fill="233D65" if i==0 else ("EAF1F1" if i%2 else "F7F9FA")
+                color="FFFFFF" if i==0 else "1C2B3B"
+                font="Helvetica-Bold" if i==0 else "Helvetica"
+                for j,value in enumerate(row):
+                    cw=a["widths"][j]
+                    cell=table.cell(i,j)
+                    cell.fill.solid()
+                    cell.fill.fore_color.rgb=RGBColor.from_string(fill)
+                    cell.margin_left=cell.margin_right=Pt(3)
+                    cell.margin_top=cell.margin_bottom=Pt(1)
+                    cell.text=value
+                    p=cell.text_frame.paragraphs[0]
+                    p.font.name="Arial"
+                    p.font.size=Pt(11.3)
+                    p.font.bold=i==0
+                    p.font.color.rgb=RGBColor.from_string(color)
+                    pdf.setFillColor("#"+fill)
+                    pdf.rect(xx,h-yy-rh,cw,rh,stroke=0,fill=1)
+                    pdf.setFont(font,11.3)
+                    pdf.setFillColor("#"+color)
+                    for k,line in enumerate(wrap(value,cw-7,font,11.3)):
+                        pdf.drawString(xx+3,h-yy-13-k*13.4,line)
+                    xx+=cw
+                yy+=rh
         elif a["kind"]=="rect":
             shape=slide.shapes.add_shape(MSO_SHAPE.RECTANGLE,*coords)
             shape.fill.solid()
             shape.fill.fore_color.rgb=RGBColor.from_string(a["color"])
             shape.line.fill.background()
+            shape.shadow.inherit=False
             pdf.setFillColor("#"+a["color"])
             pdf.rect(x,h-y-bh,bw,bh,stroke=0,fill=1)
         else:

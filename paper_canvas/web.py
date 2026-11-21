@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 from .agent import generate, edit, read, write, copy_evidence
 from .source import EXAMPLE, page_png
 from .model import Model
+from . import forest_example
 
 STATIC = Path(__file__).parent
 SAMPLES = {"field": EXAMPLE, "retrieval": EXAMPLE.with_name("retrieval_study.pdf")}
@@ -28,6 +29,14 @@ def additional_sources(state):
     if fig:=state.get("secondary"):
         out.extend([dict(label="Supporting figure",**fig),
                     dict(label="Supporting result",page=fig["claim_page"],text=fig["claim"])])
+    for e in state.get("exhibits",[]):
+        out.append(dict(label=e["caption"].split(". ")[0],**e))
+    tree=state.get("conference",{})
+    for group in tree.get("columns",[]):
+        for panel in group["panels"]:
+            if "text" in panel or "steps" in panel:
+                body=panel.get("text") or " ".join(text for _,text in panel["steps"])
+                out.append(dict(label=panel["title"],page=panel["page"],text=body))
     return out
 
 def snapshot(folder):
@@ -42,7 +51,8 @@ def snapshot(folder):
     return dict(session=folder.name,artifact=state["artifact"],title=state["title"],history=state["history"],
                 size=state["size"],protected=list(state["protected"]),sections=state["sections"],
                 evidence=state["evidence"],additional=additional_sources(state),trace=stream,elements=review["elements"],issues=review["issues"],
-                versions=versions,planner=state.get("planner","vision" if state["model"]!="offline-fixture" else "fixture"))
+                versions=versions,editorial=state.get("conference",{}).get("editorial"),
+                planner=state.get("planner","vision" if state["model"]!="offline-fixture" else "fixture"))
 
 def comparison(root,folder,request,live):
     # Fork both branches from the accepted state including every prior constraint.
@@ -93,6 +103,8 @@ def serve(port,live):
             if path=="/":
                 page=(STATIC/"demo.html").read_text(encoding="utf8")
                 option='<option value="published">开放论文 · Hadi 等（PLOS ONE，20 页）</option>' if OPEN_PAPER.exists() else ""
+                if forest_example.PATH.exists():
+                    option+='<option value="forest">同论文对照 · PosterForest（ACL 2026，校对提纲）</option>'
                 return self.reply(200,"text/html; charset=utf-8",page.replace("{{TOKEN}}",token).replace("{{LIVE}}",str(live).lower()).replace("{{OPEN_PAPER}}",option).encode())
             if path in ("/studio.css","/studio.js"):
                 mime="text/css" if path.endswith("css") else "application/javascript"
@@ -130,7 +142,8 @@ def serve(port,live):
                     sid=uuid.uuid4().hex
                     folder=root/sid
                     sample=data.get("sample","field")
-                    pdf=OPEN_PAPER if sample=="published" and OPEN_PAPER.exists() else SAMPLES[sample]
+                    samples={**SAMPLES,"published":OPEN_PAPER,"forest":forest_example.PATH}
+                    pdf=samples[sample]
                     if data.get("pdf"):
                         raw=base64.b64decode(data["pdf"],validate=True)
                         if not raw.startswith(b"%PDF-") or len(raw)>16_000_000:

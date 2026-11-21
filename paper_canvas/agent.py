@@ -9,7 +9,7 @@ import re
 import time
 import uuid
 from pathlib import Path
-from . import extract, model, source
+from . import conference, extract, forest_example, model, source
 from .details import enrich
 from PIL import Image
 from .render import IDS, render, scene
@@ -40,12 +40,18 @@ def prepare(pdf,folder,size,api):
         raise ValueError("Dimensions must be 144–4032 points per side")
     pages = source.read_paper(pdf)
     if api.live:
-        plan = api.ask(model.PLAN,pages)
+        response = api.ask(model.PLAN,pages)
+        plan = {key:response[key] for key in ("title","sections","evidence")}
     elif pdf.read_bytes()==source.EXAMPLE.read_bytes():
         plan = source.fixture_plan(pdf)
+    elif forest_example.matches(pdf) and size[0]>=880 and size[1]>=620 and size[0]>=size[1]:
+        plan = forest_example.plan()
     else:
         plan = extract.plan(pdf,pages)
     enrich(plan,pages)
+    if not plan.get("conference"):
+        conference.prepare(plan,pdf,folder,pages,size)
+    conference.save_exhibits(plan,pdf,folder)
     source.verify(plan,pages)
     secondary=plan.get("secondary")
     if secondary and size[1]>=640:
@@ -74,6 +80,8 @@ def copy_evidence(origin,destination):
     for filename in ("evidence.png","support.png"):
         if (origin/filename).is_file():
             shutil.copy2(origin/filename,destination/filename)
+    for path in origin.glob("exhibit-*.png"):
+        shutil.copy2(path,destination/path.name)
 
 def freeze_boxes(s,asset):
     items,_=scene(s,asset)

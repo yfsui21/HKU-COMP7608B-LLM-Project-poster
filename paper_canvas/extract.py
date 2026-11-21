@@ -131,9 +131,12 @@ def plan(path,pages):
     ev=max(evidence,key=lambda e:len(words.intersection(re.findall(r"[a-z]{4,}",e["caption"].lower())))+2*(e["page"]==result["page"]))
     with pdfplumber.open(path) as doc:
         title=(doc.metadata or {}).get("Title")
+        authors=(doc.metadata or {}).get("Author","")
     if not title or title.lower() in ("untitled","anonymous"):
         title=pages[0]["text"].splitlines()[0]
     output=dict(title=title,sections=sections,evidence=ev,planner="extractive")
+    if isinstance(authors,str) and 2<len(authors)<180 and authors.lower() not in {"anonymous","unknown"}:
+        output["paper_authors"]=authors
     secondary=secondary_evidence(pool,all_evidence,ev)
     if secondary:
         output["secondary"]=secondary
