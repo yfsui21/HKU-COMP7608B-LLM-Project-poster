@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PaperCanvas · Poster studio</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1f2ed;color:#193739;font:15px/1.5 system-ui,sans-serif}header{background:#163a39;color:#fff;padding:17px 4vw;display:flex;justify-content:space-between;align-items:center}header strong{font:26px Georgia}header span{color:#bbd9cc}main{max-width:1440px;margin:36px auto;display:grid;grid-template-columns:minmax(260px,325px) 1fr;gap:32px;padding:0 4vw}h1{font:38px/1.1 Georgia;margin:0 0 24px}h2{font:22px Georgia}label{display:block;margin:12px 0 3px}input,textarea,button{font:inherit}input,textarea{border:1px solid #b3c4ba;padding:8px;width:100%;background:#fff;border-radius:4px}textarea{height:76px}button,.link{background:#0a695c;color:white;border:0;border-radius:5px;padding:10px 15px;cursor:pointer;text-decoration:none;display:inline-block;margin-top:12px}button:disabled{opacity:.5}fieldset{border:0;margin:0;padding:0}.row{display:flex;gap:10px}.row label{width:50%}aside{padding-bottom:25px}article{min-width:0}.sheet{background:#dde2d9;border:1px solid #ced7cd;min-height:360px;padding:22px;display:grid;place-items:center}.sheet img{width:100%;box-shadow:0 4px 18px #20342b22}p{margin:8px 0}pre{white-space:pre-wrap;word-break:break-word;background:#fff;padding:12px;max-height:300px;overflow:auto;font-size:12px}summary{cursor:pointer}details{margin-top:16px}small{color:#435b56}#status{margin:14px 0;font-weight:600}[hidden]{display:none!important}@media(max-width:780px){main{grid-template-columns:1fr}.sheet{min-height:180px}}
+</style><header><strong>PaperCanvas</strong><span>{{MODE}}</span></header>
+<main><aside><h1>Poster studio</h1><fieldset id="controls"><label id="upload">Source PDF<input id="file" type="file" accept="application/pdf"></label><small id="sample">Default paper · Paired review for field observations (synthetic)</small>
+<div class="row"><label>Width (pt)<input id="width" type="number" value="1008"></label><label>Height (pt)<input id="height" type="number" value="540"></label></div>
+<button id="generate">Generate poster</button><section id="editor" hidden><h2>Revise this poster</h2><label for="req">Edit request</label><textarea id="req">Enlarge figure by 35% and protect result</textarea><button id="apply">Apply edit</button><p><small>Try “shorten question to 6 words”, then “shorten protected section to 2 words”.</small></p><div id="locks"></div></section></fieldset>
+<p id="status" role="status"></p></aside><article><div class="sheet"><span id="empty">Generate a poster to see its preview.</span><img id="preview" alt="Current poster" hidden></div>
+<a id="download" class="link" hidden download="PaperCanvas.pptx">Download editable PowerPoint</a><details id="logs" hidden><summary>Agent decisions and edit history</summary><pre id="trace"></pre></details></article></main>
+<script>
+const el=id=>document.getElementById(id);let session;
+if('{{MODE}}'==='Offline sample')el('upload').hidden=true;
+async function act(path){
+ el('controls').disabled=true;el('status').textContent='Working…';
+ try{
+ let data={session,request:el('req').value,width:el('width').value,height:el('height').value};
+ const file=el('file').files[0];
+ if(path==='generate'&&file){if(file.size>16000000)throw Error('PDF exceeds 16 MB');data.pdf=await new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result.split(',')[1]);r.onerror=no;r.readAsDataURL(file)});}
+ const res=await fetch('/'+path,{method:'POST',headers:{'Content-Type':'application/json','X-Canvas-Token':'{{TOKEN}}'},body:JSON.stringify(data)});
+ const s=await res.json();if(!res.ok)throw Error(s.error);
+ session=s.session;el('empty').hidden=true;for(const id of ['preview','download','logs','editor'])el(id).hidden=false;
+ el('preview').src='/artifact/'+session+'/preview.png?v='+s.artifact;el('download').href='/artifact/'+session+'/poster.pptx';
+ el('locks').textContent=s.protected.length?'Protected text · '+s.protected.join(', '):'';
+ el('status').textContent=s.history.length?s.history.at(-1).reason:'Poster ready.';
+ el('trace').textContent=s.trace.map(x=>JSON.stringify(x,null,2)).join('\n');
+ }catch(e){el('status').textContent=e.message;}finally{el('controls').disabled=false;}
+}
+el('generate').onclick=()=>act('generate');el('apply').onclick=()=>act('edit');
+</script></html>

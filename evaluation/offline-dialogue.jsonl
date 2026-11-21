@@ -1,0 +1,9 @@
+{"event": "attempt", "request": "enlarge figure by 35% and protect result", "attempt": 1, "issues": ["figure wider than allocated result column"], "artifact": "edit-139254adfe"}
+{"event": "attempt", "request": "enlarge figure by 35% and protect result", "attempt": 2, "issues": [], "artifact": "edit-a18967a426"}
+{"event": "edit", "request": "enlarge figure by 35% and protect result", "accepted": true, "target": "figure", "operation": "enlarge", "reason": "Applied and checked."}
+{"event": "usage", "model": "offline-fixture", "calls": [], "estimated_usd": 0, "elapsed_s": 0.141}
+{"event": "attempt", "request": "shorten question to 6 words", "attempt": 1, "issues": [], "artifact": "edit-fa4fb28d21"}
+{"event": "edit", "request": "shorten question to 6 words", "accepted": true, "target": "question", "operation": "shorten", "reason": "Applied and checked."}
+{"event": "usage", "model": "offline-fixture", "calls": [], "estimated_usd": 0, "elapsed_s": 0.062}
+{"event": "edit", "request": "shorten protected section to 2 words", "accepted": false, "target": "result", "operation": "shorten", "reason": "Word limit conflicts with protected text or is invalid."}
+{"event": "usage", "model": "offline-fixture", "calls": [], "estimated_usd": 0, "elapsed_s": 0.0}

@@ -1,0 +1,110 @@
+{
+  "attempted": 6,
+  "completed": 6,
+  "cases": [
+    {
+      "paper": "paired_review.pdf",
+      "area": 1,
+      "condition": "joint",
+      "completed": true,
+      "artifact": "paper-00-area-1\\joint\\04-layout"
+    },
+    {
+      "paper": "paired_review.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "completed": true,
+      "artifact": "paper-00-area-1\\content-first\\04-layout"
+    },
+    {
+      "paper": "paired_review.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "completed": true,
+      "artifact": "paper-00-area-1\\layout-first\\04-content"
+    },
+    {
+      "paper": "paired_review.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "completed": true,
+      "artifact": "paper-00-area-0.75\\joint\\04-layout"
+    },
+    {
+      "paper": "paired_review.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "completed": true,
+      "artifact": "paper-00-area-0.75\\content-first\\04-layout"
+    },
+    {
+      "paper": "paired_review.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "completed": true,
+      "artifact": "paper-00-area-0.75\\layout-first\\04-content"
+    }
+  ],
+  "dialogues": [
+    {
+      "case": "00-joint",
+      "paper": "paired_review.pdf",
+      "label": "feasible",
+      "request": "enlarge figure by 35% and protect result",
+      "accepted": true,
+      "target": "figure",
+      "operation": "enlarge",
+      "reason": "Applied and checked."
+    },
+    {
+      "case": "00-joint",
+      "paper": "paired_review.pdf",
+      "label": "feasible",
+      "request": "shorten question to 6 words",
+      "accepted": true,
+      "target": "question",
+      "operation": "shorten",
+      "reason": "Applied and checked."
+    },
+    {
+      "case": "00-joint",
+      "paper": "paired_review.pdf",
+      "label": "conflict",
+      "request": "shorten protected section to 2 words",
+      "accepted": false,
+      "target": "result",
+      "operation": "shorten",
+      "reason": "Word limit conflicts with protected text or is invalid."
+    },
+    {
+      "case": "00-layout-first",
+      "paper": "paired_review.pdf",
+      "label": "feasible",
+      "request": "enlarge figure by 35% and protect result",
+      "accepted": false,
+      "target": "figure",
+      "operation": "enlarge",
+      "reason": "Unresolved after two attempts: [\"figure wider than allocated result column\", \"caption overlaps figure\"]"
+    },
+    {
+      "case": "00-layout-first",
+      "paper": "paired_review.pdf",
+      "label": "feasible",
+      "request": "shorten question to 6 words",
+      "accepted": true,
+      "target": "question",
+      "operation": "shorten",
+      "reason": "Applied and checked."
+    },
+    {
+      "case": "00-layout-first",
+      "paper": "paired_review.pdf",
+      "label": "conflict",
+      "request": "shorten protected section to 2 words",
+      "accepted": false,
+      "target": null,
+      "operation": "clarify",
+      "reason": "Clarify the element, requested change and measurable target."
+    }
+  ]
+}
