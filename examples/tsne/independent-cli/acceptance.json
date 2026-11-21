@@ -1,0 +1,82 @@
+{
+  "paper": "tsne-jmlr.pdf",
+  "pdf_pages": 27,
+  "pdf_sha256": "f05922e427639a08cb5214cc4ef314689ecf2d87333cb5050003323d7631017f",
+  "backend": "codex",
+  "model": "codex-default",
+  "upstream_revision": "dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9",
+  "posterforest_generation_requests": {
+    "text": 35,
+    "vision": 29,
+    "reused_exact_requests": 0
+  },
+  "revision_requests": 16,
+  "generated_deck_sha256": "769c8ab73a7c8fac9d99671442ee949926a4cfa793d6f83e02bd513f703ac477",
+  "accepted_pptx_sha256": "b93b10c546c417ac68d5ee7cd6bcd3fd6bf7558d4cf38d5f0e47b20eec8f574b",
+  "passes": [
+    "content",
+    "layout",
+    "content",
+    "layout"
+  ],
+  "dialogue": [
+    {
+      "request": "enlarge figure by 8% and protect result",
+      "accepted": true,
+      "target": "figure",
+      "operation": "enlarge",
+      "reason": "Applied and checked."
+    },
+    {
+      "request": "shorten question to 9 words",
+      "accepted": true,
+      "target": "question",
+      "operation": "shorten",
+      "reason": "Applied and checked."
+    },
+    {
+      "request": "shorten protected section to 2 words",
+      "accepted": false,
+      "target": "result",
+      "operation": "shorten",
+      "conflict": true,
+      "reason": "Word limit conflicts with protected text or is invalid."
+    }
+  ],
+  "attempts": [
+    {
+      "event": "attempt",
+      "request": "enlarge figure by 8% and protect result",
+      "attempt": 1,
+      "issues": [],
+      "artifact": "edit-a96ffd0f75"
+    },
+    {
+      "event": "attempt",
+      "request": "shorten question to 9 words",
+      "attempt": 1,
+      "issues": [],
+      "artifact": "edit-87ccfba398"
+    }
+  ],
+  "protected_result_unchanged": true,
+  "reviewed_versions": 7,
+  "claim_groups_per_review": 7,
+  "figure_width_pt": {
+    "before": 747.6,
+    "after": 807.4079527559055
+  },
+  "final_question": "Can 2D t-SNE separate handwritten-digit classes, preserving within-class variation?",
+  "question_words": 9,
+  "final_claim_verdicts": {
+    "question": true,
+    "method": true,
+    "result": true,
+    "main_caption": true,
+    "method_caption": true,
+    "secondary_caption": true,
+    "limitation": true
+  },
+  "remaining_issues": [],
+  "artifact": "edit-87ccfba398"
+}

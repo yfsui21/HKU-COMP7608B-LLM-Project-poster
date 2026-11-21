@@ -32,9 +32,19 @@ def read_paper(path):
         raise ValueError("No extractable text. Supply a text-based PDF.")
     return pages
 
-def page_png(path,page,box=None):
+def page_png(path,page,box=None,*,detail=False):
     with pdfium.PdfDocument(str(path)) as doc:
-        image = doc[page-1].render(scale=2).to_pil().convert("RGB")
+        sheet=doc[page-1]
+        if detail:
+            x,y,r,b=box
+            if not (0<=x<r<=1 and 0<=y<b<=1):
+                raise ValueError("Invalid normalized detail crop")
+            w,h=sheet.get_size()
+            scale=min(16,1800/max(w*(r-x),h*(b-y)))
+            image=sheet.render(scale=scale,crop=(x*w,(1-b)*h,(1-r)*w,y*h)).to_pil().convert("RGB")
+            box=None
+        else:
+            image = sheet.render(scale=2).to_pil().convert("RGB")
     if box is not None:
         x,y,r,b = box
         if not (0 <= x < r <= 1 and 0 <= y < b <= 1):

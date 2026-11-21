@@ -1,0 +1,845 @@
+{
+  "issues": [],
+  "elements": [
+    {
+      "id": "shape-2",
+      "x": 0.0,
+      "y": 0.0,
+      "w": 3456.0,
+      "h": 504.0,
+      "kind": "rect",
+      "background": true,
+      "color": "132C33"
+    },
+    {
+      "id": "shape-3",
+      "x": 86.4,
+      "y": 37.44,
+      "w": 1836.0,
+      "h": 38.94,
+      "field": null,
+      "kind": "text",
+      "text": "Journal of Machine Learning Research 9 (2008)",
+      "size": 33.0,
+      "font": "Helvetica-Bold",
+      "color": "B1DCD4",
+      "lines": [
+        "Journal of Machine Learning Research 9 (2008)"
+      ]
+    },
+    {
+      "id": "shape-4",
+      "x": 81.35992125984252,
+      "y": 110.88,
+      "w": 1850.4,
+      "h": 105.3504,
+      "field": null,
+      "kind": "text",
+      "text": "Visualizing Data using t-SNE",
+      "size": 89.28,
+      "font": "Helvetica-Bold",
+      "color": "FFFFFF",
+      "lines": [
+        "Visualizing Data using t-SNE"
+      ]
+    },
+    {
+      "id": "shape-5",
+      "x": 86.4,
+      "y": 367.2,
+      "w": 1836.0,
+      "h": 47.199999999999996,
+      "field": null,
+      "kind": "text",
+      "text": "Laurens van der Maaten · Geoffrey Hinton",
+      "size": 40.0,
+      "font": "Helvetica",
+      "color": "FFFFFF",
+      "lines": [
+        "Laurens van der Maaten · Geoffrey Hinton"
+      ]
+    },
+    {
+      "id": "metric",
+      "x": 1983.6,
+      "y": 39.6,
+      "w": 777.6,
+      "h": 106.19999999999999,
+      "field": "metric",
+      "kind": "text",
+      "text": "5.13%",
+      "size": 90.0,
+      "font": "Helvetica-Bold",
+      "color": "B1DCD4",
+      "lines": [
+        "5.13%"
+      ]
+    },
+    {
+      "id": "shape-7",
+      "x": 2779.2,
+      "y": 48.96,
+      "w": 590.3999212598425,
+      "h": 34.22,
+      "field": null,
+      "kind": "text",
+      "text": "PDF p. 17",
+      "size": 29.0,
+      "font": "Helvetica",
+      "color": "FFFFFF",
+      "lines": [
+        "PDF p. 17"
+      ]
+    },
+    {
+      "id": "metric_label",
+      "x": 1983.6,
+      "y": 154.8,
+      "w": 1346.4,
+      "h": 46.019999999999996,
+      "field": "metric_label",
+      "kind": "text",
+      "text": "1-nearest-neighbor error on the 2D MNIST map",
+      "size": 39.0,
+      "font": "Helvetica-Bold",
+      "color": "FFFFFF",
+      "lines": [
+        "1-nearest-neighbor error on the 2D MNIST map"
+      ]
+    },
+    {
+      "id": "result",
+      "x": 1983.6,
+      "y": 267.84,
+      "w": 1375.2,
+      "h": 120.36,
+      "field": "detail",
+      "kind": "text",
+      "text": "With 10-fold cross-validation, 1-nearest-neighbor error was 5.13% on the 2D map versus 5.75% in the original 784-dimensional pixel space. Random-walk t-SNE mapped 6,000 randomly selected MNIST digits using all 60,000 images to estimate similarities.",
+      "size": 34.0,
+      "font": "Helvetica",
+      "color": "FFFFFF",
+      "lines": [
+        "With 10-fold cross-validation, 1-nearest-neighbor error was 5.13% on the 2D map versus",
+        "5.75% in the original 784-dimensional pixel space. Random-walk t-SNE mapped 6,000",
+        "randomly selected MNIST digits using all 60,000 images to estimate similarities."
+      ]
+    },
+    {
+      "id": "shape-10",
+      "x": 0.0,
+      "y": 504.0,
+      "w": 3456.0,
+      "h": 8.64,
+      "kind": "rect",
+      "background": true,
+      "color": "F0B26D"
+    },
+    {
+      "id": "question",
+      "x": 84.96,
+      "y": 579.6,
+      "w": 3283.2,
+      "h": 76.7,
+      "field": "question",
+      "kind": "text",
+      "text": "Can 2D t-SNE separate handwritten-digit classes, preserving within-class variation?",
+      "size": 65.0,
+      "font": "Helvetica-Bold",
+      "color": "132C33",
+      "lines": [
+        "Can 2D t-SNE separate handwritten-digit classes, preserving within-class variation?"
+      ]
+    },
+    {
+      "id": "shape-12",
+      "x": 86.4,
+      "y": 777.6,
+      "w": 3283.2,
+      "h": 3.24,
+      "kind": "rect",
+      "background": true,
+      "color": "94B8B3"
+    },
+    {
+      "id": "shape-13",
+      "x": 1042.56,
+      "y": 846.0,
+      "w": 2.88,
+      "h": 1414.8,
+      "kind": "rect",
+      "background": true,
+      "color": "BCD1CF"
+    },
+    {
+      "id": "shape-14",
+      "x": 2360.16,
+      "y": 846.0,
+      "w": 2.88,
+      "h": 1414.8,
+      "kind": "rect",
+      "background": true,
+      "color": "BCD1CF"
+    },
+    {
+      "id": "shape-15",
+      "x": 86.4,
+      "y": 843.84,
+      "w": 900.0,
+      "h": 33.04,
+      "field": null,
+      "kind": "text",
+      "text": "METHOD",
+      "size": 28.0,
+      "font": "Helvetica-Bold",
+      "color": "006C66",
+      "lines": [
+        "METHOD"
+      ]
+    },
+    {
+      "id": "method_title",
+      "x": 86.4,
+      "y": 912.24,
+      "w": 900.0,
+      "h": 60.18,
+      "field": "method_title",
+      "kind": "text",
+      "text": "Random-Walk Affinity",
+      "size": 51.0,
+      "font": "Helvetica-Bold",
+      "color": "132C33",
+      "lines": [
+        "Random-Walk Affinity"
+      ]
+    },
+    {
+      "id": "shape-17",
+      "x": 1097.28,
+      "y": 843.84,
+      "w": 1209.6,
+      "h": 33.04,
+      "field": null,
+      "kind": "text",
+      "text": "PRIMARY RESULT",
+      "size": 28.0,
+      "font": "Helvetica-Bold",
+      "color": "006C66",
+      "lines": [
+        "PRIMARY RESULT"
+      ]
+    },
+    {
+      "id": "result_title",
+      "x": 1097.28,
+      "y": 912.24,
+      "w": 1209.6,
+      "h": 60.18,
+      "field": "result_title",
+      "kind": "text",
+      "text": "Random-Walk t-SNE Inset",
+      "size": 51.0,
+      "font": "Helvetica-Bold",
+      "color": "132C33",
+      "lines": [
+        "Random-Walk t-SNE Inset"
+      ]
+    },
+    {
+      "id": "shape-19",
+      "x": 2414.88,
+      "y": 843.84,
+      "w": 954.0,
+      "h": 33.04,
+      "field": null,
+      "kind": "text",
+      "text": "SECONDARY RESULT",
+      "size": 28.0,
+      "font": "Helvetica-Bold",
+      "color": "006C66",
+      "lines": [
+        "SECONDARY RESULT"
+      ]
+    },
+    {
+      "id": "secondary_title",
+      "x": 2414.88,
+      "y": 912.24,
+      "w": 954.0,
+      "h": 60.18,
+      "field": "secondary_title",
+      "kind": "text",
+      "text": "MNIST Digit Classes in t-SNE",
+      "size": 51.0,
+      "font": "Helvetica-Bold",
+      "color": "132C33",
+      "lines": [
+        "MNIST Digit Classes in t-SNE"
+      ]
+    },
+    {
+      "id": "method",
+      "x": 86.4,
+      "y": 1065.6,
+      "w": 900.0,
+      "h": 224.2,
+      "field": "method",
+      "kind": "text",
+      "text": "Random walks on the full neighborhood graph estimate similarities between selected points called landmarks. t-SNE positions the landmarks in 2D by matching those similarities with similarities computed using a heavy-tailed Student t-distribution.",
+      "size": 38.0,
+      "font": "Helvetica",
+      "color": "132C33",
+      "lines": [
+        "Random walks on the full neighborhood graph",
+        "estimate similarities between selected points called",
+        "landmarks. t-SNE positions the landmarks in 2D by",
+        "matching those similarities with similarities computed",
+        "using a heavy-tailed Student t-distribution."
+      ]
+    },
+    {
+      "id": "exhibit-method",
+      "x": 214.79700787401575,
+      "y": 1422.0,
+      "w": 643.205905511811,
+      "h": 579.6,
+      "kind": "image"
+    },
+    {
+      "id": "shape-23",
+      "x": 86.4,
+      "y": 2021.76,
+      "w": 900.0,
+      "h": 30.68,
+      "field": null,
+      "kind": "text",
+      "text": "FIGURE 6   /   PDF p. 16",
+      "size": 26.0,
+      "font": "Helvetica-Bold",
+      "color": "006C66",
+      "lines": [
+        "FIGURE 6 / PDF p. 16"
+      ]
+    },
+    {
+      "id": "method_caption",
+      "x": 86.4,
+      "y": 2075.04,
+      "w": 900.0,
+      "h": 130.98,
+      "field": "method_caption",
+      "kind": "text",
+      "text": "Gray nodes mark landmarks A, B and C. Black arrows point to neighbors. Random walks give A and B a stronger affinity than A and C.",
+      "size": 37.0,
+      "font": "Helvetica",
+      "color": "39585D",
+      "lines": [
+        "Gray nodes mark landmarks A, B and C. Black arrows",
+        "point to neighbors. Random walks give A and B a",
+        "stronger affinity than A and C."
+      ]
+    },
+    {
+      "id": "figure",
+      "x": 1298.376,
+      "y": 1019.349,
+      "w": 807.4080000000001,
+      "h": 1038.0960000000002,
+      "kind": "image"
+    },
+    {
+      "id": "shape-26",
+      "x": 1097.28,
+      "y": 2065.445,
+      "w": 1209.6,
+      "h": 30.68,
+      "field": null,
+      "kind": "text",
+      "text": "FIGURE 7   /   PDF p. 18",
+      "size": 26.0,
+      "font": "Helvetica-Bold",
+      "color": "006C66",
+      "lines": [
+        "FIGURE 7 / PDF p. 18"
+      ]
+    },
+    {
+      "id": "main_caption",
+      "x": 1097.28,
+      "y": 2118.7250000000004,
+      "w": 1209.6,
+      "h": 87.32,
+      "field": "main_caption",
+      "kind": "text",
+      "text": "In this summary inset, each dot represents a handwritten digit, and colors mark digit classes. Several classes form distinct clusters.",
+      "size": 37.0,
+      "font": "Helvetica",
+      "color": "39585D",
+      "lines": [
+        "In this summary inset, each dot represents a handwritten digit, and colors",
+        "mark digit classes. Several classes form distinct clusters."
+      ]
+    },
+    {
+      "id": "exhibit-secondary",
+      "x": 2414.88,
+      "y": 1125.6659842519684,
+      "w": 943.2,
+      "h": 815.8679527559055,
+      "kind": "image"
+    },
+    {
+      "id": "shape-29",
+      "x": 2414.88,
+      "y": 2021.76,
+      "w": 943.2,
+      "h": 30.68,
+      "field": null,
+      "kind": "text",
+      "text": "FIGURE 2   /   PDF p. 12",
+      "size": 26.0,
+      "font": "Helvetica-Bold",
+      "color": "006C66",
+      "lines": [
+        "FIGURE 2 / PDF p. 12"
+      ]
+    },
+    {
+      "id": "secondary_caption",
+      "x": 2414.88,
+      "y": 2075.04,
+      "w": 943.2,
+      "h": 130.98,
+      "field": "secondary_caption",
+      "kind": "text",
+      "text": "Colors and marker shapes identify digit classes in a t-SNE map of 6,000 handwritten digits. Several classes form distinct clusters, with some overlap.",
+      "size": 37.0,
+      "font": "Helvetica",
+      "color": "39585D",
+      "lines": [
+        "Colors and marker shapes identify digit classes in a",
+        "t-SNE map of 6,000 handwritten digits. Several classes",
+        "form distinct clusters, with some overlap."
+      ]
+    },
+    {
+      "id": "shape-31",
+      "x": 0.0,
+      "y": 2314.8,
+      "w": 3456.0,
+      "h": 277.2,
+      "kind": "rect",
+      "background": true,
+      "color": "E4F1ED"
+    },
+    {
+      "id": "shape-32",
+      "x": 86.4,
+      "y": 2384.6399212598426,
+      "w": 529.2,
+      "h": 62.54,
+      "field": null,
+      "kind": "text",
+      "text": "Interpretation",
+      "size": 53.0,
+      "font": "Helvetica-Bold",
+      "color": "006C66",
+      "lines": [
+        "Interpretation"
+      ]
+    },
+    {
+      "id": "limitation",
+      "x": 651.6,
+      "y": 2378.16,
+      "w": 2721.6,
+      "h": 50.739999999999995,
+      "field": "limitation",
+      "kind": "text",
+      "text": "The t-SNE objective is nonconvex, so optimization can settle at a local optimum.",
+      "size": 43.0,
+      "font": "Helvetica",
+      "color": "132C33",
+      "lines": [
+        "The t-SNE objective is nonconvex, so optimization can settle at a local optimum."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim": "question",
+      "elements": [
+        "question"
+      ],
+      "text": "can 2d t-sne separate handwritten-digit classes, preserving within-class variation?",
+      "source": [
+        {
+          "page": 17,
+          "quote": "In the t-SNE\nmap, all classes are clearly separated and the “continental” sevens form a small separate cluster.\nMoreover, t-SNE reveals the main dimensions of variation within each class, such as the orientation\nof the ones, fours, sevens, and nines, or the “loopiness” of the twos."
+        },
+        {
+          "page": 17,
+          "quote": "the generalization error of a 1-nearest neighbor classifier trained on the two-dimensional\ndata representation produced by t-SNE is only 5.13%."
+        },
+        {
+          "page": 10,
+          "quote": "The MNIST data set6 contains 60,000 grayscale images of handwritten digits."
+        }
+      ],
+      "conditions": [
+        "t-SNE",
+        "handwritten digit classes",
+        "2D",
+        "variation within each class"
+      ],
+      "assets": [
+        "figure 2",
+        "figure 7"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 84.96,
+          "y": 579.6,
+          "w": 3283.2,
+          "h": 76.7
+        }
+      ],
+      "unsupported_numbers": [],
+      "unverified_wording": false,
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {
+        "handwritten digit classes": "handwritten-digit classes",
+        "variation within each class": "within-class variation"
+      }
+    },
+    {
+      "claim": "method",
+      "elements": [
+        "method_title",
+        "method"
+      ],
+      "text": "random-walk affinity random walks on the full neighborhood graph estimate similarities between selected points called landmarks. t-sne positions the landmarks in 2d by matching those similarities with similarities computed using a heavy-tailed student t-distribution.",
+      "source": [
+        {
+          "page": 16,
+          "quote": "In this\nsection, we show how t-SNE can be modified to display a random subset of the datapoints (so-called\nlandmark points) in a way that uses information from the entire (possibly very large) data set.\nWe start by choosing a desired number of neighbors and creating a neighborhood graph for all\nof the datapoints. Although this is computationally intensive, it is only done once. Then, for each\nof the landmark points, we define a random walk starting at that landmark point and terminating\nas soon as it lands on another landmark point."
+        },
+        {
+          "page": 17,
+          "quote": "compute the pairwise similarities p that involves solving a sparse linear"
+        },
+        {
+          "page": 7,
+          "quote": "In t-SNE, we employ a Student t-distribution with one degree of freedom (which is the same\nas a Cauchy distribution) as the heavy-tailed distribution in the low-dimensional map."
+        },
+        {
+          "page": 22,
+          "quote": "t-SNE minimizes the Kullback-Leibler divergence between the joint probabilities p in the highi j\ndimensional space and the joint probabilities q in the low-dimensional space."
+        },
+        {
+          "page": 17,
+          "quote": "the generalization error of a 1-nearest neighbor classifier trained on the two-dimensional\ndata representation produced by t-SNE is only 5.13%."
+        }
+      ],
+      "conditions": [
+        "Random walks",
+        "full neighborhood graph",
+        "landmarks",
+        "t-SNE",
+        "2D",
+        "heavy-tailed Student t-distribution"
+      ],
+      "assets": [
+        "figure 6"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 86.4,
+          "y": 912.24,
+          "w": 900.0,
+          "h": 60.18
+        },
+        {
+          "x": 86.4,
+          "y": 1065.6,
+          "w": 900.0,
+          "h": 224.2
+        }
+      ],
+      "unsupported_numbers": [],
+      "unverified_wording": false,
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "result",
+      "elements": [
+        "metric",
+        "metric_label",
+        "result"
+      ],
+      "text": "5.13% 1-nearest-neighbor error on the 2d mnist map with 10-fold cross-validation, 1-nearest-neighbor error was 5.13% on the 2d map versus 5.75% in the original 784-dimensional pixel space. random-walk t-sne mapped 6,000 randomly selected mnist digits using all 60,000 images to estimate similarities.",
+      "source": [
+        {
+          "page": 17,
+          "quote": "Figure 7 shows the results of an experiment, in which we applied the random walk version\nof t-SNE to 6,000 randomly selected digits from the MNIST data set, using all 60,000 digits to\ncompute the pairwise affinities"
+        },
+        {
+          "page": 17,
+          "quote": "Whereas the generalization error (measured using 10-fold cross\nvalidation) of a 1-nearest neighbor classifier trained on the original 784-dimensional datapoints is\n5.75%, the generalization error of a 1-nearest neighbor classifier trained on the two-dimensional\ndata representation produced by t-SNE is only 5.13%."
+        },
+        {
+          "page": 10,
+          "quote": "The digit images have\n28 28 = 784 pixels (i.e., dimensions)."
+        }
+      ],
+      "conditions": [
+        "MNIST",
+        "1-nearest-neighbor error",
+        "10-fold cross-validation",
+        "2D map",
+        "5.13%",
+        "5.75%",
+        "original 784-dimensional pixel space",
+        "Random-walk t-SNE",
+        "6,000 randomly selected digits",
+        "all 60,000 images",
+        "estimate similarities"
+      ],
+      "assets": [
+        "figure 7"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 1983.6,
+          "y": 39.6,
+          "w": 777.6,
+          "h": 106.19999999999999
+        },
+        {
+          "x": 1983.6,
+          "y": 154.8,
+          "w": 1346.4,
+          "h": 46.019999999999996
+        },
+        {
+          "x": 1983.6,
+          "y": 267.84,
+          "w": 1375.2,
+          "h": 120.36
+        }
+      ],
+      "unsupported_numbers": [],
+      "unverified_wording": false,
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {
+        "6,000 randomly selected digits": "6,000 randomly selected MNIST digits"
+      }
+    },
+    {
+      "claim": "main_caption",
+      "elements": [
+        "result_title",
+        "main_caption"
+      ],
+      "text": "random-walk t-sne inset in this summary inset, each dot represents a handwritten digit, and colors mark digit classes. several classes form distinct clusters.",
+      "source": [
+        {
+          "page": 18,
+          "quote": "Figure 7: Visualization of 6,000 digits from the MNIST data set produced by the random walk\nversion of t-SNE (employing all 60,000 digit images)."
+        },
+        {
+          "page": 17,
+          "quote": "The inset of the figure shows the same\nvisualization as a scatterplot in which the colors represent the labels of the digits. In the t-SNE\nmap, all classes are clearly separated and the “continental” sevens form a small separate cluster."
+        }
+      ],
+      "conditions": [
+        "Random-Walk t-SNE Inset",
+        "each dot represents a handwritten digit",
+        "colors mark digit classes",
+        "distinct clusters"
+      ],
+      "assets": [
+        "figure 7"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 1097.28,
+          "y": 912.24,
+          "w": 1209.6,
+          "h": 60.18
+        },
+        {
+          "x": 1097.28,
+          "y": 2118.7250000000004,
+          "w": 1209.6,
+          "h": 87.32
+        }
+      ],
+      "unsupported_numbers": [],
+      "unverified_wording": false,
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "method_caption",
+      "elements": [
+        "method_caption"
+      ],
+      "text": "gray nodes mark landmarks a, b and c. black arrows point to neighbors. random walks give a and b a stronger affinity than a and c.",
+      "source": [
+        {
+          "page": 16,
+          "quote": "The shaded points A, B, and C are three (almost) equidistant landmark points, whereas the non-shaded datapoints are non-landmark points. The arrows\nrepresent a directed neighborhood graph where k = 3."
+        },
+        {
+          "page": 16,
+          "quote": "In the random walk version of t-SNE, the pairwise affinity between A\nand B is much larger than the pairwise affinity between A and C"
+        }
+      ],
+      "conditions": [
+        "Gray nodes",
+        "landmarks A, B and C",
+        "Black arrows",
+        "neighbors",
+        "Random walks",
+        "A and B",
+        "stronger affinity",
+        "A and C"
+      ],
+      "assets": [
+        "figure 6"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 86.4,
+          "y": 2075.04,
+          "w": 900.0,
+          "h": 130.98
+        }
+      ],
+      "unsupported_numbers": [],
+      "unverified_wording": false,
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "secondary_caption",
+      "elements": [
+        "secondary_title",
+        "secondary_caption"
+      ],
+      "text": "mnist digit classes in t-sne colors and marker shapes identify digit classes in a t-sne map of 6,000 handwritten digits. several classes form distinct clusters, with some overlap.",
+      "source": [
+        {
+          "page": 12,
+          "quote": "(a) Visualization by t-SNE.\n(b) Visualization by Sammon mapping.\nFigure 2: Visualizations of 6,000 handwritten digits from the MNIST data set."
+        },
+        {
+          "page": 11,
+          "quote": "For all of the data sets, there is information about the\nclass of each datapoint, but the class information is only used to select a color and/or symbol for\nthe map points."
+        },
+        {
+          "page": 11,
+          "quote": "In contrast, t-\nSNE constructs a map in which the separation between the digit classes is almost perfect."
+        },
+        {
+          "page": 11,
+          "quote": "The map produced by t-SNE contains some points that are clustered with the wrong\nclass"
+        }
+      ],
+      "conditions": [
+        "MNIST",
+        "t-SNE map",
+        "6,000 handwritten digits",
+        "Colors and marker shapes",
+        "digit classes",
+        "distinct clusters",
+        "some overlap"
+      ],
+      "assets": [
+        "figure 2"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 2414.88,
+          "y": 912.24,
+          "w": 954.0,
+          "h": 60.18
+        },
+        {
+          "x": 2414.88,
+          "y": 2075.04,
+          "w": 943.2,
+          "h": 130.98
+        }
+      ],
+      "unsupported_numbers": [],
+      "unverified_wording": false,
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "limitation",
+      "elements": [
+        "limitation"
+      ],
+      "text": "the t-sne objective is nonconvex, so optimization can settle at a local optimum.",
+      "source": [
+        {
+          "page": 21,
+          "quote": "A major weakness of t-SNE is that the cost function is not convex,\nas a result of which several optimization parameters need to be chosen."
+        },
+        {
+          "page": 9,
+          "quote": "the long-range forces in t-SNE facilitate the identification of\ngood local optima without resorting to simulated annealing."
+        }
+      ],
+      "conditions": [
+        "t-SNE objective",
+        "nonconvex",
+        "local optimum"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 651.6,
+          "y": 2378.16,
+          "w": 2721.6,
+          "h": 50.739999999999995
+        }
+      ],
+      "unsupported_numbers": [],
+      "unverified_wording": false,
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    }
+  ],
+  "suggestions": [
+    {
+      "target": "exhibit-secondary",
+      "change": "Label the panel “Figure 2(a)” to identify the specific panel shown."
+    }
+  ]
+}

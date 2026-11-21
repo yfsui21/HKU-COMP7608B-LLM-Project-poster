@@ -174,7 +174,7 @@ def checked_scene(s,items,issues):
                 issues.append(a["id"]+" overlaps "+b["id"])
     return items,issues
 
-def render(s,asset,folder):
+def render(s,asset,folder,figure_proofs=False):
     folder.mkdir(parents=True,exist_ok=True)
     items,issues=scene(s,asset)
     w,h=s["size"]
@@ -255,4 +255,11 @@ def render(s,asset,folder):
     pdf.save()
     with pdfium.PdfDocument(buf.getvalue()) as doc:
         doc[0].render(scale=min(1.4,1800/max(w,h))).to_pil().save(folder/"preview.png")
+        if figure_proofs:
+            for a in items:
+                if a["kind"]=="image":
+                    x,y,bw,bh=(a[k] for k in ("x","y","w","h"))
+                    if min(x,y,w-x-bw,h-y-bh)>=0:
+                        crop=(x,h-y-bh,w-x-bw,y)
+                        doc[0].render(scale=1,crop=crop).to_pil().save(folder/(a["id"]+"-proof.png"))
     return items,issues

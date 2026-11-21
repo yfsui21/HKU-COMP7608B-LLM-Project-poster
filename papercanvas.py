@@ -46,12 +46,13 @@ def main():
         if args.backend=="session":
             os.environ.setdefault("PAPERCANVAS_GPT_QUEUE",str(args.work.resolve()/"revision-requests"))
         else:
+            os.environ.pop("PAPERCANVAS_GPT_QUEUE",None)
             os.environ["PAPERCANVAS_CODEX_MODEL"]=args.model or "codex-default"
         model=Model(True)
         subprocess.run([sys.executable,str(root/"examples/run_posterforest.py"),str(args.pdf),
                         "--source",str(args.source),"--soffice",str(args.soffice),"--out",str(args.work),
                         "--backend",args.backend,"--model",args.model or ("GPT-current-session" if args.backend=="session" else "codex-default")],check=True)
-        subprocess.run([sys.executable,str(root/"examples/forest_local/display.py"),str(args.work),"--soffice",str(args.soffice)],check=True)
+        subprocess.run([sys.executable,str(root/"examples/forest_local/display.py"),str(args.work),"--soffice",str(args.soffice),"--pdf",str(args.pdf)],check=True)
         result=args.work/"result"
         write(result/"claims.json",bind(args.pdf,result,model))
         state=generate(args.pdf,args.out,canvas(result),"joint",model,forest_result=result)

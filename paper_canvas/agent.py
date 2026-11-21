@@ -104,7 +104,8 @@ def constraints(s,asset):
     return issues
 
 def review(s,asset,folder,api):
-    boxes,issues=render(s,asset,folder)
+    proofs=bool(getattr(api,"codex",None) and not getattr(api,"queue",None) and "forest" in s)
+    boxes,issues=render(s,asset,folder,figure_proofs=proofs)
     issues.extend(constraints(s,asset))
     claims=[]
     if "forest" in s:
@@ -122,8 +123,13 @@ def review(s,asset,folder,api):
                         assets=[ev["caption"]] if key=="result" else [],missing=missing,
                         mismatched=["figure"] if mismatch else [],unsupported_numbers=[],passed=not (missing or mismatch)))
     if api.live:
-        verdict=api.ask(model.CLAIM_REVIEW if claims else model.REVIEW,
-                        dict(poster=context(s),claims=claims),(folder/"preview.png").read_bytes())
+        preview=(folder/"preview.png").read_bytes()
+        payload=dict(poster=context(s),claims=claims)
+        if proofs:
+            paths=sorted(folder.glob("*-proof.png"))
+            payload["image_order"]=["whole poster",*[p.name for p in paths]]
+            preview=[preview,*[p.read_bytes() for p in paths]]
+        verdict=api.ask(model.CLAIM_REVIEW if claims else model.REVIEW,payload,preview)
         observed=verdict["issues"]
         if not isinstance(observed,list):
             raise ValueError("Reviewer issues must be a list")
@@ -145,20 +151,20 @@ def review(s,asset,folder,api):
         if not claim["passed"]:
             issues.append(dict(target=claim["claim"],problem="Unmet scientific requirement",
                                change=claim["missing"]+claim["mismatched"]+claim["unsupported_numbers"] or ["Restore source support"]))
-    write(folder/"review.json",dict(issues=issues,elements=boxes,claims=claims))
+    write(folder/"review.json",dict(issues=issues,elements=boxes,claims=claims,suggestions=verdict.get("suggestions",[]) if api.live else []))
     return issues
 
 def content_pass(s,issues,api):
     if api.live:
         prompt=model.CONTENT
         if "forest" in s:
-            prompt+=" For other affected imported claim elements you may additionally return fields mapping field IDs to revised strings. Preserve the frozen conditions and source support."
+            allowed={f for k,fields in forest.groups(s["forest"].get("template")).items() if k not in s["protected"] for f in fields if f not in forest.TARGET}
+            prompt=model.FOREST_CONTENT+" Optional fields may ONLY use these keys: "+", ".join(sorted(allowed))+". Never edit shape IDs or source labels."
         response=api.ask(prompt,dict(poster=context(s),issues=issues))
         texts=response["texts"]
         if len(texts)!=3 or not all(isinstance(t,str) and t.strip() for t in texts):
             raise ValueError("Editor must supply three text blocks")
         if "forest" in s and response.get("fields"):
-            allowed={f for k,fields in forest.GROUPS.items() if k not in s["protected"] for f in fields if f not in forest.TARGET}
             for key,value in response["fields"].items():
                 if key not in allowed or not isinstance(value,str) or not value.strip():
                     raise ValueError("Unsupported or protected poster element: "+key)
@@ -258,16 +264,19 @@ def generate(pdf,folder,size,condition,api,initial=None,forest_result=None):
         cost_record(api,folder,start,offset)
 
 def intent(request,s,api):
-    if api.live:
-        return api.ask(model.INTENT,dict(request=request,history=s["history"],protected=s["protected"],limits=s["limits"]))
     t=request.lower().strip().rstrip(".")
     if "protected section" in t and len(s["protected"])==1:
         t=t.replace("protected section",next(iter(s["protected"])))
-    # The fixture accepts transparent commands and one history reference.
     if "it" in t.split() and s["history"]:
         previous=next((v.get("target") for v in reversed(s["history"]) if v.get("accepted")),None)
         if previous:
             t=re.sub(r"\bit\b",previous,t)
+    if api.live:
+        action=api.ask(model.INTENT,dict(request=request,resolved_request=t,history=s["history"],
+                                         protected=s["protected"],limits=s["limits"]))
+        if action["operation"]!="clarify":
+            return action
+    # A supported explicit command remains unambiguous even when the model flags a conflict.
     match=re.fullmatch(r"enlarge figure by (\d+(?:\.\d+)?)%(?: and protect (question|method|result))?",t)
     if match:
         return dict(target="figure",operation="enlarge",value=1+float(match[1])/100,protect=[match[2]] if match[2] else [])

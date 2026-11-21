@@ -6,19 +6,25 @@ Baodi Han, Shitu Ma, Yifan Sui, Jinkai Tao
 
 PaperCanvas helps a researcher turn a text-based paper PDF into an editable, single-slide PowerPoint poster and revise it in conversation. This demo focuses on three claims (question, method, finding) with a primary figure or table and, when the source and canvas support it, a second cited figure. It records the source passage, page, required conditions, review observations and resulting layout.
 
-**New PDF-to-poster example.** GPT generated a poster from van der Maaten and Hinton’s t-SNE paper. Open the [one-page display poster](examples/tsne/display.jpg), [editable PowerPoint](examples/tsne/display.pptx), or [original PosterForest result](examples/tsne/poster.jpg).
+**Standalone t-SNE demo.** Starting from the 27-page JMLR paper, a signed-in Codex CLI generated a one-page poster, alternated content and layout revisions, and processed three dialogue turns. Open the [final editable PowerPoint](examples/tsne/independent-cli/poster.pptx), [LibreOffice preview](examples/tsne/independent-cli/preview.png), [acceptance record](examples/tsne/independent-cli/acceptance.json) or [claim-by-claim evidence and verdicts](examples/tsne/independent-cli/review.json).
 
-**PaperCanvas revision demo.** The generated t-SNE slide now opens as an editable session. Compare the [revised slide](examples/tsne/revised.png) and [download its PowerPoint](examples/tsne/revised.pptx). The [revision record](evaluation/tsne-proposal/revision.json) links seven claim groups to original passages and figure IDs. The [experiment summary](evaluation/tsne-proposal/summary.json) covers two canvas sizes and three editing schedules.
+### Generate, revise and verify from a PDF
 
-### Generate, revise and verify one poster
-
-For a new paper, install both requirements files and prepare the pinned PosterForest checkout as described under “Generate a new poster with GPT and PosterForest”. From the repository root, the following command runs extraction, PosterForest generation, display composition, claim binding and four PaperCanvas editing passes. Use paths to your own PDF and LibreOffice executable.
+Install the two requirements files, sign in with `codex login`, and prepare the pinned PosterForest checkout and LibreOffice executable described below. Start with **new work and session paths**. The acceptance case uses the original PDF from [Visualizing Data using t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html).
 
 ```sh
-python papercanvas.py pipeline paper.pdf --source runs/posterforest-source --soffice /path/to/soffice --work runs/paper-generation --out runs/paper-session
+curl -L https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf -o runs/tsne-jmlr.pdf
+python papercanvas.py pipeline runs/tsne-jmlr.pdf --backend codex --source runs/posterforest-source --soffice /path/to/soffice --work runs/tsne-generation --out runs/tsne-session-cli
+python verify_independent.py runs/tsne-jmlr.pdf runs/tsne-generation runs/tsne-session-cli --run-dialogue --report runs/tsne-acceptance.json
 ```
 
-The default pipeline uses a signed-in Codex CLI. For continuing that session with `edit --live`, set `PAPERCANVAS_CODEX_MODEL=codex-default` (or the same selected model). Alternatively, `pipeline --backend session` exposes PosterForest requests under the working directory and PaperCanvas requests under its `revision-requests/` directory. An active GPT session reads each request and rendered image, writes its JSON response to a temporary file and renames it to `answer.json` in the request directory. Set `PAPERCANVAS_GPT_QUEUE` to that revision directory for subsequent live edits. The recorded t-SNE run used this active-session transport. The unattended CLI transport has not received the same full validation.
+The first command after the download runs extraction, PosterForest generation, figure selection, display composition, claim binding and four alternating revisions. The verifier sends the three edits to the CLI, reopens the accepted PPTX, measures its figure width, compares protected text, and checks all seven evidence groups. Run it again without `--run-dialogue` to audit a completed case locally. The third request deliberately conflicts with the first turn’s protection. Rejecting it and retaining the second turn’s accepted slide passes the test.
+
+Each CLI inference uses an ephemeral session. For other live edits, set `PAPERCANVAS_CODEX_MODEL=codex-default` (or your selected model) and run `python papercanvas.py edit SESSION "request" --live` with the dialogue queue unset. A separate `pipeline --backend session` mode lets an active chat answer requests via a file queue. The [earlier evaluation](evaluation/tsne-proposal/summary.json) used that transport for its two sizes and three schedules. The standalone case above tests one paper and one joint schedule.
+
+The recorded standalone run made 35 text and 29 vision requests during native PosterForest generation, with zero cached responses at that stage. During debugging, display composition and revision resumed from this run's own intermediate files. The final revision and dialogue trace records 16 model calls. Seven versions were checked against seven claim groups each. The accepted main figure grew from 747.60 to 807.41 pt, the edited question contains nine words, and the protected result is identical in the three exported decks compared by the verifier. [Native generation audit](examples/tsne/independent-cli/audit.json) · [Revision and dialogue trace](examples/tsne/independent-cli/trace.jsonl)
+
+### Replay the earlier generated example
 
 To reproduce the connected t-SNE demo locally using the existing generated slide and its bound evidence, download the same source PDF and run:
 
@@ -32,7 +38,7 @@ python papercanvas.py edit runs/tsne-session "shorten protected section to 2 wor
 python papercanvas.py demo
 ```
 
-The third edit returns exit code 2 and keeps the second edit. Open [the generated-poster workspace](http://127.0.0.1:8765/?example=generated) to inspect the sources, edit history and accepted PowerPoint. Use `demo --forest-result DIR --paper PDF` to open another generated poster. To attach bindings to an existing generated directory, use `python papercanvas.py bind paper.pdf DIR`. This calls the configured GPT model once, verifies every quoted passage on its cited page and freezes the scientific conditions before revision. The importer supports the display generator’s editable three-figure deck schema.
+The third edit returns exit code 2 and keeps the second edit. Open [the generated-poster workspace](http://127.0.0.1:8765/?example=generated) to inspect the sources, edit history and accepted PowerPoint. Use `demo --forest-result DIR --paper PDF` to open another generated poster. To attach bindings to an existing generated directory, use `python papercanvas.py bind paper.pdf DIR`. This calls the configured GPT model, retries invalid bindings up to twice, verifies every quoted passage on its cited page and freezes the scientific conditions before revision. The importer supports the display generator’s editable three-figure deck schema.
 
 Each review reads the text and embedded pictures back from the exported slide. It checks scientific conditions, newly introduced numbers, source crop identities, overlaps and canvas bounds. In live mode GPT also compares each claim with its passages and rendered preview, and can identify a faithful paraphrase by quoting its visible wording. Local replay uses the bound original and compact texts. The source PDF, original requirements, previous accepted version and versioned preview stay available during dialogue.
 
@@ -126,7 +132,7 @@ The replay reads the authors' step 6 layout, text and crops, applies the step 7 
 
 ### Generate a new poster with GPT and PosterForest
 
-The recorded run started from the [27-page JMLR paper](https://www.jmlr.org/papers/v9/vandermaaten08a.html). The active GPT session handled 36 text and 29 image-bearing requests, including 28 panel reviews and one whole-poster critique. The fresh run reused zero responses. The generated 48 × 36 inch slide contains 33 editable text boxes and six embedded PDF crops. The audit records the generated document and poster trees, source pages, crop hashes and feedback counts. [Original PPTX](examples/tsne/poster.pptx) · [Preview](examples/tsne/poster.jpg) · [Six-stage audit](examples/tsne/audit.json)
+The earlier active-session run started from the [27-page JMLR paper](https://www.jmlr.org/papers/v9/vandermaaten08a.html). The active GPT session handled 36 text and 29 image-bearing requests, including 28 panel reviews and one whole-poster critique. The fresh run reused zero responses. The generated 48 × 36 inch slide contains 33 editable text boxes and six embedded PDF crops. The audit records the generated document and poster trees, source pages, crop hashes and feedback counts. [Original PPTX](examples/tsne/poster.pptx) · [Preview](examples/tsne/poster.jpg) · [Six-stage audit](examples/tsne/audit.json)
 
 The original layout repeats several bullets, truncates a long heading, and places MNIST figures beside text about other experiments. An optional display pass takes one additional GPT text response, pairs each selected image with its source caption and checks the quoted evidence against the PDF pages. It keeps the original output available for comparison. The display poster uses this project's three-column template. [Display PPTX](examples/tsne/display.pptx) · [Preview](examples/tsne/display.jpg) · [Figure and claim evidence](examples/tsne/display-evidence.json)
 
@@ -139,7 +145,7 @@ git -C runs/posterforest-source sparse-checkout set PosterForest utils
 git -C runs/posterforest-source checkout dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9
 curl -L https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf -o runs/tsne-jmlr.pdf
 python examples/run_posterforest.py runs/tsne-jmlr.pdf --source runs/posterforest-source --out runs/new-paper --soffice /path/to/soffice
-python examples/forest_local/display.py runs/new-paper --soffice /path/to/soffice
+python examples/forest_local/display.py runs/new-paper --soffice /path/to/soffice --pdf runs/tsne-jmlr.pdf
 ```
 
 The default backend sends each upstream prompt and any rendered images through `codex exec` in an ephemeral read-only session. Supply `--model` to select a GPT model available to your login. The login stays with Codex. Each completed run saves a single-slide PowerPoint, its LibreOffice preview and a verification report under `result/`.

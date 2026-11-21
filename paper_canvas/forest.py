@@ -23,6 +23,11 @@ GROUPS = {
 ASSETS = {"main": "figure", "method": "exhibit-method", "secondary": "exhibit-secondary"}
 TARGET = {"question": "question", "method": "method", "detail": "result"}
 
+def groups(version):
+    if version==2:
+        return dict(GROUPS,result=("metric","metric_label","detail"),secondary_caption=("secondary_title","secondary_caption"))
+    return GROUPS
+
 
 def digest(data):
     return hashlib.sha256(data).hexdigest()
@@ -60,9 +65,25 @@ def bind(pdf, directory, api):
     pages = source.read_paper(pdf)
     data = {k: {"fields": {f: plan[f] for f in fields},
                 "editable": next((f for f in fields if f in TARGET), None)}
-            for k, fields in GROUPS.items()}
-    claims = api.ask(BIND, {"groups": data, "assets": assets,
-                             "pages": [{"page": p["page"], "text": p["text"]} for p in pages]})["claims"]
+            for k, fields in groups(evidence.get("template")).items()}
+    prompt={"groups": data, "assets": assets, "displayed_caption_assets":{
+        k:plan[k.replace("_caption","_asset")] for k in GROUPS if k.endswith("_caption")},
+        "pages": [{"page": p["page"], "text": p["text"]} for p in pages]}
+    for attempt in range(3):
+        try:
+            claims=api.ask(BIND,prompt)["claims"]
+            validate_bindings(claims,plan,assets,pages,data)
+            break
+        except (ValueError,KeyError,TypeError) as exc:
+            if attempt==2:
+                raise
+            prompt["correction"]=str(exc)
+    return {"pdf_sha256": paper_hash, "deck_sha256": digest((directory/"display.pptx").read_bytes()),
+            "evidence_sha256": evidence_digest(evidence),
+            "model": api.name, "claims": claims}
+
+
+def validate_bindings(claims,plan,assets,pages,data):
     if set(claims) != set(GROUPS):
         raise ValueError("Missing or extra claim groups")
     for key, record in claims.items():
@@ -83,11 +104,13 @@ def bind(pdf, directory, api):
             if variant and data[key]["editable"]:
                 fields[data[key]["editable"]] = variant
             content = normalized(" ".join(fields.values()))
-            if any(not normalized(t) or normalized(t) not in content for t in record["conditions"]):
-                raise ValueError("A proposed text loses required context for " + key)
-    return {"pdf_sha256": paper_hash, "deck_sha256": digest((directory/"display.pptx").read_bytes()),
-            "evidence_sha256": evidence_digest(evidence),
-            "model": api.name, "claims": claims}
+            missing=[t for t in record["conditions"] if not contains(content,t)]
+            if missing:
+                if variant and data[key]["editable"]:
+                    # A suggested shortening is optional. Never relax the frozen original requirements.
+                    record["short"]=None
+                else:
+                    raise ValueError(f"{key}: use exact condition phrases from {fields!r}; absent: {missing!r}")
 
 
 def canvas(directory):
@@ -135,7 +158,7 @@ def prepare(pdf, directory, folder, size, api):
             role, = [r for r in ASSETS if plan[r+"_asset"] == key]
             meta = ev["sources"][key]
             crop = meta.get("box") or crops.get(key, {}).get("crop")
-            if not crop or digest(source.page_png(pdf,meta["page"],crop)) != sig:
+            if not crop or digest(source.page_png(pdf,meta["page"],crop,detail=meta.get("detail",False))) != sig:
                 raise ValueError("Embedded picture differs from the PDF crop: "+key)
             item.update(id=ASSETS[role],kind="image")
             (folder / ("evidence.png" if role=="main" else item["id"]+".png")).write_bytes(s.image.blob)
@@ -162,7 +185,7 @@ def prepare(pdf, directory, folder, size, api):
     return dict(title=audit["stages"]["1_document_tree"]["title"],size=list(size), sections=sections,
                 evidence=pictures[plan["main_asset"]], planner="posterforest", history=[], protected={},limits={},
                 model=api.name, figure_scale=1.,left_fraction=.43,figure_fraction=.4,
-                forest=dict(items=items,native_size=[deck.slide_width.pt,deck.slide_height.pt],
+                forest=dict(items=items,template=ev.get("template",1),native_size=[deck.slide_width.pt,deck.slide_height.pt],
                             assets=pictures,claims=spec["claims"],pdf_sha256=spec["pdf_sha256"],
                             deck_sha256=spec["deck_sha256"],reflow=0.))
 
@@ -237,7 +260,7 @@ def check(state, elements, pptx, semantic=False):
     deck = Presentation(pptx)
     shapes = {s.name:s for s in deck.slides[0].shapes}
     results = []
-    for key, fields in GROUPS.items():
+    for key, fields in groups(f.get("template")).items():
         spec = f["claims"][key]
         ids = [TARGET.get(field,field) for field in fields]
         content = normalized(" ".join(shapes[i].text for i in ids))
@@ -246,7 +269,13 @@ def check(state, elements, pptx, semantic=False):
         quotes = " ".join(q["quote"] for q in spec["quotes"])
         def numbers(value):
             return set(re.findall(r"(?<!\d)\d+(?:[.,]\d+)*(?:%)?",value))
-        extra = sorted(numbers(content) - numbers(known+" "+quotes))
+        cited_pages={q["page"] for q in spec["quotes"]}
+        def validated_page(match):
+            return "" if int(match[1]) in cited_pages else match[0]
+        scientific_text=re.sub(r"\b(?:pdf\s+)?(?:p\.|page)\s*(\d+)\b",validated_page,content)
+        for asset in spec["assets"]:
+            scientific_text=re.sub(r"\b"+re.escape(asset)+r"\b","",scientific_text,flags=re.I)
+        extra = sorted(numbers(scientific_text) - numbers(known+" "+quotes))
         # Local replay can vouch for the bound wording and its approved compact alternative.
         known_texts = [normalized(known)]
         if spec.get("short"):
