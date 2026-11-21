@@ -59,6 +59,10 @@ def events(folder):
 
 def additional_sources(state):
     out=list(state.get("notes",[]))
+    if "forest" in state:
+        for claim_id,claim in state["forest"]["claims"].items():
+            out.extend(dict(label=claim_id,page=q["page"],text=q["quote"]) for q in claim["quotes"])
+        out.extend(dict(label=name,**asset) for name,asset in state["forest"]["assets"].items())
     if state.get("definition"):
         out.append(dict(label="Outcome measure",**state["definition"]))
     if fig:=state.get("secondary"):
@@ -86,7 +90,7 @@ def snapshot(folder):
     return dict(session=folder.name,artifact=state["artifact"],title=state["title"],history=state["history"],
                 size=state["size"],protected=list(state["protected"]),sections=state["sections"],
                 evidence=state["evidence"],additional=additional_sources(state),trace=stream,elements=review["elements"],issues=review["issues"],
-                versions=versions,editorial=state.get("conference",{}).get("editorial"),
+                versions=versions,claims=review.get("claims",[]),editorial=state.get("conference",{}).get("editorial"),
                 planner=state.get("planner","vision" if state["model"]!="offline-fixture" else "fixture"))
 
 def comparison(root,folder,request,live):
@@ -110,10 +114,13 @@ def comparison(root,folder,request,live):
                          decision=current["history"][-1],attempts=attempts,width=fig["w"],issues=review["issues"]))
     return rows
 
-def serve(port,live):
+def serve(port,live,forest_result=None,forest_pdf=None):
     root=Path("runs/web")
     root.mkdir(parents=True,exist_ok=True)
     token=secrets.token_urlsafe(32)
+    forest_result=forest_result or STATIC.parent/"examples/tsne"
+    forest_pdf=forest_pdf or STATIC.parent/"runs/open-papers/tsne-jmlr.pdf"
+    imported=(forest_result/"claims.json").is_file() and forest_pdf.is_file()
     def session(sid):
         if not isinstance(sid,str) or not re.fullmatch(r"[0-9a-f]{32}",sid) or not (root/sid/"state.json").is_file():
             raise ValueError("找不到这次工作会话。")
@@ -142,6 +149,8 @@ def serve(port,live):
                 option='<option value="published">开放论文 · Hadi 等（PLOS ONE，20 页）</option>' if OPEN_PAPER.exists() else ""
                 if forest_example.PATH.exists():
                     option+='<option value="forest">同论文对照 · PosterForest（ACL 2026，校对提纲）</option>'
+                if imported:
+                    option+='<option value="generated">从已生成的 PosterForest 海报继续修订</option>'
                 return self.reply(200,"text/html; charset=utf-8",page.replace("{{TOKEN}}",token).replace("{{LIVE}}",str(live).lower()).replace("{{OPEN_PAPER}}",option).encode())
             if path in ("/studio.css","/studio.js"):
                 mime="text/css" if path.endswith("css") else "application/javascript"
@@ -182,6 +191,8 @@ def serve(port,live):
                     folder=root/sid
                     sample=data.get("sample","field")
                     samples={**SAMPLES,"published":OPEN_PAPER,"forest":forest_example.PATH}
+                    if imported:
+                        samples["generated"]=forest_pdf
                     pdf=samples[sample]
                     if data.get("pdf"):
                         raw=base64.b64decode(data["pdf"],validate=True)
@@ -190,7 +201,8 @@ def serve(port,live):
                         pdf=root/(sid+".pdf")
                         pdf.write_bytes(raw)
                     try:
-                        generate(pdf,folder,[float(data.get("width",1008)),float(data.get("height",540))],"joint",Model(live))
+                        generate(pdf,folder,[float(data.get("width",1008)),float(data.get("height",540))],"joint",Model(live),
+                                 forest_result=forest_result if sample=="generated" else None)
                         shutil.copyfile(pdf,folder/"source.pdf")
                     finally:
                         if data.get("pdf"):

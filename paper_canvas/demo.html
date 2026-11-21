@@ -14,7 +14,7 @@
 <div class="stage"><img id="preview" alt="当前已接受的海报" hidden></div><div class="metrics" id="metrics"></div></article>
 <aside class="card editor"><h2>编辑请求</h2><label>操作<select id="op"><option value="enlarge">放大证据图</option><option value="shorten">缩短段落</option><option value="protect">锁定段落</option><option value="custom">输入指令</option></select></label>
 <label id="targetWrap" hidden>目标段落<select id="target"><option value="question">研究问题</option><option value="method">方法</option><option value="result">主要结果</option></select></label>
-<label id="gainWrap"><span class="split">增加图宽 <b id="gainText">35%</b></span><input id="gain" type="range" min="5" max="80" step="5" value="35"></label>
+<label id="gainWrap"><span class="split">增加图宽 <b id="gainText">35%</b></span><input id="gain" type="range" min="5" max="80" step="1" value="35"></label>
 <label id="wordsWrap" hidden>最多保留词数<input id="words" type="number" min="1" max="150" value="12"></label>
 <label class="check" id="lockWrap"><input type="checkbox" id="lock" checked>同时锁定结果文字</label>
 <label id="customWrap" hidden>请求<textarea id="request" rows="3" placeholder="shorten protected section to 2 words"></textarea></label><button class="primary" id="apply">应用修改</button>

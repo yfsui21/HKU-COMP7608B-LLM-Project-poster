@@ -9,8 +9,8 @@ import time
 from pathlib import Path
 
 
-def complete(payload, key):
-    root = Path("gpt-requests") / key
+def complete(payload, key, *, work=Path("."), backend=None):
+    root = work / "gpt-requests" / key
     root.mkdir(parents=True, exist_ok=True)
     prompt, images = [], []
     for msg in payload["messages"]:
@@ -22,15 +22,16 @@ def complete(payload, key):
             if part["type"] == "text":
                 prompt.append(msg["role"] + "\n" + part["text"])
             else:
-                image = root / f"image-{len(images)}.jpg"
+                suffix = "png" if part["image_url"]["url"].startswith("data:image/png;") else "jpg"
+                image = root / f"image-{len(images)}.{suffix}"
                 image.write_bytes(base64.b64decode(part["image_url"]["url"].split(",", 1)[1], validate=True))
                 images.append(image.resolve())
     prompt = "\n\n".join(prompt)
     (root / "prompt.txt").write_text(prompt, encoding="utf-8")
     model = payload["model"]
-    if os.environ["FOREST_BACKEND"] == "session":
+    if (backend or os.environ["FOREST_BACKEND"]) == "session":
         # No desktop login token or API key is exposed to this process.
-        pending = Path("pending.json")
+        pending = work / "pending.json"
         tmp = pending.with_suffix(".tmp")
         tmp.write_text(json.dumps(dict(key=key, images=len(images))), encoding="utf-8")
         tmp.replace(pending)

@@ -8,8 +8,9 @@ import os
 import re
 import time
 import uuid
+from pptx import Presentation
 from pathlib import Path
-from . import conference, extract, forest_example, model, source
+from . import conference, extract, forest, forest_example, model, source
 from .details import enrich
 from PIL import Image
 from .render import IDS, render, scene
@@ -65,6 +66,7 @@ def prepare(pdf,folder,size,api):
     if api.live:
         ev["box"] = api.ask(model.CROP,ev,source.page_png(pdf,ev["page"]))["box"]
     asset = source.page_png(pdf,ev["page"],ev["box"])
+    ev["sha256"]=forest.digest(asset)
     (folder/"evidence.png").write_bytes(asset)
     state=dict(**plan,size=size,left_fraction=.43,figure_fraction=.40,figure_scale=1.0 if plan.get("conference") else .80,
                history=[],protected={},limits={},model=api.name)
@@ -77,7 +79,7 @@ def width(s,asset):
     return next(a["w"] for a in items if a["id"]=="figure")
 
 def copy_evidence(origin,destination):
-    for filename in ("evidence.png","support.png"):
+    for filename in ("evidence.png","support.png","source.pdf"):
         if (origin/filename).is_file():
             shutil.copy2(origin/filename,destination/filename)
     for path in origin.glob("exhibit-*.png"):
@@ -90,7 +92,7 @@ def freeze_boxes(s,asset):
 def constraints(s,asset):
     issues=[]
     for key,p in zip(IDS,s["sections"]):
-        if any(t.casefold() not in p["text"].casefold() for t in p["required"]):
+        if "forest" not in s and any(t.casefold() not in p["text"].casefold() for t in p["required"]):
             issues.append(key+" lost required source context")
         if key in s["protected"] and p["text"]!=s["protected"][key]:
             issues.append(key+" changed protected text")
@@ -104,19 +106,70 @@ def constraints(s,asset):
 def review(s,asset,folder,api):
     boxes,issues=render(s,asset,folder)
     issues.extend(constraints(s,asset))
+    claims=[]
+    if "forest" in s:
+        claims=forest.check(s,boxes,folder/"poster.pptx",semantic=api.live)
+    else:
+        slide=Presentation(folder/"poster.pptx").slides[0]
+        shapes={shape.name:shape for shape in slide.shapes}
+        for key,p in zip(IDS,s["sections"]):
+            text=forest.normalized(shapes[key].text) if key in shapes else ""
+            missing=[t for t in p["required"] if forest.normalized(t) not in text]
+            ev=s["evidence"]
+            mismatch=key=="result" and forest.digest(shapes["figure"].image.blob)!=ev.get("sha256",forest.digest(asset))
+            quotes=[{"page":p["page"],"quote":q} for q in (p["quote"],p.get("additional_quote")) if q]
+            claims.append(dict(claim=key,elements=[key],text=text,source=quotes,conditions=p["required"],
+                        assets=[ev["caption"]] if key=="result" else [],missing=missing,
+                        mismatched=["figure"] if mismatch else [],unsupported_numbers=[],passed=not (missing or mismatch)))
     if api.live:
-        observed=api.ask(model.REVIEW,context(s),(folder/"preview.png").read_bytes())["issues"]
+        verdict=api.ask(model.CLAIM_REVIEW if claims else model.REVIEW,
+                        dict(poster=context(s),claims=claims),(folder/"preview.png").read_bytes())
+        observed=verdict["issues"]
         if not isinstance(observed,list):
             raise ValueError("Reviewer issues must be a list")
         issues.extend(observed)
-    write(folder/"review.json",dict(issues=issues,elements=boxes))
+        if claims:
+            votes=verdict["verdicts"]
+            if set(votes)!={c["claim"] for c in claims} or any(type(v) is not bool for v in votes.values()):
+                raise ValueError("Reviewer omitted or malformed a claim verdict")
+            for c in claims:
+                c["semantic_passed"]=votes[c["claim"]]
+                aliases=verdict.get("equivalents",{}).get(c["claim"],{})
+                accepted={term:phrase for term,phrase in aliases.items() if term in c["missing"]
+                          and isinstance(phrase,str) and forest.normalized(phrase) and forest.normalized(phrase) in c["text"]
+                          and re.findall(r"\d+(?:[.,]\d+)*",term)==re.findall(r"\d+(?:[.,]\d+)*",phrase)}
+                c["equivalents"]=accepted
+                c["missing"]=[v for v in c["missing"] if v not in accepted]
+                c["passed"]=c["semantic_passed"] and not (c["missing"] or c["mismatched"] or c["unsupported_numbers"])
+    for claim in claims:
+        if not claim["passed"]:
+            issues.append(dict(target=claim["claim"],problem="Unmet scientific requirement",
+                               change=claim["missing"]+claim["mismatched"]+claim["unsupported_numbers"] or ["Restore source support"]))
+    write(folder/"review.json",dict(issues=issues,elements=boxes,claims=claims))
     return issues
 
 def content_pass(s,issues,api):
     if api.live:
-        texts=api.ask(model.CONTENT,dict(poster=context(s),issues=issues))["texts"]
+        prompt=model.CONTENT
+        if "forest" in s:
+            prompt+=" For other affected imported claim elements you may additionally return fields mapping field IDs to revised strings. Preserve the frozen conditions and source support."
+        response=api.ask(prompt,dict(poster=context(s),issues=issues))
+        texts=response["texts"]
         if len(texts)!=3 or not all(isinstance(t,str) and t.strip() for t in texts):
             raise ValueError("Editor must supply three text blocks")
+        if "forest" in s and response.get("fields"):
+            allowed={f for k,fields in forest.GROUPS.items() if k not in s["protected"] for f in fields if f not in forest.TARGET}
+            for key,value in response["fields"].items():
+                if key not in allowed or not isinstance(value,str) or not value.strip():
+                    raise ValueError("Unsupported or protected poster element: "+key)
+                s["forest"].setdefault("edits",{})[key]=value
+    elif "forest" in s:
+        texts=[p["text"] for p in s["sections"]]
+        for i,key in enumerate(IDS):
+            short=s["forest"]["claims"][key].get("short")
+            affected=any(key in (problem if isinstance(problem,str) else str(problem.get("target",""))) for problem in issues)
+            if short and (affected or len(texts[i].split())>s["limits"].get(key,math.inf)) and len(short.split())<len(texts[i].split()):
+                texts[i]=short
     else:
         texts=[p["text"] for p in s["sections"]]
         # Recorded alternatives for this one synthetic paper.
@@ -126,7 +179,7 @@ def content_pass(s,issues,api):
             if len(texts[i].split())>s["limits"].get(key,math.inf) or (issues and s.get("planner")=="extractive"):
                 texts[i]=s["sections"][i]["quote"] if s.get("planner")=="extractive" else choices[i]
     for key,p,text in zip(IDS,s["sections"],texts):
-        if key not in s["protected"] and all(t.lower() in text.lower() for t in p["required"]):
+        if key not in s["protected"] and (("forest" in s and api.live) or all(t.lower() in text.lower() for t in p["required"])):
             p["text"]=text
 
 def fit_requested_figure(s,asset):
@@ -135,6 +188,13 @@ def fit_requested_figure(s,asset):
         s["figure_scale"]=max(.10,s["limits"]["figure"]/width(s,asset))
 
 def layout_pass(s,issues,api,asset=None):
+    if "forest" in s:
+        if api.live:
+            decision=api.ask(model.FOREST_LAYOUT,dict(poster=context(s),issues=issues))
+            s["forest"]["reflow"]=max(0,min(1,float(decision["reflow"])))
+        elif issues:
+            s["forest"]["reflow"]=1.
+        return
     if api.live:
         values=api.ask(model.LAYOUT,dict(poster=context(s),issues=issues))
         for key,low,high in [("left_fraction",.30,.55),("figure_fraction",.20,.60)]:
@@ -156,17 +216,19 @@ def cost_record(api,folder,start,offset):
     calls=api.calls[offset:]
     rates=[os.getenv("PAPERCANVAS_"+k+"_USD_PER_M") for k in ("INPUT","OUTPUT")]
     cost=0 if not api.live else None
-    if api.live and all(rates) and all("prompt_tokens" in c["usage"] and "completion_tokens" in c["usage"] for c in calls):
+    if api.live and all(rates) and all(c["usage"].get("reported",True) and "prompt_tokens" in c["usage"] and "completion_tokens" in c["usage"] for c in calls):
         cost=sum(c["usage"]["prompt_tokens"]*float(rates[0])+c["usage"]["completion_tokens"]*float(rates[1]) for c in calls)/1e6
     trace(folder,"usage",model=api.name,calls=calls,estimated_usd=cost,elapsed_s=round(time.monotonic()-start,3))
 
-def generate(pdf,folder,size,condition,api,initial=None):
+def generate(pdf,folder,size,condition,api,initial=None,forest_result=None):
     folder.mkdir(parents=True,exist_ok=False)
     start,offset=time.monotonic(),len(api.calls)
     try:
         if initial:
             s=copy.deepcopy(read(initial/"initial.json"))
             copy_evidence(initial,folder)
+        elif forest_result:
+            s=forest.prepare(pdf,forest_result,folder,size,api)
         else:
             s=prepare(pdf,folder,size,api)
         s["condition"]=condition
@@ -245,6 +307,7 @@ def edit(folder,request,api):
             elif op=="shorten" and key in IDS:
                 limit=int(action["value"])
                 if limit<1 or key in s["protected"] and len(section(old,key)["text"].split())>limit:
+                    record["conflict"]=key in s["protected"] and limit>=1
                     raise ValueError("Word limit conflicts with protected text or is invalid.")
                 s["limits"][key]=limit
             elif op=="enlarge" and key=="figure" and 1<float(action["value"])<=10:

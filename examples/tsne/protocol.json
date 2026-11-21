@@ -1,0 +1,25 @@
+{
+  "evaluation": [
+    "tsne-jmlr.pdf"
+  ],
+  "size": [
+    3456,
+    2592
+  ],
+  "dialogues": {
+    "tsne-jmlr.pdf": [
+      [
+        "enlarge figure by 8% and protect result",
+        "feasible"
+      ],
+      [
+        "shorten question to 9 words",
+        "feasible"
+      ],
+      [
+        "shorten protected section to 2 words",
+        "conflict"
+      ]
+    ]
+  }
+}

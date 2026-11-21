@@ -135,7 +135,7 @@ def main():
     audit, plan, assets = make_plan(work, run)
     dest = work / "result"
     render(dest, audit["stages"]["1_document_tree"]["title"], plan, assets)
-    sources = {name: {"page": info["page"], "caption": info["caption"],
+    sources = {name: {"page": info["page"], "caption": info["caption"], "box": info["box"],
                       "sha256": hashlib.sha256(Path(info["figure_path"]).read_bytes()).hexdigest()}
                for name, info in assets.items() if name in [plan[k + "_asset"] for k in ("main", "method", "secondary")]}
     (dest / "display-evidence.json").write_text(json.dumps(dict(plan=plan, sources=sources), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

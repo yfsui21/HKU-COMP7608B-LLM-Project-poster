@@ -1,0 +1,350 @@
+{
+  "paper_sha256": "f05922e427639a08cb5214cc4ef314689ecf2d87333cb5050003323d7631017f",
+  "imported_display_sha256": "ba3c5a1619ddb391e85caf762a5a7285ae90f98d3b428c47d8adc2a16cda8e54",
+  "canvas": [
+    3456.0,
+    2592.0
+  ],
+  "primary_width_before_pt": 662.2288188976378,
+  "primary_width_after_pt": 715.2071244094489,
+  "question_words": 9,
+  "protected": {
+    "result": "Random walks used 60,000 MNIST images to place 6,000 landmarks. In ten-fold cross-validation, 1-nearest-neighbor error was 5.13% in 2D and 5.75% in the original 784 dimensions."
+  },
+  "turns": [
+    {
+      "request": "enlarge figure by 8% and protect result",
+      "accepted": true,
+      "target": "figure",
+      "operation": "enlarge",
+      "reason": "Applied and checked."
+    },
+    {
+      "request": "shorten question to 9 words",
+      "accepted": true,
+      "target": "question",
+      "operation": "shorten",
+      "reason": "Applied and checked."
+    },
+    {
+      "request": "shorten protected section to 2 words",
+      "accepted": false,
+      "target": "result",
+      "operation": "shorten",
+      "conflict": true,
+      "reason": "Word limit conflicts with protected text or is invalid."
+    }
+  ],
+  "issues": [],
+  "claims": [
+    {
+      "claim": "question",
+      "elements": [
+        "question"
+      ],
+      "text": "which neighbors survive mapping 784 pixels to two coordinates?",
+      "source": [
+        {
+          "page": 1,
+          "quote": "visualizes high-dimensional data by giving each datapoint a location in a two or three-dimensional map."
+        },
+        {
+          "page": 17,
+          "quote": "on the original 784-dimensional datapoints"
+        }
+      ],
+      "conditions": [
+        "neighbors",
+        "784",
+        "two"
+      ],
+      "assets": [
+        "figure 2"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 84.96,
+          "y": 579.6,
+          "w": 3283.2,
+          "h": 76.7
+        }
+      ],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "method",
+      "elements": [
+        "method_title",
+        "method"
+      ],
+      "text": "make room for neighbors t-sne turns pixel-space distances into neighbor probabilities. it moves points in the map to preserve likely neighbors. a heavy-tailed student distribution gives less similar points room to spread out.",
+      "source": [
+        {
+          "page": 7,
+          "quote": "we employ a Student t-distribution with one degree of freedom"
+        },
+        {
+          "page": 7,
+          "quote": "as the heavy-tailed distribution in the low-dimensional map."
+        }
+      ],
+      "conditions": [
+        "neighbor probabilities",
+        "heavy-tailed",
+        "Student"
+      ],
+      "assets": [
+        "figure 1"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 86.4,
+          "y": 912.24,
+          "w": 900.0,
+          "h": 60.18
+        },
+        {
+          "x": 86.4,
+          "y": 1101.6,
+          "w": 900.0,
+          "h": 253.7
+        }
+      ],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "result",
+      "elements": [
+        "secondary_title",
+        "metric",
+        "metric_label",
+        "result"
+      ],
+      "text": "map landmarks at scale 5.13% nearest-neighbor error in the 2d map random walks used 60,000 mnist images to place 6,000 landmarks. in ten-fold cross-validation, 1-nearest-neighbor error was 5.13% in 2d and 5.75% in the original 784 dimensions.",
+      "source": [
+        {
+          "page": 17,
+          "quote": "6,000 randomly selected digits from the MNIST data set, using all 60,000 digits to compute the pairwise affinities"
+        },
+        {
+          "page": 17,
+          "quote": "Whereas the generalization error (measured using 10-fold cross validation) of a 1-nearest neighbor classifier trained on the original 784-dimensional datapoints is 5.75%, the generalization error of a 1-nearest neighbor classifier trained on the two-dimensional data representation produced by t-SNE is only 5.13%."
+        }
+      ],
+      "conditions": [
+        "Random walks",
+        "60,000",
+        "MNIST",
+        "6,000",
+        "5.13%",
+        "Nearest-neighbor",
+        "2D",
+        "ten-fold",
+        "5.75%",
+        "784"
+      ],
+      "assets": [
+        "figure 6"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 2414.88,
+          "y": 912.24,
+          "w": 954.0,
+          "h": 60.18
+        },
+        {
+          "x": 2414.88,
+          "y": 1069.2,
+          "w": 936.0,
+          "h": 127.44
+        },
+        {
+          "x": 2414.88,
+          "y": 1213.2,
+          "w": 944.64,
+          "h": 43.66
+        },
+        {
+          "x": 2414.88,
+          "y": 1339.2,
+          "w": 943.2,
+          "h": 174.64
+        }
+      ],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "main_caption",
+      "elements": [
+        "result_title",
+        "main_caption"
+      ],
+      "text": "the same 6,000 digits each color denotes a digit class. t-sne (top) separates many classes that overlap in the sammon map (bottom). both plots use the same samples.",
+      "source": [
+        {
+          "page": 12,
+          "quote": "(a) Visualization by t-SNE. (b) Visualization by Sammon mapping. Figure 2: Visualizations of 6,000 handwritten digits from the MNIST data set."
+        },
+        {
+          "page": 11,
+          "quote": "the class information is only used to select a color and/or symbol for the map points."
+        }
+      ],
+      "conditions": [
+        "6,000",
+        "digit",
+        "t-SNE",
+        "Sammon",
+        "same samples"
+      ],
+      "assets": [
+        "figure 2"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 1097.28,
+          "y": 912.24,
+          "w": 1209.6,
+          "h": 60.18
+        },
+        {
+          "x": 1097.28,
+          "y": 2085.84,
+          "w": 1209.6,
+          "h": 87.32
+        }
+      ],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "method_caption",
+      "elements": [
+        "method_caption"
+      ],
+      "text": "the three gradient fields show how the force on a pair changes with its distance in the input and in the map.",
+      "source": [
+        {
+          "page": 8,
+          "quote": "Gradients of three types of SNE as a function of the pairwise Euclidean distance between two points in the high-dimensional and the pairwise distance between the points in the low-dimensional data representation."
+        }
+      ],
+      "conditions": [
+        "gradient",
+        "distance",
+        "input",
+        "map"
+      ],
+      "assets": [
+        "figure 1"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 86.4,
+          "y": 2035.44,
+          "w": 900.0,
+          "h": 87.32
+        }
+      ],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "secondary_caption",
+      "elements": [
+        "secondary_caption"
+      ],
+      "text": "paths through unselected observations help estimate how strongly landmarks a, b and c should be linked.",
+      "source": [
+        {
+          "page": 16,
+          "quote": "The arrows represent a directed neighborhood graph"
+        },
+        {
+          "page": 16,
+          "quote": "a random walk starting at that landmark point and terminating as soon as it lands on another landmark point."
+        }
+      ],
+      "conditions": [
+        "Paths",
+        "landmarks",
+        "A, B and C"
+      ],
+      "assets": [
+        "figure 6"
+      ],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 2414.88,
+          "y": 2057.0399212598427,
+          "w": 943.2,
+          "h": 87.32
+        }
+      ],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "limitation",
+      "elements": [
+        "limitation"
+      ],
+      "text": "different runs can settle on different maps. the authors also caution that high intrinsic dimensionality can make local neighborhoods unreliable.",
+      "source": [
+        {
+          "page": 20,
+          "quote": "sensitive to the curse of the intrinsic dimensionality of the data"
+        },
+        {
+          "page": 20,
+          "quote": "t-SNE is not guaranteed to converge to a global optimum of its cost function."
+        }
+      ],
+      "conditions": [
+        "Different runs",
+        "high intrinsic dimensionality",
+        "local neighborhoods"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "boxes": [
+        {
+          "x": 651.6,
+          "y": 2378.16,
+          "w": 2721.6,
+          "h": 50.739999999999995
+        }
+      ],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    }
+  ],
+  "logical_requests": 73,
+  "prior_decisions_reused": 47,
+  "unchanged_no_issue": 5,
+  "distinct_review_images": 12
+}

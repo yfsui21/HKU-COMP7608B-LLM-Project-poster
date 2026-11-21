@@ -31,6 +31,9 @@ def wrap(text,width,font,size):
 
 def scene(s,asset):
     w,h=s["size"]
+    if "forest" in s:
+        from .forest import scene as forest_scene
+        return checked_scene(s,*forest_scene(s,wrap))
     if s.get("conference"):
         items,issues=compose(s,asset,wrap)
         return checked_scene(s,items,issues)
@@ -251,5 +254,5 @@ def render(s,asset,folder):
     Presentation(folder/"poster.pptx")
     pdf.save()
     with pdfium.PdfDocument(buf.getvalue()) as doc:
-        doc[0].render(scale=1.4).to_pil().save(folder/"preview.png")
+        doc[0].render(scale=min(1.4,1800/max(w,h))).to_pil().save(folder/"preview.png")
     return items,issues

@@ -114,6 +114,7 @@ function display(next,previous) {
   $("metrics").replaceChildren(metric(state.size.map(Math.round).join(" × "),"pt"),metric(widthOf(state).toFixed(1),"pt 图宽"),metric(state.history.filter(h=>h.accepted).length,"次已接受修改"));
   $("locks").textContent=state.protected.length?"文字锁定 · "+state.protected.map(k=>labels[k]).join("、"):"";
   $("mode").textContent=state.editorial?"源文校对提纲 · 本地排版":live?"视觉模型在线模式":state.planner==="fixture"?"本地运行 · 预设语义样例":"本地运行 · 原文抽取";
+  if(state.planner==="posterforest") $("mode").textContent="PosterForest 导入 · "+state.claims.filter(c=>c.passed).length+"/"+state.claims.length+" 项内容校验通过";
   feedback(previous);
   evidence(3);
   history();
@@ -121,7 +122,10 @@ function display(next,previous) {
   $("comparePrompt").textContent="当前请求 · "+requestText();
 }
 function evidence(index) {
-  const items=[...state.sections,state.evidence,...(state.additional||[])], entry=items[index];
+  const checked=(state.claims||[]).map(c=>({label:c.claim,page:c.source[0].page,text:c.text,
+    required:c.conditions,quote:c.source.map(q=>"p. "+q.page+" · "+q.quote).join("\n"),
+    check:c.passed?"校验通过":"待修订",assets:c.assets}));
+  const items=[...state.sections,state.evidence,...checked,...(state.additional||[])], entry=items[index];
   $("evidenceList").replaceChildren(...items.map((e,i)=>{
     const b=button(labels[keys[i]] || e.label,()=>evidence(i),"item"+(index===i?" active":""));
     b.append(node("small","p. "+e.page));
@@ -137,6 +141,7 @@ function evidence(index) {
   }
   $("citation").replaceChildren(node("h3",isFig?"对应图注":"海报文字"),node("blockquote",isFig?entry.caption:entry.text));
   if(entry.required) $("citation").append(node("h3","原文依据"),node("blockquote",[entry.quote,entry.additional_quote].filter(Boolean).join(" ")),node("small","修订时保留"),node("p",entry.required.join(" · ")));
+  if(entry.check) $("citation").append(node("p",[entry.check,...entry.assets].join(" · ")));
 }
 function history() {
   const steps=[{name:"初稿检查",version:"00-initial",detail:"核对初始文字与图表位置。"}];
@@ -189,8 +194,9 @@ $("close").onclick=()=>$("input").close();
 $("sample").onchange=()=>{
   $("upload").hidden=$("sample").value!=="upload";
   const conference=["published","forest"].includes($("sample").value);
-  $("width").value=conference?1120:1008;
-  $("height").value=conference?760:540;
+  const imported=$("sample").value==="generated";
+  $("width").value=imported?3456:conference?1120:1008;
+  $("height").value=imported?2592:conference?760:540;
 };
 $("op").onchange=$("gain").oninput=form;
 $("paperform").onsubmit=e=>{e.preventDefault();work("正在解析论文、排版并检查候选海报…",generate);};
@@ -206,6 +212,12 @@ $("mode").textContent=live?"视觉模型在线模式":"本地运行";
 form();
 work("正在载入海报…",async()=>{
   const params=new URLSearchParams(location.search);
+  if(params.get("example")==="generated" && $("sample").querySelector('option[value="generated"]')){
+    $("sample").value="generated";
+    $("sample").onchange();
+    if(live) $("input").showModal(); else await generate();
+    return;
+  }
   if(params.get("example")==="forest" && $("sample").querySelector('option[value="forest"]')){
     $("sample").value="forest";
     $("sample").onchange();

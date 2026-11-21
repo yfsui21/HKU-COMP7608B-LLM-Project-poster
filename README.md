@@ -8,6 +8,48 @@ PaperCanvas helps a researcher turn a text-based paper PDF into an editable, sin
 
 **New PDF-to-poster example.** GPT generated a poster from van der Maaten and Hinton’s t-SNE paper. Open the [one-page display poster](examples/tsne/display.jpg), [editable PowerPoint](examples/tsne/display.pptx), or [original PosterForest result](examples/tsne/poster.jpg).
 
+**PaperCanvas revision demo.** The generated t-SNE slide now opens as an editable session. Compare the [revised slide](examples/tsne/revised.png) and [download its PowerPoint](examples/tsne/revised.pptx). The [revision record](evaluation/tsne-proposal/revision.json) links seven claim groups to original passages and figure IDs. The [experiment summary](evaluation/tsne-proposal/summary.json) covers two canvas sizes and three editing schedules.
+
+### Generate, revise and verify one poster
+
+For a new paper, install both requirements files and prepare the pinned PosterForest checkout as described under “Generate a new poster with GPT and PosterForest”. From the repository root, the following command runs extraction, PosterForest generation, display composition, claim binding and four PaperCanvas editing passes. Use paths to your own PDF and LibreOffice executable.
+
+```sh
+python papercanvas.py pipeline paper.pdf --source runs/posterforest-source --soffice /path/to/soffice --work runs/paper-generation --out runs/paper-session
+```
+
+The default pipeline uses a signed-in Codex CLI. For continuing that session with `edit --live`, set `PAPERCANVAS_CODEX_MODEL=codex-default` (or the same selected model). Alternatively, `pipeline --backend session` exposes PosterForest requests under the working directory and PaperCanvas requests under its `revision-requests/` directory. An active GPT session reads each request and rendered image, writes its JSON response to a temporary file and renames it to `answer.json` in the request directory. Set `PAPERCANVAS_GPT_QUEUE` to that revision directory for subsequent live edits. The recorded t-SNE run used this active-session transport. The unattended CLI transport has not received the same full validation.
+
+To reproduce the connected t-SNE demo locally using the existing generated slide and its bound evidence, download the same source PDF and run:
+
+```sh
+python -c "from pathlib import Path; Path('runs/open-papers').mkdir(parents=True,exist_ok=True)"
+curl -L https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf -o runs/open-papers/tsne-jmlr.pdf
+python papercanvas.py generate runs/open-papers/tsne-jmlr.pdf --forest-result examples/tsne --out runs/tsne-session
+python papercanvas.py edit runs/tsne-session "enlarge figure by 8% and protect result"
+python papercanvas.py edit runs/tsne-session "shorten question to 9 words"
+python papercanvas.py edit runs/tsne-session "shorten protected section to 2 words"
+python papercanvas.py demo
+```
+
+The third edit returns exit code 2 and keeps the second edit. Open [the generated-poster workspace](http://127.0.0.1:8765/?example=generated) to inspect the sources, edit history and accepted PowerPoint. Use `demo --forest-result DIR --paper PDF` to open another generated poster. To attach bindings to an existing generated directory, use `python papercanvas.py bind paper.pdf DIR`. This calls the configured GPT model once, verifies every quoted passage on its cited page and freezes the scientific conditions before revision. The importer supports the display generator’s editable three-figure deck schema.
+
+Each review reads the text and embedded pictures back from the exported slide. It checks scientific conditions, newly introduced numbers, source crop identities, overlaps and canvas bounds. In live mode GPT also compares each claim with its passages and rendered preview, and can identify a faithful paraphrase by quoting its visible wording. Local replay uses the bound original and compact texts. The source PDF, original requirements, previous accepted version and versioned preview stay available during dialogue.
+
+### t-SNE evaluation and scoring
+
+The study resumed the PDF-verified poster generated in the preceding run. At each canvas size all three schedules started with identical content and positions, fixed fonts, two content edits, two layout edits and five reviews. The smaller canvas used 75% of the area. Both dialogue conditions started from the accepted joint draft. In the joint condition the figure grew from 662.23 to 715.21 pt, the question was shortened to nine words, and a conflicting edit preserved the accepted slide. The fixed-layout condition could not complete the enlargement without overlap. Its failed first turn rolled back the requested lock too, leaving “protected section” unresolved in the last turn.
+
+All six candidates exported successfully. The active-session study recorded 73 logical requests and 12 distinct review images. For 47 requests the session supplied a previous decision on equivalent material, including repeated renders with identical pixels and claim evidence; five no-issue requests retained the approved content or allocation. Token counts and billing were unavailable. These figures cover revision and evaluation after import. This is a single-paper case study with no independent human ratings.
+
+```sh
+python evaluate.py run --papers runs/open-papers --plan examples/tsne/protocol.json --forest-result examples/tsne --offline --out runs/tsne-evaluation
+python verify_proposal.py runs/tsne-evaluation
+python evaluate.py summarize runs/tsne-evaluation
+```
+
+Omit `--offline` for model-based review of every rendered pass. For a multi-paper split, `--forest-root DIR` selects the generated bundle in `DIR/<paper-stem>/` for each input. The [study archive](evaluation/tsne-proposal/study.zip) includes evaluated outputs, traces, model decisions, blinded previews and empty rater forms. After extracting it, `summarize` and `verify_proposal.py` also accept the extracted directory. Give raters only the blinded folder, source papers and independent, prewritten paper checklists. Raters enter integer counts, checklist coverage and 1–5 ratings; dialogue sheets record request, protection, reference and conflict outcomes plus factual and layout errors. Re-run `summarize` to obtain double-rated denominators, per-schedule means, joint-minus-baseline differences within each paper and size, exact agreement and mean absolute differences. Blank ratings are excluded. Generation failures remain in the completion denominator.
+
 ![Poster generated by the offline example](examples/preview.png)
 
 [Editable demo poster](examples/poster.pptx) · [Synthetic input paper](examples/retrieval_study.pdf) · [Observed demo results](evaluation/offline-results.json)

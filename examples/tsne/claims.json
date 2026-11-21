@@ -1,0 +1,159 @@
+{
+  "pdf_sha256": "f05922e427639a08cb5214cc4ef314689ecf2d87333cb5050003323d7631017f",
+  "deck_sha256": "ba3c5a1619ddb391e85caf762a5a7285ae90f98d3b428c47d8adc2a16cda8e54",
+  "evidence_sha256": "d69dd1ddeb2de548caa1691a2e249e570d8961d9f559cb29e75ad7fdb5612f3f",
+  "model": "GPT-current-session",
+  "claims": {
+    "question": {
+      "quotes": [
+        {
+          "page": 1,
+          "quote": "visualizes high-dimensional data by giving each datapoint a location in a two or three-dimensional map."
+        },
+        {
+          "page": 17,
+          "quote": "on the original 784-dimensional datapoints"
+        }
+      ],
+      "conditions": [
+        "neighbors",
+        "784",
+        "two"
+      ],
+      "assets": [
+        "figure 2"
+      ],
+      "short": "Which neighbors survive mapping 784 pixels to two coordinates?"
+    },
+    "method": {
+      "quotes": [
+        {
+          "page": 7,
+          "quote": "we employ a Student t-distribution with one degree of freedom"
+        },
+        {
+          "page": 7,
+          "quote": "as the heavy-tailed distribution in the low-dimensional map."
+        }
+      ],
+      "conditions": [
+        "neighbor probabilities",
+        "heavy-tailed",
+        "Student"
+      ],
+      "assets": [
+        "figure 1"
+      ],
+      "short": "t-SNE preserves neighbor probabilities using a heavy-tailed Student distribution in the map."
+    },
+    "result": {
+      "quotes": [
+        {
+          "page": 17,
+          "quote": "6,000 randomly selected digits from the MNIST data set, using all 60,000 digits to compute the pairwise affinities"
+        },
+        {
+          "page": 17,
+          "quote": "Whereas the generalization error (measured using 10-fold cross validation) of a 1-nearest neighbor classifier trained on the original 784-dimensional datapoints is 5.75%, the generalization error of a 1-nearest neighbor classifier trained on the two-dimensional data representation produced by t-SNE is only 5.13%."
+        }
+      ],
+      "conditions": [
+        "Random walks",
+        "60,000",
+        "MNIST",
+        "6,000",
+        "5.13%",
+        "Nearest-neighbor",
+        "2D",
+        "ten-fold",
+        "5.75%",
+        "784"
+      ],
+      "assets": [
+        "figure 6"
+      ],
+      "short": "Random walks used 60,000 MNIST images for 6,000 landmarks. Ten-fold error in 784 dimensions was 5.75%."
+    },
+    "main_caption": {
+      "quotes": [
+        {
+          "page": 12,
+          "quote": "(a) Visualization by t-SNE. (b) Visualization by Sammon mapping. Figure 2: Visualizations of 6,000 handwritten digits from the MNIST data set."
+        },
+        {
+          "page": 11,
+          "quote": "the class information is only used to select a color and/or symbol for the map points."
+        }
+      ],
+      "conditions": [
+        "6,000",
+        "digit",
+        "t-SNE",
+        "Sammon",
+        "same samples"
+      ],
+      "assets": [
+        "figure 2"
+      ],
+      "short": null
+    },
+    "method_caption": {
+      "quotes": [
+        {
+          "page": 8,
+          "quote": "Gradients of three types of SNE as a function of the pairwise Euclidean distance between two points in the high-dimensional and the pairwise distance between the points in the low-dimensional data representation."
+        }
+      ],
+      "conditions": [
+        "gradient",
+        "distance",
+        "input",
+        "map"
+      ],
+      "assets": [
+        "figure 1"
+      ],
+      "short": null
+    },
+    "secondary_caption": {
+      "quotes": [
+        {
+          "page": 16,
+          "quote": "The arrows represent a directed neighborhood graph"
+        },
+        {
+          "page": 16,
+          "quote": "a random walk starting at that landmark point and terminating as soon as it lands on another landmark point."
+        }
+      ],
+      "conditions": [
+        "Paths",
+        "landmarks",
+        "A, B and C"
+      ],
+      "assets": [
+        "figure 6"
+      ],
+      "short": null
+    },
+    "limitation": {
+      "quotes": [
+        {
+          "page": 20,
+          "quote": "sensitive to the curse of the intrinsic dimensionality of the data"
+        },
+        {
+          "page": 20,
+          "quote": "t-SNE is not guaranteed to converge to a global optimum of its cost function."
+        }
+      ],
+      "conditions": [
+        "Different runs",
+        "high intrinsic dimensionality",
+        "local neighborhoods"
+      ],
+      "assets": [],
+      "short": null
+    }
+  }
+}
