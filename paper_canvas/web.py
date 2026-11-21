@@ -1,75 +1,149 @@
-"""A local-only, single-user demo. Only the accepted poster is downloadable."""
+"""Loopback-only interactive poster studio; sessions and reviews persist on disk."""
 import base64
 import json
+import re
 import secrets
+import shutil
 import uuid
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
-from .agent import generate, edit, read
-from .source import EXAMPLE
+
+from .agent import generate, edit, read, write
+from .source import EXAMPLE, page_png
 from .model import Model
+
+STATIC = Path(__file__).parent
+SAMPLES = {"field": EXAMPLE, "retrieval": EXAMPLE.with_name("retrieval_study.pdf")}
+OPEN_PAPER = Path("runs/open-papers/hadi-2024.pdf")
+MIME = {"preview.png":"image/png","poster.pptx":"application/vnd.openxmlformats-officedocument.presentationml.presentation"}
+VERSION = re.compile(r"(?:0[0-4]-(?:initial|layout|content)|edit-[0-9a-f]{10})")
+def events(folder):
+    return [json.loads(line) for line in (folder/"trace.jsonl").read_text(encoding="utf8").splitlines()]
+
+def snapshot(folder):
+    state=read(folder/"state.json")
+    stream=events(folder)
+    review=read(folder/state["artifact"]/"review.json")
+    versions=["00-initial"]
+    for item in stream:
+        name=item.get("artifact")
+        if name and name not in versions:
+            versions.append(name)
+    return dict(session=folder.name,artifact=state["artifact"],title=state["title"],history=state["history"],
+                size=state["size"],protected=list(state["protected"]),sections=state["sections"],
+                evidence=state["evidence"],trace=stream,elements=review["elements"],issues=review["issues"],
+                versions=versions,planner=state.get("planner","vision" if state["model"]!="offline-fixture" else "fixture"))
+
+def comparison(root,folder,request,live):
+    # Fork both branches from the accepted state including every prior constraint.
+    original=read(folder/"state.json")
+    rows=[]
+    for condition in ("joint","layout-first"):
+        branch=root/uuid.uuid4().hex
+        branch.mkdir()
+        state=dict(original,condition=condition)
+        state.pop("fixed_boxes",None)
+        write(branch/"state.json",state)
+        shutil.copy2(folder/"evidence.png",branch/"evidence.png")
+        shutil.copytree(folder/state["artifact"],branch/state["artifact"])
+        current=edit(branch,request,Model(live))
+        attempts=[e for e in events(branch) if e["event"]=="attempt"]
+        version=attempts[-1]["artifact"] if attempts else state["artifact"]
+        review=read(branch/version/"review.json")
+        fig=next(e for e in review["elements"] if e["id"]=="figure")
+        rows.append(dict(condition=condition,session=branch.name,version=version,
+                         decision=current["history"][-1],attempts=attempts,width=fig["w"],issues=review["issues"]))
+    return rows
 
 def serve(port,live):
     root=Path("runs/web")
     root.mkdir(parents=True,exist_ok=True)
     token=secrets.token_urlsafe(32)
-    sessions={}
+    def session(sid):
+        if not isinstance(sid,str) or not re.fullmatch(r"[0-9a-f]{32}",sid) or not (root/sid/"state.json").is_file():
+            raise ValueError("找不到这次工作会话。")
+        return root/sid
     class Handler(BaseHTTPRequestHandler):
         def reply(self,code,mime,body):
             self.send_response(code)
             self.send_header("Content-Type",mime)
+            self.send_header("Content-Length",str(len(body)))
             self.send_header("Cache-Control","no-store")
             self.send_header("X-Content-Type-Options","nosniff")
             self.end_headers()
             self.wfile.write(body)
+
+        def data(self,value,code=200):
+            self.reply(code,"application/json; charset=utf-8",json.dumps(value,ensure_ascii=False).encode())
 
         def do_GET(self):
             if self.headers.get("Host")!=f"127.0.0.1:{port}":
                 return self.reply(403,"text/plain",b"Local address required")
             path=urlparse(self.path).path
             if path=="/":
-                page=Path(__file__).with_name("demo.html").read_text(encoding="utf8")
-                page=page.replace("{{TOKEN}}",token).replace("{{MODE}}","Live vision model" if live else "Offline sample")
-                return self.reply(200,"text/html; charset=utf-8",page.encode())
-            parts=path.split("/")
-            if len(parts)==4 and parts[1]=="artifact" and parts[2] in sessions and parts[3] in ("poster.pptx","preview.png"):
-                folder=sessions[parts[2]]
-                file=folder/read(folder/"state.json")["artifact"]/parts[3]
-                mime="image/png" if parts[3]=="preview.png" else "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-                return self.reply(200,mime,file.read_bytes())
-            self.reply(404,"text/plain",b"Unknown artifact")
+                page=(STATIC/"demo.html").read_text(encoding="utf8")
+                option='<option value="published">开放论文 · Hadi 等（PLOS ONE，20 页）</option>' if OPEN_PAPER.exists() else ""
+                return self.reply(200,"text/html; charset=utf-8",page.replace("{{TOKEN}}",token).replace("{{LIVE}}",str(live).lower()).replace("{{OPEN_PAPER}}",option).encode())
+            if path in ("/studio.css","/studio.js"):
+                mime="text/css" if path.endswith("css") else "application/javascript"
+                return self.reply(200,mime+"; charset=utf-8",(STATIC/path[1:]).read_bytes())
+            parts=path.strip("/").split("/")
+            try:
+                if parts[0]=="artifact" and len(parts) in (3,4) and parts[-1] in MIME:
+                    folder=session(parts[1])
+                    version=parts[2] if len(parts)==4 else read(folder/"state.json")["artifact"]
+                    if VERSION.fullmatch(version):
+                        return self.reply(200,MIME[parts[-1]],(folder/version/parts[-1]).read_bytes())
+                if parts[0]=="source" and len(parts)==3 and parts[2].isdigit():
+                    folder=session(parts[1])
+                    s=read(folder/"state.json")
+                    page=int(parts[2])
+                    if page in {p["page"] for p in [*s["sections"],s["evidence"]]}:
+                        pdf=folder/"source.pdf"
+                        if not pdf.is_file():
+                            legacy=root/(folder.name+".pdf")
+                            pdf=legacy if legacy.exists() else EXAMPLE
+                        return self.reply(200,"image/png",page_png(pdf,page))
+            except (ValueError,FileNotFoundError):
+                pass
+            self.reply(404,"text/plain",b"Unknown resource")
 
         def do_POST(self):
             if self.headers.get("X-Canvas-Token")!=token:
                 return self.reply(403,"text/plain",b"Session token required")
             try:
-                length=int(self.headers.get("Content-Length","0"))
+                length=int(self.headers.get("Content-Length",0))
                 if not 1<=length<=24_000_000:
-                    raise ValueError("PDF upload limit is 16 MB")
+                    raise ValueError("上传文件上限为 16 MB。")
                 data=json.loads(self.rfile.read(length))
-                api=Model(live)
                 if self.path=="/generate":
                     sid=uuid.uuid4().hex
-                    pdf=EXAMPLE
-                    if data.get("pdf"):
-                        if not live:
-                            raise ValueError("Restart with --live for other papers.")
-                        pdf=root/(sid+".pdf")
-                        pdf.write_bytes(base64.b64decode(data["pdf"],validate=True))
                     folder=root/sid
-                    s=generate(pdf,folder,[float(data["width"]),float(data["height"])],"joint",api)
-                    sessions[sid]=folder
-                elif self.path=="/edit":
-                    sid=data["session"]
-                    folder=sessions[sid]
-                    s=edit(folder,data["request"],api)
+                    sample=data.get("sample","field")
+                    pdf=OPEN_PAPER if sample=="published" and OPEN_PAPER.exists() else SAMPLES[sample]
+                    if data.get("pdf"):
+                        raw=base64.b64decode(data["pdf"],validate=True)
+                        if not raw.startswith(b"%PDF-") or len(raw)>16_000_000:
+                            raise ValueError("请选择 16 MB 以内的 PDF。")
+                        pdf=root/(sid+".pdf")
+                        pdf.write_bytes(raw)
+                    try:
+                        generate(pdf,folder,[float(data.get("width",1008)),float(data.get("height",540))],"joint",Model(live))
+                        shutil.copyfile(pdf,folder/"source.pdf")
+                    finally:
+                        if data.get("pdf"):
+                            pdf.unlink(missing_ok=True)
                 else:
-                    raise ValueError("Unknown action")
-                response=dict(session=sid,artifact=s["artifact"],history=s["history"],title=s["title"],
-                              protected=list(s["protected"]),trace=[json.loads(l) for l in (folder/"trace.jsonl").read_text(encoding="utf8").splitlines()])
-                self.reply(200,"application/json",json.dumps(response).encode())
+                    folder=session(data["session"])
+                    if self.path=="/edit":
+                        edit(folder,data["request"],Model(live))
+                    elif self.path=="/compare":
+                        return self.data(comparison(root,folder,data["request"],live))
+                    elif self.path!="/resume":
+                        raise ValueError("Unknown action")
+                self.data(snapshot(folder))
             except Exception as exc:
-                self.reply(400,"application/json",json.dumps({"error":str(exc)}).encode())
-    print(f"PaperCanvas at http://127.0.0.1:{port}   Ctrl+C to stop",flush=True)
+                self.data({"error":str(exc)},400)
+    print(f"PaperCanvas at http://127.0.0.1:{port}",flush=True)
     HTTPServer(("127.0.0.1",port),Handler).serve_forever()

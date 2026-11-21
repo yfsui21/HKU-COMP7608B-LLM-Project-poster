@@ -7,7 +7,7 @@ import re
 import time
 import uuid
 from pathlib import Path
-from . import model, source
+from . import extract, model, source
 from .render import IDS, render, scene
 
 ORDERS = {"joint":["content","layout"]*2, "content-first":["content"]*2+["layout"]*2,
@@ -35,7 +35,12 @@ def prepare(pdf,folder,size,api):
     if not all(144 <= n <= 4032 for n in size):
         raise ValueError("Dimensions must be 144–4032 points per side")
     pages = source.read_paper(pdf)
-    plan = api.ask(model.PLAN,pages) if api.live else source.fixture_plan(pdf)
+    if api.live:
+        plan = api.ask(model.PLAN,pages)
+    elif pdf.read_bytes()==source.EXAMPLE.read_bytes():
+        plan = source.fixture_plan(pdf)
+    else:
+        plan = extract.plan(pdf,pages)
     source.verify(plan,pages)
     ev = plan["evidence"]
     if api.live:
@@ -92,20 +97,34 @@ def content_pass(s,issues,api):
         choices=["Does review reduce labeling errors?", "Two annotators reviewed 40 synthetic field records.",
                  "On 40 synthetic records, paired review cut errors from 12 to 5."]
         for i,key in enumerate(IDS):
-            if len(texts[i].split())>s["limits"].get(key,math.inf):
-                texts[i]=choices[i]
+            if len(texts[i].split())>s["limits"].get(key,math.inf) or (issues and s.get("planner")=="extractive"):
+                texts[i]=s["sections"][i]["quote"] if s.get("planner")=="extractive" else choices[i]
     for key,p,text in zip(IDS,s["sections"],texts):
         if key not in s["protected"] and all(t.lower() in text.lower() for t in p["required"]):
             p["text"]=text
 
-def layout_pass(s,issues,api):
+def fit_requested_figure(s,asset):
+    if "figure" in s["limits"]:
+        s["figure_scale"]=1
+        s["figure_scale"]=max(.10,s["limits"]["figure"]/width(s,asset))
+
+def layout_pass(s,issues,api,asset=None):
     if api.live:
         values=api.ask(model.LAYOUT,dict(poster=context(s),issues=issues))
         for key,low,high in [("left_fraction",.30,.55),("figure_fraction",.20,.60)]:
             s[key]=max(low,min(high,float(values[key])))
-    elif issues:
-        s["left_fraction"]=max(.30,s["left_fraction"]-.06)
-        s["figure_fraction"]=min(.60,s["figure_fraction"]+.06)
+    elif issues and asset:
+        # Choose the smallest reallocation that passes measured scene checks.
+        choices=[]
+        for left in (.30,.34,.38,.42,.46,.50,.55,s["left_fraction"]):
+            for height in (.20,.30,.40,.50,.60,s["figure_fraction"]):
+                candidate=dict(s,left_fraction=left,figure_fraction=height)
+                fit_requested_figure(candidate,asset)
+                _,geometry=scene(candidate,asset)
+                score=(len(geometry)+len(constraints(candidate,asset)),
+                       abs(left-s["left_fraction"])+abs(height-s["figure_fraction"]))
+                choices.append((score,left,height,candidate["figure_scale"]))
+        _,s["left_fraction"],s["figure_fraction"],s["figure_scale"]=min(choices)
 
 def cost_record(api,folder,start,offset):
     calls=api.calls[offset:]
@@ -132,7 +151,10 @@ def generate(pdf,folder,size,condition,api,initial=None):
         for i,role in enumerate(ORDERS[condition],1):
             if condition=="layout-first" and i==3:
                 freeze_boxes(s,asset)
-            (content_pass if role=="content" else layout_pass)(s,issues,api)
+            if role=="content":
+                content_pass(s,issues,api)
+            else:
+                layout_pass(s,issues,api,asset)
             dest=folder/f"{i:02}-{role}"
             issues=review(s,asset,dest,api)
             trace(folder,"pass",role=role,issues=issues,artifact=dest.name)
@@ -208,10 +230,8 @@ def edit(folder,request,api):
                 if op!="protect":
                     content_pass(s,issues,api)
                     if s["condition"]=="joint" and i:
-                        layout_pass(s,issues,api)
-                    if "figure" in s["limits"]:
-                        s["figure_scale"]=1
-                        s["figure_scale"]=max(.10,s["limits"]["figure"]/width(s,asset))
+                        layout_pass(s,issues,api,asset)
+                    fit_requested_figure(s,asset)
                 dest=folder/("edit-"+uuid.uuid4().hex[:10])
                 issues=review(s,asset,dest,api)
                 trace(folder,"attempt",request=request,attempt=i+1,issues=issues,artifact=dest.name)

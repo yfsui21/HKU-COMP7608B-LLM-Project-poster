@@ -22,16 +22,22 @@ python -m pip install -r requirements.txt
 python papercanvas.py demo
 ```
 
-Open **http://127.0.0.1:8765**. Click **Generate poster**. Keep the default dimensions for this walkthrough.
+Open **http://127.0.0.1:8765**. The Chinese-language studio starts with a generated poster from a two-page synthetic retrieval study. No API key is needed for local mode.
 
-1. Enter **enlarge figure by 35% and protect result**. The first attempt detects a width violation. The joint strategy takes space from the left column and checks the second rendering. Download the slide and select the result text or figure to edit it.
-2. Enter **shorten question to 6 words**. The revised poster retains the earlier figure width and exact result text.
-3. Enter **shorten protected section to 2 words**. The agent identifies the protected result from the previous turn, explains the conflict and serves the last accepted poster.
-4. Expand **Agent decisions and edit history** to inspect checks, attempts, rollback and usage. Terminal sessions also retain every rendered candidate on disk.
+1. Open **论文证据**. Select a claim to read its source passage, or select the figure to see the exact crop on the source page.
+2. Open **策略对照** and click **运行对照**. Both branches attempt the same 35% enlargement while preserving the result text. Each starts from your accepted poster. Inspect the final candidates, measured figure widths and issues from each attempt. The accepted session stays intact.
+3. Under **海报编辑**, apply the enlargement. Try locking a paragraph and then shortening that paragraph to two words. **修订记录** lets you inspect the initial draft, each editing pass, rejected candidates and the retained version. Refreshing the same tab restores its session.
+4. **导入论文** accepts an English text-based PDF (up to 16 MB). Set the page dimensions or select either synthetic example. Download the accepted poster with **↓ PPTX**.
 
-Offline mode uses recorded semantic decisions for the included synthetic paper and a small command grammar. PDF extraction, evidence cropping, text measurement, geometric checks, reallocation, rendering, session persistence and rollback run locally. Offline counts measure the implementation on one fixture. Neither human reviewers nor a live provider participated in those results.
+### A published paper
 
-## Use your own paper
+Run `python examples/fetch_open_paper.py` once to cache the original open-access PDF locally. Refresh the studio, select **导入论文 → 开放论文 · Hadi 等**, and generate. This uses the same extractive planner as uploaded PDFs. The source is Hadi, Tran, Nagarajan and Kirpalani (2024), [Evaluation of ChatGPT as a diagnostic tool for medical learners and clinicians](https://doi.org/10.1371/journal.pone.0307383), PLOS ONE, CC BY. The publisher download is hash-checked. Generated posters credit the authors and identify the adaptation. This input is for testing document handling.
+
+### Local extraction and its limits
+
+The field-observation example uses a recorded semantic plan. Other local PDFs use section headings and sentence cues to select source text. The parser looks for a column gutter, matches explicit figure references, and locates image/vector marks above captions. Required source phrases survive editing. The local layout pass measures alternative column and figure allocations and chooses the smallest change that resolves the observed geometry problems. The local reviewer checks measurable geometry and text invariants. It does not independently judge scientific correctness. Inspect the evidence tab for misselected claims, reading-order errors or incorrect crops, especially on multi-column pages. Scans, complex tables and figures without detectable visual marks may require a different input or vision provider.
+
+## Use a vision-language model
 
 Configure a vision-capable Chat Completions model that supports image input, JSON object output, temperature and max_tokens. Model access may incur provider charges. In PowerShell, set the following variables in the terminal that launches the app:
 
@@ -78,4 +84,4 @@ The checked-in evaluation is a synthetic smoke run across 2 sizes × 3 strategie
 
 ## Attribution and AI assistance
 
-The sample paper and chart are synthetic and bundled for redistributable testing. Runtime dependencies and versions are listed in requirements.txt. The planned dataset and comparator protocol come from the Group 56 proposal and [Paper2Poster](https://github.com/Paper2Poster/Paper2Poster). Codex generated the demo code, sample, prompts, checks and documentation from the project proposal and the request to build and publish a demo. Runtime agent prompts are in paper_canvas/model.py. This demo is not a final course submission or a record of individual student contributions.
+The two bundled sample papers and their charts are synthetic and bundled for redistributable testing. Runtime dependencies and versions are listed in requirements.txt. The planned dataset and comparator protocol come from the Group 56 proposal and [Paper2Poster](https://github.com/Paper2Poster/Paper2Poster). Codex generated the demo code, sample, prompts, checks and documentation from the project proposal and the request to build and publish a demo. Runtime agent prompts are in paper_canvas/model.py. This demo is not a final course submission or a record of individual student contributions.

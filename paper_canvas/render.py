@@ -43,17 +43,16 @@ def scene(s, asset):
         return y+height
     def rule(key,x,y,width,height,color):
         items.append(dict(id=key,kind="rect",x=x,y=y,w=width,h=height,color=color))
-    rule("top",0,0,w,9,TEAL)
-    title_end = block("title",s["title"],m,m,w-2*m,36,bold=True)
+    title_end = block("title",s["title"],m,27,w-2*m,35,"FFFFFF",True)
     top = title_end+37
-    rule("divider",m,top-18,w-2*m,1,"AECBC7")
+    rule("divider",0,top-18,w,4,"57B39D")
     inner = w-2*m-g
     left = inner*s["left_fraction"]
     right = inner-left
     rx = m+left+g
     def section(idx,x,y,width):
         part = s["sections"][idx]
-        end = block(IDS[idx]+"-heading",part["label"],x,y,width,17,TEAL,True)
+        end = block(IDS[idx]+"-heading",part["label"].upper(),x,y,width,14,TEAL,True)
         return block(IDS[idx],part["text"],x,end+9,width,22)
     end = section(0,m,top,left)
     section(1,m,end+40,left)
@@ -68,6 +67,11 @@ def scene(s, asset):
     if fw>right+.1:
         issues.append("figure wider than allocated result column")
     block("caption",s["evidence"]["caption"],rx,fy+fh+9,right,15,MUTED)
+    rule("footer-line",m,h-27,w-2*m,.8,"B6CDC8")
+    note="Evidence  /  p. "+str(s["evidence"]["page"])
+    if s.get("credit"):
+        note+="    |    "+s["credit"]
+    block("source-note",note,m,h-22,w-2*m,10,MUTED)
     fixed = s.get("fixed_boxes",{})
     for item in items:
         if item["id"] in fixed:
@@ -94,6 +98,14 @@ def render(s, asset, folder):
     slide = deck.slides.add_slide(deck.slide_layouts[6])
     buf = io.BytesIO()
     pdf = Canvas(buf,pagesize=(w,h))
+    band_height=next(item["y"] for item in items if item["id"]=="divider")
+    band=slide.shapes.add_shape(MSO_SHAPE.RECTANGLE,0,0,Pt(w),Pt(band_height))
+    band.name="Title background"
+    band.fill.solid()
+    band.fill.fore_color.rgb=RGBColor.from_string("173D43")
+    band.line.fill.background()
+    pdf.setFillColor("#173D43")
+    pdf.rect(0,h-band_height,w,band_height,stroke=0,fill=1)
     for a in items:
         x,y,bw,bh = (a[k] for k in ("x","y","w","h"))
         coords = list(map(Pt,(x,y,bw,bh)))

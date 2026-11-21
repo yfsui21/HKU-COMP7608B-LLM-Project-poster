@@ -7,11 +7,21 @@ from paper_canvas.agent import generate,edit,width
 from paper_canvas.model import Model
 from paper_canvas.source import EXAMPLE
 from paper_canvas.render import scene
+from paper_canvas.web import comparison, snapshot
 
 def main():
     api=Model()
     with tempfile.TemporaryDirectory() as tmp:
         root=Path(tmp)
+        session=root/"retrieval"
+        extracted=generate(EXAMPLE.with_name("retrieval_study.pdf"),session,[1008,540],"joint",api)
+        assert extracted["planner"]=="extractive" and extracted["evidence"]["page"]==2
+        assert "84%" in extracted["sections"][2]["text"]
+        before=(session/"state.json").read_bytes()
+        pair=comparison(root,session,"enlarge figure by 35% and protect result",False)
+        assert [row["decision"]["accepted"] for row in pair]==[True,False]
+        assert before==(session/"state.json").read_bytes()
+        assert snapshot(session)["evidence"]["caption"].startswith("Figure 1.")
         for mode in ("joint","layout-first"):
             dest=root/mode
             original=generate(EXAMPLE,dest,[1008,540],mode,api)
