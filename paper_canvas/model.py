@@ -41,7 +41,9 @@ Clarify unsupported or ambiguous requests."""
 
 FOREST_LAYOUT = """Inspect unmet requirements on the imported scientific poster. Choose how much spare
 space to redistribute within columns and around the primary image and its caption, in [0,1].
-Return {reflow:number,reason:string}. Preserve source aspect ratio, font sizes and protected content."""
+Return {reflow:number,reason:string,transfer:null or {donor,receiver}}. Request a transfer only when the stated
+issue requires more horizontal space. Choose adjacent body panels from method, main, secondary in that order.
+The header and interpretation band span the page. Preserve source aspect ratio, font sizes and protected content."""
 
 CLAIM_REVIEW = """Inspect the rendered poster and compare EACH claim with its listed source passages,
 conditions, cited figures and nearby text. Check numerical values, what they measure, source support,

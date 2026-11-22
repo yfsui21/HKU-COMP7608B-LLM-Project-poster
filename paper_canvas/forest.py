@@ -190,13 +190,45 @@ def prepare(pdf, directory, folder, size, api):
                             deck_sha256=spec["deck_sha256"],reflow=0.))
 
 
+PANELS = ("method", "main", "secondary")
+
+
+def panel_geometry(forest):
+    """The display template's two vertical rules delimit its three body panels."""
+    rules = sorted((i for i in forest["items"] if i["kind"] == "rect" and i["h"] > i["w"]),
+                   key=lambda i: i["x"])
+    if len(rules) != 2:
+        return None
+    width = forest["native_size"][0]
+    edges = [0., rules[0]["x"], rules[1]["x"], width]
+    first, right = forest.get("split_ratios", (edges[1]/width, (edges[2]-edges[1])/(width-edges[1])))
+    # PosterForest's vertical split at the root, followed by a split in the right child.
+    current = [0., width*first, width*(first+(1-first)*right), width]
+    return rules, edges, current
+
+
 def scene(state, wrap):
     forest = state["forest"]
     sx,sy = [a/b for a,b in zip(state["size"], forest["native_size"])]
     texts = dict(zip(("question","method","result"), [s["text"] for s in state["sections"]]))
     items, issues = [], []
+    geometry = panel_geometry(forest)
     for original in forest["items"]:
         item = dict(original)
+        panel = None
+        if geometry:
+            rules, edges, current = geometry
+            for boundary, rule in enumerate(rules, 1):
+                if item["id"] == rule["id"]:
+                    item["x"] = current[boundary]
+            # Include the small column labels sitting just above the vertical rules.
+            if item["kind"] != "rect" and rules[0]["y"]-item["h"]*.5 <= item["y"] < rules[0]["y"]+rules[0]["h"]:
+                center = item["x"] + item["w"]/2
+                panel = int(center >= edges[1]) + int(center >= edges[2])
+                ratio = (current[panel+1]-current[panel])/(edges[panel+1]-edges[panel])
+                item["panel"] = PANELS[panel]
+                item["x"] = current[panel] + (item["x"]-edges[panel])*ratio
+                item["w"] *= ratio
         for key in ("x","w"):
             item[key] *= sx
         for key in ("y","h"):
@@ -204,9 +236,14 @@ def scene(state, wrap):
         if item["kind"] == "image":
             # Uniform scaling preserves the aspect ratio even at other canvas sizes.
             scale = min(sx,sy) * (state["figure_scale"] if item["id"]=="figure" else 1.)
+            if panel is not None and item["id"] != "figure":
+                scale = min(scale, item["w"]/original["w"])
             w,h = original["w"]*scale, original["h"]*scale
             item["x"] += (item["w"]-w)/2
             item["w"],item["h"] = w,h
+            if panel is not None and (item["x"] < current[panel]*sx-.1 or
+                                       item["x"]+w > current[panel+1]*sx+.1):
+                issues.append(item["id"]+" exceeds "+PANELS[panel]+" panel width")
         if item["kind"]=="text":
             item["text"] = texts.get(item["id"],forest.get("edits",{}).get(item["id"],item["text"]))
             item["lines"] = wrap(item["text"],item["w"],item["font"],item["size"])
@@ -221,6 +258,15 @@ def scene(state, wrap):
                   and i["y"]<caption["y"]),key=lambda i:i["y"])
     heading = next(i for i in items if i["id"]=="result_title")
     if forest["reflow"]:
+        if forest.get("template") == 2:
+            metric, label, detail = [next(i for i in items if i["id"] == name)
+                                     for name in ("metric", "metric_label", "result")]
+            for previous, following in ((metric, label), (label, detail)):
+                gap = previous["y"] + previous["h"] + 4 - following["y"]
+                following["y"] += max(0, gap)*forest["reflow"]
+            header = next(i for i in items if i["kind"] == "rect" and i["y"] == 0)
+            if detail["y"] + detail["h"] > header["h"]+.1:
+                issues.append("result exceeds header height")
         # Consume the gap above the image first, then move the caption and its source label together.
         gap = max(0,fig["y"]-heading["y"]-heading["h"]-8)
         fig["y"] -= gap*forest["reflow"]

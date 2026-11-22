@@ -151,7 +151,10 @@ def review(s,asset,folder,api):
         if not claim["passed"]:
             issues.append(dict(target=claim["claim"],problem="Unmet scientific requirement",
                                change=claim["missing"]+claim["mismatched"]+claim["unsupported_numbers"] or ["Restore source support"]))
-    write(folder/"review.json",dict(issues=issues,elements=boxes,claims=claims,suggestions=verdict.get("suggestions",[]) if api.live else []))
+    report=dict(issues=issues,elements=boxes,claims=claims,suggestions=verdict.get("suggestions",[]) if api.live else [])
+    if "allocation" in s.get("forest",{}):
+        report["panel_allocation"]=s["forest"]["allocation"]
+    write(folder/"review.json",report)
     return issues
 
 def content_pass(s,issues,api):
@@ -193,13 +196,66 @@ def fit_requested_figure(s,asset):
         s["figure_scale"]=1
         s["figure_scale"]=max(.10,s["limits"]["figure"]/width(s,asset))
 
+def allocate_panels(s, issues, asset, proposal):
+    """Try adjacent width transfers; measure the entire candidate before adopting one."""
+    f = s["forest"]
+    geometry = forest.panel_geometry(f)
+    if not geometry or "fixed_boxes" in s:
+        return
+    edges = geometry[2]
+    items, problems = scene(s, asset)
+    initial = set(problems)
+    if not initial and not (issues and proposal):
+        return
+    panels = forest.PANELS
+    preferred = (proposal.get("donor"), proposal.get("receiver")) if isinstance(proposal, dict) else ()
+    total = edges[-1]
+    best_score = (len(initial), 1, 0.)
+    best = None
+    for boundary in (1, 2):
+        for fraction in (.015, .03, .05, .08, .12):
+            for direction in (-1, 1):
+                trial = edges.copy()
+                trial[boundary] += total*fraction*direction
+                donor, receiver = panels[boundary-1:boundary+1]
+                if direction > 0:
+                    donor, receiver = receiver, donor
+                if min(b-a for a,b in zip(trial,trial[1:])) < total*.16:
+                    continue
+                ratios = [trial[1]/total, (trial[2]-trial[1])/(total-trial[1])]
+                candidate = dict(s, forest=dict(f, split_ratios=ratios))
+                remaining = set(scene(candidate,asset)[1])
+                preferred_pair = preferred == (donor, receiver)
+                score = (len(remaining), int(not preferred_pair), fraction)
+                if remaining <= initial and score < best_score:
+                    best_score = score
+                    best = (ratios, dict(donor=donor, receiver=receiver, transferred_pt=fraction*s["size"][0],
+                                         reason=issues, geometry_before=sorted(initial), geometry_after=sorted(remaining)))
+    if best:
+        f["split_ratios"], f["allocation"] = best
+        allocation = f["allocation"]
+        panel_by_id = {item["id"]:item.get("panel") for item in items}
+        claims = {}
+        for claim, fields in forest.groups(f.get("template")).items():
+            elements = [forest.TARGET.get(field,field) for field in fields]
+            elements.extend(f["assets"][asset_id]["element"] for asset_id in f["claims"][claim]["assets"])
+            for panel in (allocation["donor"], allocation["receiver"]):
+                if any(panel_by_id.get(element)==panel for element in elements):
+                    claims.setdefault(panel,[]).append(claim)
+        allocation["affected_claims"] = claims
+
+
 def layout_pass(s,issues,api,asset=None):
     if "forest" in s:
+        proposal = None
         if api.live:
             decision=api.ask(model.FOREST_LAYOUT,dict(poster=context(s),issues=issues))
             s["forest"]["reflow"]=max(0,min(1,float(decision["reflow"])))
+            proposal = decision.get("transfer")
         elif issues:
             s["forest"]["reflow"]=1.
+        if issues and asset is not None:
+            allocate_panels(s,issues,asset,proposal)
         return
     if api.live:
         values=api.ask(model.LAYOUT,dict(poster=context(s),issues=issues))

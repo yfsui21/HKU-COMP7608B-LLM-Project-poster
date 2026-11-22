@@ -26,6 +26,16 @@ The recorded standalone run made 35 text and 29 vision requests during native Po
 
 ### Replay the earlier generated example
 
+The imported three-column display supports width transfers between adjacent body panels.
+PaperCanvas uses PosterForest's vertical binary-split method on the editable display columns:
+the first split separates the method panel, and the second divides the two results panels.
+It measures candidate transfers on the rendered scene, preserves image proportions, and records
+the donor, recipient, transferred width, affected claims, and geometry checks in `review.json`.
+For a reproducible offline geometry test using the bundled display and the original PDF, run
+`python verify_panel_transfer.py runs/tsne-jmlr.pdf --out runs/tsne-transfer`. On its 2250 × 1940 pt
+canvas, a 112.5 pt transfer from method to main fits the main caption above the interpretation band.
+The test reopens the PPTX and checks both panels, all three images, and dialogue rollback.
+
 To reproduce the connected t-SNE demo locally using the existing generated slide and its bound evidence, download the same source PDF and run:
 
 ```sh
