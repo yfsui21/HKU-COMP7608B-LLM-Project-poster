@@ -18,6 +18,9 @@ from .render import IDS, render, scene
 ORDERS = {"joint":["content","layout"]*2, "content-first":["content"]*2+["layout"]*2,
           "layout-first":["layout"]*2+["content"]*2}
 
+LOCK_STALE_SECONDS = 600
+
+
 def write(path, data):
     temp = path.with_name(path.name+"."+uuid.uuid4().hex+".tmp")
     temp.write_text(json.dumps(data,indent=2,ensure_ascii=False),encoding="utf8")
@@ -344,11 +347,31 @@ def intent(request,s,api):
         return dict(target=match[1],operation="protect",protect=[match[1]])
     return dict(operation="clarify")
 
+def _acquire_lock(guard):
+    """Take the single-writer guard, recovering a lock left by an interrupted edit."""
+    try:
+        with guard.open("x", encoding="utf8") as stream:
+            stream.write(f"{os.getpid()} {time.time()}\n")
+        return
+    except FileExistsError:
+        pass
+    try:
+        age = time.time() - guard.stat().st_mtime
+    except OSError:
+        age = 0
+    if age > LOCK_STALE_SECONDS:
+        guard.unlink(missing_ok=True)
+        with guard.open("x", encoding="utf8") as stream:
+            stream.write(f"{os.getpid()} {time.time()}\n")
+        return
+    raise ValueError("Another edit is in progress (.editing lock exists). "
+                     "If no other process is running, remove the lock file and retry.")
+
+
 def edit(folder,request,api):
     # Exclusive single-writer guard. state.json is the only committed pointer.
     guard=folder/".editing"
-    with guard.open("x"):
-        pass
+    _acquire_lock(guard)
     start,offset=time.monotonic(),len(api.calls)
     try:
         old=read(folder/"state.json")
@@ -403,5 +426,5 @@ def edit(folder,request,api):
         trace(folder,"edit",**record)
         return s
     finally:
-        guard.unlink()
+        guard.unlink(missing_ok=True)
         cost_record(api,folder,start,offset)

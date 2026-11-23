@@ -93,7 +93,7 @@ def plan(path,pages):
     evidence=figure_options(path)
     all_evidence=evidence
     if not evidence:
-        raise ValueError("未定位到带图注的可提取图表。请使用图注位于图表下方的文本型 PDF，或切换视觉模型模式。")
+        raise ValueError("No extractable figure with a caption was located. Use a text-based PDF whose captions sit below their figures, or switch to vision-model mode.")
     sections=[]
     used=set()
     for role,label in zip(HEADINGS,("Research question","Method","Key finding")):
@@ -106,7 +106,7 @@ def plan(path,pages):
             if score>=3:
                 scored.append((score,page,sentence))
         if not scored:
-            raise ValueError("缺少可核对的 "+label+" 原文。请使用含研究问题、方法和结果的英文论文。")
+            raise ValueError("Missing verifiable source text for "+label+". Use an English paper with a research question, methods and results.")
         _,page,quote=max(scored,key=lambda v:v[0])
         used.add(quote)
         # Keep the complete primary statement as the immutable context in extractive mode.

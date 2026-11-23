@@ -251,6 +251,7 @@ def render(s,asset,folder,figure_proofs=False):
                 pdf.drawString(x,h-y-a["size"]-i*a["size"]*1.18,line)
         shape.name=a["id"]
     deck.save(folder/"poster.pptx")
+    # Self-check: reopening the saved deck here fails fast on a corrupt export.
     Presentation(folder/"poster.pptx")
     pdf.save()
     with pdfium.PdfDocument(buf.getvalue()) as doc:

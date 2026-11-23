@@ -15,11 +15,12 @@ from .model import Model
 from . import forest_example
 
 STATIC = Path(__file__).parent
+REPO = STATIC.parent
 SAMPLES = {"field": EXAMPLE, "retrieval": EXAMPLE.with_name("retrieval_study.pdf")}
-OPEN_PAPER = Path("runs/open-papers/hadi-2024.pdf")
+OPEN_PAPER = REPO / "runs/open-papers/hadi-2024.pdf"
 MIME = {"preview.png":"image/png","poster.pptx":"application/vnd.openxmlformats-officedocument.presentationml.presentation"}
 VERSION = re.compile(r"(?:0[0-4]-(?:initial|layout|content)|edit-[0-9a-f]{10})")
-REPLAY = STATIC.parent / "runs/posterforest-replay"
+REPLAY = REPO / "runs/posterforest-replay"
 REPLAY_FILES = {"poster.pptx": MIME["poster.pptx"], "report.json": "application/json",
                 "before.jpg": "image/jpeg", "reference.jpg": "image/jpeg"}
 
@@ -115,11 +116,11 @@ def comparison(root,folder,request,live):
     return rows
 
 def serve(port,live,forest_result=None,forest_pdf=None):
-    root=Path("runs/web")
+    root=REPO/"runs/web"
     root.mkdir(parents=True,exist_ok=True)
     token=secrets.token_urlsafe(32)
-    forest_result=forest_result or STATIC.parent/"examples/tsne"
-    forest_pdf=forest_pdf or STATIC.parent/"runs/open-papers/tsne-jmlr.pdf"
+    forest_result=forest_result or REPO/"examples/tsne"
+    forest_pdf=forest_pdf or REPO/"runs/open-papers/tsne-jmlr.pdf"
     imported=(forest_result/"claims.json").is_file() and forest_pdf.is_file()
     def session(sid):
         if not isinstance(sid,str) or not re.fullmatch(r"[0-9a-f]{32}",sid) or not (root/sid/"state.json").is_file():

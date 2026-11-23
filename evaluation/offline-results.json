@@ -7,42 +7,42 @@
       "area": 1,
       "condition": "joint",
       "completed": true,
-      "artifact": "paper-00-area-1\\joint\\04-layout"
+      "artifact": "paper-00-area-1/joint/04-layout"
     },
     {
       "paper": "paired_review.pdf",
       "area": 1,
       "condition": "content-first",
       "completed": true,
-      "artifact": "paper-00-area-1\\content-first\\04-layout"
+      "artifact": "paper-00-area-1/content-first/04-layout"
     },
     {
       "paper": "paired_review.pdf",
       "area": 1,
       "condition": "layout-first",
       "completed": true,
-      "artifact": "paper-00-area-1\\layout-first\\04-content"
+      "artifact": "paper-00-area-1/layout-first/04-content"
     },
     {
       "paper": "paired_review.pdf",
       "area": 0.75,
       "condition": "joint",
       "completed": true,
-      "artifact": "paper-00-area-0.75\\joint\\04-layout"
+      "artifact": "paper-00-area-0.75/joint/04-layout"
     },
     {
       "paper": "paired_review.pdf",
       "area": 0.75,
       "condition": "content-first",
       "completed": true,
-      "artifact": "paper-00-area-0.75\\content-first\\04-layout"
+      "artifact": "paper-00-area-0.75/content-first/04-layout"
     },
     {
       "paper": "paired_review.pdf",
       "area": 0.75,
       "condition": "layout-first",
       "completed": true,
-      "artifact": "paper-00-area-0.75\\layout-first\\04-content"
+      "artifact": "paper-00-area-0.75/layout-first/04-content"
     }
   ],
   "dialogues": [
