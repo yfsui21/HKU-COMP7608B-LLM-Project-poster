@@ -8,6 +8,37 @@ PaperCanvas helps a researcher turn a text-based paper PDF into an editable, sin
 
 **Standalone t-SNE demo.** Starting from the 27-page JMLR paper, a signed-in Codex CLI generated a one-page poster, alternated content and layout revisions, and processed three dialogue turns. Open the [final editable PowerPoint](examples/tsne/independent-cli/poster.pptx), [LibreOffice preview](examples/tsne/independent-cli/preview.png), [acceptance record](examples/tsne/independent-cli/acceptance.json) or [claim-by-claim evidence and verdicts](examples/tsne/independent-cli/review.json).
 
+### Edit the paper's native PosterForest tree
+
+By default `pipeline` creates the claim-bound display session in `--out` and the native tree session in
+`OUT/tree`. Use `--layout tree` to open the upstream poster directly in `--out`, or `--layout display`
+for the three-column workflow. The native editor reads the upstream split IDs and directions and binds
+the final slide's shapes to their panels. Opening a session preserves the original PPTX byte for byte.
+The editor recovers the accepted split shares from the final panel positions, including changes made
+after the initial layout stage.
+
+To open a completed local run without repeating inference:
+
+```sh
+python papercanvas.py tree-import runs/tsne-generation --out runs/tsne-tree
+python papercanvas.py demo --tree-session runs/tsne-tree --soffice /path/to/soffice
+```
+
+Open the address printed by the server. Select a branch by its two child sections, set the share for the
+left or upper child, and apply the edit. The preview and download link follow the accepted version.
+For the CLI, `tree-list SESSION` lists branch IDs and their shares. Use
+`python papercanvas.py edit SESSION "split NODE_ID 55%" --soffice /path/to/soffice`.
+With a configured vision model, `edit --live` also accepts a natural-language layout request and supplies the
+current preview and branch names to the model. Existing image bytes, text and font settings are preserved.
+LibreOffice renders each edited deck; the editor compares visible text within the textboxes with the
+source rendering and rejects new character loss. Native layout edits and the display session's
+claim-bound text revisions currently maintain separate version histories.
+
+`tree-import` also accepts an upstream output directory containing stages 4, 6 and 8.
+`python verify_native_tree.py WORK --soffice /path/to/soffice` checks the modified subtree, unaffected
+shapes, image aspect ratios and rollback. The regression was exercised on the local t-SNE run and the
+[upstream ACL paper example](https://github.com/kaist-cvml/poster-forest/tree/dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9/outputs/20260612_180322_vllm_qwen3_vllm_qwen3_vl_2026_ACL).
+
 ### Generate, revise and verify from a PDF
 
 Install the two requirements files, sign in with `codex login`, and prepare the pinned PosterForest checkout and LibreOffice executable described below. Start with **new work and session paths**. The acceptance case uses the original PDF from [Visualizing Data using t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html).
