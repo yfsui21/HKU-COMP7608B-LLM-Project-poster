@@ -116,6 +116,7 @@ def comparison(root,folder,request,live):
     return rows
 
 def serve(port,live,forest_result=None,forest_pdf=None,tree_session=None,soffice=None):
+    native_pdf=forest_pdf
     if tree_session:
         if read(tree_session/"state.json").get("format")!="posterforest-tree-v1":
             raise ValueError("Select a native tree session")
@@ -153,7 +154,7 @@ def serve(port,live,forest_result=None,forest_pdf=None,tree_session=None,soffice
                                   (STATIC/"native_tree.html").read_text(encoding="utf8").replace("{{TOKEN}}",token).encode())
             if tree_session and path=="/tree/state":
                 state=read(tree_session/"state.json")
-                return self.data(dict(artifact=state["artifact"],branches=native_tree.choices(state["tree"])))
+                return self.data(dict(artifact=state["artifact"],branches=native_tree.choices(state["tree"]),live=live))
             if tree_session and path.startswith("/tree/file/"):
                 parts=path.split("/")
                 if len(parts)==5 and (parts[3]=="original" or VERSION.fullmatch(parts[3])) and parts[4] in MIME:
@@ -205,9 +206,15 @@ def serve(port,live,forest_result=None,forest_pdf=None,tree_session=None,soffice
                 if not 1<=length<=24_000_000:
                     raise ValueError("上传文件上限为 16 MB。")
                 data=json.loads(self.rfile.read(length))
-                if tree_session and self.path=="/tree/resize":
-                    result=native_tree.resize(tree_session,data["node"],float(data["ratio"]),soffice,data["artifact"])
-                    return self.data(dict(artifact=result["artifact"],branches=native_tree.choices(result["tree"])))
+                if tree_session and self.path in ("/tree/resize","/tree/revise"):
+                    if self.path=="/tree/resize":
+                        result=native_tree.resize(tree_session,data["node"],float(data["ratio"]),soffice,data["artifact"])
+                    elif live:
+                        from .native_revision import revise
+                        result=revise(tree_session,data["request"],Model(True),soffice,native_pdf,data["artifact"])
+                    else:
+                        raise ValueError("Start the editor with --live for natural-language revision")
+                    return self.data(dict(artifact=result["artifact"],branches=native_tree.choices(result["tree"]),live=live))
                 if self.path=="/generate":
                     sid=uuid.uuid4().hex
                     folder=root/sid

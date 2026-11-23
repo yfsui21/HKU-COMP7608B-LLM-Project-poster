@@ -7,7 +7,11 @@
 <header><h1>PaperCanvas · 布局树编辑器</h1></header><main>
 <form><label for="branch">论文分支</label><select id="branch"></select><p id="children"></p>
 <label id="share" for="ratio">第一部分占比（%）</label><input id="ratio" type="number" step="any" required min=".01" max="99.99">
-<button disabled>调整并检查海报</button><a id="download">下载当前 PowerPoint</a><p id="status" role="status"></p></form>
+<button disabled>调整并检查海报</button>
+<div id="joint" hidden><label for="request">内容与版式修改要求</label>
+<textarea id="request" rows="4" style="width:100%;font:inherit"></textarea>
+<button type="button" id="revise">按要求修改并复核</button></div>
+<a id="download">下载当前 PowerPoint</a><p id="status" role="status"></p></form>
 <figure><img id="preview" alt="当前单页海报"></figure></main>
 <script>
 const get=id=>document.getElementById(id), branch=get("branch"), ratio=get("ratio"), statusText=get("status"), button=document.querySelector("button");
@@ -24,15 +28,19 @@ function display(data){
  const selected=branch.value;current=data;branch.replaceChildren();
  for(const n of data.branches){const option=document.createElement("option");option.value=n.id;option.textContent=n.first+" ↔ "+n.second;branch.append(option)}
  if(data.branches.some(n=>n.id===selected))branch.value=selected;
- selection();button.disabled=!branch.length;
+ selection();button.disabled=!branch.length;get("joint").hidden=!data.live;
  const base="/tree/file/"+data.artifact+"/";get("preview").src=base+"preview.png";get("download").href=base+"poster.pptx";
 }
 branch.onchange=selection;
-document.querySelector("form").onsubmit=async e=>{
- e.preventDefault();button.disabled=true;statusText.textContent="正在渲染并检查文字…";
- try{const r=await fetch("/tree/resize",{method:"POST",headers:{"Content-Type":"application/json","X-Canvas-Token":"{{TOKEN}}"},
- body:JSON.stringify({artifact:current.artifact,node:branch.value,ratio:Number(ratio.value)/100})});const d=await r.json();if(!r.ok)throw Error(d.error);
- display(d);statusText.textContent="已保存。"}catch(e){statusText.textContent=e.message}finally{button.disabled=!branch.length}
+async function submitEdit(path,change){
+ button.disabled=true;get("revise").disabled=true;statusText.textContent="正在修改并检查海报…";
+ try{const r=await fetch(path,{method:"POST",headers:{"Content-Type":"application/json","X-Canvas-Token":"{{TOKEN}}"},
+ body:JSON.stringify({artifact:current.artifact,...change})});const d=await r.json();if(!r.ok)throw Error(d.error);
+ display(d);statusText.textContent="已保存。"}catch(e){statusText.textContent=e.message}finally{button.disabled=!branch.length;get("revise").disabled=false}
+}
+document.querySelector("form").onsubmit=e=>{
+ e.preventDefault();submitEdit("/tree/resize",{node:branch.value,ratio:Number(ratio.value)/100})
 };
+get("revise").onclick=()=>{const request=get("request").value.trim();if(request)submitEdit("/tree/revise",{request})};
 fetch("/tree/state").then(r=>r.json()).then(display).catch(e=>statusText.textContent=e.message);
 </script></html>

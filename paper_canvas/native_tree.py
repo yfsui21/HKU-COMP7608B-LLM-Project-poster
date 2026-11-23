@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 import uuid
 from difflib import SequenceMatcher
+from copy import deepcopy
 from pathlib import Path
 
 import pypdfium2 as pdfium
@@ -76,8 +77,16 @@ def title(node):
 
 
 def choices(tree):
-    return [dict(id=n["id"], direction=n["direction"], ratio=n["ratio"],
-                 first=title(n["children"][0]), second=title(n["children"][1])) for n in branches(tree)]
+    result = []
+    for node in branches(tree):
+        choice = dict(id=node["id"], direction=node["direction"], ratio=node["ratio"])
+        for side, child in zip(("first","second"), node["children"]):
+            panels = {}
+            panel_boxes(child, child["box"], panels)
+            choice[side] = title(child)
+            choice[side+"_panels"] = list(panels)
+        result.append(choice)
+    return result
 
 
 def panel_boxes(node, target, output):
@@ -99,7 +108,7 @@ def panel_boxes(node, target, output):
     panel_boxes(second, b, output)
 
 
-def start(work, dest):
+def start(work, dest, pdf=None):
     run = work
     original = run/"08_finalize_output/poster_final.pptx"
     paper_hash = None
@@ -159,6 +168,12 @@ def start(work, dest):
         session = Path(tmp)/"session"
         initial = session/"original"
         initial.mkdir(parents=True)
+        if pdf:
+            source_hash = digest(pdf)
+            if paper_hash and paper_hash != source_hash:
+                raise ValueError("Source PDF does not match the upstream generation")
+            state["pdf_sha256"] = source_hash
+            shutil.copyfile(pdf, session/"source.pdf")
         shutil.copyfile(original, initial/"poster.pptx")
         with Image.open(run/"08_finalize_output/poster_final.jpg") as image:
             image.save(initial/"preview.png")
@@ -199,8 +214,10 @@ def render_preview(pptx, soffice, dest=None):
 
 
 def resize(session, node_id, ratio, soffice, expected_version=None, request=None):
-    if not math.isfinite(ratio) or not 0 < ratio < 1:
-        raise ValueError("Split share must be strictly between 0 and 1")
+    return apply_revision(session, {"splits": {node_id:ratio}}, soffice, expected_version, request)
+
+
+def apply_revision(session, plan, soffice, expected_version, request, review=None):
     lock = session/".editing"
     _acquire_lock(lock)
     try:
@@ -208,11 +225,14 @@ def resize(session, node_id, ratio, soffice, expected_version=None, request=None
         if expected_version and state["artifact"] != expected_version:
             raise ValueError("The layout changed. Reload the current version.")
         tree = state["tree"]
-        match = next((n for n in branches(tree) if n["id"] == node_id), None)
-        if match is None:
-            raise ValueError("Unknown split node")
-        old_ratio = match["ratio"]
-        match["ratio"] = ratio
+        nodes = {n["id"]:n for n in branches(tree)}
+        moves = []
+        for node_id, ratio in plan.get("splits", {}).items():
+            if node_id not in nodes or type(ratio) not in (float,int) or not math.isfinite(ratio) or not 0 < ratio < 1:
+                raise ValueError("Invalid split ID or share")
+            match = nodes[node_id]
+            moves.append(dict(node=node_id, before=match["ratio"], after=ratio))
+            match["ratio"] = ratio
         geometry = {}
         panel_boxes(tree, tree["box"], geometry)
         # At PDF print resolution, a sub-point panel no longer has a usable content area.
@@ -224,6 +244,32 @@ def resize(session, node_id, ratio, soffice, expected_version=None, request=None
         if digest(original) != state["original_sha256"]:
             raise ValueError("Original PowerPoint changed")
         deck = Presentation(original)
+        text_shapes = {str(sh.shape_id): sh for sh in deck.slides[0].shapes if sh.has_text_frame and sh.text.strip()}
+        protected = set(state.get("protected", [])) | set(plan.get("protect", []))
+        if protected - text_shapes.keys():
+            raise ValueError("Unknown protected textbox")
+        replacements = state.setdefault("paragraphs", {})
+        for change in plan.get("texts", []):
+            key, index = change["shape"], change["paragraph"]
+            if key in protected:
+                raise ValueError("Requested change conflicts with protected textbox "+key)
+            if key not in text_shapes or type(index) is not int or not 0 <= index < len(text_shapes[key].text_frame.paragraphs):
+                raise ValueError("Unknown textbox or paragraph")
+            text = change["text"]
+            if not isinstance(text,str) or not text.strip() or len(text.splitlines()) != 1:
+                raise ValueError("Expected a nonempty single paragraph")
+            replacements.setdefault(key,{})[str(index)] = change
+        state["protected"] = sorted(protected)
+        for key, entries in replacements.items():
+            for index, change in entries.items():
+                paragraph = text_shapes[key].text_frame.paragraphs[int(index)]
+                # Keep the paragraph, its bullet, and the first run's styling.
+                properties = deepcopy(paragraph.runs[0]._r.rPr) if paragraph.runs else None
+                paragraph.clear()
+                run = paragraph.add_run()
+                if properties is not None:
+                    run._r.insert(0,properties)
+                run.text = change["text"]
         for shape in deck.slides[0].shapes:
             pid = state["owners"][str(shape.shape_id)]
             if pid not in geometry:
@@ -252,12 +298,20 @@ def resize(session, node_id, ratio, soffice, expected_version=None, request=None
             if baseline is None:
                 baseline = render_preview(original, soffice)
                 state["original_coverage"] = baseline
-            lost = [key for key,count in baseline.items() if coverage[key] < count]
+            required = dict(baseline)
+            for key in replacements:
+                required[key] = len("".join(text_shapes[key].text.split()))
+            lost = [key for key,count in required.items() if coverage[key] < count]
             if lost:
                 raise ValueError("Rendered text loses coverage inside textboxes: "+", ".join(lost))
-            write(candidate/"review.json", dict(source_coverage=baseline, candidate_coverage=coverage))
+            verdict = review(candidate, state) if review else None
+            write(candidate/"review.json", dict(source_coverage=baseline, candidate_coverage=coverage,
+                                                required_coverage=required, revision_review=verdict))
             candidate.rename(session/version)
-        state["history"].append(dict(node=node_id, before=old_ratio, after=ratio, artifact=version, request=request))
+        record = dict(splits=moves, texts=plan.get("texts",[]), protected=sorted(protected), artifact=version, request=request)
+        if len(moves)==1:
+            record.update(moves[0])
+        state["history"].append(record)
         state["artifact"] = version
         write(session/"state.json",state)
         return state

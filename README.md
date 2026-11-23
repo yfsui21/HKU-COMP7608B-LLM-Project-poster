@@ -20,7 +20,7 @@ after the initial layout stage.
 To open a completed local run without repeating inference:
 
 ```sh
-python papercanvas.py tree-import runs/tsne-generation --out runs/tsne-tree
+python papercanvas.py tree-import runs/tsne-generation --paper runs/tsne-jmlr.pdf --out runs/tsne-tree
 python papercanvas.py demo --tree-session runs/tsne-tree --soffice /path/to/soffice
 ```
 
@@ -28,11 +28,16 @@ Open the address printed by the server. Select a branch by its two child section
 left or upper child, and apply the edit. The preview and download link follow the accepted version.
 For the CLI, `tree-list SESSION` lists branch IDs and their shares. Use
 `python papercanvas.py edit SESSION "split NODE_ID 55%" --soffice /path/to/soffice`.
-With a configured vision model, `edit --live` also accepts a natural-language layout request and supplies the
-current preview and branch names to the model. Existing image bytes, text and font settings are preserved.
-LibreOffice renders each edited deck; the editor compares visible text within the textboxes with the
-source rendering and rejects new character loss. Native layout edits and the display session's
-claim-bound text revisions currently maintain separate version histories.
+With a configured vision model, `edit --live` and `demo --live --tree-session SESSION` accept requests such
+as “shorten the explanation and give the adjacent results panel more room; protect the conclusion.”
+The planner sees this paper's actual textboxes, branches, preview and previous turns. It can select text
+only, layout only, multiple operations together, or protect text. A content edit needs a verified quote
+from the supplied PDF. New pipeline sessions retain the PDF; for older sessions supply `--paper PATH`.
+Each rewritten paragraph keeps its paragraph settings and uses the first run's style. Images remain
+embedded. LibreOffice renders the candidate and the reviewer checks the request and every replacement
+against the evidence. A failed review can trigger one corrected plan. Rejected candidates leave the last
+accepted slide, protections and split shares intact. Manual split edits preserve earlier wording changes.
+The native session's joint history is independent of the separate three-column evaluation session.
 
 `tree-import` also accepts an upstream output directory containing stages 4, 6 and 8.
 `python verify_native_tree.py WORK --soffice /path/to/soffice` checks the modified subtree, unaffected

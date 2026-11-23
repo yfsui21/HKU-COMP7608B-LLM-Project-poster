@@ -35,6 +35,7 @@ def main():
     tree=sub.add_parser("tree-import",help="Open the accepted native layout of an existing PosterForest run")
     tree.add_argument("work",type=Path)
     tree.add_argument("--out",type=Path,required=True)
+    tree.add_argument("--paper",type=Path,help="Attach the original PDF for source-grounded native text edits")
     show=sub.add_parser("tree-list",help="List adjustable splits with their child sections")
     show.add_argument("session",type=Path)
     pipeline.add_argument("--backend",choices=["session","codex"],default="codex")
@@ -43,6 +44,7 @@ def main():
     change=sub.add_parser("edit")
     change.add_argument("session",type=Path)
     change.add_argument("request")
+    change.add_argument("--paper",type=Path,help="Original PDF for a native session imported without one")
     change.add_argument("--soffice",default=os.getenv("FOREST_SOFFICE") or shutil.which("soffice"))
     ui=sub.add_parser("demo")
     ui.add_argument("--port",type=int,default=8765)
@@ -54,7 +56,7 @@ def main():
         parser.add_argument("--live",action="store_true")
     args=p.parse_args()
     if args.cmd=="tree-import":
-        state=native_tree.start(args.work,args.out)
+        state=native_tree.start(args.work,args.out,args.paper)
         print((args.out/state["artifact"]/"poster.pptx").resolve())
         return
     if args.cmd=="tree-list":
@@ -74,7 +76,7 @@ def main():
                         "--source",str(args.source),"--soffice",str(args.soffice),"--out",str(args.work),
                         "--backend",args.backend,"--model",args.model or ("GPT-current-session" if args.backend=="session" else "codex-default")],check=True)
         if args.layout=="tree":
-            state=native_tree.start(args.work,args.out)
+            state=native_tree.start(args.work,args.out,args.pdf)
             print((args.out/state["artifact"]/"poster.pptx").resolve())
             return
         try:
@@ -86,7 +88,7 @@ def main():
         finally:
             # The upstream tree remains usable even if the optional display composition fails.
             if args.layout=="both":
-                native=native_tree.start(args.work,args.out/"tree")
+                native=native_tree.start(args.work,args.out/"tree",args.pdf)
                 print((args.out/"tree"/native["artifact"]/"poster.pptx").resolve())
         return
     model=Model(args.cmd=="bind" or args.live)
@@ -98,16 +100,12 @@ def main():
             match=re.fullmatch(r"split (\S+) (\d+(?:\.\d+)?)%",args.request.strip())
             if match:
                 node, ratio=match[1],float(match[2])/100
+                result=native_tree.resize(args.session,node,ratio,args.soffice,state["artifact"],args.request)
             elif model.live:
-                decision=model.ask("Interpret this layout request using the named split branches. Return "
-                                   "{node,ratio} for the first child's new share (0 to 1), or {error:reason} "
-                                   "for ambiguous requests or actions other than resizing a branch.",
-                                   dict(branches=native_tree.choices(state["tree"]),request=args.request,history=state["history"]),
-                                   (args.session/state["artifact"]/"preview.png").read_bytes())
-                node,ratio=decision["node"],float(decision["ratio"])
+                from paper_canvas.native_revision import revise
+                result=revise(args.session,args.request,model,args.soffice,args.paper,state["artifact"])
             else:
                 p.error('Use "split NODE 55%" or --live for a natural language layout request')
-            result=native_tree.resize(args.session,node,ratio,args.soffice,state["artifact"],args.request)
             print((args.session/result["artifact"]/"poster.pptx").resolve())
             return
     if args.cmd=="bind":

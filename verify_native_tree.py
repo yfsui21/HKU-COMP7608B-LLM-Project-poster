@@ -6,7 +6,7 @@ from pathlib import Path
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 
-from paper_canvas.native_tree import box, branches, panel_boxes, read, resize, start
+from paper_canvas.native_tree import apply_revision, box, branches, panel_boxes, read, resize, start
 
 
 def verify(work, soffice, index, delta):
@@ -47,6 +47,33 @@ def verify(work, soffice, index, delta):
                 assert read(session/"state.json") == result
             else:
                 raise AssertionError("Invalid or stale edit committed")
+        # Exercise the shared transaction with the actual slide's text and node IDs.
+        titles = [s for s in first.shapes if s.has_text_frame and s.text.strip()]
+        heading = titles[0]
+        index = next(i for i,p in enumerate(heading.text_frame.paragraphs) if p.text.strip())
+        shortened = heading.text.split()[0]
+        change = dict(shape=str(heading.shape_id), paragraph=index, text=shortened)
+        lock_id = str(titles[1].shape_id)
+        plan = dict(texts=[change], splits={branch["id"]:branch["ratio"]}, protect=[lock_id])
+        def reject(candidate, _):
+            raise ValueError("Test reviewer rejected this candidate")
+        try:
+            apply_revision(session, plan, soffice, result["artifact"], "test", reject)
+        except ValueError as exc:
+            assert str(exc) == "Test reviewer rejected this candidate"
+            assert read(session/"state.json") == result
+        else:
+            raise AssertionError("A rejected joint revision was saved")
+        joint = apply_revision(session, plan, soffice, result["artifact"], "test joint revision")
+        resumed = resize(session, branch["id"], ratio, soffice, joint["artifact"])
+        saved = Presentation(session/resumed["artifact"]/"poster.pptx")
+        assert next(s for s in saved.slides[0].shapes if s.shape_id==heading.shape_id).text_frame.paragraphs[index].text == shortened
+        try:
+            apply_revision(session, {"texts":[dict(change,shape=lock_id)]}, soffice, resumed["artifact"], "test conflict")
+        except ValueError as exc:
+            assert "protected" in str(exc) and read(session/"state.json")==resumed
+        else:
+            raise AssertionError("Protected text edit was saved")
         print(f"PASS: {len(nodes)} splits, {len(first.shapes)} shapes, {changed} moved or resized, rollback verified.")
 
 
