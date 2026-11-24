@@ -121,8 +121,11 @@ def start(work, dest, pdf=None):
             raise ValueError("No upstream run matches the generated PowerPoint")
         run = matches[-1].parents[1]
         paper_hash = read(result/"audit.json")["pdf_sha256"]
-    layout_file, = run.glob("04*/*_tree_split_results.json")
-    final_file, = run.glob("06*/*_final_arrangements.json")
+    layout_files = sorted(run.glob("04*/*_tree_split_results.json"))
+    final_files = sorted(run.glob("06*/*_final_arrangements.json"))
+    if len(layout_files) != 1 or len(final_files) != 1:
+        raise ValueError("Expected exactly one upstream split-results and one final-arrangements file")
+    layout_file, final_file = layout_files[0], final_files[0]
     layout, final = read(layout_file), read(final_file)
     ppt = Presentation(original)
     slide, = ppt.slides
@@ -316,4 +319,4 @@ def apply_revision(session, plan, soffice, expected_version, request, review=Non
         write(session/"state.json",state)
         return state
     finally:
-        lock.unlink()
+        lock.unlink(missing_ok=True)

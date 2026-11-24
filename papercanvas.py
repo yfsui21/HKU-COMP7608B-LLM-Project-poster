@@ -79,17 +79,26 @@ def main():
             state=native_tree.start(args.work,args.out,args.pdf)
             print((args.out/state["artifact"]/"poster.pptx").resolve())
             return
+        display_error=None
         try:
             subprocess.run([sys.executable,str(root/"examples/forest_local/display.py"),str(args.work),"--soffice",str(args.soffice),"--pdf",str(args.pdf)],check=True)
             result=args.work/"result"
             write(result/"claims.json",bind(args.pdf,result,model))
             state=generate(args.pdf,args.out,canvas(result),"joint",model,forest_result=result)
             print((args.out/state["artifact"]/"poster.pptx").resolve())
-        finally:
-            # The upstream tree remains usable even if the optional display composition fails.
-            if args.layout=="both":
+        except Exception as exc:
+            display_error=exc
+        # The upstream tree remains usable even if the optional display composition fails.
+        if args.layout=="both":
+            try:
                 native=native_tree.start(args.work,args.out/"tree",args.pdf)
                 print((args.out/"tree"/native["artifact"]/"poster.pptx").resolve())
+            except Exception as tree_exc:
+                if display_error is not None:
+                    raise display_error from tree_exc
+                raise
+        if display_error is not None:
+            raise display_error
         return
     model=Model(args.cmd=="bind" or args.live)
     if args.cmd=="edit":
