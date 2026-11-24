@@ -1,0 +1,15 @@
+Each group should submit the proposal only once. Any group member may make the submission, but the contact member is preferred. The proposal accounts for 20% of the final grade.
+
+Please follow these requirements:
+
+Submit the proposal as a PDF file.
+Use the NeurIPS 2026 paper template.
+Omit the abstract.
+List every group member in the author section.
+For each member, include their full name, student ID, and HKU email address.
+Use the following title format:
+[Group 1] Your Chosen Project Title
+Replace “Group 1” with your actual group number.
+Only 1 submission for each group
+Submit the proposal by 9 October 2026 at 23:59, Hong Kong time.
+Please check that the group number and information for all members are correct before submission.
