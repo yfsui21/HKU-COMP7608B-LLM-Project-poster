@@ -6,6 +6,13 @@ Baodi Han, Shitu Ma, Yifan Sui, Jinkai Tao
 
 PaperCanvas helps a researcher turn a text-based paper PDF into an editable, single-slide PowerPoint poster and revise it in conversation. This demo focuses on three claims (question, method, finding) with a primary figure or table and, when the source and canvas support it, a second cited figure. It records the source passage, page, required conditions, review observations and resulting layout.
 
+Quick start (full setup in “Run the demo” below):
+
+```sh
+pip install -r requirements.txt
+python papercanvas.py demo        # open http://127.0.0.1:8765
+```
+
 **Standalone t-SNE demo.** Starting from the 27-page JMLR paper, a signed-in Codex CLI generated a one-page poster, alternated content and layout revisions, and processed three dialogue turns. Open the [final editable PowerPoint](examples/tsne/independent-cli/poster.pptx), [LibreOffice preview](examples/tsne/independent-cli/preview.png), [acceptance record](examples/tsne/independent-cli/acceptance.json) or [claim-by-claim evidence and verdicts](examples/tsne/independent-cli/review.json).
 
 ### Edit the paper's native PosterForest tree
