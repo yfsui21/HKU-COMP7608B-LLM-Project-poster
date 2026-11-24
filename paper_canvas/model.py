@@ -96,6 +96,8 @@ class Model:
         if image:
             for data_image in image if isinstance(image,list) else [image]:
                 content.append({"type":"image_url","image_url":{"url":"data:image/png;base64,"+base64.b64encode(data_image).decode()}})
+        # temperature/max_tokens/response_format apply only to the direct HTTPS
+        # chat-completions path; the codex and session backends enforce JSON via the prompt.
         payload = dict(model=self.name,temperature=0,max_tokens=1800,response_format={"type":"json_object"},
                        messages=[{"role":"system","content":prompt},{"role":"user","content":content}])
         if self.codex:

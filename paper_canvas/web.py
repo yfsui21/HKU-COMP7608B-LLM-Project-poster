@@ -202,6 +202,11 @@ def serve(port,live,forest_result=None,forest_pdf=None,tree_session=None,soffice
             if self.headers.get("X-Canvas-Token")!=token:
                 return self.reply(403,"text/plain",b"Session token required")
             try:
+                allowed={"/generate","/edit","/compare","/resume"}
+                if tree_session:
+                    allowed|={"/tree/resize","/tree/revise"}
+                if self.path not in allowed:
+                    raise ValueError("Unknown action")
                 length=int(self.headers.get("Content-Length",0))
                 if not 1<=length<=24_000_000:
                     raise ValueError("上传文件上限为 16 MB。")

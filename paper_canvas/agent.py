@@ -196,6 +196,7 @@ def content_pass(s,issues,api):
 
 def fit_requested_figure(s,asset):
     if "figure" in s["limits"]:
+        # Reset to natural size first: width() measures the rendered figure at figure_scale.
         s["figure_scale"]=1
         s["figure_scale"]=max(.10,s["limits"]["figure"]/width(s,asset))
 

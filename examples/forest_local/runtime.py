@@ -171,8 +171,8 @@ def ppt_to_images_with_title(file, output_dir, warning=False, dpi=72, output_typ
     exe = os.environ.get("FOREST_SOFFICE") or shutil.which("soffice")
     if not exe:
         raise RuntimeError("Set FOREST_SOFFICE to the LibreOffice executable.")
-    profile = (Path.cwd() / "office-profile").as_uri()
     with tempfile.TemporaryDirectory(dir=Path.cwd()) as temporary:
+        profile = (Path(temporary) / "office-profile").as_uri()
         subprocess.run([exe, "-env:UserInstallation=" + profile, "--headless", "--convert-to",
                         "pdf", "--outdir", temporary, str(deck)], capture_output=True, check=True, timeout=120)
         with pdfium.PdfDocument(str(Path(temporary) / (deck.stem + ".pdf"))) as doc:
