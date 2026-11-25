@@ -1,5 +1,43 @@
 # PaperCanvas
 
+## Reproducible multi-paper AI-assisted evaluation
+
+The new runner preserves each case immediately, supports resuming completed cases,
+and distinguishes accepted posters from rejected intermediate exports. Two AI
+role-conditioned scores are supplementary diagnostics, not independent human ratings.
+Never copy the t-SNE pilot scores to another paper.
+
+```powershell
+python prepare_proposal_data.py
+# Review/calibrate the development plan, then freeze it before evaluation.
+$env:PAPERCANVAS_CODEX_MODEL = 'codex-default'
+python batch_ai_study.py --plan runs/proposal-data/plan-frozen.json --out runs/proposal-live-study --workers 3
+python export_ai_study.py --study runs/proposal-live-study
+python package_ai_study.py --study runs/proposal-live-study
+python verify_crop_recovery.py
+```
+
+The official 100-row metadata population is sampled with seed 56 into five
+development and fifteen evaluation PDFs. URLs, hashes and download failures are
+recorded. The downloader emits a draft, not an automatically validated protocol.
+The batch attempts two canvas areas and three revision schedules per evaluation
+paper (90 cases). Numeric quality ratings require a rendered candidate and a
+verified source checklist. Rejected candidates can receive diagnostic scores but
+remain generation failures and are excluded from accepted-output quality means.
+Missing scores remain blank. The five selected dialogue cases retain system
+decisions separately; these do not imply human dialogue review.
+
+The live compact editor uses its supported three-section/main-figure layout;
+it no longer automatically adds extractive conference panels whose captions it
+cannot revise. Source planning and normalized crop validation each allow one
+corrective retry before stopping. Source quotations stay fixed; display captions
+normalize PDF line endings without changing their wording.
+
+Per-case protocols record implementation hashes and the backend's limitations.
+The Codex backend does not enforce the direct-API output-token parameter, and
+shared initial planning costs must be separated from revision costs when comparing
+budgets. See `evaluation/proposal-ai-study/README.md` for evidence provenance.
+
 Group 56 · HKU COMP7608B  
 **Joint Semantic and Spatial Reasoning for Scientific Poster Generation**  
 Baodi Han, Shitu Ma, Yifan Sui, Jinkai Tao

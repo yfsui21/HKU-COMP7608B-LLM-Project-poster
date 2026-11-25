@@ -1,0 +1,9 @@
+{
+  "status": "IN_PROGRESS",
+  "expected_cases": 90,
+  "processed_cases": 19,
+  "accepted_scored": 1,
+  "rejected_candidate_diagnostic_scored": 12,
+  "unscored": 6,
+  "note": "Progress snapshot only. Final results are not yet complete. AI role-based ratings, not independent human ratings."
+}

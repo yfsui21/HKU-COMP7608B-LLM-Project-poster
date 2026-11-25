@@ -1,0 +1,1213 @@
+{
+  "metadata": {
+    "evaluation_type": "AI_SIMULATED_ROLE_REVIEW",
+    "evaluator_engine": "single Codex assistant, current conversation",
+    "simulated_roles": [
+      "experienced PhD perspective",
+      "less experienced MSc perspective"
+    ],
+    "independent_human_raters": 0,
+    "independent_model_runs": false,
+    "blinded": false,
+    "checklist_pre_registered": false,
+    "date": "2026-11-25",
+    "warning": "AI role simulation, not independent human evaluation. Legacy human/double_rated keys are computational schema only.",
+    "source_pdf_sha256": "f05922e427639a08cb5214cc4ef314689ecf2d87333cb5050003323d7631017f",
+    "human_review_confirmation": {
+      "status": "user_confirmed_human_review",
+      "confirmation_date": "2026-11-25",
+      "human_reviewers_confirmed": 1,
+      "basis": "User explicitly confirmed reviewing the existing scores in this conversation.",
+      "item_level_review_log_available": false,
+      "original_score_source": "AI role simulation by one assistant",
+      "two_independent_human_raters": false,
+      "score_values_changed": false
+    }
+  },
+  "checklist": [
+    [
+      "C01",
+      "目标：将高维数据映射到二维并尽量保留邻域结构",
+      "1–2",
+      "论文摘要、引言；海报 question"
+    ],
+    [
+      "C02",
+      "方法：从高维距离构造邻域概率并在低维保留邻居",
+      "3, 5–7",
+      "SNE 与 t-SNE 方法；海报 method"
+    ],
+    [
+      "C03",
+      "机制：低维重尾 Student 分布缓解拥挤",
+      "5, 7–8",
+      "第3节与图1；海报 method"
+    ],
+    [
+      "C04",
+      "主图：明确6000个MNIST数字及t-SNE与Sammon的同样本比较",
+      "11–12",
+      "第4节与图2；海报 result_title/main_caption"
+    ],
+    [
+      "C05",
+      "扩展：随机游走利用全部60000个MNIST样本放置6000个landmarks",
+      "16–17",
+      "第5节；海报 result"
+    ],
+    [
+      "C06",
+      "定量结果：明确两种表示均采用十折1-NN，2D为5.13%，原784维为5.75%",
+      "17",
+      "第5节的定量比较；不可仅把ten-fold贴在5.75%旁边"
+    ],
+    [
+      "C07",
+      "图6解释：非landmark观测的路径帮助估计landmark关系",
+      "16",
+      "图6和正文；海报 secondary_caption"
+    ],
+    [
+      "C08",
+      "限制：高内在维度下局部邻域假设可能不可靠",
+      "20–21",
+      "第6.2节；海报 limitation"
+    ],
+    [
+      "C09",
+      "限制：优化不保证同一全局解，不同运行可能得到不同图",
+      "21",
+      "第6.2节；海报 limitation"
+    ]
+  ],
+  "posters": [
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。需区分图2的标准t-SNE示例与随机游走数值实验，图6是机制图而非错误率图。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 4,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。需区分图2的标准t-SNE示例与随机游走数值实验，图6是机制图而非错误率图。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 4,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。需区分图2的标准t-SNE示例与随机游走数值实验，图6是机制图而非错误率图。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 4,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。需区分图2的标准t-SNE示例与随机游走数值实验，图6是机制图而非错误率图。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 9,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；两种错误率与十折1-NN的关系明确。需区分图2的标准t-SNE示例与随机游走数值实验，图6是机制图而非错误率图。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 9,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；两种错误率与十折1-NN的关系明确。需区分图2的标准t-SNE示例与随机游走数值实验，图6是机制图而非错误率图。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 3,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。三栏能找到方法和结果，但梯度图的轴与图例太小，理解需要反复看图注。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 3,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。三栏能找到方法和结果，但梯度图的轴与图例太小，理解需要反复看图注。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 3,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。三栏能找到方法和结果，但梯度图的轴与图例太小，理解需要反复看图注。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 8,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 3,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。三栏能找到方法和结果，但梯度图的轴与图例太小，理解需要反复看图注。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 9,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 3,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；两种错误率与十折1-NN的关系明确。三栏能找到方法和结果，但梯度图的轴与图例太小，理解需要反复看图注。 屏幕预览判断，未验证打印距离。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "paper": "tsne-jmlr.pdf",
+      "checklist_met": 9,
+      "checklist_total": 9,
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 2,
+      "reading_order_1_5": 3,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；两种错误率与十折1-NN的关系明确。三栏能找到方法和结果，但梯度图的轴与图例太小，理解需要反复看图注。 屏幕预览判断，未验证打印距离。"
+    }
+  ],
+  "turns": [
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "turn-001",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 1,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；问题已缩至9词；没有先前有效保护，保护保持按无约束记1。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "turn-002",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 0,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；放大请求失败并回退，图宽比1.0；该失败请求的新保护也回退，不计放大完成。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "turn-003",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 1,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；问题已缩至9词，结果保持逐字一致。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "turn-004",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 0,
+      "protected_preserved": 1,
+      "reference_resolved": 0,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；前轮保护未建立，本轮要求澄清，未成功解析受保护对象；不算正确识别保护冲突。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "turn-005",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 1,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；图宽实测约1.08倍，结果文字保持，保护已建立。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "turn-006",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 0,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 1,
+      "notes": "AI_SIMULATED; AI模拟博士生视角；正确拒绝保护冲突，前后版本一致；request_met按字面编辑记0，成功拒绝由conflict_detected=1表示。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "turn-001",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 1,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；问题已缩至9词；没有先前有效保护，保护保持按无约束记1。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "turn-002",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 0,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；放大请求失败并回退，图宽比1.0；该失败请求的新保护也回退，不计放大完成。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "turn-003",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 1,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；问题已缩至9词，结果保持逐字一致。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "turn-004",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 0,
+      "protected_preserved": 1,
+      "reference_resolved": 0,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；前轮保护未建立，本轮要求澄清，未成功解析受保护对象；不算正确识别保护冲突。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "turn-005",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 1,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 0,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；图宽实测约1.08倍，结果文字保持，保护已建立。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "turn-006",
+      "paper": "tsne-jmlr.pdf",
+      "request_met": 0,
+      "protected_preserved": 1,
+      "reference_resolved": 1,
+      "new_factual_errors": 0,
+      "new_layout_errors": 0,
+      "conflict_detected": 1,
+      "notes": "AI_SIMULATED; AI模拟硕士生视角；正确拒绝保护冲突，前后版本一致；request_met按字面编辑记0，成功拒绝由conflict_detected=1表示。"
+    }
+  ],
+  "details": [
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-001",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-002",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-003",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-004",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C06",
+      "met": 1,
+      "reason": "两种错误率与十折1-NN的关系明确。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-005",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C06",
+      "met": 1,
+      "reason": "两种错误率与十折1-NN的关系明确。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟博士生视角",
+      "poster": "poster-006",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-001",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-002",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-003",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C06",
+      "met": 0,
+      "reason": "C06未完整表达：5.13%未清楚关联到十折验证；数字本身有来源，不计为错误数字。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-004",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C06",
+      "met": 1,
+      "reason": "两种错误率与十折1-NN的关系明确。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-005",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C01",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C02",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C03",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C04",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C05",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C06",
+      "met": 1,
+      "reason": "两种错误率与十折1-NN的关系明确。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C07",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C08",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    },
+    {
+      "role": "AI模拟硕士生视角",
+      "poster": "poster-006",
+      "criterion": "C09",
+      "met": 1,
+      "reason": "导出PPTX文字、预览与原文对应；见清单中的页面和目标元素。"
+    }
+  ],
+  "measurements": [
+    {
+      "turn": "turn-001",
+      "figure_width_ratio": 1.0,
+      "question_words": 9,
+      "result_unchanged": true,
+      "notes": "问题已缩至9词；没有先前有效保护，保护保持按无约束记1。"
+    },
+    {
+      "turn": "turn-002",
+      "figure_width_ratio": 1.0,
+      "question_words": 11,
+      "result_unchanged": true,
+      "notes": "放大请求失败并回退，图宽比1.0；该失败请求的新保护也回退，不计放大完成。"
+    },
+    {
+      "turn": "turn-003",
+      "figure_width_ratio": 1.0,
+      "question_words": 9,
+      "result_unchanged": true,
+      "notes": "问题已缩至9词，结果保持逐字一致。"
+    },
+    {
+      "turn": "turn-004",
+      "figure_width_ratio": 1.0,
+      "question_words": 9,
+      "result_unchanged": true,
+      "notes": "前轮保护未建立，本轮要求澄清，未成功解析受保护对象；不算正确识别保护冲突。"
+    },
+    {
+      "turn": "turn-005",
+      "figure_width_ratio": 1.0799999429271658,
+      "question_words": 11,
+      "result_unchanged": true,
+      "notes": "图宽实测约1.08倍，结果文字保持，保护已建立。"
+    },
+    {
+      "turn": "turn-006",
+      "figure_width_ratio": 1.0,
+      "question_words": 9,
+      "result_unchanged": true,
+      "notes": "正确拒绝保护冲突，前后版本一致；request_met按字面编辑记0，成功拒绝由conflict_detected=1表示。"
+    }
+  ]
+}

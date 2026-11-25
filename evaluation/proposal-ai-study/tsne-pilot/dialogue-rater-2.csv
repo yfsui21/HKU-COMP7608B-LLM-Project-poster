@@ -1,0 +1,7 @@
+﻿poster,paper,request_met,protected_preserved,reference_resolved,new_factual_errors,new_layout_errors,conflict_detected,notes
+turn-001,tsne-jmlr.pdf,1,1,1,0,0,0,AI_SIMULATED; AI模拟硕士生视角；问题已缩至9词；没有先前有效保护，保护保持按无约束记1。
+turn-002,tsne-jmlr.pdf,0,1,1,0,0,0,AI_SIMULATED; AI模拟硕士生视角；放大请求失败并回退，图宽比1.0；该失败请求的新保护也回退，不计放大完成。
+turn-003,tsne-jmlr.pdf,1,1,1,0,0,0,AI_SIMULATED; AI模拟硕士生视角；问题已缩至9词，结果保持逐字一致。
+turn-004,tsne-jmlr.pdf,0,1,0,0,0,0,AI_SIMULATED; AI模拟硕士生视角；前轮保护未建立，本轮要求澄清，未成功解析受保护对象；不算正确识别保护冲突。
+turn-005,tsne-jmlr.pdf,1,1,1,0,0,0,AI_SIMULATED; AI模拟硕士生视角；图宽实测约1.08倍，结果文字保持，保护已建立。
+turn-006,tsne-jmlr.pdf,0,1,1,0,0,1,AI_SIMULATED; AI模拟硕士生视角；正确拒绝保护冲突，前后版本一致；request_met按字面编辑记0，成功拒绝由conflict_detected=1表示。

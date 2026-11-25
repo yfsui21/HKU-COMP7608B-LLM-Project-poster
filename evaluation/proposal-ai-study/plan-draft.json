@@ -1,0 +1,107 @@
+{
+  "seed": 56,
+  "population": "Official Paper2Poster train 100, ordered by row_idx; sample20 then 5/15",
+  "metadata_sha256": "e893397631990f26fc70d46e7af326e09c25078e6cc3d6bea720ff70b395869d",
+  "development": [
+    "paper-071.pdf",
+    "paper-001.pdf",
+    "paper-060.pdf",
+    "paper-083.pdf",
+    "paper-066.pdf"
+  ],
+  "evaluation": [
+    "paper-038.pdf",
+    "paper-098.pdf",
+    "paper-069.pdf",
+    "paper-053.pdf",
+    "paper-090.pdf",
+    "paper-029.pdf",
+    "paper-012.pdf",
+    "paper-047.pdf",
+    "paper-079.pdf",
+    "paper-008.pdf",
+    "paper-043.pdf",
+    "paper-082.pdf",
+    "paper-032.pdf",
+    "paper-073.pdf",
+    "paper-026.pdf"
+  ],
+  "dialogues": {
+    "paper-038.pdf": [
+      [
+        "enlarge figure by 35% and protect result",
+        "feasible"
+      ],
+      [
+        "shorten question to 6 words",
+        "feasible"
+      ],
+      [
+        "shorten protected section to 2 words",
+        "conflict"
+      ]
+    ],
+    "paper-029.pdf": [
+      [
+        "enlarge figure by 35% and protect result",
+        "feasible"
+      ],
+      [
+        "shorten question to 6 words",
+        "feasible"
+      ],
+      [
+        "shorten protected section to 2 words",
+        "conflict"
+      ]
+    ],
+    "paper-008.pdf": [
+      [
+        "enlarge figure by 35% and protect result",
+        "feasible"
+      ],
+      [
+        "shorten question to 6 words",
+        "feasible"
+      ],
+      [
+        "shorten protected section to 2 words",
+        "conflict"
+      ]
+    ],
+    "paper-032.pdf": [
+      [
+        "enlarge figure by 35% and protect result",
+        "feasible"
+      ],
+      [
+        "shorten question to 6 words",
+        "feasible"
+      ],
+      [
+        "shorten protected section to 2 words",
+        "conflict"
+      ]
+    ],
+    "paper-026.pdf": [
+      [
+        "enlarge figure by 35% and protect result",
+        "feasible"
+      ],
+      [
+        "shorten question to 6 words",
+        "feasible"
+      ],
+      [
+        "shorten protected section to 2 words",
+        "conflict"
+      ]
+    ]
+  },
+  "size": [
+    1008,
+    540
+  ],
+  "status": "DRAFT: develop/calibrate prompts, dimensions and dialogue feasibility before freezing",
+  "scoring_method": "AI role-based review with separately documented human review; not two independent human raters"
+}

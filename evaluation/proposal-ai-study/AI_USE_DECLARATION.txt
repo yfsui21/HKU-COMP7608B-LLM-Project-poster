@@ -1,0 +1,11 @@
+AI assistance and evaluation provenance
+
+Implementation assistance: the Codex assistant in this conversation helped prepare the dataset downloader, resumable batch runner, validation/recovery changes, exports and documentation.
+Runtime generation and review: the installed Codex CLI, selected through the codex-default alias. The exact resolved model version is not exposed by the current wrapper; do not interpret this alias as a pinned model version.
+Scoring: two role-conditioned AI perspectives, experienced PhD reader and less experienced MSc reader. These are not two real people or independent human evaluators.
+Model prompts: paper_canvas/model.py, run_ai_study.py, paper_canvas/native_revision.py and the upstream adapter prompts referenced by the existing project.
+Task traces: each case's source checklist, generated candidate, review.json and ai-role-*.json are retained where produced. Input URLs and SHA-256 values are recorded separately.
+Human review: the earlier t-SNE pilot has a user-reported review confirmation. That confirmation does not apply automatically to the new fifteen-paper batch. No two-person human study is claimed.
+Missing records: the complete natural-language implementation-assistance conversation is not included in this repository. The wrapper also does not retain every invalid model response, so validation failures without a saved candidate response must be treated as unavailable evidence, not reconstructed scores.
+Credentials and login state are not included. Paid-access/subscription requirements and model configuration remain as documented in README.
+The user remains responsible for reviewing results, limitations and the final submission.

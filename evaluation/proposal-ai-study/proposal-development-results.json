@@ -1,0 +1,63 @@
+{
+  "paper_count": 5,
+  "completed_processes": 5,
+  "expected_cases": 5,
+  "attempted": 5,
+  "generated": 0,
+  "ai_scored": 0,
+  "evaluation_type": "AI role-based review, not two independent human raters",
+  "human_review_status": "not yet reviewed",
+  "cases": [
+    {
+      "paper": "paper-071.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development\\per-paper\\paper-071\\paper-071\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Invalid normalized evidence crop",
+      "elapsed_s": 42.06
+    },
+    {
+      "paper": "paper-060.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development\\per-paper\\paper-060\\paper-060\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Invalid normalized evidence crop",
+      "elapsed_s": 40.06
+    },
+    {
+      "paper": "paper-083.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development\\per-paper\\paper-083\\paper-083\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Source passage missing for key finding",
+      "elapsed_s": 36.75
+    },
+    {
+      "paper": "paper-066.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development\\per-paper\\paper-066\\paper-066\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "[Errno 2] No such file or directory: 'runs\\\\proposal-data\\\\papers\\\\paper-066.pdf'",
+      "elapsed_s": 0.0
+    },
+    {
+      "paper": "paper-001.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development\\per-paper\\paper-001\\paper-001\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Review unresolved after two rounds: [{\"target\": \"Figure 1 caption\", \"problem\": \"A PDF extraction artifact appears as “(cid:96)” and leaves a stray “1” in “The 1 values.”\", \"change\": \"Use “ℓ₁-regularized least squares” and “Values are averaged over 20 repetitions.”\"}, {\"target\": \"Figures 1 and 2\", \"problem\": \"Both crops include a stray line of article prose above the plot. Axis labels, ticks, and legends are very small at poster size.\", \"change\": \"Trim each crop to the plot, then enlarge or redraw it so the axes, ticks, and legends are readable.\"}, {\"target\": \"Figure and caption placement\", \"problem\": \"Large vertical gaps separate all three plots from their captions, weakening the reading sequence and making the figure-caption pairings harder to scan.\", \"change\": \"Place each plot directly beside or below its caption and use the recovered space to enlarge the supporting plots.\"}]",
+      "elapsed_s": 223.52
+    }
+  ],
+  "dialogues": []
+}

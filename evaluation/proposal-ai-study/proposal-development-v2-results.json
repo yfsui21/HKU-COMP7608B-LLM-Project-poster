@@ -1,0 +1,63 @@
+{
+  "paper_count": 5,
+  "completed_processes": 5,
+  "expected_cases": 5,
+  "attempted": 5,
+  "generated": 0,
+  "ai_scored": 0,
+  "evaluation_type": "AI role-based review, not two independent human raters",
+  "human_review_status": "not yet reviewed",
+  "cases": [
+    {
+      "paper": "paper-060.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development-v2\\per-paper\\paper-060\\paper-060\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Review unresolved after two rounds: [{\"target\": \"Figure 2 panels\", \"problem\": \"The two plots occupy only about half the width of the white figure area. The axis labels, tick values, legends, and panel caption are difficult to read at poster size.\", \"change\": \"Trim the whitespace around the plots and enlarge both panels within the existing figure area. Keep the axes, legends, panel caption, and main figure caption visible.\"}]",
+      "elapsed_s": 213.81
+    },
+    {
+      "paper": "paper-071.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development-v2\\per-paper\\paper-071\\paper-071\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Review unresolved after two rounds: [{\"target\": \"Figure 6 caption\", \"problem\": \"A forced line break leaves “is selected for” on a short line, interrupting the sentence that defines the memory budget.\", \"change\": \"Remove the forced break and let the caption wrap across the figure panel.\"}, {\"target\": \"Figure 6 source page\", \"problem\": \"The page 11 attribution sits in the lower-left footer, far from the figure and its caption.\", \"change\": \"Move the page 11 attribution next to the Figure 6 caption.\"}]",
+      "elapsed_s": 207.84
+    },
+    {
+      "paper": "paper-066.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development-v2\\per-paper\\paper-066\\paper-066\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "[Errno 2] No such file or directory: 'runs\\\\proposal-data\\\\papers\\\\paper-066.pdf'",
+      "elapsed_s": 0.0
+    },
+    {
+      "paper": "paper-001.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development-v2\\per-paper\\paper-001\\paper-001\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Review unresolved after two rounds: [{\"target\": \"Figure 3 caption below the chart\", \"problem\": \"The duplicated caption displays the extraction artifact `(cid:96)` and places the subscript `1` on its own line.\", \"change\": \"Use a single clean caption below the chart with `ℓ₁-regularized`, preserving the runtime normalization and 95% confidence interval explanation.\"}, {\"target\": \"Figure 3 chart\", \"problem\": \"The panel headings, legend, and tick labels are small relative to the surrounding poster text, making the comparisons harder to read at poster size.\", \"change\": \"Use more of the available panel space for the chart and increase the label sizes while retaining all four panels and their error bars.\"}, {\"target\": \"Key finding sample and predictor counts\", \"problem\": \"Line breaks split `10 000` and `40 000` between their digit groups.\", \"change\": \"Use nonbreaking spaces within the thousands-grouped values.\"}]",
+      "elapsed_s": 251.75
+    },
+    {
+      "paper": "paper-083.pdf",
+      "area": 1,
+      "condition": "joint",
+      "session": "runs\\proposal-development-v2\\per-paper\\paper-083\\paper-083\\area-1\\joint",
+      "status": "generation_failed",
+      "ratings": [],
+      "error": "Review unresolved after two rounds: [{\"target\": \"Outcome measure / p. 5\", \"problem\": \"The fragment “from the labeled node v is defined as follows.” lacks a subject and a definition. The heading suggests that the box identifies the outcome measure, but the fragment never names it.\", \"change\": \"Replace the fragment with “Test accuracy (%) at the same labeling budget (Table 1, p. 8)” and update the page reference to p. 8.\"}]",
+      "elapsed_s": 220.38
+    }
+  ],
+  "dialogues": []
+}

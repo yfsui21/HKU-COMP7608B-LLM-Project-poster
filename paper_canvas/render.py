@@ -131,7 +131,8 @@ def scene(s,asset):
     result=s["sections"][2]
     end=label("result-heading",result["label"]+"   /   p. "+str(result["page"]),rx+px,start+12,width,"F9BA92")
     end=block("result",result["text"],rx+px,end+5,width,19,WHITE,"Times-Bold")
-    caption=s["evidence"]["caption"]
+    # PDF line endings are source formatting, not deliberate poster paragraphs.
+    caption=" ".join(s["evidence"]["caption"].split())
     caption_height=len(wrap(caption,width,"Helvetica",12))*12*1.18
     chart_y=end+9
     available=bottom-chart_y-caption_height-21

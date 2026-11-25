@@ -1,0 +1,221 @@
+[
+  {
+    "file": "paper-071.pdf",
+    "title": "Moccasin: Efficient Tensor Rematerialization for Neural Networks",
+    "paper_url": "https://arxiv.org/pdf/2304.14463",
+    "reference_poster_url": "https://icml.cc/media/PosterPDFs/ICML%202023/24408.png",
+    "official_row_index": 71,
+    "split": "development",
+    "downloaded": true,
+    "sha256": "e434f03c6850c7a3f98c89a5300afb39d5232cfb39143470c687299998139f48",
+    "bytes": 786415
+  },
+  {
+    "file": "paper-001.pdf",
+    "title": "The Hessian Screening Rule",
+    "paper_url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/65a925049647eab0aa06a9faf1cd470b-Paper-Conference.pdf",
+    "reference_poster_url": "https://neurips.cc/media/PosterPDFs/NeurIPS%202022/53448.png",
+    "official_row_index": 1,
+    "split": "development",
+    "downloaded": true,
+    "sha256": "6f40642ad1ca9f8e183cb7788000c64e2194eea2090ebf50c83081b23c4426cc",
+    "bytes": 485670
+  },
+  {
+    "file": "paper-060.pdf",
+    "title": "Active Learning with Table Language Models",
+    "paper_url": "https://table-representation-learning.github.io/assets/papers/active_learning_with_tabular_l.pdf",
+    "reference_poster_url": "https://neurips.cc/media/PosterPDFs/NeurIPS%202022/58553.png",
+    "official_row_index": 60,
+    "split": "development",
+    "downloaded": true,
+    "sha256": "31273ad3a8e7280ae4e00d2d667946efff8c08b6b59e47762d9d97e75ec4df53",
+    "bytes": 578795
+  },
+  {
+    "file": "paper-083.pdf",
+    "title": "Information Gain Propagation: a New Way to Graph Active Learning with Soft Labels",
+    "paper_url": "https://arxiv.org/pdf/2203.01093",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202022/dc82d632c9fcecb0778afbc7924494a6.png",
+    "official_row_index": 83,
+    "split": "development",
+    "downloaded": true,
+    "sha256": "76823c1d1c75ab306ffa592f196fbb12a16abac0332976536c8a40366ed2fd5c",
+    "bytes": 1895130
+  },
+  {
+    "file": "paper-066.pdf",
+    "title": "StyleMorph: Disentangled 3D-Aware Image Synthesis with a 3D Morphable StyleGAN",
+    "paper_url": "https://openreview.net/pdf?id=Ojpb1y8jflw",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202023/11636.png",
+    "official_row_index": 66,
+    "split": "development",
+    "downloaded": false,
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "paper-038.pdf",
+    "title": "Color Equivariant Convolutional Networks",
+    "paper_url": "https://arxiv.org/pdf/2310.19368",
+    "reference_poster_url": "https://neurips.cc/media/PosterPDFs/NeurIPS%202023/69974.png",
+    "official_row_index": 38,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "9396c5cb41944dd69c1cd272fc3bd3584b05343d3322cc4b12918ebaf067f99a",
+    "bytes": 5651700
+  },
+  {
+    "file": "paper-098.pdf",
+    "title": "Fast, Scalable, Warm-Start Semidefinite Programming with Spectral Bundling and Sketching",
+    "paper_url": "https://arxiv.org/pdf/2312.11801",
+    "reference_poster_url": "https://icml.cc/media/PosterPDFs/ICML%202024/33411.png",
+    "official_row_index": 98,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "f6284eb9fcb046d240be68536ce1e11c945bba4c8be9b7fae21e8a949b9dd12a",
+    "bytes": 2995778
+  },
+  {
+    "file": "paper-069.pdf",
+    "title": "Visual Correspondence Hallucination",
+    "paper_url": "https://arxiv.org/pdf/2106.09711",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202022/d709f38ef758b5066ef31b18039b8ce5.png",
+    "official_row_index": 69,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "e219958cd65fbf173ae410d1da662f168525dd551a62cb40081307b8d70b1c99",
+    "bytes": 17231485
+  },
+  {
+    "file": "paper-053.pdf",
+    "title": "SiT Dataset: Socially Interactive Pedestrian Trajectory Dataset for Social Navigation Robots",
+    "paper_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/4d6a000c216974f59e597bc878cd6325-Paper-Datasets_and_Benchmarks.pdf",
+    "reference_poster_url": "https://neurips.cc/media/PosterPDFs/NeurIPS%202023/73508.png",
+    "official_row_index": 53,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "afbcc298e51ebc207b5ef419c66aa8f8321618eabf45c68ad37c3cd43bdf6d57",
+    "bytes": 5837109
+  },
+  {
+    "file": "paper-090.pdf",
+    "title": "Generation Probabilities are Not Enough: Improving Error Highlighting for AI Code Suggestions",
+    "paper_url": "https://helenavasc.com/static/HCAI_NeurIPS_2022.pdf",
+    "reference_poster_url": "https://neurips.cc/media/PosterPDFs/NeurIPS%202022/58819.png",
+    "official_row_index": 90,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "accdae34475f988c37ac354d497209c46034519a4526ee223df6abc634f33aa5",
+    "bytes": 237749
+  },
+  {
+    "file": "paper-029.pdf",
+    "title": "MuSc: Zero-Shot Industrial Anomaly Classification and Segmentation with Mutual Scoring of the Unlabeled Images",
+    "paper_url": "https://arxiv.org/pdf/2401.16753",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202024/19269.png",
+    "official_row_index": 29,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "8c43bcda57ee736ffb6518dd8516df234420a83f6d6c6c8e3164fcb948a3700b",
+    "bytes": 15603812
+  },
+  {
+    "file": "paper-012.pdf",
+    "title": "Privacy-Preserving Machine Learning for Collaborative Data Sharing via Auto-encoder Latent Space Embeddings",
+    "paper_url": "https://arxiv.org/pdf/2211.05717",
+    "reference_poster_url": "https://neurips.cc/media/PosterPDFs/NeurIPS%202022/64720.png",
+    "official_row_index": 12,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "f429f3e2544fe4349d2822e17ac6c0bdab38bfe7749b4d5c80285c2a82aef1c3",
+    "bytes": 361633
+  },
+  {
+    "file": "paper-047.pdf",
+    "title": "Agnostic Learnability of Halfspaces via Logistic Loss",
+    "paper_url": "https://arxiv.org/pdf/2201.13419",
+    "reference_poster_url": "https://icml.cc/media/PosterPDFs/ICML%202022/da87cbc1b5b8501acf3b49eec1cc52c3.png",
+    "official_row_index": 47,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "f76f14d0bfeadf63ac93f6ff9733d571dde9185f9dedf768f2734f0daa52e74a",
+    "bytes": 491504
+  },
+  {
+    "file": "paper-079.pdf",
+    "title": "Near-real-time monitoring of global ocean carbon sink",
+    "paper_url": "https://arxiv.org/pdf/2312.01637",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202024/21540.png",
+    "official_row_index": 79,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "cc22f2a4e0b6e6fc962d54636b70f8117dc443acbe48c4ca72e8d8adc5503f04",
+    "bytes": 2451393
+  },
+  {
+    "file": "paper-008.pdf",
+    "title": "Butterfly Effects of SGD Noise: Error Amplification in Behavior Cloning and Autoregression",
+    "paper_url": "https://arxiv.org/pdf/2310.11428",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202024/19163.png",
+    "official_row_index": 8,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "41b9751283d7d502e6225c408e27f17b5964da5efc0afb1b14e1129e38e03ba3",
+    "bytes": 4075164
+  },
+  {
+    "file": "paper-043.pdf",
+    "title": "Quantifying Network Similarity using Graph Cumulants",
+    "paper_url": "https://www.jmlr.org/papers/volume24/21-082/21-082.pdf",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202024/20664.png",
+    "official_row_index": 43,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "7db31127e1d71d25ffbb1291df04cdddc1cf9b06fd8cf32ce51ecec3afb1ada0",
+    "bytes": 1189519
+  },
+  {
+    "file": "paper-082.pdf",
+    "title": "Data-efficient Large Vision Models through Sequential Autoregression",
+    "paper_url": "https://arxiv.org/pdf/2402.04841",
+    "reference_poster_url": "https://icml.cc/media/PosterPDFs/ICML%202024/34328.png",
+    "official_row_index": 82,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "7195b9a9a0eb953d0538aeb715fe0b1996268cc566c0287b9c6f0366f493a490",
+    "bytes": 3279755
+  },
+  {
+    "file": "paper-032.pdf",
+    "title": "InfinityGAN: Towards Infinite-Pixel Image Synthesis",
+    "paper_url": "https://arxiv.org/pdf/2104.03963",
+    "reference_poster_url": "https://iclr.cc/media/PosterPDFs/ICLR%202022/e96ed478dab8595a7dbda4cbcbee168f.png",
+    "official_row_index": 32,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "7632c3ea46993b376ef3d28dc3fdd3e0874183449eb12dbd63235594ffd4a49c",
+    "bytes": 9222113
+  },
+  {
+    "file": "paper-073.pdf",
+    "title": "Characterizing the Optimal $0-1$ Loss for Multi-class Classification with a Test-time Attacker",
+    "paper_url": "https://arxiv.org/pdf/2302.10722",
+    "reference_poster_url": "https://icml.cc/media/PosterPDFs/ICML%202023/26117.png",
+    "official_row_index": 73,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "f377924c364a11e84f8d5135e65b813da76e6ce92f21b00982fcc9e627fe0a5d",
+    "bytes": 1227274
+  },
+  {
+    "file": "paper-026.pdf",
+    "title": "DeepJoint: Robust Survival Modelling Under Clinical Presence Shift",
+    "paper_url": "https://arxiv.org/pdf/2205.13481",
+    "reference_poster_url": "https://neurips.cc/media/PosterPDFs/NeurIPS%202022/60045.png",
+    "official_row_index": 26,
+    "split": "evaluation",
+    "downloaded": true,
+    "sha256": "97428a2a5e363a7ff372f354c16b9ea44535554040353b810cb82e90cf322587",
+    "bytes": 1010124
+  }
+]

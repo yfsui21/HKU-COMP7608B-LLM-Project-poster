@@ -1,0 +1,626 @@
+{
+  "evaluation_provenance": {
+    "evaluation_type": "AI_SIMULATED_ROLE_REVIEW",
+    "evaluator_engine": "single Codex assistant, current conversation",
+    "simulated_roles": [
+      "experienced PhD perspective",
+      "less experienced MSc perspective"
+    ],
+    "independent_human_raters": 0,
+    "independent_model_runs": false,
+    "blinded": false,
+    "checklist_pre_registered": false,
+    "date": "2026-11-25",
+    "warning": "AI role simulation, not independent human evaluation. Legacy human/double_rated keys are computational schema only.",
+    "source_pdf_sha256": "f05922e427639a08cb5214cc4ef314689ecf2d87333cb5050003323d7631017f",
+    "human_review_confirmation": {
+      "status": "user_confirmed_human_review",
+      "confirmation_date": "2026-11-25",
+      "human_reviewers_confirmed": 1,
+      "basis": "User explicitly confirmed reviewing the existing scores in this conversation.",
+      "item_level_review_log_available": false,
+      "original_score_source": "AI role simulation by one assistant",
+      "two_independent_human_raters": false,
+      "score_values_changed": false
+    }
+  },
+  "completion": {
+    "n": 6,
+    "successes": 6,
+    "rate": 1.0
+  },
+  "groups": [
+    {
+      "condition": "joint",
+      "area": 1,
+      "completion": {
+        "n": 1,
+        "successes": 1,
+        "rate": 1.0
+      },
+      "double_rated": 1,
+      "means": {
+        "checklist_met": 9.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.5,
+        "reading_order_1_5": 3.5,
+        "coverage": 1.0
+      }
+    },
+    {
+      "condition": "content-first",
+      "area": 1,
+      "completion": {
+        "n": 1,
+        "successes": 1,
+        "rate": 1.0
+      },
+      "double_rated": 1,
+      "means": {
+        "checklist_met": 9.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.5,
+        "reading_order_1_5": 3.5,
+        "coverage": 1.0
+      }
+    },
+    {
+      "condition": "layout-first",
+      "area": 1,
+      "completion": {
+        "n": 1,
+        "successes": 1,
+        "rate": 1.0
+      },
+      "double_rated": 1,
+      "means": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.5,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      }
+    },
+    {
+      "condition": "joint",
+      "area": 0.75,
+      "completion": {
+        "n": 1,
+        "successes": 1,
+        "rate": 1.0
+      },
+      "double_rated": 1,
+      "means": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.0,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      }
+    },
+    {
+      "condition": "content-first",
+      "area": 0.75,
+      "completion": {
+        "n": 1,
+        "successes": 1,
+        "rate": 1.0
+      },
+      "double_rated": 1,
+      "means": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.0,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      }
+    },
+    {
+      "condition": "layout-first",
+      "area": 0.75,
+      "completion": {
+        "n": 1,
+        "successes": 1,
+        "rate": 1.0
+      },
+      "double_rated": 1,
+      "means": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.0,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      }
+    }
+  ],
+  "failures": [],
+  "usage": {
+    "operations": 12,
+    "calls": 73,
+    "elapsed_seconds": 507.048,
+    "tokens_reported_calls": 0,
+    "tokens": null,
+    "cost_known_operations": 0,
+    "estimated_usd": null
+  },
+  "generation_usage": [
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 9,
+      "elapsed_seconds": 56.937,
+      "tokens_reported_calls": 0,
+      "tokens": null,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 9,
+      "elapsed_seconds": 27.047,
+      "tokens_reported_calls": 0,
+      "tokens": null,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 9,
+      "elapsed_seconds": 60.235,
+      "tokens_reported_calls": 0,
+      "tokens": null,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 9,
+      "elapsed_seconds": 110.578,
+      "tokens_reported_calls": 0,
+      "tokens": null,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 9,
+      "elapsed_seconds": 43.844,
+      "tokens_reported_calls": 0,
+      "tokens": null,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 9,
+      "elapsed_seconds": 85.406,
+      "tokens_reported_calls": 0,
+      "tokens": null,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    }
+  ],
+  "dialogue": {
+    "joint": {
+      "feasible": {
+        "n": 2,
+        "successes": 2,
+        "rate": 1.0
+      },
+      "conflicts": {
+        "n": 1,
+        "successes": 1,
+        "rate": 1.0
+      },
+      "unavailable": 0
+    },
+    "layout-first": {
+      "feasible": {
+        "n": 2,
+        "successes": 1,
+        "rate": 0.5
+      },
+      "conflicts": {
+        "n": 1,
+        "successes": 0,
+        "rate": 0.0
+      },
+      "unavailable": 0
+    }
+  },
+  "poster_ratings": {
+    "expected": 6,
+    "scored_per_rater": [
+      6,
+      6
+    ],
+    "jointly_scored": 6,
+    "agreement": {
+      "checklist_met": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "checklist_total": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "wrong_numbers": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "figure_mismatches": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "overflow": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "overlaps": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "outside": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "label_legibility_1_5": {
+        "pairs": 6,
+        "exact_agreement": 0.5,
+        "mean_absolute_difference": 0.5
+      },
+      "reading_order_1_5": {
+        "pairs": 6,
+        "exact_agreement": 0,
+        "mean_absolute_difference": 1
+      },
+      "coverage": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0.0
+      }
+    },
+    "per_output": {
+      "poster-001": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.5,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      },
+      "poster-002": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.0,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      },
+      "poster-003": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.0,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      },
+      "poster-004": {
+        "checklist_met": 8.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.0,
+        "reading_order_1_5": 3.5,
+        "coverage": 0.8888888888888888
+      },
+      "poster-005": {
+        "checklist_met": 9.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.5,
+        "reading_order_1_5": 3.5,
+        "coverage": 1.0
+      },
+      "poster-006": {
+        "checklist_met": 9.0,
+        "checklist_total": 9.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 2.5,
+        "reading_order_1_5": 3.5,
+        "coverage": 1.0
+      }
+    }
+  },
+  "dialogue_ratings": {
+    "expected": 6,
+    "scored_per_rater": [
+      6,
+      6
+    ],
+    "jointly_scored": 6,
+    "agreement": {
+      "request_met": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "protected_preserved": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "reference_resolved": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "new_factual_errors": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "new_layout_errors": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      },
+      "conflict_detected": {
+        "pairs": 6,
+        "exact_agreement": 1,
+        "mean_absolute_difference": 0
+      }
+    },
+    "per_output": {
+      "turn-001": {
+        "request_met": 1.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      },
+      "turn-002": {
+        "request_met": 0.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      },
+      "turn-003": {
+        "request_met": 1.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      },
+      "turn-004": {
+        "request_met": 0.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 0.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      },
+      "turn-005": {
+        "request_met": 1.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      },
+      "turn-006": {
+        "request_met": 0.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 1.0
+      }
+    }
+  },
+  "dialogue_human_means": [
+    {
+      "condition": "joint",
+      "label": "feasible",
+      "scored": 2,
+      "means": {
+        "request_met": 1.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      }
+    },
+    {
+      "condition": "joint",
+      "label": "conflict",
+      "scored": 1,
+      "means": {
+        "request_met": 0.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 1.0
+      }
+    },
+    {
+      "condition": "layout-first",
+      "label": "feasible",
+      "scored": 2,
+      "means": {
+        "request_met": 0.5,
+        "protected_preserved": 1.0,
+        "reference_resolved": 1.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      }
+    },
+    {
+      "condition": "layout-first",
+      "label": "conflict",
+      "scored": 1,
+      "means": {
+        "request_met": 0.0,
+        "protected_preserved": 1.0,
+        "reference_resolved": 0.0,
+        "new_factual_errors": 0.0,
+        "new_layout_errors": 0.0,
+        "conflict_detected": 0.0
+      }
+    }
+  ],
+  "paired_differences": [
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 0.75,
+      "baseline": "content-first",
+      "joint_minus_baseline": {
+        "checklist_met": 0.0,
+        "checklist_total": 0.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 0.0,
+        "reading_order_1_5": 0.0,
+        "coverage": 0.0
+      }
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 0.75,
+      "baseline": "layout-first",
+      "joint_minus_baseline": {
+        "checklist_met": 0.0,
+        "checklist_total": 0.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 0.0,
+        "reading_order_1_5": 0.0,
+        "coverage": 0.0
+      }
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 1,
+      "baseline": "content-first",
+      "joint_minus_baseline": {
+        "checklist_met": 0.0,
+        "checklist_total": 0.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 0.0,
+        "reading_order_1_5": 0.0,
+        "coverage": 0.0
+      }
+    },
+    {
+      "paper": "tsne-jmlr.pdf",
+      "area": 1,
+      "baseline": "layout-first",
+      "joint_minus_baseline": {
+        "checklist_met": 1.0,
+        "checklist_total": 0.0,
+        "wrong_numbers": 0.0,
+        "figure_mismatches": 0.0,
+        "overflow": 0.0,
+        "overlaps": 0.0,
+        "outside": 0.0,
+        "label_legibility_1_5": 0.0,
+        "reading_order_1_5": 0.0,
+        "coverage": 0.11111111111111116
+      }
+    }
+  ]
+}

@@ -1,0 +1,1387 @@
+{
+  "completion": {
+    "n": 90,
+    "successes": 72,
+    "rate": 0.8
+  },
+  "groups": [
+    {
+      "condition": "joint",
+      "area": 1,
+      "completion": {
+        "n": 15,
+        "successes": 12,
+        "rate": 0.8
+      },
+      "double_rated": 0,
+      "means": {}
+    },
+    {
+      "condition": "content-first",
+      "area": 1,
+      "completion": {
+        "n": 15,
+        "successes": 12,
+        "rate": 0.8
+      },
+      "double_rated": 0,
+      "means": {}
+    },
+    {
+      "condition": "layout-first",
+      "area": 1,
+      "completion": {
+        "n": 15,
+        "successes": 12,
+        "rate": 0.8
+      },
+      "double_rated": 0,
+      "means": {}
+    },
+    {
+      "condition": "joint",
+      "area": 0.75,
+      "completion": {
+        "n": 15,
+        "successes": 12,
+        "rate": 0.8
+      },
+      "double_rated": 0,
+      "means": {}
+    },
+    {
+      "condition": "content-first",
+      "area": 0.75,
+      "completion": {
+        "n": 15,
+        "successes": 12,
+        "rate": 0.8
+      },
+      "double_rated": 0,
+      "means": {}
+    },
+    {
+      "condition": "layout-first",
+      "area": 0.75,
+      "completion": {
+        "n": 15,
+        "successes": 12,
+        "rate": 0.8
+      },
+      "double_rated": 0,
+      "means": {}
+    }
+  ],
+  "failures": [
+    {
+      "paper": "paper-047.pdf",
+      "area": 1,
+      "condition": "joint",
+      "completed": false,
+      "session": "paper-07-area-1/joint",
+      "reason": "No extractable figure with a caption was located. Use a text-based PDF whose captions sit below their figures, or switch to vision-model mode."
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "completed": false,
+      "session": "paper-07-area-1/content-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "completed": false,
+      "session": "paper-07-area-1/layout-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "completed": false,
+      "session": "paper-07-area-0.75/joint",
+      "reason": "No extractable figure with a caption was located. Use a text-based PDF whose captions sit below their figures, or switch to vision-model mode."
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "completed": false,
+      "session": "paper-07-area-0.75/content-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "completed": false,
+      "session": "paper-07-area-0.75/layout-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 1,
+      "condition": "joint",
+      "completed": false,
+      "session": "paper-09-area-1/joint",
+      "reason": "Missing verifiable figure/table caption"
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "completed": false,
+      "session": "paper-09-area-1/content-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "completed": false,
+      "session": "paper-09-area-1/layout-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "completed": false,
+      "session": "paper-09-area-0.75/joint",
+      "reason": "Missing verifiable figure/table caption"
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "completed": false,
+      "session": "paper-09-area-0.75/content-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "completed": false,
+      "session": "paper-09-area-0.75/layout-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 1,
+      "condition": "joint",
+      "completed": false,
+      "session": "paper-12-area-1/joint",
+      "reason": "Missing verifiable figure/table caption"
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "completed": false,
+      "session": "paper-12-area-1/content-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "completed": false,
+      "session": "paper-12-area-1/layout-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "completed": false,
+      "session": "paper-12-area-0.75/joint",
+      "reason": "Missing verifiable figure/table caption"
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "completed": false,
+      "session": "paper-12-area-0.75/content-first",
+      "reason": "Shared parsing/initialization failed"
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "completed": false,
+      "session": "paper-12-area-0.75/layout-first",
+      "reason": "Shared parsing/initialization failed"
+    }
+  ],
+  "usage": {
+    "operations": 96,
+    "calls": 0,
+    "elapsed_seconds": 321.78,
+    "tokens_reported_calls": 0,
+    "tokens": 0,
+    "cost_known_operations": 96,
+    "estimated_usd": 0
+  },
+  "generation_usage": [
+    {
+      "paper": "paper-038.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.188,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-038.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.672,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-038.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.656,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-038.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.141,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-038.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.625,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-038.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.609,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-098.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.218,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-098.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.813,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-098.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.75,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-098.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.359,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-098.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.765,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-098.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.781,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-069.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.656,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-069.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.719,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-069.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.688,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-069.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.735,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-069.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.844,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-069.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.812,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-053.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 4.328,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-053.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.562,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-053.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.562,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-053.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 4.328,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-053.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.531,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-053.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.579,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-090.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.578,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-090.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.641,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-090.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.593,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-090.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.485,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-090.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.625,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-090.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.578,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-029.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 6.11,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-029.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.5,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-029.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.469,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-029.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 6.203,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-029.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.484,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-029.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.484,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-012.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 2.281,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-012.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.672,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-012.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.594,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-012.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 2.218,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-012.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.672,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-012.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.594,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 8.125,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-047.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-079.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 3.953,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-079.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.141,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-079.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.063,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-079.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 3.828,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-079.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.094,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-079.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.016,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 33.766,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 32.875,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-008.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-043.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 13.875,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-043.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.656,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-043.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.609,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-043.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 13.594,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-043.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.672,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-043.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.625,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-082.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 6.203,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-082.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.453,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-082.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.437,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-082.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 5.891,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-082.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.359,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-082.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 1.375,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 3.312,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 3.438,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-032.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 0,
+      "calls": 0,
+      "elapsed_seconds": 0,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 0,
+      "estimated_usd": null
+    },
+    {
+      "paper": "paper-073.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 29.203,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-073.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.625,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-073.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.594,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-073.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 29.781,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-073.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.609,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-073.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.578,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-026.pdf",
+      "area": 1,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 4.157,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-026.pdf",
+      "area": 1,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.61,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-026.pdf",
+      "area": 1,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.625,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-026.pdf",
+      "area": 0.75,
+      "condition": "joint",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 3.734,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-026.pdf",
+      "area": 0.75,
+      "condition": "content-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.609,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    },
+    {
+      "paper": "paper-026.pdf",
+      "area": 0.75,
+      "condition": "layout-first",
+      "operations": 1,
+      "calls": 0,
+      "elapsed_seconds": 0.609,
+      "tokens_reported_calls": 0,
+      "tokens": 0,
+      "cost_known_operations": 1,
+      "estimated_usd": 0
+    }
+  ],
+  "dialogue": {
+    "joint": {
+      "feasible": {
+        "n": 10,
+        "successes": 3,
+        "rate": 0.3
+      },
+      "conflicts": {
+        "n": 5,
+        "successes": 3,
+        "rate": 0.6
+      },
+      "unavailable": 6
+    },
+    "layout-first": {
+      "feasible": {
+        "n": 10,
+        "successes": 0,
+        "rate": 0.0
+      },
+      "conflicts": {
+        "n": 5,
+        "successes": 0,
+        "rate": 0.0
+      },
+      "unavailable": 6
+    }
+  },
+  "poster_ratings": {
+    "expected": 72,
+    "scored_per_rater": [
+      0,
+      0
+    ],
+    "jointly_scored": 0,
+    "agreement": {},
+    "per_output": {}
+  },
+  "dialogue_ratings": {
+    "expected": 18,
+    "scored_per_rater": [
+      0,
+      0
+    ],
+    "jointly_scored": 0,
+    "agreement": {},
+    "per_output": {}
+  },
+  "dialogue_human_means": [
+    {
+      "condition": "joint",
+      "label": "feasible",
+      "scored": 0,
+      "means": {}
+    },
+    {
+      "condition": "joint",
+      "label": "conflict",
+      "scored": 0,
+      "means": {}
+    },
+    {
+      "condition": "layout-first",
+      "label": "feasible",
+      "scored": 0,
+      "means": {}
+    },
+    {
+      "condition": "layout-first",
+      "label": "conflict",
+      "scored": 0,
+      "means": {}
+    }
+  ],
+  "paired_differences": []
+}

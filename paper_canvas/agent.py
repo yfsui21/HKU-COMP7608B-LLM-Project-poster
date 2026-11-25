@@ -39,13 +39,41 @@ def section(s,key):
 def context(s):
     return {k:v for k,v in s.items() if k!="history"} | {"recent_turns":s["history"][-3:]}
 
+def locate_evidence(api, evidence, page_image):
+    """Retry one invalid model crop without accepting pixels as normalized coordinates."""
+    request = dict(evidence)
+    for attempt in range(2):
+        answer = api.ask(model.CROP, request, page_image)
+        box = answer.get("box") if isinstance(answer, dict) else None
+        valid = (isinstance(box, list) and len(box)==4
+                 and all(type(n) in (int,float) and math.isfinite(n) for n in box)
+                 and 0 <= box[0] < box[2] <= 1 and 0 <= box[1] < box[3] <= 1)
+        if valid:
+            return box
+        request = dict(evidence, previous_box=box,
+                       correction="Return normalized fractions between 0 and 1, not pixel coordinates. Require left < right and top < bottom.")
+    raise ValueError("Invalid normalized evidence crop after two attempts")
+
+def plan_from_source(api, pages):
+    request = pages
+    for attempt in range(2):
+        response = api.ask(model.PLAN,request)
+        try:
+            plan = {key:response[key] for key in ("title","sections","evidence")}
+            source.verify(plan,pages)
+            return plan
+        except (ValueError,KeyError,TypeError) as exc:
+            if attempt:
+                raise ValueError("Unverifiable source plan after two attempts: "+str(exc)) from exc
+            request = dict(pages=pages,previous_plan=response,validation_error=str(exc),
+                           correction="Copy quotations and captions exactly from the supplied page text. Do not repair hyphenation, merge columns, or change source characters.")
+
 def prepare(pdf,folder,size,api):
     if not all(144 <= n <= 4032 for n in size):
         raise ValueError("Dimensions must be 144–4032 points per side")
     pages = source.read_paper(pdf)
     if api.live:
-        response = api.ask(model.PLAN,pages)
-        plan = {key:response[key] for key in ("title","sections","evidence")}
+        plan = plan_from_source(api,pages)
     elif pdf.read_bytes()==source.EXAMPLE.read_bytes():
         plan = source.fixture_plan(pdf)
     elif forest_example.matches(pdf) and size[0]>=880 and size[1]>=620 and size[0]>=size[1]:
@@ -53,7 +81,10 @@ def prepare(pdf,folder,size,api):
     else:
         plan = extract.plan(pdf,pages)
     enrich(plan,pages)
-    if not plan.get("conference"):
+    # The live planner/editor owns three text sections and one evidence crop.
+    # Automatically adding extractive multi-figure panels creates captions that
+    # this editor cannot revise when the visual reviewer flags extraction noise.
+    if not plan.get("conference") and not api.live:
         conference.prepare(plan,pdf,folder,pages,size)
     conference.save_exhibits(plan,pdf,folder)
     source.verify(plan,pages)
@@ -67,7 +98,7 @@ def prepare(pdf,folder,size,api):
         plan.pop("secondary",None)
     ev = plan["evidence"]
     if api.live:
-        ev["box"] = api.ask(model.CROP,ev,source.page_png(pdf,ev["page"]))["box"]
+        ev["box"] = locate_evidence(api,ev,source.page_png(pdf,ev["page"]))
     asset = source.page_png(pdf,ev["page"],ev["box"])
     ev["sha256"]=forest.digest(asset)
     (folder/"evidence.png").write_bytes(asset)

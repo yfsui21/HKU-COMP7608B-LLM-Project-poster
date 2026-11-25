@@ -1,0 +1,10 @@
+{
+  "status": "user_confirmed_human_review",
+  "confirmation_date": "2026-11-25",
+  "human_reviewers_confirmed": 1,
+  "basis": "User explicitly confirmed reviewing the existing scores in this conversation.",
+  "item_level_review_log_available": false,
+  "original_score_source": "AI role simulation by one assistant",
+  "two_independent_human_raters": false,
+  "score_values_changed": false
+}

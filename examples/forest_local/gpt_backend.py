@@ -59,8 +59,9 @@ def complete(payload, key, *, work=Path("."), backend=None):
                 cmd.extend(["-i", str(image)])
             cmd.extend(["--", "-"])
             task = "Answer the enclosed poster-generation request as a text/vision model. Use only the supplied data and attached images. Use no tools. Return the requested JSON.\n\n" + prompt
+            timeout = max(1, min(1200, int(os.getenv("PAPERCANVAS_INFERENCE_TIMEOUT", "1200"))))
             proc = subprocess.run(cmd, input=task, text=True, encoding="utf-8", errors="replace",
-                                  capture_output=True, timeout=1200)
+                                  capture_output=True, timeout=timeout)
             if proc.returncode:
                 raise RuntimeError("Codex inference failed: " + proc.stderr[-1200:])
             content = out.read_text(encoding="utf-8")

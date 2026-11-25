@@ -1,0 +1,25 @@
+{
+  "evaluation_type": "AI_SIMULATED_ROLE_REVIEW",
+  "evaluator_engine": "single Codex assistant, current conversation",
+  "simulated_roles": [
+    "experienced PhD perspective",
+    "less experienced MSc perspective"
+  ],
+  "independent_human_raters": 0,
+  "independent_model_runs": false,
+  "blinded": false,
+  "checklist_pre_registered": false,
+  "date": "2026-11-25",
+  "warning": "AI role simulation, not independent human evaluation. Legacy human/double_rated keys are computational schema only.",
+  "source_pdf_sha256": "f05922e427639a08cb5214cc4ef314689ecf2d87333cb5050003323d7631017f",
+  "human_review_confirmation": {
+    "status": "user_confirmed_human_review",
+    "confirmation_date": "2026-11-25",
+    "human_reviewers_confirmed": 1,
+    "basis": "User explicitly confirmed reviewing the existing scores in this conversation.",
+    "item_level_review_log_available": false,
+    "original_score_source": "AI role simulation by one assistant",
+    "two_independent_human_raters": false,
+    "score_values_changed": false
+  }
+}
