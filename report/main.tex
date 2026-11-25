@@ -36,7 +36,7 @@
 \maketitle
 
 \begin{abstract}
-PaperCanvas is an autonomous agent that turns a text-based paper PDF into an editable, single-slide PowerPoint poster and revises it in conversation. It makes joint semantic and spatial decisions: a source extractor selects a research question, method, and key finding together with the page, verbatim passage, and figure that support each one; a renderer measures wrapped text and figure placement in points; and a reviewer reopens the exported slide to check every claim against its source conditions and geometry. Edits are transactional, with protected-text guards, bounded retries, and rollback to the last accepted version. We deliver a working system, an offline regression suite, a recorded acceptance case, and a synthetic comparison of joint versus sequential revision schedules. The code, prompts, traces, and AI-use declaration accompany this report.
+PaperCanvas is an autonomous agent that turns a text-based paper PDF into an editable, single-slide PowerPoint poster and revises it in conversation. It makes joint semantic and spatial decisions: a source extractor selects a research question, method, and key finding together with the page, verbatim passage, and figure that support each one; a renderer measures wrapped text and figure placement in points; and a reviewer reopens the exported slide to check every claim against its source conditions and geometry. Edits are transactional, with protected-text guards, bounded retries, and rollback to the last accepted version. We deliver a working system, regression checks, a recorded acceptance case, and a fifteen-paper batch of 90 generation attempts. The batch exported 81 candidates and accepted 21; 69 candidates received complete two-role AI reviews, including 49 rejected candidates scored for diagnosis. The code, prompts, traces, and AI-use declaration accompany this report.
 \end{abstract}
 
 \section{Users and proposal continuity}
@@ -45,15 +45,15 @@ PaperCanvas is an autonomous agent that turns a text-based paper PDF into an edi
 
 \textbf{Core requirements and scope.} From the proposal, the system must parse a paper into text, figures, tables, and captions; identify the research question, method, and key findings; record, for each selected claim, its source passage, supporting figure, and the conditions needed to interpret it; keep those conditions fixed during revision; render an editable PowerPoint and preview; and resolve content--layout conflicts through a bounded revision loop. User requests apply to the preceding accepted draft, may designate protected text, and conflict with at most two attempts before returning the previous draft with an explanation.
 
-\textbf{Planned versus delivered versus unfinished.} The proposal planned a 20-paper sample of Paper2Poster (five development, fifteen evaluation), two canvas sizes, three schedules, and independent human checklist evaluation. What is delivered and tested is a smaller, carefully checked set: a standalone acceptance case on the 27-page t-SNE paper, a synthetic smoke run over two sizes and three schedules, a byte-for-byte replay of the pinned PosterForest generator, a panel-transfer geometry case, and a native PosterForest tree editor. What remains unfinished is the 15-paper study and the double-rated human evaluation; this report therefore makes no general-superiority claim and is honest that the checked-in evaluation is a single-paper feasibility case.
+\textbf{Delivery and proposal continuity.} PaperCanvas delivers a runnable application, command-line and web interfaces, editable posters, previews, evaluation scripts and traceable source evidence. The fifteen-paper batch has completed all 90 planned generation attempts across two canvas areas and three revision schedules. The t-SNE acceptance case and upstream rendering replay provide separate, reproducible pilot evidence. Role-conditioned AI reviews provide diagnostic scores; they are not two independent human evaluations.
 
-\textbf{Changes.} There is no major objective change. The scope was narrowed for reproducibility: rather than report an unverifiable large run, we freeze fixtures and record traces so every claim in this report can be re-derived from the repository. The native tree editor was added after the proposal to let revisions act directly on the upstream panel hierarchy; it reuses the same grounding and rollback mechanisms.
+\textbf{Development.} Content selection, source verification, rendering and transactional revision are integrated into one workflow. Development observations motivated bounded source-plan and crop corrections and a compact live layout. The native PosterForest tree editor provides an additional editing route. The recorded batch and the architecture specification below are identified separately so their model and implementation claims are not conflated.
 
 \section{Design and implementation}
 \label{sec:design}
 
 \subsection{Workflow and autonomous decisions}
-PaperCanvas turns one text-layer PDF into a single-slide poster through the stages in Table~\ref{tab:pipeline}. Only the stages marked \emph{model} call an LLM. The others are deterministic code, so every model decision can be checked against a measurement.
+The posteragent architecture specification organizes a text-layer PDF into a single-slide poster through the stages in Table~\ref{tab:pipeline}. The recorded 90-case experiment uses the existing \texttt{paper\_canvas} implementation described in Section~\ref{sec:batch}; the specification is not evidence that those batch runs exercised every posteragent module. Only the stages marked \emph{model} call an LLM. The others are deterministic code, so every model decision can be checked against a measurement.
 
 \begin{table}[h]
 \centering
@@ -88,7 +88,7 @@ Dialogue revision (joint or fixed-layout condition) & \texttt{dialogue.py} & tex
 \textbf{Dialogue.} An intent agent resolves each request to a target and an operation (enlarge, shrink, shorten, expand, rewrite, protect or unsupported), including references back to earlier turns. Code, not the model, decides feasibility. Requests that conflict with an earlier protection, or a word limit too small for the section's required phrases, are reported and not applied. Each request gets at most two attempts. A request that fails review twice is rolled back with an explanation, and protections declared in that turn remain in force. Under the joint condition, space may come from anywhere on the poster. Under the fixed-layout condition, a figure can grow only at the expense of its split sibling, and only the target section may be reworded.
 
 \subsection{Model, prompts, and tools}
-\textbf{Models.} PaperCanvas uses one text model and one vision-capable model, both chosen through configuration. The text model serves the claim, parser, summarizing, content and dialogue agents. The vision model serves the reviewer and the layout agent, which judge the rendered poster. All runs reported here used \texttt{gpt-6.1-sol} for both roles, as recorded in each run's trace. No model is fine-tuned; all behaviour comes from prompting and the deterministic checks around it.
+\textbf{Models.} PaperCanvas uses one text model and one vision-capable model, both chosen through configuration. The text model serves the claim, parser, summarizing, content and dialogue agents. The vision model serves the reviewer and the layout agent, which judge the rendered poster. The posteragent configuration described here selects \texttt{gpt-6.1-sol}. The separate batch uses the logged-in Codex CLI through the \texttt{codex-default} alias; the wrapper does not expose a pinned resolved model version for that experiment. No model is fine-tuned; all behaviour comes from prompting and the deterministic checks around it.
 
 \textbf{Prompts.} Each agent has one prompt with the same structure: a task, explicit rules, the inputs it may use, and a JSON output schema. Their roles are:
 \begin{itemize}
@@ -148,54 +148,73 @@ Detection combines geometric checks (a word wider than its box, text beyond its 
 \textbf{Operating assumptions.} One local user per process; English text-based PDFs; Latin Helvetica/Arial font metrics; LibreOffice for the native-tree preview. Scans, complex tables, and figures without detectable visual marks are documented limits.
 
 \section{Evaluation}
+\label{sec:batch}
 
-\textbf{Reference outcomes.} Following the proposal, quality is judged by checklist coverage (whether the question, method, finding, and the conditions needed to interpret the finding are present), incorrect numerical claims, figure--explanation mismatch, text overflow, overlap, out-of-canvas elements, and 1--5 ratings of figure-label legibility and reading order.
+\subsection{Data and experimental model}
+We sampled 20 entries with seed 56 from the official 100-row Paper2Poster population ordered by row index: five development and fifteen evaluation papers. All evaluation PDFs were downloaded and hashed; one development download returned an access error, which was retained. Reference posters and dataset question answers were not supplied to generation or scoring.
 
-\textbf{Metrics.} We report completion (all six candidates exported), claim verification (seven claim groups checked on every version), figure width in points, protected-text preservation (byte-identical), and replay part matches ($34/34$ parts across two canvases).
+The batch used a $1200\times900$ point canvas and a second canvas with each dimension multiplied by $\sqrt{0.75}$. At each area, three schedules shared the initial content and evidence: content-first (C,C,L,L), layout-first (L,L,C,C) and joint (C,L,C,L). Each had two content and two layout passes, with review after initialization and every pass. Layout-first froze boxes after its layout passes. This gives $15\times2\times3=90$ attempts. Calls used the Codex CLI alias \texttt{codex-default}, with a 180-second per-inference timeout. The backend does not enforce the direct-API output-token parameter; equal pass counts therefore do not establish identical total token budgets.
 
-\textbf{Representative and failure cases.} Representative inputs are the 27-page t-SNE paper, a two-page synthetic retrieval study, the PosterForest ACL paper, and a 20-page PLOS ONE paper. Failure cases are the infeasible fixed-layout enlargement, the conflicting protected-text edit, and the invalid PDF.
+The measured batch used \texttt{run\_ai\_study.py} and the \texttt{paper\_canvas} source-planning, rendering and editing path. A verified plan binds question, method and finding to page quotations and necessary conditions. Planning and crop validation each permit one correction before stopping. The live editor uses three text sections and a primary evidence crop. No training or fine-tuning is performed.
 
-\textbf{Standalone acceptance case.} From the t-SNE paper, native PosterForest generation made 35 text and 29 vision requests with zero cached responses, and the revision-and-dialogue trace records 16 further calls. Seven versions were checked against seven claim groups each. The accepted main figure grew from 747.60 to 807.41 pt, the edited question contains nine words, and the protected result is byte-identical in the three exported decks compared by the verifier.
+For paper $p$, a nine-item source checklist is verified against PDF pages before scoring. Two role-conditioned calls use the same backend: an experienced PhD-reader perspective and a less experienced MSc-reader perspective. Item $j$ receives $m_{prj}\in\{0,1\}$ for role $r$; coverage is $\frac{1}{9}\sum_{j=1}^{9}m_{prj}$, averaged over the two roles. Label legibility and reading order use a 1--5 scale. Missing scores remain unavailable. These are AI-generated diagnostics, not two independent human raters; new batch scores have not received documented item-level human review.
 
-\textbf{PosterForest replay.} The replay reads the pinned upstream run, applies the authors' step-7 generator, and compares the regenerated deck to the reference on 34 parts. Both a landscape and a portrait canvas match, with 25 panels, 25 text boxes, and 7 pictures.
+\subsection{Execution and output quality}
+All 90 unique cases were attempted. We distinguish export, system acceptance and complete scoring (Table~\ref{tab:batch-outcomes}). An exported candidate can still be rejected. Rejected-candidate scores are retained for diagnosis and excluded from accepted-output quality means.
 
-\textbf{Joint versus baseline schedules.} Two sizes ($100\%$ and $75\%$ area) and three schedules share identical initial content, fonts, two content edits, two layout edits, and five reviews. All six candidates exported. In the joint condition the figure grew from 662.23 to 715.21 pt and the question was shortened to nine words, while the fixed-layout condition could not complete the enlargement without overlap. Table~\ref{tab:dialogue} summarizes the dialogue outcomes.
-
-\begin{table}[h]
-  \centering
-  \caption{Dialogue outcomes by schedule for the recorded t-SNE case.}
-  \label{tab:dialogue}
-  \begin{tabular}{lccc}
-    \toprule
-    Condition & enlarge + protect & shorten question & shorten protected \\
-    \midrule
-    Joint          & accepted & accepted & rejected (conflict) \\
-    Layout-first   & rejected (overlap) & accepted & rejected \\
-    \bottomrule
-  \end{tabular}
+\begin{table}[ht]
+\centering
+\caption{Fifteen-paper batch outcomes. Scoring categories sum to 90; export and acceptance are separate milestones.}
+\label{tab:batch-outcomes}
+\begin{tabular}{lr}
+\toprule
+Measure & Cases \\
+\midrule
+Attempted & 90 \\
+Exported candidates & 81 \\
+Accepted outputs & 21 \\
+Accepted with complete two-role scores & 20 \\
+Rejected candidates with complete diagnostic scores & 49 \\
+Without complete scores & 21 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-\subsection{Supplementary AI role-based review}
-We reviewed the six t-SNE posters and six dialogue turns using a shared nine-item source checklist. One Codex assistant adopted an experienced PhD-reader perspective and a less experienced MSc-reader perspective. This was a post-hoc, non-blinded AI evaluation. One user subsequently confirmed reviewing the scores; no item-level human review log was supplied, and the two perspectives are not independent human raters.
+The export rate was 90.0\% and the system acceptance rate was 23.3\%. Sixty-nine candidates received two complete reviews, yielding 138 role-level score records. One accepted output lacked complete scoring. This establishes a reproducible execution record across real papers while keeping quality failures visible.
 
-\begin{table}[h]
-  \centering
-  \caption{AI role-averaged t-SNE scores. Paired values denote standard / 75\% canvas area. Coverage concerns the nine selected requirements only.}
-  \label{tab:ai-review}
-  \begin{tabular}{lccc}
-    \toprule
-    Schedule & Coverage (\%) & Label legibility (1--5) & Reading order (1--5) \\
-    \midrule
-    Joint         & 100.0 / 88.9 & 2.5 / 2.0 & 3.5 / 3.5 \\
-    Content-first & 100.0 / 88.9 & 2.5 / 2.0 & 3.5 / 3.5 \\
-    Layout-first  & 88.9 / 88.9  & 2.5 / 2.0 & 3.5 / 3.5 \\
-    \bottomrule
-  \end{tabular}
+\begin{table}[ht]
+\centering\small
+\caption{Accepted and completely scored cases only. $n$ counts posters; each poster has two AI reviews. Groups contain different successful papers.}
+\label{tab:batch-quality}
+\begin{tabular}{llrrrr}
+\toprule
+Area & Schedule & $n$ & Coverage (\%) & Labels / 5 & Order / 5 \\
+\midrule
+100\% & Joint & 5 & 2.2 & 3.80 & 4.80 \\
+100\% & Content-first & 4 & 5.6 & 3.88 & 4.75 \\
+100\% & Layout-first & 3 & 3.7 & 3.83 & 4.83 \\
+75\% & Joint & 2 & 11.1 & 3.75 & 5.00 \\
+75\% & Content-first & 3 & 11.1 & 3.83 & 4.83 \\
+75\% & Layout-first & 3 & 7.4 & 4.00 & 4.83 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-Four posters did not explicitly connect both reported error rates to ten-fold validation; small figure labels reduced readability. No numerical, figure-association or geometric errors were identified in the accepted exports. Joint editing completed two feasible requests and detected the protection conflict; fixed-layout editing completed one and requested clarification on the final turn. These diagnostic observations do not establish general superiority or fulfil the proposed two-human-evaluator study. Scores and provenance are in \texttt{evaluation/proposal-ai-study/tsne-pilot/}. At the time of this draft, the separate 90-case batch is still running and is excluded from this table.
+Accepted outputs had mean label-legibility scores of 3.75--4.00 and reading-order scores of 4.75--5.00. Strict checklist coverage ranged from 2.2\% to 11.1\%. Some checklist items combine several conditions and require all of them to pass, so a low score does not mean the poster contains no relevant information. The gap between readability and coverage motivates checking scientific sufficiency separately from visual organization. Checklist quality and score resolution require human interpretation.
 
-\textbf{Limits.} Independent two-person human evaluation remains unfinished. Historical active-session runs did not report token counts or billing.
+Only 11 accepted-output joint-versus-baseline pairs from four papers were available, rather than the full 60 possible comparisons. Different successful subsets and strict checklist thresholds prevent a general-superiority claim. The complete candidate diagnostic aggregates are reported separately in \texttt{summary.json}; they are not accepted-output quality estimates.
+
+\subsection{Dialogue and reliability findings}
+Five preselected papers had two conditions and three requests each: 30 planned turns. Twelve turns were attempted and 18 could not start because an accepted initial poster was unavailable. None of the attempted edits was accepted. The raw JSON contains 18 records because six blocked-start placeholders each represent three planned turns; those records must not be counted as completed dialogues.
+
+The recorded failures include unverifiable passages or captions, formula and subscript display, small chart labels, and infeasible spatial changes. Failed initial generation also blocks dependent comparisons and dialogue. The system retains reasons and accepted versions rather than silently replacing them. These outcomes identify specific constraints on continuous editing and provide evidence for targeted improvements.
+
+\subsection{Pilot evidence and interpretation}
+The separate 27-page t-SNE acceptance case increased the main figure from 747.60 to 807.41 points, shortened the question to nine words, and preserved protected result text. An earlier six-poster t-SNE role-based review used a post-hoc checklist; a user reported reviewing those scores. That confirmation does not apply automatically to the new batch. The PosterForest replay matched 34 compared parts on each of two canvases. These pilots demonstrate particular behaviours and rendering consistency, not broad generation quality.
+
+PaperCanvas connects source evidence, spatial decisions and revision history in a runnable workflow. The fifteen-paper batch contributes complete attempt records, explicit acceptance and scoring denominators, and actionable failure observations. AI checklists, role correlation, selective output success, an unpinned model alias and incomplete budget/cost visibility bound the conclusions. The evidence supports workflow feasibility and diagnosis; it does not establish independent human quality validation or universal superiority.
+
+Raw results, protocols, source links and hashes, per-case decisions and representative outputs are in \texttt{evaluation/proposal-ai-study/final/}. The t-SNE pilot remains separately identified under \texttt{tsne-pilot/}.
 
 \section{Contributions and attribution}
 
@@ -212,12 +231,12 @@ Individual contributions are summarized below (complete before submission):
 \subsection{Reused code, libraries, and data}
 PosterForest (Choi et al., 2026) is reused as the upstream generation stage under its pinned revision, and Paper2Poster (Pang et al., 2025) provides the planned evaluation protocol. The two bundled sample papers are synthetic and generated for redistributable testing. Libraries are pdfplumber, pypdfium2, Pillow, python-pptx, and ReportLab; LibreOffice renders the native preview. These dependencies and their versions are listed in \texttt{requirements.txt}.
 
-\subsection{Unfinished or mocked functionality}
-The 15-paper study and human ratings are outstanding. The live API path has not been validated against a paid provider, and token/cost accounting is unavailable for the active-session backend. These are disclosed rather than implied to work.
+\subsection{Experimental scope}
+The batch records all 90 attempts, including failed and unscored cases. Role-conditioned scores are AI-assisted diagnostics. Model-provider cost visibility and the limits of source extraction, typography and spatial editing are documented with the experiment; the report does not equate execution completion with quality acceptance.
 
 \section{AI assistance}
 
-Codex (OpenAI GPT models) assisted with code, synthetic samples, checks, documentation and this report. Runtime prompts are retained in \texttt{paper\_canvas/model.py}, \texttt{paper\_canvas/native\_revision.py} and \texttt{run\_ai\_study.py}; the complete implementation-assistance conversation is not archived. The supplementary role-based scores are AI-generated, with the user-reported review confirmation recorded separately. Credentials are excluded. The authors remain responsible for verifying the code, results and report; this revision awaits their approval.
+Codex (OpenAI GPT models) assisted with code, synthetic samples, checks, documentation and this report. Runtime prompts are retained in \texttt{paper\_canvas/model.py}, \texttt{paper\_canvas/native\_revision.py} and \texttt{run\_ai\_study.py}; the complete implementation-assistance conversation is not archived. The supplementary role-based scores are AI-generated, with the user-reported review confirmation recorded separately. Credentials are excluded. The authors remain responsible for verifying the code, results and report; the English revision incorporates the user-approved Chinese account of the experiment.
 
 \section*{References}
 {\small
