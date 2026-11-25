@@ -1,0 +1,171 @@
+\documentclass{article}
+
+\usepackage[preprint]{neurips_2026}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+\title{[Group 56] PaperCanvas: Joint Semantic and Spatial Reasoning for Scientific Poster Generation}
+
+\author{%
+  Baodi Han \\
+  Student ID: 3036791265 \\
+  \texttt{u3679126@connect.hku.hk} \\
+  \And
+  Shitu Ma \\
+  Student ID: 3036808692 \\
+  \texttt{u3680869@connect.hku.hk} \\
+  \And
+  Yifan Sui \\
+  Student ID: 3036791485 \\
+  \texttt{u3679148@connect.hku.hk} \\
+  \And
+  Jinkai Tao \\
+  Student ID: 3036790613 \\
+  \texttt{u3679061@connect.hku.hk} \\
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+PaperCanvas is an autonomous agent that turns a text-based paper PDF into an editable, single-slide PowerPoint poster and revises it in conversation. It makes joint semantic and spatial decisions: a source extractor selects a research question, method, and key finding together with the page, verbatim passage, and figure that support each one; a renderer measures wrapped text and figure placement in points; and a reviewer reopens the exported slide to check every claim against its source conditions and geometry. Edits are transactional, with protected-text guards, bounded retries, and rollback to the last accepted version. We deliver a working system, an offline regression suite, a recorded acceptance case, and a synthetic comparison of joint versus sequential revision schedules. The code, prompts, traces, and AI-use declaration accompany this report.
+\end{abstract}
+
+\section{Users and proposal continuity}
+
+\textbf{Users and needs.} The intended users are researchers who must condense a paper into a poster and then revise it under feedback. They need (i) a single-slide PowerPoint poster they can edit, (ii) an image preview, and (iii) a dialogue through which they can enlarge a figure, shorten a section, or protect text, with the guarantee that scientific meaning is not silently lost.
+
+\textbf{Core requirements and scope.} From the proposal, the system must parse a paper into text, figures, tables, and captions; identify the research question, method, and key findings; record, for each selected claim, its source passage, supporting figure, and the conditions needed to interpret it; keep those conditions fixed during revision; render an editable PowerPoint and preview; and resolve content--layout conflicts through a bounded revision loop. User requests apply to the preceding accepted draft, may designate protected text, and conflict with at most two attempts before returning the previous draft with an explanation.
+
+\textbf{Planned versus delivered versus unfinished.} The proposal planned a 20-paper sample of Paper2Poster (five development, fifteen evaluation), two canvas sizes, three schedules, and independent human checklist evaluation. What is delivered and tested is a smaller, carefully checked set: a standalone acceptance case on the 27-page t-SNE paper, a synthetic smoke run over two sizes and three schedules, a byte-for-byte replay of the pinned PosterForest generator, a panel-transfer geometry case, and a native PosterForest tree editor. What remains unfinished is the 15-paper study and the double-rated human evaluation; this report therefore makes no general-superiority claim and is honest that the checked-in evaluation is a single-paper feasibility case.
+
+\textbf{Changes.} There is no major objective change. The scope was narrowed for reproducibility: rather than report an unverifiable large run, we freeze fixtures and record traces so every claim in this report can be re-derived from the repository. The native tree editor was added after the proposal to let revisions act directly on the upstream panel hierarchy; it reuses the same grounding and rollback mechanisms.
+
+\section{Design and implementation}
+
+\subsection{Workflow and autonomous decisions}
+The pipeline is: extract $\rightarrow$ plan $\rightarrow$ render $\rightarrow$ review $\rightarrow$ edit. \texttt{source.py}/\texttt{extract.py} read the PDF and select three sections in order---question, method, key finding---each carrying a label, text, page, verbatim quotation, and required phrases. \texttt{agent.py} alternates two content passes and two layout passes (the ``joint'' schedule); the content-first and layout-first baselines complete one stage before the other. After every pass, \texttt{render.py} emits a PowerPoint and a PNG preview from the same measured scene, and the reviewer reopens the exported slide to report missing context, unsupported numbers, figure--text mismatch, overlap, overflow, and out-of-canvas elements. The agent autonomously decides which claims and figure support the paper, how much space each panel receives, whether an unmet requirement should be fixed by shortening prose or by reallocating space, and whether a user request is supported, conflicting, or requires clarification.
+
+\subsection{Model, prompts, and tools}
+The local path is deterministic and needs no model: an extractive planner selects sentences from section headings and cues, and a recorded fixture drives the synthetic examples. The live path uses a vision-capable Chat Completions model configured through \texttt{PAPERCANVAS\_MODEL} and \texttt{OPENAI\_API\_KEY}, or a signed-in Codex CLI through \texttt{PAPERCANVAS\_CODEX\_MODEL}. PosterForest (Choi et al., 2026) is pinned at revision \texttt{dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9} and used as the upstream generation stage. All prompts---planning, content, layout, review, intent, claim review, and binding---are plain text in \texttt{paper\_canvas/model.py}; the native editor's planner and reviewer prompts are in \texttt{paper\_canvas/native\_revision.py}. Tools are pdfplumber and pypdfium2 for extraction and crops, python-pptx and ReportLab for the editable deck and preview, and LibreOffice for the native-tree preview and text-coverage measurement.
+
+\subsection{Data, state, and traces}
+Each session persists \texttt{initial.json}, \texttt{state.json} (the committed pointer to the accepted version), \texttt{evidence.png} (the source crop with its SHA-256), \texttt{trace.jsonl} (event log), and versioned \texttt{poster.pptx}/\texttt{preview.png}/\texttt{review.json} directories. Every claim stores its page, quotation, required phrases, and asset hash; the reviewer verifies these against the reopened slide. Task traces connect the claims in this report to code: the dialogue recovery and protected-text rejection are in \texttt{evaluation/offline-dialogue.jsonl}; the standalone run is in \texttt{examples/tsne/independent-cli/trace.jsonl}, \texttt{audit.json}, and \texttt{acceptance.json}; the replay audit is \texttt{evaluation/posterforest-replay.json}.
+
+\subsection{Key choices and trade-offs}
+We favour \emph{measurement over learned layout}: text is wrapped with font metrics and figures are fit to available space, so a change is accepted only if the measured scene passes. We favour \emph{determinism for testing}: the offline fixture and extractive planner make regression checks reproducible without an API key, at the cost of a narrower planner that assumes English text PDFs with captions below figures. We favour \emph{transactional edits}: a single-writer lock and a state pointer make rollback simple, at the cost of serializing edits from one local user.
+
+\section{Reliability and recovery}
+
+The system is tested on the following failure situations, covering detection, bounded recovery or safe stopping, and user feedback.
+
+\begin{enumerate}
+  \item \textbf{Conflicting request.} ``Shorten protected section to two words'' is rejected: the exact-string guard detects that the requested word limit would alter locked text, the edit returns the previous accepted version with a reason, and the CLI exits non-zero. The recorded acceptance case applies this as its third dialogue turn.
+  \item \textbf{Infeasible layout edit.} The layout-first schedule cannot enlarge the figure without overlap; after two attempts it rolls back to the accepted slide, and a lock applied in a failed turn is also rolled back.
+  \item \textbf{Invalid input.} A corrupted PDF is detected at parse time; generation fails cleanly, writes a \texttt{generation\_failed} event to the trace, and never commits a \texttt{state.json}.
+  \item \textbf{Ambiguous request.} An unsupported request such as ``paint it warmer'' is answered with a clarification rather than a guessed edit.
+  \item \textbf{Interrupted process.} A leftover \texttt{.editing} lock from a killed process is detected; locks older than ten minutes are recovered automatically, and a fresh lock is reported to the user instead of silently proceeding.
+\end{enumerate}
+
+Detection combines geometric checks (a word wider than its box, text beyond its column, figure--caption overlap, out-of-canvas elements) with scientific checks (missing required phrases, introduced numbers, figure--claim mismatch). Recovery is bounded: each request has at most two attempts, and every rejected edit leaves the last accepted slide, protections, and split shares intact. The main risk from repeated external actions is cost on the paid live path, which is bounded by the attempt cap and recorded in the trace when token usage is reported.
+
+\section{Non-functional requirements}
+
+\textbf{Latency.} Elapsed time is recorded per operation in \texttt{trace.jsonl}; the recorded t-SNE study reports 507 seconds across 12 operations, and generation time per schedule is reported in \texttt{evaluation/tsne-proposal/summary.json}.
+
+\textbf{Cost.} The live path estimates cost from \texttt{PAPERCANVAS\_INPUT\_USD\_PER\_M} and \texttt{PAPERCANVAS\_OUTPUT\_USD\_PER\_M}; offline cost is zero. The active-session backend does not report tokens, and this is recorded as \texttt{null} rather than silently treated as zero.
+
+\textbf{Privacy and security.} The web server binds to \texttt{127.0.0.1}, checks the \texttt{Host} header, and requires a per-session token for mutating requests. API credentials are read from the environment and are never written to state, traces, or exports; prompts submitted for the AI-use declaration contain no credentials or personal information.
+
+\textbf{Portability and reproducibility.} The application requires Python 3.11+ with pinned dependencies in \texttt{requirements.txt}; offline checks run without a model, and a GitHub Actions workflow runs the offline regression suite on every push. The PosterForest replay pins its inputs by Git blob hash.
+
+\textbf{Operating assumptions.} One local user per process; English text-based PDFs; Latin Helvetica/Arial font metrics; LibreOffice for the native-tree preview. Scans, complex tables, and figures without detectable visual marks are documented limits.
+
+\section{Evaluation}
+
+\textbf{Reference outcomes.} Following the proposal, quality is judged by checklist coverage (whether the question, method, finding, and the conditions needed to interpret the finding are present), incorrect numerical claims, figure--explanation mismatch, text overflow, overlap, out-of-canvas elements, and 1--5 ratings of figure-label legibility and reading order.
+
+\textbf{Representative and failure cases.} Representative inputs are the 27-page t-SNE paper, a two-page synthetic retrieval study, the PosterForest ACL paper, and a 20-page PLOS ONE paper. Failure cases are the infeasible fixed-layout enlargement, the conflicting protected-text edit, and the invalid PDF.
+
+\textbf{Standalone acceptance case.} From the t-SNE paper, native PosterForest generation made 35 text and 29 vision requests with zero cached responses, and the revision-and-dialogue trace records 16 further calls. Seven versions were checked against seven claim groups each. The accepted main figure grew from 747.60 to 807.41 pt, the edited question contains nine words, and the protected result is byte-identical in the three exported decks compared by the verifier.
+
+\textbf{PosterForest replay.} The replay reads the pinned upstream run, applies the authors' step-7 generator, and compares the regenerated deck to the reference on 34 parts. Both a landscape and a portrait canvas match, with 25 panels, 25 text boxes, and 7 pictures.
+
+\textbf{Joint versus baseline schedules.} Two sizes ($100\%$ and $75\%$ area) and three schedules share identical initial content, fonts, two content edits, two layout edits, and five reviews. All six candidates exported. In the joint condition the figure grew from 662.23 to 715.21 pt and the question was shortened to nine words, while the fixed-layout condition could not complete the enlargement without overlap. Table~\ref{tab:dialogue} summarizes the dialogue outcomes.
+
+\begin{table}[h]
+  \centering
+  \caption{Dialogue outcomes by schedule for the recorded t-SNE case.}
+  \label{tab:dialogue}
+  \begin{tabular}{lccc}
+    \toprule
+    Condition & enlarge + protect & shorten question & shorten protected \\
+    \midrule
+    Joint          & accepted & accepted & rejected (conflict) \\
+    Layout-first   & rejected (overlap) & accepted & rejected \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\textbf{Settings and limitations.} Settings, prompts, and the split are frozen and recorded. The live reviewer is model-based; the proposal requires a human check for LLM judging, and that double-rated human evaluation is not yet performed. The checked-in evaluation is therefore a single-paper case study with no independent human ratings and no general-superiority claim. Token counts and billing were unavailable for the active-session runs and are reported as such.
+
+\section{Contributions and attribution}
+
+\subsection{Member contributions}
+Individual contributions are summarized below (complete before submission):
+
+\begin{itemize}
+  \item Baodi Han (3036791265) --- [one-line contribution]
+  \item Shitu Ma (3036808692) --- [one-line contribution]
+  \item Yifan Sui (3036791485) --- [one-line contribution]
+  \item Jinkai Tao (3036790613) --- [one-line contribution]
+\end{itemize}
+
+\subsection{Reused code, libraries, and data}
+PosterForest (Choi et al., 2026) is reused as the upstream generation stage under its pinned revision, and Paper2Poster (Pang et al., 2025) provides the planned evaluation protocol. The two bundled sample papers are synthetic and generated for redistributable testing. Libraries are pdfplumber, pypdfium2, Pillow, python-pptx, and ReportLab; LibreOffice renders the native preview. These dependencies and their versions are listed in \texttt{requirements.txt}.
+
+\subsection{Unfinished or mocked functionality}
+The 15-paper study and human ratings are outstanding. The live API path has not been validated against a paid provider, and token/cost accounting is unavailable for the active-session backend. These are disclosed rather than implied to work.
+
+\section{AI assistance}
+
+Codex (OpenAI GPT models) was used to generate the demonstration code, the synthetic samples, the prompts, the checks, and the documentation from the project proposal, and to assist drafting this report. All project-related prompts are in \texttt{paper\_canvas/model.py} and \texttt{paper\_canvas/native\_revision.py}, and the prompts are submitted alongside this report in the submission package. No prompts contain credentials or personal information. The authors verified the delivered code, the evaluation results, and this report.
+
+\section*{References}
+{\small
+\begin{enumerate}
+  \item Choi, J., Park, S., Song, S., and Shim, H.\ (2026). PosterForest: Hierarchical Multi-Agent Collaboration for Scientific Poster Generation. In \emph{Proceedings of ACL 2026}, pp.\ 379--401.
+  \item Pang, W., Lin, K. Q., Jian, X., He, X., and Torr, P.\ (2025). Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers. In \emph{Advances in Neural Information Processing Systems}, 38.
+  \item van der Maaten, L.\ and Hinton, G.\ (2008). Visualizing Data using t-SNE. \emph{Journal of Machine Learning Research}, 9:2579--2605.
+  \item Erren, T. C.\ and Bourne, P. E.\ (2007). Ten Simple Rules for a Good Poster Presentation. \emph{PLOS Computational Biology}, 3(5):e102.
+  \item Hadi, M., Tran, E., Nagarajan, B., and Kirpalani, A.\ (2024). Evaluation of ChatGPT as a diagnostic tool for medical learners and clinicians. \emph{PLOS ONE}, 19(3):e0307383.
+  \item python-pptx. \url{https://python-pptx.readthedocs.io}.
+  \item ReportLab. \url{https://www.reportlab.com}.
+\end{enumerate}
+}
+
+\newpage
+\appendix
+\section{Reproducibility}
+
+The submitted snapshot runs without a notebook. Setup and offline checks:
+
+\begin{verbatim}
+pip install -r requirements.txt
+python verify_demo.py
+python verify_native_tree_smoke.py
+python verify_panel_transfer.py runs/tsne-jmlr.pdf --out runs/tsne-transfer
+\end{verbatim}
+
+The standalone t-SNE acceptance case additionally requires the Codex CLI, LibreOffice, the pinned PosterForest checkout, and the original JMLR PDF, as documented in the repository README. The submitted version is identified by the repository commit at submission time.
+
+\end{document}
