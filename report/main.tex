@@ -8,7 +8,6 @@
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage{amsfonts}
-\usepackage{nicefrac}
 \usepackage{microtype}
 \usepackage{xcolor}
 
@@ -120,7 +119,27 @@ Detection combines geometric checks (a word wider than its box, text beyond its 
   \end{tabular}
 \end{table}
 
-\textbf{Settings and limitations.} Settings, prompts, and the split are frozen and recorded. The live reviewer is model-based; the proposal requires a human check for LLM judging, and that double-rated human evaluation is not yet performed. The checked-in evaluation is therefore a single-paper case study with no independent human ratings and no general-superiority claim. Token counts and billing were unavailable for the active-session runs and are reported as such.
+\subsection{Supplementary AI role-based review}
+We reviewed the six t-SNE posters and six dialogue turns using a shared nine-item source checklist. One Codex assistant adopted an experienced PhD-reader perspective and a less experienced MSc-reader perspective. This was a post-hoc, non-blinded AI evaluation. One user subsequently confirmed reviewing the scores; no item-level human review log was supplied, and the two perspectives are not independent human raters.
+
+\begin{table}[h]
+  \centering
+  \caption{AI role-averaged t-SNE scores. Paired values denote standard / 75\% canvas area. Coverage concerns the nine selected requirements only.}
+  \label{tab:ai-review}
+  \begin{tabular}{lccc}
+    \toprule
+    Schedule & Coverage (\%) & Label legibility (1--5) & Reading order (1--5) \\
+    \midrule
+    Joint         & 100.0 / 88.9 & 2.5 / 2.0 & 3.5 / 3.5 \\
+    Content-first & 100.0 / 88.9 & 2.5 / 2.0 & 3.5 / 3.5 \\
+    Layout-first  & 88.9 / 88.9  & 2.5 / 2.0 & 3.5 / 3.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Four posters did not explicitly connect both reported error rates to ten-fold validation; small figure labels reduced readability. No numerical, figure-association or geometric errors were identified in the accepted exports. Joint editing completed two feasible requests and detected the protection conflict; fixed-layout editing completed one and requested clarification on the final turn. These diagnostic observations do not establish general superiority or fulfil the proposed two-human-evaluator study. Scores and provenance are in \texttt{evaluation/proposal-ai-study/tsne-pilot/}. At the time of this draft, the separate 90-case batch is still running and is excluded from this table.
+
+\textbf{Limits.} Independent two-person human evaluation remains unfinished. Historical active-session runs did not report token counts or billing.
 
 \section{Contributions and attribution}
 
@@ -142,7 +161,7 @@ The 15-paper study and human ratings are outstanding. The live API path has not 
 
 \section{AI assistance}
 
-Codex (OpenAI GPT models) was used to generate the demonstration code, the synthetic samples, the prompts, the checks, and the documentation from the project proposal, and to assist drafting this report. All project-related prompts are in \texttt{paper\_canvas/model.py} and \texttt{paper\_canvas/native\_revision.py}, and the prompts are submitted alongside this report in the submission package. No prompts contain credentials or personal information. The authors verified the delivered code, the evaluation results, and this report.
+Codex (OpenAI GPT models) assisted with code, synthetic samples, checks, documentation and this report. Runtime prompts are retained in \texttt{paper\_canvas/model.py}, \texttt{paper\_canvas/native\_revision.py} and \texttt{run\_ai\_study.py}; the complete implementation-assistance conversation is not archived. The supplementary role-based scores are AI-generated, with the user-reported review confirmation recorded separately. Credentials are excluded. The authors remain responsible for verifying the code, results and report; this revision awaits their approval.
 
 \section*{References}
 {\small

@@ -43,6 +43,7 @@ try {
     & git -c $gitSafe diff --cached --quiet
     if ($LASTEXITCODE -ne 0) { throw 'Index contains other staged work; stopped without committing it.' }
     Save-Status 'fetching' 'Checking the latest remote commits before the results commit and push.'
+    if (Test-Path -LiteralPath (Join-Path $taskRepo 'report/REVIEW_REQUIRED.txt')) { throw 'A report/results review hold is active; no automatic commit or push is permitted.' }
     Run-Git -Arguments @('fetch','origin')
     Run-Git -Arguments @('add','evaluation/proposal-ai-study')
     Run-Git -Arguments @('diff','--cached','--check')

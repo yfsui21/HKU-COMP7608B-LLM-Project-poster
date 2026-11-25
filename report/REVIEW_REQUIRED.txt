@@ -1,0 +1,3 @@
+The user approved this report source and related files for submission to main, excluding main.pdf.
+The ongoing 90-case batch has not completed final result review; automatic result publication remains on hold.
+Background generation may continue. The earlier automatic finalization watcher was stopped.
