@@ -53,10 +53,10 @@ PaperCanvas is an autonomous agent that turns a text-based paper PDF into an edi
 \section{Design and implementation}
 
 \subsection{Workflow and autonomous decisions}
-The pipeline is: extract $\rightarrow$ plan $\rightarrow$ render $\rightarrow$ review $\rightarrow$ edit. \texttt{source.py}/\texttt{extract.py} read the PDF and select three sections in order---question, method, key finding---each carrying a label, text, page, verbatim quotation, and required phrases. \texttt{agent.py} alternates two content passes and two layout passes (the ``joint'' schedule); the content-first and layout-first baselines complete one stage before the other. After every pass, \texttt{render.py} emits a PowerPoint and a PNG preview from the same measured scene, and the reviewer reopens the exported slide to report missing context, unsupported numbers, figure--text mismatch, overlap, overflow, and out-of-canvas elements. The agent autonomously decides which claims and figure support the paper, how much space each panel receives, whether an unmet requirement should be fixed by shortening prose or by reallocating space, and whether a user request is supported, conflicting, or requires clarification.
+The pipeline is: extract $\rightarrow$ plan $\rightarrow$ render $\rightarrow$ review $\rightarrow$ edit. \texttt{source.py}/\texttt{extract.py} read the PDF and select three sections in order---question, method, key finding---each carrying a label, text, page, verbatim quotation, and required phrases. \texttt{agent.py} alternates two content passes and two layout passes (the ``joint'' schedule); the content-first and layout-first baselines complete one stage before the other. After every pass, \texttt{render.py} emits a PowerPoint and a PNG preview from the same measured scene, and the reviewer reopens the exported slide to report missing context, unsupported numbers, figure--text mismatch, overlap, overflow, and out-of-canvas elements. The agent autonomously decides which claims and figure support the paper, how much space each panel receives, whether an unmet requirement should be fixed by shortening prose or by reallocating space, and whether a user request is supported, conflicting, or requires clarification. The entry point is \texttt{python papercanvas.py demo}, which serves the loopback studio at \texttt{http://127.0.0.1:8765}; the same module exposes \texttt{generate}, \texttt{edit}, \texttt{bind}, \texttt{pipeline}, \texttt{tree-import}, and \texttt{tree-list} subcommands.
 
 \subsection{Model, prompts, and tools}
-The local path is deterministic and needs no model: an extractive planner selects sentences from section headings and cues, and a recorded fixture drives the synthetic examples. The live path uses a vision-capable Chat Completions model configured through \texttt{PAPERCANVAS\_MODEL} and \texttt{OPENAI\_API\_KEY}, or a signed-in Codex CLI through \texttt{PAPERCANVAS\_CODEX\_MODEL}. PosterForest (Choi et al., 2026) is pinned at revision \texttt{dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9} and used as the upstream generation stage. All prompts---planning, content, layout, review, intent, claim review, and binding---are plain text in \texttt{paper\_canvas/model.py}; the native editor's planner and reviewer prompts are in \texttt{paper\_canvas/native\_revision.py}. Tools are pdfplumber and pypdfium2 for extraction and crops, python-pptx and ReportLab for the editable deck and preview, and LibreOffice for the native-tree preview and text-coverage measurement.
+The local path is deterministic and needs no model: an extractive planner selects sentences from section headings and cues, and a recorded fixture drives the synthetic examples. The live path uses a vision-capable Chat Completions model configured through \texttt{PAPERCANVAS\_MODEL} and \texttt{OPENAI\_API\_KEY}, or a signed-in Codex CLI through \texttt{PAPERCANVAS\_CODEX\_MODEL}. PosterForest (Choi et al., 2026) is pinned at the upstream revision \texttt{dd4b060f} (full hash in Appendix~\ref{sec:repro}) and used as the generation stage. All prompts---planning, content, layout, review, intent, claim review, and binding---are plain text in \texttt{paper\_canvas/model.py}; the native editor's planner and reviewer prompts are in \texttt{paper\_canvas/native\_revision.py}. Tools are pdfplumber and pypdfium2 for extraction and crops, python-pptx and ReportLab for the editable deck and preview, and LibreOffice for the native-tree preview and text-coverage measurement.
 
 \subsection{Data, state, and traces}
 Each session persists \texttt{initial.json}, \texttt{state.json} (the committed pointer to the accepted version), \texttt{evidence.png} (the source crop with its SHA-256), \texttt{trace.jsonl} (event log), and versioned \texttt{poster.pptx}/\texttt{preview.png}/\texttt{review.json} directories. Every claim stores its page, quotation, required phrases, and asset hash; the reviewer verifies these against the reopened slide. Task traces connect the claims in this report to code: the dialogue recovery and protected-text rejection are in \texttt{evaluation/offline-dialogue.jsonl}; the standalone run is in \texttt{examples/tsne/independent-cli/trace.jsonl}, \texttt{audit.json}, and \texttt{acceptance.json}; the replay audit is \texttt{evaluation/posterforest-replay.json}.
@@ -88,11 +88,15 @@ Detection combines geometric checks (a word wider than its box, text beyond its 
 
 \textbf{Portability and reproducibility.} The application requires Python 3.11+ with pinned dependencies in \texttt{requirements.txt}; offline checks run without a model, and a GitHub Actions workflow runs the offline regression suite on every push. The PosterForest replay pins its inputs by Git blob hash.
 
+\textbf{Workload and compute.} The system is CPU-only and performs no training or fine-tuning; inference is delegated to the configured model. It serves one local user per process, so concurrent or remote sessions are out of scope. The main trade-off of this design is that keeping the server loopback-only and single-user keeps credentials local and simplifies recovery, at the cost of not supporting shared or remote deployment.
+
 \textbf{Operating assumptions.} One local user per process; English text-based PDFs; Latin Helvetica/Arial font metrics; LibreOffice for the native-tree preview. Scans, complex tables, and figures without detectable visual marks are documented limits.
 
 \section{Evaluation}
 
 \textbf{Reference outcomes.} Following the proposal, quality is judged by checklist coverage (whether the question, method, finding, and the conditions needed to interpret the finding are present), incorrect numerical claims, figure--explanation mismatch, text overflow, overlap, out-of-canvas elements, and 1--5 ratings of figure-label legibility and reading order.
+
+\textbf{Metrics.} We report completion (all six candidates exported), claim verification (seven claim groups checked on every version), figure width in points, protected-text preservation (byte-identical), and replay part matches ($34/34$ parts across two canvases).
 
 \textbf{Representative and failure cases.} Representative inputs are the 27-page t-SNE paper, a two-page synthetic retrieval study, the PosterForest ACL paper, and a 20-page PLOS ONE paper. Failure cases are the infeasible fixed-layout enlargement, the conflicting protected-text edit, and the invalid PDF.
 
@@ -156,6 +160,7 @@ Codex (OpenAI GPT models) was used to generate the demonstration code, the synth
 \newpage
 \appendix
 \section{Reproducibility}
+\label{sec:repro}
 
 The submitted snapshot runs without a notebook. Setup and offline checks:
 
@@ -166,6 +171,6 @@ python verify_native_tree_smoke.py
 python verify_panel_transfer.py runs/tsne-jmlr.pdf --out runs/tsne-transfer
 \end{verbatim}
 
-The standalone t-SNE acceptance case additionally requires the Codex CLI, LibreOffice, the pinned PosterForest checkout, and the original JMLR PDF, as documented in the repository README. The submitted version is identified by the repository commit at submission time.
+The pinned PosterForest revision is \texttt{dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9}. The standalone t-SNE acceptance case additionally requires the Codex CLI, LibreOffice, the pinned PosterForest checkout, and the original JMLR PDF, as documented in the repository README. The submitted version is identified by the repository commit at submission time.
 
 \end{document}
