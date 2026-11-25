@@ -1,4 +1,4 @@
 The user approved the English report source and experimental overview for submission to main on 2026-11-25, excluding main.pdf.
 The 90-case batch has finished. Published results retain acceptance, failure and AI-score provenance separately.
-Member-contribution placeholders still require the authors' actual contribution statements before final course submission.
+Member contributions now identify Yifan Sui as project lead and summarize the team's recorded implementation, evaluation and report work.
 The earlier automatic finalization watcher remains stopped.
