@@ -1,7 +1,13 @@
 __pycache__/
 *.pyc
-.env*
 .venv/
 runs/
-evaluation/local/
 ~$*
+
+# Local credentials -- never commit
+.env*
+!.env.local.example
+
+# Large or third-party papers; fetch with scripts/fetch_sample.sh
+samples/*.pdf
+!samples/synthetic_paper.pdf

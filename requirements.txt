@@ -1,8 +1,11 @@
-# Core demo dependencies. For the full PosterForest pipeline/evaluation, also install:
-#   python -m pip install -r examples/forest_local/requirements.txt
-pdfplumber==0.11.9
-pypdfium2==5.13.0
-Pillow==13.0.0
+# Core (generation, review, dialogue, evaluation)
+PyMuPDF>=1.24
+numpy>=1.26
+Pillow>=10
 python-pptx==1.0.2
-reportlab==4.4.9
-
+anthropic>=0.40
+openai>=1.50
+# UI
+gradio>=5
+# Synthetic test paper (scripts/make_synthetic_paper.py)
+reportlab>=4

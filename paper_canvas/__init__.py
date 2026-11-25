@@ -1,1 +1,0 @@
-"""PaperCanvas poster agent."""
