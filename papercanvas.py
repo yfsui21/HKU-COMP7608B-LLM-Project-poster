@@ -36,6 +36,7 @@ def main() -> int:
     e.add_argument("--protect", default="", help="exact text to keep unchanged (one per line)")
     a = sub.add_parser("app", help="launch the Gradio UI")
     a.add_argument("--port", type=int, default=7860)
+    a.add_argument("--host", default=None, help="default 127.0.0.1; 0.0.0.0 exposes it to the network")
     args = parser.parse_args()
 
     from posteragent import config, llm
@@ -73,7 +74,7 @@ def main() -> int:
         return 0 if rec.status == "applied" else 2
     if args.cmd == "app":
         import app
-        app.demo.launch(server_name="127.0.0.1", server_port=args.port)
+        app.launch(args.host, args.port)
         return 0
     return 1
 

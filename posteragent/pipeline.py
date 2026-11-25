@@ -63,6 +63,12 @@ def _noop(_frac: float, _msg: str) -> None:
     pass
 
 
+def _step(trace: llm.Trace, progress: Progress, frac: float, msg: str) -> None:
+    """Report a stage to the caller (UI/CLI) and to the progress file."""
+    trace.note(f"[{frac:4.0%}] {msg}")
+    progress(frac, msg)
+
+
 @dataclass
 class ProtectedSpan:
     text: str
@@ -170,9 +176,11 @@ def prepare(pdf_path: str | Path, workdir: str | Path, *,
     trace = trace or llm.Trace()
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
+    if trace.progress_path is None:
+        trace.progress_path = workdir / "progress.log"
     t0 = time.time()
 
-    progress(0.05, "Parsing PDF (text, figures, tables)...")
+    _step(trace, progress, 0.05, "Parsing PDF (text, figures, tables)...")
     paper = parse_pdf(pdf_path, workdir)
     if not any(t.strip() for t in paper.pages):
         raise ValueError("the PDF has no extractable text (scanned pages are not supported)")
@@ -181,20 +189,20 @@ def prepare(pdf_path: str | Path, workdir: str | Path, *,
     for w in paper.warnings:
         trace.log(f"  extraction: {w}")
 
-    progress(0.15, "Claim agent: what must the poster communicate?")
+    _step(trace, progress, 0.15, "Claim agent: what must the poster communicate?")
     claims, failures = claims_mod.extract(paper, trace)
     trace.log(f"claims: {len(claims)} verified and frozen, {len(failures)} recorded problem(s)")
     if not claims:
         raise ValueError("no claim could be verified against the paper")
 
-    progress(0.30, "Parser agent: building the document tree...")
+    _step(trace, progress, 0.30, "Parser agent: building the document tree...")
     raw_tree = agents.parser_agent(paper, trace)
     raw_nodes = agents._flatten_raw(raw_tree)
     problems = agents.audit_assets(raw_nodes, paper)
     for p in problems:
         trace.log(f"  asset audit: {p}")
 
-    progress(0.42, "Summarizing agent: selecting poster content...")
+    _step(trace, progress, 0.42, "Summarizing agent: selecting poster content...")
     outline = agents.select_outline(raw_nodes, paper, trace, *n_sections, claims=claims)
     trace.log(f"outline: {len(outline.sections)} sections, "
               f"{sum(len(s.bullets) for s in outline.sections)} bullets, "
@@ -208,7 +216,8 @@ def initial_session(draft: Draft, size: config.PosterSize, workdir: str | Path,
     """Layout init + first review. Every schedule at this size forks from it."""
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
-    trace = llm.Trace()
+    trace = llm.Trace(progress_path=workdir / "progress.log")
+    trace.note(f"layout init and first review ({size.w_in:.1f} x {size.h_in:.1f} in)")
     root = build_initial_tree(draft.outline, size)
     sess = Session(workdir=workdir, size=size, paper=draft.paper,
                    outline=copy.deepcopy(draft.outline), raw_nodes=draft.raw_nodes, root=root,
@@ -231,7 +240,7 @@ def fork(base: Session, workdir: str | Path, condition: str) -> Session:
         workdir=workdir, size=base.size, paper=base.paper, outline=copy.deepcopy(base.outline),
         raw_nodes=base.raw_nodes, root=clone(base.root),
         preview=base.preview.copy() if base.preview is not None else None,
-        trace=llm.Trace(), claims=copy.deepcopy(base.claims),
+        trace=llm.Trace(progress_path=workdir / "progress.log"), claims=copy.deepcopy(base.claims),
         claim_failures=list(base.claim_failures), asset_problems=list(base.asset_problems),
         condition=condition, layout_frozen=base.layout_frozen,
         protected=copy.deepcopy(base.protected), word_limits=dict(base.word_limits),
@@ -494,13 +503,14 @@ def run_schedule(sess: Session, condition: str, *, use_reviewer: bool = True,
             # Section boundaries and figure boxes are final from here on.
             sess.layout_frozen = True
             sess.requests = []
-        progress(0.55 + 0.4 * i / len(order), f"[{condition}] pass {i}/{len(order)}: {role}")
+        _step(sess.trace, progress, 0.55 + 0.4 * i / len(order), f"[{condition}] pass {i}/{len(order)}: {role}")
         sess.last_allocations = []
         notes = (content_pass(sess, rv) if role == "content"
                  else layout_pass(sess, rv, content_follows="content" in order[i:]))
         rv = review(sess, f"{i:02d}-{role}", use_reviewer=use_reviewer)
         sess.record(f"{i:02d}-{role}", rv, notes)
     save(sess)
+    sess.trace.note(f"[{condition}] done: {sess.last_review.summary() if sess.last_review else 'no review'}")
     return sess
 
 
@@ -562,7 +572,8 @@ def load_session(workdir: str | Path) -> Session:
     w, h, scale = d["size"]
     sess = Session(
         workdir=workdir, size=config.PosterSize(w, h, scale), paper=paper, outline=outline,
-        raw_nodes=[], root=load_tree(d["root"]), preview=None, trace=llm.Trace(),
+        raw_nodes=[], root=load_tree(d["root"]), preview=None,
+        trace=llm.Trace(progress_path=workdir / "progress.log"),
         claims=[Claim.from_json(c) for c in d["claims"]], claim_failures=d["claim_failures"],
         asset_problems=d["asset_problems"], condition=d["condition"],
         layout_frozen=d["layout_frozen"],

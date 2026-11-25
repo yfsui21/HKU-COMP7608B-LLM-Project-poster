@@ -34,6 +34,19 @@ def clean(text: str) -> str:
     return _CONTROL.sub("", text or "")
 
 
+_HYPHEN_BREAK = re.compile(r"(\w)-\s*\n\s*(\w)")
+
+
+def one_line(text: str) -> str:
+    """Poster text is one line per bullet: rejoin words hyphenated across a
+    PDF line break ("partic-\\nipants" -> "participants") and turn every
+    other line break or tab into a space. A newline inside a bullet would
+    be exported to PPTX as a soft line break (\\v), so the deck would no
+    longer match the tree, and the hyphen would show on the poster."""
+    t = _HYPHEN_BREAK.sub(r"\1\2", clean(text))
+    return re.sub(r"[ \t]*[\r\n\t\v\f]+[ \t]*", " ", t)
+
+
 def _nid(prefix: str) -> str:
     return f"{prefix}{next(_ids)}"
 
@@ -98,11 +111,11 @@ class Bullet:
         runs_out = []
         for r in runs:
             if isinstance(r, str):
-                runs_out.append({"text": clean(r)})
+                runs_out.append({"text": one_line(r)})
             elif isinstance(r, dict):
-                runs_out.append({"text": clean(str(r.get("text", "")))})
+                runs_out.append({"text": one_line(str(r.get("text", "")))})
         if not runs_out:
-            runs_out = [{"text": clean(str(d.get("text", "")))}]
+            runs_out = [{"text": one_line(str(d.get("text", "")))}]
         lvl = d.get("level", 0)
         return Bullet(
             alignment=str(d.get("alignment", "left")),
@@ -113,7 +126,7 @@ class Bullet:
 
     @staticmethod
     def plain(text: str, level: int = 0) -> "Bullet":
-        return Bullet(level=level, runs=[{"text": clean(text)}])
+        return Bullet(level=level, runs=[{"text": one_line(text)}])
 
 
 @dataclass

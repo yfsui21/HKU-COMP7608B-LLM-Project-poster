@@ -26,7 +26,7 @@ from .layout_init import Outline, OutlineSection
 from .parse import ParsedPaper
 from .tree import Bullet, ContentLeaf, Node, SplitNode, leaves, valid_directions
 
-_MD_CAP = 42000  # chars of paper markdown sent to the parser agent
+_MD_CAP = 32000  # chars of paper markdown sent to the parser agent
 # Per-pass caps on the content agent's length change, so the volume-ratio
 # loop converges across T_max rounds instead of overshooting and oscillating.
 _MAX_EXPAND_PCT = 140.0
@@ -48,7 +48,7 @@ Build a hierarchical tree of this paper.
 ## RULES
 1. Preserve Content: copy the paper's own wording into `content`, do not
    summarise -- that happens in a later stage. Cap each node's `content` at
-   about 900 characters; if a section is longer, keep its most substantive
+   about 600 characters; if a section is longer, keep its most substantive
    passages and drop filler.
 2. Caption-Guided Strategy: use the figure/table captions to decide where
    sections begin. Group text around the figures and tables whose captions

@@ -16,6 +16,9 @@ from posteragent import config, dialogue, llm, offline, pipeline
 from posteragent.tree import leaves, splits, to_json
 
 SAMPLE = Path(__file__).resolve().parent / "samples" / "synthetic_paper.pdf"
+# Every browser run gets its own folder here; the server may serve files from
+# this directory only.
+WEB_RUNS = Path(__file__).resolve().parent / "runs" / "web"
 
 
 def _asset_gallery(sess) -> list[tuple[str, str]]:
@@ -157,7 +160,8 @@ def do_generate(pdf_file, size_key, n_lo, n_hi, use_review, condition,
             raise gr.Error("Upload a paper PDF first.")
 
     size = config.PosterSize(*config.POSTER_SIZES[size_key])
-    workdir = Path(tempfile.mkdtemp(prefix="poster_"))
+    WEB_RUNS.mkdir(parents=True, exist_ok=True)
+    workdir = Path(tempfile.mkdtemp(prefix="poster_", dir=WEB_RUNS))
 
     def prog(frac, msg):
         progress(min(0.99, frac), desc=msg)
@@ -367,12 +371,20 @@ with gr.Blocks(title="PaperCanvas") as demo:
     reset_btn.click(do_reset, [st], [st, hist_out])
 
 
-if __name__ == "__main__":
+def launch(host: str | None = None, port: int | None = None) -> None:
+    """Serve the UI. Binds to 127.0.0.1 by default: the app spends the API
+    key of whoever runs it, so exposing it on a network is an explicit choice
+    (POSTER_HOST=0.0.0.0 or --host)."""
     demo.queue(max_size=8).launch(
-        server_name=os.environ.get("POSTER_HOST", "127.0.0.1"),
-        server_port=int(os.environ.get("POSTER_PORT", "7860")),
+        server_name=host or os.environ.get("POSTER_HOST", "127.0.0.1"),
+        server_port=port or int(os.environ.get("POSTER_PORT", "7860")),
         share=False,
         show_error=True,
         css=CSS,
         theme=gr.themes.Soft(),
+        allowed_paths=[str(WEB_RUNS)],
     )
+
+
+if __name__ == "__main__":
+    launch()

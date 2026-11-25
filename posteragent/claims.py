@@ -27,6 +27,7 @@ from dataclasses import asdict, dataclass, field
 
 from . import llm
 from .parse import ParsedPaper
+from .tree import one_line
 
 _MD_CAP = 42000
 ROLES = ("question", "method", "finding")
@@ -183,7 +184,10 @@ def verify(raw: list, paper: ParsedPaper) -> tuple[list[Claim], list[str]]:
             if not cond:
                 continue
             if contains(full, cond):
-                conditions.append(cond)
+                # Stored as the poster will show it: one line, PDF
+                # hyphenation undone. Matching is unchanged (norm() already
+                # ignores both), so the frozen requirement is the same.
+                conditions.append(one_line(cond))
             else:
                 problems.append(f"{label}: condition not found in the paper: {cond!r}")
         asset = c.get("asset")
@@ -191,8 +195,8 @@ def verify(raw: list, paper: ParsedPaper) -> tuple[list[Claim], list[str]]:
         if asset and not key:
             problems.append(f"{label}: asset {asset!r} is not in the extracted inventory")
         seen.add(cid)
-        claims.append(Claim(id=cid, role=role, statement=str(c.get("statement", ""))[:240],
-                            quote=quote, page=page, conditions=conditions, asset=key))
+        claims.append(Claim(id=cid, role=role, statement=one_line(str(c.get("statement", "")))[:240],
+                            quote=one_line(quote), page=page, conditions=conditions, asset=key))
     for role in ROLES:
         if not any(c.role == role for c in claims):
             problems.append(f"no verified {role} claim")

@@ -92,9 +92,24 @@ class Trace:
 
     calls: list[CallRecord] = field(default_factory=list)
     events: list[str] = field(default_factory=list)
+    # When set, every event and every model call start/finish is appended
+    # here as it happens, so a long run can be watched (tail -f) and a run
+    # that dies mid-way still leaves a record.
+    progress_path: Any = None
+
+    def note(self, msg: str) -> None:
+        """Write a timestamped line to the progress file only."""
+        if self.progress_path is None:
+            return
+        try:
+            with open(self.progress_path, "a", encoding="utf-8") as f:
+                f.write(time.strftime("%H:%M:%S ") + msg.replace("\n", " ") + "\n")
+        except OSError:
+            pass
 
     def log(self, msg: str) -> None:
         self.events.append(msg)
+        self.note(msg)
 
     @property
     def total_tokens(self) -> tuple[int, int]:
@@ -295,6 +310,59 @@ def _post_anthropic(
     return text, resp.usage.input_tokens, resp.usage.output_tokens
 
 
+_NO_STREAM: set[str] = set()  # models/endpoints that refuse streaming
+_NO_STREAM_USAGE: set[str] = set()  # ... or refuse stream_options
+
+
+def _post_openai(model: str, messages: list, max_tokens: int, temperature: float,
+                 json_mode: bool) -> tuple[str, int, int]:
+    """Chat Completions, streamed. Returns (text, in_tokens, out_tokens).
+
+    Streamed because the proxy drops a request after ~60 s without response
+    bytes (504 "Upstream request timed out"); a long generation such as the
+    parser agent's document tree exceeds that, while a stream keeps bytes
+    flowing. Token usage comes from the final chunk when the endpoint
+    supports stream_options; otherwise it is 0 and the call is still kept.
+    """
+    kwargs: dict[str, Any] = {}
+    if json_mode:
+        kwargs["response_format"] = {"type": "json_object"}
+    if temperature is not None and model not in _NO_TEMPERATURE:
+        kwargs["temperature"] = temperature
+    base = dict(model=model, messages=messages, max_completion_tokens=max_tokens, **kwargs)
+    if model in _NO_STREAM:
+        resp = client().chat.completions.create(**base)
+        u = resp.usage
+        return (resp.choices[0].message.content or "",
+                getattr(u, "prompt_tokens", 0) or 0, getattr(u, "completion_tokens", 0) or 0)
+    extra = {} if model in _NO_STREAM_USAGE else {"stream_options": {"include_usage": True}}
+    try:
+        stream = client().chat.completions.create(stream=True, **base, **extra)
+    except Exception as e:  # noqa: BLE001
+        msg = str(e)
+        if "stream_options" in msg and extra:
+            _NO_STREAM_USAGE.add(model)
+            return _post_openai(model, messages, max_tokens, temperature, json_mode)
+        if "temperature" in msg and "temperature" in kwargs:
+            _NO_TEMPERATURE.add(model)
+            return _post_openai(model, messages, max_tokens, temperature, json_mode)
+        if "stream" in msg.lower() and "support" in msg.lower():
+            _NO_STREAM.add(model)
+            return _post_openai(model, messages, max_tokens, temperature, json_mode)
+        raise
+    parts: list[str] = []
+    tin = tout = 0
+    for chunk in stream:
+        if getattr(chunk, "usage", None):
+            tin = getattr(chunk.usage, "prompt_tokens", 0) or tin
+            tout = getattr(chunk.usage, "completion_tokens", 0) or tout
+        for choice in chunk.choices or []:
+            delta = getattr(choice, "delta", None)
+            if delta is not None and getattr(delta, "content", None):
+                parts.append(delta.content)
+    return "".join(parts), tin, tout
+
+
 def call(
     agent: str,
     prompt: str,
@@ -324,6 +392,8 @@ def call(
         return value
     model = model or (config.VISION_MODEL if images else config.TEXT_MODEL)
     anth = is_anthropic(model)
+    if trace:
+        trace.note(f"  -> {agent} ({model}{', %d image(s)' % len(images) if images else ''})")
 
     content: list[dict[str, Any]] = [{"type": "text", "text": prompt}]
     for img in images:
@@ -358,29 +428,12 @@ def call(
                 )
                 rec = CallRecord(agent, model, tin, tout, time.time() - t0, ok=True)
             else:
-                kwargs: dict[str, Any] = {}
-                if json_mode:
-                    kwargs["response_format"] = {"type": "json_object"}
-                resp = client().chat.completions.create(
-                    model=model,
-                    messages=messages,
-                    max_completion_tokens=max_tokens,
-                    temperature=temperature,
-                    **kwargs,
-                )
-                text = resp.choices[0].message.content or ""
-                usage = resp.usage
-                rec = CallRecord(
-                    agent=agent,
-                    model=model,
-                    prompt_tokens=getattr(usage, "prompt_tokens", 0) or 0,
-                    completion_tokens=getattr(usage, "completion_tokens", 0) or 0,
-                    seconds=time.time() - t0,
-                    ok=True,
-                )
+                text, tin, tout = _post_openai(model, messages, max_tokens, temperature, json_mode)
+                rec = CallRecord(agent, model, tin, tout, time.time() - t0, ok=True)
             if not want_json:
                 if trace:
                     trace.calls.append(rec)
+                    trace.note(f"  <- {agent} ok in {rec.seconds:.0f}s")
                 return text
             try:
                 value = extract_json(text)
@@ -400,6 +453,8 @@ def call(
                 continue
             if trace:
                 trace.calls.append(rec)
+                trace.note(f"  <- {agent} ok in {rec.seconds:.0f}s "
+                           f"({rec.prompt_tokens}+{rec.completion_tokens} tokens)")
             return value
         except Exception as e:  # noqa: BLE001 - proxy raises a variety of types
             dt = time.time() - t0
@@ -412,6 +467,10 @@ def call(
                     CallRecord(agent, model, 0, 0, dt, ok=False, note=f"{type(e).__name__}: {e}")
                 )
             last_err = e
+            if trace:
+                trace.note(f"  !! {agent} attempt {attempt + 1}/{retries + 1} failed after {dt:.0f}s: "
+                           f"{type(e).__name__}: {str(e)[:160]}"
+                           + (" -- retrying" if attempt < retries else " -- giving up"))
             if attempt < retries:
                 # This proxy returns 500 "Upstream service unavailable" and 502
                 # under load, and recovers on the order of seconds rather than

@@ -69,6 +69,18 @@ def main() -> int:
         check(claims_mod.unsupported_numbers("errors fell from 12 to 7", paper) == ["7"],
               "number absent from the paper flagged")
 
+        print("single-line text")
+        from posteragent.tree import one_line
+        b = Bullet.plain("we recruited 25 partic-\nipants for the hierarchical Poster\nTree study")
+        check(b.text == "we recruited 25 participants for the hierarchical Poster Tree study",
+              "bullets carry no line breaks; PDF hyphenation rejoined")
+        check(claims_mod.contains("25 partic-\nipants were recruited", one_line("25 partic-\nipants")),
+              "normalised condition still matches the PDF text")
+        got, _ = claims_mod.verify([{"id": "m", "role": "method", "statement": "s", "page": 1,
+                                     "quote": "Two annotators reviewed 40 synthetic\nfield records independently.",
+                                     "conditions": ["40 synthetic\nfield records"]}], paper)
+        check(got and "\n" not in got[0].quote and got[0].conditions == ["40 synthetic field records"],
+              "frozen quote and conditions are stored on one line")
         print("guards")
         from posteragent import agents
         leaf = ContentLeaf(bullets=[Bullet.plain("On 40 synthetic records, errors fell from 12 to 5.")])
