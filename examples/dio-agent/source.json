@@ -1,0 +1,23 @@
+{
+  "title": "Agentic Reverse Engineering: From I/O to Code with Discovery Agent",
+  "authors": [
+    "Yihong Dong",
+    "Jiaru Qian",
+    "Haoran Zhang",
+    "Peixu Wang",
+    "Binhua Li",
+    "Zhi Jin",
+    "Yongbin Li",
+    "Ge Li",
+    "Xiaokang Yang",
+    "Xue Jiang"
+  ],
+  "venue": "NeurIPS 2026",
+  "conference_url": "https://neurips.cc/virtual/2026/poster/154711",
+  "paper_url": "https://arxiv.org/abs/2605.15334v2",
+  "pdf_url": "https://arxiv.org/pdf/2605.15334v2",
+  "version_date": "2026-10-18",
+  "selection_reason": "A recent agent paper with a method diagram, quantitative comparisons and ablations; chosen for a visual demonstration, not sampled for evaluation.",
+  "paper_is_input_not_our_research": true,
+  "pdf_sha256": "a30120eace364ce1c51355d71d51ab42be5897b8155ee26aabb8c48ce1742d82"
+}

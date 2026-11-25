@@ -1,0 +1,88 @@
+{
+  "model": "gpt-6.1-sol",
+  "canvas_inches": [
+    48,
+    36
+  ],
+  "curated_case": true,
+  "assisted_preparation": true,
+  "excluded_from_90_case_batch": true,
+  "attempts": 9,
+  "accepted": 4,
+  "final_artifact": "edit-50050ad9f0",
+  "intro_words_before": 74,
+  "intro_words_after": 60,
+  "method_figure_width_pt_before": 747.5247244094488,
+  "method_figure_width_pt_after": 814.3620472440945,
+  "protected_main_result_unchanged": true,
+  "source_condition_note": "The source prose and Figure 3 report different test-time-scaling averages. Treat the prose comparison separately from the plotted average.",
+  "generation_seconds": 576.32,
+  "generation_model_calls": 55,
+  "dialogue_seconds": 248.79,
+  "turns": [
+    {
+      "turn": 1,
+      "accepted": false,
+      "before": "original",
+      "after": "original",
+      "error": "The replacement introduces a numerical value absent from its quote and original textbox"
+    },
+    {
+      "turn": 2,
+      "accepted": false,
+      "before": "original",
+      "after": "original",
+      "error": "HTTP Error 400: Bad Request"
+    },
+    {
+      "turn": 3,
+      "accepted": true,
+      "before": "original",
+      "after": "edit-96cdfe3e0e",
+      "error": null
+    },
+    {
+      "turn": 4,
+      "accepted": true,
+      "before": "edit-96cdfe3e0e",
+      "after": "edit-042ec5bae4",
+      "error": null
+    },
+    {
+      "turn": 5,
+      "accepted": false,
+      "before": "edit-042ec5bae4",
+      "after": "edit-042ec5bae4",
+      "error": "Increasing the Curriculum-wise Evolution share to 0.81 while leaving every other branch share and paragraph unchanged is infeasible: the rendered fit check reports lost text coverage in mutation explanation textbox 40. The mutation section shrinks from approximately 482 pt to 322 pt, leaving insufficient space for its heading and both verbatim paragraphs. Error-Grounded Feedback retains its approximately 414 pt height and is unaffected; Main Results textbox 45 remains protected. A smaller curriculum share or permission to change another layout constraint is needed to preserve all text."
+    },
+    {
+      "turn": 6,
+      "accepted": false,
+      "before": "edit-042ec5bae4",
+      "after": "edit-042ec5bae4",
+      "error": "The request conflicts with the current panel tree and permitted edits. Curriculum-wise Evolution\u2019s actual branch share is 0.7159828660045828, not 0.81; the nearby 0.8047782569734312 share controls Curriculum-wise Evolution and Guided Mutation together versus Error-Grounded Feedback. Setting the Curriculum-wise Evolution branch to 0.78 would increase its height, but neither horizontal branch can increase the diagram\u2019s available width. Guaranteeing both greater height and width requires an additional layout change, which conflicts with keeping all other branch shares unchanged. Please confirm which branch should become 0.78 and permit a width-affecting layout change. Main Results textbox 45 will remain protected."
+    },
+    {
+      "turn": 7,
+      "accepted": false,
+      "before": "edit-042ec5bae4",
+      "after": "edit-042ec5bae4",
+      "error": "The branch and permitted text edits are well specified, but I cannot satisfy the required actual-candidate clipping check: only the current preview and panel tree are available, with no candidate-rendering or inspection tool. I cannot accept the 0.78 candidate as clipping-free without inspecting its rendered output. All other branches and text, including protected textbox 45, must remain unchanged."
+    },
+    {
+      "turn": 8,
+      "accepted": true,
+      "before": "edit-042ec5bae4",
+      "after": "edit-d5a4d209ef",
+      "error": null
+    },
+    {
+      "turn": 9,
+      "accepted": true,
+      "before": "edit-d5a4d209ef",
+      "after": "edit-50050ad9f0",
+      "error": null
+    }
+  ],
+  "dialogue_calls_with_usage_records": 16
+}

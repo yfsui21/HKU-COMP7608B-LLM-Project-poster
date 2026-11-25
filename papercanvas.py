@@ -38,7 +38,7 @@ def main():
     tree.add_argument("--paper",type=Path,help="Attach the original PDF for source-grounded native text edits")
     show=sub.add_parser("tree-list",help="List adjustable splits with their child sections")
     show.add_argument("session",type=Path)
-    pipeline.add_argument("--backend",choices=["session","codex"],default="codex")
+    pipeline.add_argument("--backend",choices=["session","codex","api"],default="codex")
     pipeline.add_argument("--model",help="PosterForest GPT model identifier")
     gen.add_argument("--out",type=Path,required=True)
     change=sub.add_parser("edit")
@@ -68,6 +68,12 @@ def main():
             p.error("--out must be a new session directory")
         if args.backend=="session":
             os.environ.setdefault("PAPERCANVAS_GPT_QUEUE",str(args.work.resolve()/"revision-requests"))
+        elif args.backend=="api":
+            if not args.model:
+                p.error("--backend api requires an explicit --model")
+            os.environ.pop("PAPERCANVAS_GPT_QUEUE",None)
+            os.environ.pop("PAPERCANVAS_CODEX_MODEL",None)
+            os.environ["PAPERCANVAS_MODEL"]=args.model
         else:
             os.environ.pop("PAPERCANVAS_GPT_QUEUE",None)
             os.environ["PAPERCANVAS_CODEX_MODEL"]=args.model or "codex-default"

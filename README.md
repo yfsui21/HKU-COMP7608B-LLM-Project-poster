@@ -53,6 +53,8 @@ python papercanvas.py demo        # open http://127.0.0.1:8765
 
 **Standalone t-SNE demo.** Starting from the 27-page JMLR paper, a signed-in Codex CLI generated a one-page poster, alternated content and layout revisions, and processed three dialogue turns. Open the [final editable PowerPoint](examples/tsne/independent-cli/poster.pptx), [LibreOffice preview](examples/tsne/independent-cli/preview.png), [acceptance record](examples/tsne/independent-cli/acceptance.json) or [claim-by-claim evidence and verdicts](examples/tsne/independent-cli/review.json).
 
+**Recent NeurIPS 2026 showcase.** The [DIO-Agent example](examples/dio-agent/README.md) includes an editable 48 × 36 inch poster, before/after previews, nine real requests (four accepted), failed attempts, source-crop repair provenance and an API replay command. The method figure grew by 8.9%; this curated development case is separate from the 90-case evaluation. Open the [report PDF](report/main.pdf) for the full account.
+
 ### Edit the paper's native PosterForest tree
 
 By default `pipeline` creates the claim-bound display session in `--out` and the native tree session in
@@ -275,3 +277,8 @@ The checked-in evaluation is a synthetic smoke run across 2 sizes × 3 strategie
 ## Attribution and AI assistance
 
 The two bundled sample papers and their charts are synthetic and bundled for redistributable testing. Runtime dependencies and versions are listed in requirements.txt. The planned dataset and comparator protocol come from the Group 56 proposal and [Paper2Poster](https://github.com/Paper2Poster/Paper2Poster). Codex generated the demo code, sample, prompts, checks and documentation from the project proposal and the request to build and publish a demo. Runtime agent prompts are in paper_canvas/model.py. This demo is not a final course submission or a record of individual student contributions.
+
+### Compile the report
+
+Install Tectonic, then run `python scripts/build_report.py --tectonic /path/to/tectonic`.
+The script exports `report/main.pdf` and records source/PDF hashes in `report/build.json`.

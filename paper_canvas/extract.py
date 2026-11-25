@@ -57,6 +57,30 @@ def figure_options(path):
                         break
                     caption+=" "+continuation["text"]
                     previous=continuation
+                # Scientific tables commonly put their caption ABOVE the rules.
+                # Looking above such a caption can silently crop a different table.
+                if re.match(r"^table\s*\d+", caption, re.I):
+                    rules = sorted((v for v in page.lines
+                                    if v["height"] < 1.5 and v["width"] > 60
+                                    and previous["bottom"] <= v["top"] < previous["bottom"] + page.height*.32
+                                    and v["x0"] <= line["x0"] + 12 and v["x1"] >= line["x1"] - 12),
+                                   key=lambda v:v["top"])
+                    if rules and rules[0]["top"] - previous["bottom"] < 24:
+                        first = rules[0]
+                        matched = [first]
+                        for rule in rules[1:]:
+                            if abs(rule["x0"]-first["x0"]) > 6 or abs(rule["x1"]-first["x1"]) > 6:
+                                continue
+                            if rule["top"] - matched[-1]["top"] > 70:
+                                break
+                            matched.append(rule)
+                        if len(matched) >= 2 and matched[-1]["top"]-first["top"] > 15:
+                            options.append(dict(page=idx, caption=caption, box=[
+                                max(0,(first["x0"]-3)/page.width), max(0,(first["top"]-2)/page.height),
+                                min(1,(first["x1"]+3)/page.width), min(1,(matched[-1]["top"]+3)/page.height)]))
+                            continue
+                    # An unresolved table is safer than an unrelated figure above it.
+                    continue
                 photos=[im for im in page.images if 0<=line["top"]-im["bottom"]<=18
                         and im["width"]>page.width*.25 and im["height"]>40]
                 if len(photos)==1:

@@ -1,4 +1,10 @@
-The user approved the English report source and experimental overview for submission to main on 2026-11-25, excluding main.pdf.
+On 2026-11-25, the user requested a final report audit, an updated compiled PDF, and a recent-paper poster demonstration.
 The 90-case batch has finished. Published results retain acceptance, failure and AI-score provenance separately.
 Member contributions now identify Yifan Sui as project lead and summarize the team's recorded implementation, evaluation and report work.
+The new batch still lacks documented item-level human review. A demonstration does not replace that review.
 The earlier automatic finalization watcher remains stopped.
+
+Audit completed: no unfilled author/ID/email placeholders; outdated execution note and bibliographic issue corrected.
+The report PDF was rebuilt from current source with Tectonic and visually inspected across all nine pages. Build hashes are in build.json.
+The curated DIO-Agent poster and nine-request development trace are in examples/dio-agent/. Four requests were accepted. Scripted preparation and failed requests are disclosed. This case is excluded from the 90-case batch.
+The outstanding submission issue is a documented human check of LLM judgements, required by the course guideline. See examples/dio-agent/HUMAN_REVIEW.md; this document does not claim that check has happened.

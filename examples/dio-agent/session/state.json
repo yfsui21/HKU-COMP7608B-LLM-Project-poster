@@ -1,0 +1,1131 @@
+{
+  "format": "posterforest-tree-v1",
+  "tree": {
+    "type": "split",
+    "id": "internal_44a4c8c409b94dd9a66bc8e75a18a17b",
+    "direction": "vertical",
+    "box": [
+      0,
+      4577852,
+      43891199,
+      28340547
+    ],
+    "original_ratio": 0.26130095010619325,
+    "ratio": 0.26130095010619325,
+    "children": [
+      {
+        "type": "split",
+        "id": "internal_389db8c2ec3b4f74933dc9c9ac09b886",
+        "direction": "horizontal",
+        "box": [
+          0,
+          4577852,
+          11468812,
+          28340547
+        ],
+        "original_ratio": 0.6710970328130929,
+        "ratio": 0.6710970328130929,
+        "children": [
+          {
+            "type": "group",
+            "panel": "1",
+            "name": "1 Introduction",
+            "box": [
+              0,
+              4577852,
+              11468812,
+              19019257
+            ],
+            "child": {
+              "type": "leaf",
+              "panel": "11",
+              "name": "Content",
+              "box": [
+                0,
+                5894588,
+                11468812,
+                17702521
+              ]
+            }
+          },
+          {
+            "type": "group",
+            "panel": "2",
+            "name": "2 Motivation Example",
+            "box": [
+              0,
+              23597109,
+              11468812,
+              9321290
+            ],
+            "child": {
+              "type": "leaf",
+              "panel": "21",
+              "name": "Content",
+              "box": [
+                0,
+                24913845,
+                11468812,
+                8004554
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "split",
+        "id": "internal_11a5176479b049a59a3ed208c66e6c86",
+        "direction": "vertical",
+        "box": [
+          11468812,
+          4577852,
+          32422387,
+          28340547
+        ],
+        "original_ratio": 0.3063462386759568,
+        "ratio": 0.35,
+        "children": [
+          {
+            "type": "group",
+            "panel": "3",
+            "name": "3 Methodology",
+            "box": [
+              11468812,
+              4577852,
+              9932476,
+              28340547
+            ],
+            "child": {
+              "type": "split",
+              "id": "internal_0ad5f528625041639718aa1487e2cff0",
+              "direction": "horizontal",
+              "box": [
+                11468812,
+                5894588,
+                9932476,
+                27023811
+              ],
+              "original_ratio": 0.8047782569734312,
+              "ratio": 0.8047782569734312,
+              "children": [
+                {
+                  "type": "split",
+                  "id": "internal_31a14c024e4442458b4a5dc2617e8b00",
+                  "direction": "horizontal",
+                  "box": [
+                    11468812,
+                    5894588,
+                    9932476,
+                    21659868
+                  ],
+                  "original_ratio": 0.7159828660045828,
+                  "ratio": 0.78,
+                  "children": [
+                    {
+                      "type": "group",
+                      "panel": "31",
+                      "name": "3.1 Curriculum-wise Evolution",
+                      "box": [
+                        11468812,
+                        5894588,
+                        9932476,
+                        15429531
+                      ],
+                      "child": {
+                        "type": "leaf",
+                        "panel": "311",
+                        "name": "Content",
+                        "box": [
+                          11468812,
+                          6918716,
+                          9932476,
+                          14405403
+                        ]
+                      }
+                    },
+                    {
+                      "type": "group",
+                      "panel": "32",
+                      "name": "3.2 Transformation-priority Guided Mutation",
+                      "box": [
+                        11468812,
+                        21433847,
+                        9932476,
+                        6120609
+                      ],
+                      "child": {
+                        "type": "leaf",
+                        "panel": "321",
+                        "name": "Content",
+                        "box": [
+                          11468812,
+                          23178065,
+                          9932476,
+                          4376391
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "group",
+                  "panel": "33",
+                  "name": "3.3 Error-Grounded Feedback",
+                  "box": [
+                    11468812,
+                    27664185,
+                    9932476,
+                    5254214
+                  ],
+                  "child": {
+                    "type": "leaf",
+                    "panel": "331",
+                    "name": "Content",
+                    "box": [
+                      11468812,
+                      28688313,
+                      9932476,
+                      4230086
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "split",
+            "id": "internal_016b6ac0fefa4f91ba23abd5d06a46d0",
+            "direction": "horizontal",
+            "box": [
+              21401289,
+              4577852,
+              22489910,
+              28340547
+            ],
+            "original_ratio": 0.8472769720103487,
+            "ratio": 0.8472769720103487,
+            "children": [
+              {
+                "type": "group",
+                "panel": "4",
+                "name": "4 Experiments",
+                "box": [
+                  21401289,
+                  4577852,
+                  22489910,
+                  24012292
+                ],
+                "child": {
+                  "type": "split",
+                  "id": "internal_fad8a7d5afba44da9746f2defe08c64c",
+                  "direction": "horizontal",
+                  "box": [
+                    21401289,
+                    5894588,
+                    22489910,
+                    22695556
+                  ],
+                  "original_ratio": 0.2263582720987692,
+                  "ratio": 0.2263582720987692,
+                  "children": [
+                    {
+                      "type": "split",
+                      "id": "internal_32fa0bf00d074aabbb12f9b81211cb35",
+                      "direction": "vertical",
+                      "box": [
+                        21401289,
+                        5894588,
+                        22489910,
+                        5112489
+                      ],
+                      "original_ratio": 0.5,
+                      "ratio": 0.5,
+                      "children": [
+                        {
+                          "type": "group",
+                          "panel": "41",
+                          "name": "4.1 Main Results",
+                          "box": [
+                            21401289,
+                            5894588,
+                            11244955,
+                            5112489
+                          ],
+                          "child": {
+                            "type": "leaf",
+                            "panel": "411",
+                            "name": "Content",
+                            "box": [
+                              21401289,
+                              6918716,
+                              11244955,
+                              4088361
+                            ]
+                          }
+                        },
+                        {
+                          "type": "group",
+                          "panel": "42",
+                          "name": "4.2 Performance Across Different LLMs",
+                          "box": [
+                            32646244,
+                            5894588,
+                            11244955,
+                            5112489
+                          ],
+                          "child": {
+                            "type": "leaf",
+                            "panel": "421",
+                            "name": "Content",
+                            "box": [
+                              32646244,
+                              7638806,
+                              11244955,
+                              3368271
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "split",
+                      "id": "internal_768f8f83f6c54c3695609d87a4b19c9a",
+                      "direction": "vertical",
+                      "box": [
+                        21401289,
+                        11116805,
+                        22489910,
+                        17473339
+                      ],
+                      "original_ratio": 0.7200000231214808,
+                      "ratio": 0.7200000231214808,
+                      "children": [
+                        {
+                          "type": "split",
+                          "id": "internal_556a3586c4774d24979f8391200afb72",
+                          "direction": "horizontal",
+                          "box": [
+                            21401289,
+                            11116805,
+                            16192735,
+                            17473339
+                          ],
+                          "original_ratio": 0.7525072405734038,
+                          "ratio": 0.7525072405734038,
+                          "children": [
+                            {
+                              "type": "group",
+                              "panel": "43",
+                              "name": "4.3 Ablation Study",
+                              "box": [
+                                21401289,
+                                11116805,
+                                16192735,
+                                13066243
+                              ],
+                              "child": {
+                                "type": "split",
+                                "id": "internal_144982ebd1cd4bf7b97a15fc1d1b5f69",
+                                "direction": "horizontal",
+                                "box": [
+                                  21401289,
+                                  12140933,
+                                  16192735,
+                                  12042115
+                                ],
+                                "original_ratio": 0.6128731828761504,
+                                "ratio": 0.54,
+                                "children": [
+                                  {
+                                    "type": "leaf",
+                                    "panel": "431",
+                                    "name": "Content",
+                                    "box": [
+                                      21401289,
+                                      12140933,
+                                      16192735,
+                                      7313040
+                                    ]
+                                  },
+                                  {
+                                    "type": "leaf",
+                                    "panel": "432",
+                                    "name": "Content [2]",
+                                    "box": [
+                                      21401289,
+                                      19563701,
+                                      16192735,
+                                      4619347
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "group",
+                              "panel": "44",
+                              "name": "4.4 Comparison with Test-Time Scaling Methods.",
+                              "box": [
+                                21401289,
+                                24292776,
+                                16192735,
+                                4297368
+                              ],
+                              "child": {
+                                "type": "leaf",
+                                "panel": "441",
+                                "name": "Content",
+                                "box": [
+                                  21401289,
+                                  25316904,
+                                  16192735,
+                                  3273240
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "split",
+                          "id": "internal_f9d523a0947d44f486be6b8d9ddda237",
+                          "direction": "horizontal",
+                          "box": [
+                            37594025,
+                            11116805,
+                            6297174,
+                            17473339
+                          ],
+                          "original_ratio": 0.49839912322379964,
+                          "ratio": 0.49839912322379964,
+                          "children": [
+                            {
+                              "type": "group",
+                              "panel": "45",
+                              "name": "4.5 Further Analysis",
+                              "box": [
+                                37594025,
+                                11116805,
+                                6297174,
+                                8654008
+                              ],
+                              "child": {
+                                "type": "leaf",
+                                "panel": "451",
+                                "name": "Content",
+                                "box": [
+                                  37594025,
+                                  12140933,
+                                  6297174,
+                                  7629880
+                                ]
+                              }
+                            },
+                            {
+                              "type": "group",
+                              "panel": "46",
+                              "name": "4.6 Autonomous Discovery via Active Exploration",
+                              "box": [
+                                37594025,
+                                19880542,
+                                6297174,
+                                8709602
+                              ],
+                              "child": {
+                                "type": "leaf",
+                                "panel": "461",
+                                "name": "Content",
+                                "box": [
+                                  37594025,
+                                  22344850,
+                                  6297174,
+                                  6245294
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "group",
+                "panel": "5",
+                "name": "6 Conclusion",
+                "box": [
+                  21401289,
+                  28590145,
+                  22489910,
+                  4328254
+                ],
+                "child": {
+                  "type": "leaf",
+                  "panel": "51",
+                  "name": "Content",
+                  "box": [
+                    21401289,
+                    29906881,
+                    22489910,
+                    3011518
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "panels": {
+    "0": {
+      "name": "Title",
+      "source_id": "0",
+      "box": [
+        0,
+        0,
+        43891200,
+        4577852
+      ]
+    },
+    "1": {
+      "name": "1 Introduction",
+      "source_id": "1",
+      "box": [
+        0,
+        4577852,
+        11468812,
+        19019257
+      ]
+    },
+    "11": {
+      "name": "Content",
+      "source_id": "11",
+      "box": [
+        0,
+        5894588,
+        11468812,
+        17702521
+      ]
+    },
+    "2": {
+      "name": "2 Motivation Example",
+      "source_id": "2",
+      "box": [
+        0,
+        23597109,
+        11468812,
+        9321290
+      ]
+    },
+    "21": {
+      "name": "Content",
+      "source_id": "21",
+      "box": [
+        0,
+        24913845,
+        11468812,
+        8004554
+      ]
+    },
+    "3": {
+      "name": "3 Methodology",
+      "source_id": "3",
+      "box": [
+        11468812,
+        4577852,
+        9932476,
+        28340547
+      ]
+    },
+    "31": {
+      "name": "3.1 Curriculum-wise Evolution",
+      "source_id": "31",
+      "box": [
+        11468812,
+        5894588,
+        9932476,
+        15429531
+      ]
+    },
+    "311": {
+      "name": "Content",
+      "source_id": "311",
+      "box": [
+        11468812,
+        6918716,
+        9932476,
+        14405403
+      ]
+    },
+    "32": {
+      "name": "3.2 Transformation-priority Guided Mutation",
+      "source_id": "32",
+      "box": [
+        11468812,
+        21433847,
+        9932476,
+        6120609
+      ]
+    },
+    "321": {
+      "name": "Content",
+      "source_id": "321",
+      "box": [
+        11468812,
+        23178065,
+        9932476,
+        4376391
+      ]
+    },
+    "33": {
+      "name": "3.3 Error-Grounded Feedback",
+      "source_id": "33",
+      "box": [
+        11468812,
+        27664185,
+        9932476,
+        5254214
+      ]
+    },
+    "331": {
+      "name": "Content",
+      "source_id": "331",
+      "box": [
+        11468812,
+        28688313,
+        9932476,
+        4230086
+      ]
+    },
+    "4": {
+      "name": "4 Experiments",
+      "source_id": "4",
+      "box": [
+        21401289,
+        4577852,
+        22489910,
+        24012292
+      ]
+    },
+    "41": {
+      "name": "4.1 Main Results",
+      "source_id": "41",
+      "box": [
+        21401289,
+        5894588,
+        11244955,
+        5112489
+      ]
+    },
+    "411": {
+      "name": "Content",
+      "source_id": "411",
+      "box": [
+        21401289,
+        6918716,
+        11244955,
+        4088361
+      ]
+    },
+    "42": {
+      "name": "4.2 Performance Across Different LLMs",
+      "source_id": "42",
+      "box": [
+        32646244,
+        5894588,
+        11244955,
+        5112489
+      ]
+    },
+    "421": {
+      "name": "Content",
+      "source_id": "421",
+      "box": [
+        32646244,
+        7638806,
+        11244955,
+        3368271
+      ]
+    },
+    "43": {
+      "name": "4.3 Ablation Study",
+      "source_id": "43",
+      "box": [
+        21401289,
+        11116805,
+        16192735,
+        13066243
+      ]
+    },
+    "431": {
+      "name": "Content",
+      "source_id": "431",
+      "box": [
+        21401289,
+        12140933,
+        16192735,
+        7313040
+      ]
+    },
+    "432": {
+      "name": "Content [2]",
+      "source_id": "432",
+      "box": [
+        21401289,
+        19563701,
+        16192735,
+        4619347
+      ]
+    },
+    "44": {
+      "name": "4.4 Comparison with Test-Time Scaling Methods.",
+      "source_id": "44",
+      "box": [
+        21401289,
+        24292776,
+        16192735,
+        4297368
+      ]
+    },
+    "441": {
+      "name": "Content",
+      "source_id": "441",
+      "box": [
+        21401289,
+        25316904,
+        16192735,
+        3273240
+      ]
+    },
+    "45": {
+      "name": "4.5 Further Analysis",
+      "source_id": "45",
+      "box": [
+        37594025,
+        11116805,
+        6297174,
+        8654008
+      ]
+    },
+    "451": {
+      "name": "Content",
+      "source_id": "451",
+      "box": [
+        37594025,
+        12140933,
+        6297174,
+        7629880
+      ]
+    },
+    "46": {
+      "name": "4.6 Autonomous Discovery via Active Exploration",
+      "source_id": "46",
+      "box": [
+        37594025,
+        19880542,
+        6297174,
+        8709602
+      ]
+    },
+    "461": {
+      "name": "Content",
+      "source_id": "461",
+      "box": [
+        37594025,
+        22344850,
+        6297174,
+        6245294
+      ]
+    },
+    "5": {
+      "name": "6 Conclusion",
+      "source_id": "5",
+      "box": [
+        21401289,
+        28590145,
+        22489910,
+        4328254
+      ]
+    },
+    "51": {
+      "name": "Content",
+      "source_id": "51",
+      "box": [
+        21401289,
+        29906881,
+        22489910,
+        3011518
+      ]
+    }
+  },
+  "owners": {
+    "2": "0",
+    "3": "1",
+    "4": "11",
+    "5": "2",
+    "6": "21",
+    "7": "3",
+    "8": "31",
+    "9": "311",
+    "10": "32",
+    "11": "321",
+    "12": "33",
+    "13": "331",
+    "14": "4",
+    "15": "41",
+    "16": "411",
+    "17": "42",
+    "18": "421",
+    "19": "43",
+    "20": "431",
+    "21": "432",
+    "22": "44",
+    "23": "441",
+    "24": "45",
+    "25": "451",
+    "26": "46",
+    "27": "461",
+    "28": "5",
+    "29": "51",
+    "30": "0",
+    "31": "0",
+    "32": "1",
+    "33": "11",
+    "34": "2",
+    "35": "21",
+    "36": "3",
+    "37": "31",
+    "38": "311",
+    "39": "32",
+    "40": "321",
+    "41": "33",
+    "42": "331",
+    "43": "4",
+    "44": "41",
+    "45": "411",
+    "46": "42",
+    "47": "421",
+    "48": "43",
+    "49": "431",
+    "50": "432",
+    "51": "44",
+    "52": "441",
+    "53": "45",
+    "54": "451",
+    "55": "46",
+    "56": "461",
+    "57": "5",
+    "58": "51",
+    "59": "11",
+    "60": "311",
+    "61": "431",
+    "62": "432",
+    "63": "451"
+  },
+  "original_sha256": "c0ba3fa132d12a14cf6db9335948f6eab2b8a25324a2e7fa8f2efb4a6f7a1ca9",
+  "pdf_sha256": "a30120eace364ce1c51355d71d51ab42be5897b8155ee26aabb8c48ce1742d82",
+  "artifact": "edit-50050ad9f0",
+  "history": [
+    {
+      "splits": [],
+      "texts": [
+        {
+          "shape": "48",
+          "paragraph": 1,
+          "text": "Sampling and ablations",
+          "page": 6,
+          "quote": "We also provide the generalizability across different base models, test-time scaling\nstrategy comparison, ablation studies, and further analysis."
+        },
+        {
+          "shape": "49",
+          "paragraph": 1,
+          "text": "• The bar chart compares sampling strategies; the table below tests component removal.",
+          "page": 6,
+          "quote": "We also provide the generalizability across different base models, test-time scaling\nstrategy comparison, ablation studies, and further analysis."
+        }
+      ],
+      "protected": [],
+      "artifact": "edit-96cdfe3e0e",
+      "request": "Change heading shape 48 paragraph 1 to Sampling and ablations. Replace shape 49 paragraph 1 with a short explanation that the bar chart compares sampling strategies and the table below tests component removal. Keep all other content and all geometry unchanged. Use the source page 6 Experiments paragraph as evidence. Do not add numbers. Do not protect any textboxes unless explicitly asked."
+    },
+    {
+      "splits": [
+        {
+          "node": "internal_11a5176479b049a59a3ed208c66e6c86",
+          "before": 0.3063462386759568,
+          "after": 0.35
+        },
+        {
+          "node": "internal_144982ebd1cd4bf7b97a15fc1d1b5f69",
+          "before": 0.6128731828761504,
+          "after": 0.54
+        }
+      ],
+      "texts": [
+        {
+          "shape": "33",
+          "paragraph": 1,
+          "text": "• IO2Code infers hidden rules from I/O alone.",
+          "page": 3,
+          "quote": "It has no access to the function name,\ndocstring, or NL description, and must recover the rule purely from computational behavior."
+        },
+        {
+          "shape": "33",
+          "paragraph": 2,
+          "text": "◦ Induction replaces code-pattern reuse.",
+          "page": 2,
+          "quote": "This requires abductive reasoning from the specific to the general, in which the composition and reuse strategies effective in NL2Code become inapplicable."
+        },
+        {
+          "shape": "33",
+          "paragraph": 3,
+          "text": "◦ Generalization requires passing unseen tests.",
+          "page": 4,
+          "quote": "A candidate is considered a solution if and only if f (pˆ) = 1.0\non the visible set and it additionally passes all held-out tests—the latter serving as a generalization\ncheck against overfitting to spurious patterns in the visible examples."
+        },
+        {
+          "shape": "33",
+          "paragraph": 4,
+          "text": "• DIO-Agent evolves programs through a curriculum.",
+          "page": 2,
+          "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+        },
+        {
+          "shape": "33",
+          "paragraph": 5,
+          "text": "◦ Mutations explicitly discourage memorization.",
+          "page": 5,
+          "quote": "The LLM is\nalso explicitly instructed to avoid exact input matching, memorized lookup tables, and other hardcoded solutions tied to seen examples."
+        },
+        {
+          "shape": "33",
+          "paragraph": 6,
+          "text": "◦ Simpler hypotheses precede complex constructs.",
+          "page": 5,
+          "quote": "This makes the mutation operator prefer the smallest hypothesis that explains the current evidence before moving to more complex control flow."
+        },
+        {
+          "shape": "33",
+          "paragraph": 7,
+          "text": "• Benchmark gains span difficulty levels and LLMs.",
+          "page": 10,
+          "quote": "Extensive experiments show that DIO-Agent consistently outperforms existing program-by-example and\nevolution-agent baselines across all difficulty levels and various LLMs, while substantially surpassing test-time scaling strategies with equivalent sampling budgets."
+        },
+        {
+          "shape": "33",
+          "paragraph": 8,
+          "text": "◦ Execution errors ground program refinement.",
+          "page": 2,
+          "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+        },
+        {
+          "shape": "33",
+          "paragraph": 9,
+          "text": "• Uses: reverse engineering, legacy migration and scientific discovery.",
+          "page": 1,
+          "quote": "From migrating legacy systems with lost source code\nand reverse-engineering black-box APIs, to abducing algorithms from scientific observations and\ncapturing user intent through input-output demonstrations, these scenarios span system evolution,\nscientific discovery, and human-computer interaction (Collie et al., 2020)."
+        }
+      ],
+      "protected": [
+        "45"
+      ],
+      "artifact": "edit-042ec5bae4",
+      "request": "Make the method diagram more prominent and the introduction less repetitive. Increase the Methodology share of its branch from about 0.306 to 0.35, leaving the left Introduction column width unchanged. Shorten the nine Introduction paragraphs in shape 33 to concise single-line or two-line statements, with distinct information in each paragraph; retain the hidden-rule task, generalization, curriculum, simplicity and application context, and use exact source evidence. Keep all numeric experimental results verbatim and protect only Main Results textbox 45. Avoid any unrelated text changes. Use modest reallocation so neighboring experimental labels remain readable."
+    },
+    {
+      "splits": [
+        {
+          "node": "internal_31a14c024e4442458b4a5dc2617e8b00",
+          "before": 0.7159828660045828,
+          "after": 0.78
+        }
+      ],
+      "texts": [
+        {
+          "shape": "40",
+          "paragraph": 1,
+          "text": "• Try simple changes first; add complexity only if they cannot explain visible examples.",
+          "page": 2,
+          "quote": "To address this, we introduce TPP as a mutation prior that biases the search toward the simplest hypothesis first, escalating to more expressive\nconstructs only when simpler ones fail to explain the observed behavior."
+        },
+        {
+          "shape": "40",
+          "paragraph": 2,
+          "text": "• Ban memorized lookup tables and exact-input matching.",
+          "page": 5,
+          "quote": "The LLM is\nalso explicitly instructed to avoid exact input matching, memorized lookup tables, and other hardcoded solutions tied to seen examples."
+        }
+      ],
+      "protected": [
+        "45"
+      ],
+      "artifact": "edit-d5a4d209ef",
+      "request": "Propose branch internal_31a14c024e4442458b4a5dc2617e8b00 = 0.78. Shorten the two paragraphs of textbox 40 so the smaller mutation section fits, retaining simple changes before complex ones and prohibition of memorized lookup or exact-match solutions. Cite exact source passages. Leave all other paragraphs and branches unchanged and keep textbox 45 protected. The application will render and review the candidate after your plan.",
+      "node": "internal_31a14c024e4442458b4a5dc2617e8b00",
+      "before": 0.7159828660045828,
+      "after": 0.78
+    },
+    {
+      "splits": [],
+      "texts": [
+        {
+          "shape": "52",
+          "paragraph": 1,
+          "text": "• DIO-Agent is compared with Direct, Self-Consistency and Best-of-N.",
+          "page": 7,
+          "quote": "To demonstrate that the superiority of DIO-Agent stems from its iterative discovery logic rather\nthan a mere increase in sampling budget, we compare it against common test-time scaling baselines:\nDirect, Best-of-N, and Self-Consistency."
+        }
+      ],
+      "protected": [
+        "45"
+      ],
+      "artifact": "edit-50050ad9f0",
+      "request": "Revise only textbox 52 paragraph 1 to say that DIO-Agent is compared with Direct, Self-Consistency and Best-of-N. Omit the two average scores from this paragraph because the source prose and plotted averages differ. Support the replacement with the exact source passage or figure caption naming the compared sampling strategies. Preserve paragraph 2 about matched sampling budgets, every other paragraph, all geometry and the protected Main Results."
+    }
+  ],
+  "original_coverage": {
+    "30": 57,
+    "31": 234,
+    "32": 12,
+    "33": 558,
+    "34": 17,
+    "35": 356,
+    "36": 11,
+    "37": 24,
+    "38": 317,
+    "39": 37,
+    "40": 175,
+    "41": 22,
+    "42": 90,
+    "43": 11,
+    "44": 11,
+    "45": 112,
+    "46": 30,
+    "47": 119,
+    "48": 13,
+    "49": 72,
+    "50": 123,
+    "51": 38,
+    "52": 133,
+    "53": 15,
+    "54": 128,
+    "55": 39,
+    "56": 140,
+    "57": 10,
+    "58": 187
+  },
+  "paragraphs": {
+    "48": {
+      "1": {
+        "shape": "48",
+        "paragraph": 1,
+        "text": "Sampling and ablations",
+        "page": 6,
+        "quote": "We also provide the generalizability across different base models, test-time scaling\nstrategy comparison, ablation studies, and further analysis."
+      }
+    },
+    "49": {
+      "1": {
+        "shape": "49",
+        "paragraph": 1,
+        "text": "• The bar chart compares sampling strategies; the table below tests component removal.",
+        "page": 6,
+        "quote": "We also provide the generalizability across different base models, test-time scaling\nstrategy comparison, ablation studies, and further analysis."
+      }
+    },
+    "33": {
+      "1": {
+        "shape": "33",
+        "paragraph": 1,
+        "text": "• IO2Code infers hidden rules from I/O alone.",
+        "page": 3,
+        "quote": "It has no access to the function name,\ndocstring, or NL description, and must recover the rule purely from computational behavior."
+      },
+      "2": {
+        "shape": "33",
+        "paragraph": 2,
+        "text": "◦ Induction replaces code-pattern reuse.",
+        "page": 2,
+        "quote": "This requires abductive reasoning from the specific to the general, in which the composition and reuse strategies effective in NL2Code become inapplicable."
+      },
+      "3": {
+        "shape": "33",
+        "paragraph": 3,
+        "text": "◦ Generalization requires passing unseen tests.",
+        "page": 4,
+        "quote": "A candidate is considered a solution if and only if f (pˆ) = 1.0\non the visible set and it additionally passes all held-out tests—the latter serving as a generalization\ncheck against overfitting to spurious patterns in the visible examples."
+      },
+      "4": {
+        "shape": "33",
+        "paragraph": 4,
+        "text": "• DIO-Agent evolves programs through a curriculum.",
+        "page": 2,
+        "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+      },
+      "5": {
+        "shape": "33",
+        "paragraph": 5,
+        "text": "◦ Mutations explicitly discourage memorization.",
+        "page": 5,
+        "quote": "The LLM is\nalso explicitly instructed to avoid exact input matching, memorized lookup tables, and other hardcoded solutions tied to seen examples."
+      },
+      "6": {
+        "shape": "33",
+        "paragraph": 6,
+        "text": "◦ Simpler hypotheses precede complex constructs.",
+        "page": 5,
+        "quote": "This makes the mutation operator prefer the smallest hypothesis that explains the current evidence before moving to more complex control flow."
+      },
+      "7": {
+        "shape": "33",
+        "paragraph": 7,
+        "text": "• Benchmark gains span difficulty levels and LLMs.",
+        "page": 10,
+        "quote": "Extensive experiments show that DIO-Agent consistently outperforms existing program-by-example and\nevolution-agent baselines across all difficulty levels and various LLMs, while substantially surpassing test-time scaling strategies with equivalent sampling budgets."
+      },
+      "8": {
+        "shape": "33",
+        "paragraph": 8,
+        "text": "◦ Execution errors ground program refinement.",
+        "page": 2,
+        "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+      },
+      "9": {
+        "shape": "33",
+        "paragraph": 9,
+        "text": "• Uses: reverse engineering, legacy migration and scientific discovery.",
+        "page": 1,
+        "quote": "From migrating legacy systems with lost source code\nand reverse-engineering black-box APIs, to abducing algorithms from scientific observations and\ncapturing user intent through input-output demonstrations, these scenarios span system evolution,\nscientific discovery, and human-computer interaction (Collie et al., 2020)."
+      }
+    },
+    "40": {
+      "1": {
+        "shape": "40",
+        "paragraph": 1,
+        "text": "• Try simple changes first; add complexity only if they cannot explain visible examples.",
+        "page": 2,
+        "quote": "To address this, we introduce TPP as a mutation prior that biases the search toward the simplest hypothesis first, escalating to more expressive\nconstructs only when simpler ones fail to explain the observed behavior."
+      },
+      "2": {
+        "shape": "40",
+        "paragraph": 2,
+        "text": "• Ban memorized lookup tables and exact-input matching.",
+        "page": 5,
+        "quote": "The LLM is\nalso explicitly instructed to avoid exact input matching, memorized lookup tables, and other hardcoded solutions tied to seen examples."
+      }
+    },
+    "52": {
+      "1": {
+        "shape": "52",
+        "paragraph": 1,
+        "text": "• DIO-Agent is compared with Direct, Self-Consistency and Best-of-N.",
+        "page": 7,
+        "quote": "To demonstrate that the superiority of DIO-Agent stems from its iterative discovery logic rather\nthan a mere increase in sampling budget, we compare it against common test-time scaling baselines:\nDirect, Best-of-N, and Self-Consistency."
+      }
+    }
+  },
+  "protected": [
+    "45"
+  ]
+}

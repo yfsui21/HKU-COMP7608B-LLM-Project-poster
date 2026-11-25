@@ -1,0 +1,36 @@
+{
+  "request": "Clarify the experimental evidence without changing layout. Rename the Ablation Study heading (48) to Sampling and ablations. Rewrite its first body paragraph (49) to explain that the bar chart compares sampling strategies and the table below tests component removal; do not call the bar chart an ablation. In Main Results (45), state the 58.63% IO2CodeBench average is the DeepSeek V3.2 setting reported in Table 1, and replace the vague strongest-baseline claim with the specific CodeEvolve average 49.60% from that table. Keep claims brief and provide exact source quotes. Preserve all other text and all geometry.",
+  "model": "gpt-6.1-sol",
+  "started_at_utc": "2026-11-25T15:43:08.587641+00:00",
+  "before_artifact": "original",
+  "accepted": false,
+  "error": "The replacement introduces a numerical value absent from its quote and original textbox",
+  "after_artifact": "original",
+  "elapsed_seconds": 47.71,
+  "calls": [
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request",
+      "model": "gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 35083,
+        "completion_tokens": 695,
+        "total_tokens": 35778,
+        "completion_tokens_details": {
+          "reasoning_tokens": 111
+        }
+      }
+    },
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request",
+      "model": "gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 35633,
+        "completion_tokens": 1150,
+        "total_tokens": 36783,
+        "completion_tokens_details": {
+          "reasoning_tokens": 234
+        }
+      }
+    }
+  ]
+}

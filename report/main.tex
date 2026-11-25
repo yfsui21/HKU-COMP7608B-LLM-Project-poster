@@ -10,6 +10,8 @@
 \usepackage{amsfonts}
 \usepackage{microtype}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{needspace}
 
 \title{[Group 56] PaperCanvas: Joint Semantic and Spatial Reasoning for Scientific Poster Generation}
 
@@ -41,9 +43,9 @@ PaperCanvas is an autonomous agent that turns a text-based paper PDF into an edi
 
 \section{Users and proposal continuity}
 
-\textbf{Users and needs.} The intended users are researchers who must condense a paper into a poster and then revise it under feedback. They need (i) a single-slide PowerPoint poster they can edit, (ii) an image preview, and (iii) a dialogue through which they can enlarge a figure, shorten a section, or protect text, with the guarantee that scientific meaning is not silently lost.
+\textbf{Users and needs.} The intended users are researchers who must condense a paper into a poster and then revise it under feedback. They need (i) a single-slide PowerPoint poster they can edit, (ii) an image preview, and (iii) a dialogue through which they can enlarge a figure, shorten a section, or protect text, with checks intended to detect loss of necessary scientific meaning.
 
-\textbf{Core requirements and scope.} From the proposal, the system must parse a paper into text, figures, tables, and captions; identify the research question, method, and key findings; record, for each selected claim, its source passage, supporting figure, and the conditions needed to interpret it; keep those conditions fixed during revision; render an editable PowerPoint and preview; and resolve content--layout conflicts through a bounded revision loop. User requests apply to the preceding accepted draft, may designate protected text, and conflict with at most two attempts before returning the previous draft with an explanation.
+\textbf{Core requirements and scope.} From the proposal, the system must parse a paper into text, figures, tables, and captions; identify the research question, method, and key findings; record, for each selected claim, its source passage, supporting figure, and the conditions needed to interpret it; keep those conditions fixed during revision; render an editable PowerPoint and preview; and resolve content--layout conflicts through a bounded revision loop. User requests apply to the preceding accepted draft and may designate protected text. Each request allows at most two edit attempts. An unresolved request retains the previous draft and returns an explanation.
 
 \textbf{Delivery and proposal continuity.} PaperCanvas delivers a runnable application, command-line and web interfaces, editable posters, previews, evaluation scripts and traceable source evidence. The fifteen-paper batch has completed all 90 planned generation attempts across two canvas areas and three revision schedules. The t-SNE acceptance case and upstream rendering replay provide separate, reproducible pilot evidence. Role-conditioned AI reviews provide diagnostic scores; they are not two independent human evaluations.
 
@@ -125,7 +127,7 @@ Detection combines geometric checks (a word wider than its box, text beyond its 
 
 \textbf{Cost.} The live path estimates cost from \texttt{PAPERCANVAS\_INPUT\_USD\_PER\_M} and \texttt{PAPERCANVAS\_OUTPUT\_USD\_PER\_M}; offline cost is zero. The active-session backend does not report tokens, and this is recorded as \texttt{null} rather than silently treated as zero.
 
-\textbf{Privacy and security.} The web server binds to \texttt{127.0.0.1}, checks the \texttt{Host} header, and requires a per-session token for mutating requests. API credentials are read from the environment and are never written to state, traces, or exports; prompts submitted for the AI-use declaration contain no credentials or personal information.
+\textbf{Privacy and security.} The web server binds to \texttt{127.0.0.1}, checks the \texttt{Host} header, and requires a per-session token for mutating requests. API credentials are read from the environment and are never written to state, traces, or exports; prompts submitted for the AI-use declaration contain no credentials or personal information. Live inference sends paper excerpts, preview images and edit requests to the configured model service.
 
 \textbf{Portability and reproducibility.} The application requires Python 3.11+ with pinned dependencies in \texttt{requirements.txt}; offline checks run without a model, and a GitHub Actions workflow runs the offline regression suite on every push. The PosterForest replay pins its inputs by Git blob hash.
 
@@ -195,6 +197,36 @@ Five preselected papers had two conditions and three requests each: 30 planned t
 
 The recorded failures include unverifiable passages or captions, formula and subscript display, small chart labels, and infeasible spatial changes. Failed initial generation also blocks dependent comparisons and dialogue. The system retains reasons and accepted versions rather than silently replacing them. These outcomes identify specific constraints on continuous editing and provide evidence for targeted improvements.
 
+\subsection{Recent-paper showcase}
+We also prepared a curated poster from Dong et al.'s \emph{Agentic Reverse Engineering: From I/O to Code with Discovery Agent} (NeurIPS 2026; arXiv v2, 18 October). This case exercises the native PosterForest route rather than the compact batch editor. Generation used the configured \texttt{gpt-6.1-sol} API model, took 576 seconds and made 55 calls. It exported an editable $48\times36$ inch slide. Before dialogue, an assisted preparation step corrected a crop that had selected the wrong table and made the author line consistently white and centered. These repairs are disclosed separately from agent edits.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figs/dio-showcase.png}
+\caption{Final DIO-Agent showcase after assisted preparation and recorded dialogue. The paper's authors, figures and results remain attributed to Dong et al. This curated example is excluded from the 90-case batch. Full-resolution files and the preceding versions are supplied with the code.}
+\label{fig:showcase}
+\end{figure}
+
+Across nine recorded requests, four were accepted (Table~\ref{tab:showcase}). The introduction decreased from 74 to 60 whitespace-separated words. After shortening the mutation explanation and reallocating vertical space, the method diagram widened from 747.5 to 814.4 points (8.9\%). The protected main-result text remained unchanged. Another accepted edit removed a numeric sampling comparison because the source prose and plotted averages differed. The source chart and matched-budget description were retained.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Development dialogue, including failures. Each rejected request retained the preceding version.}
+\label{tab:showcase}
+\begin{tabular}{p{0.10\linewidth}p{0.43\linewidth}p{0.38\linewidth}}
+\toprule
+Request & Intended change & Observed outcome \\
+\midrule
+1--2 & Clarify result conditions and chart labels & Numeric-evidence check failed; API review request failed. \\
+3--4 & Correct chart labels; shorten introduction and widen method column & Both accepted; main result protected. \\
+5--7 & Give the method diagram more height & One fit failure and two planner refusals; no commit. \\
+8--9 & Shorten adjacent text and enlarge diagram; remove conflicting numeric comparison & Both accepted after rendered review. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+During these attempts, we corrected the review prompt's JSON instruction and clarified that the planner proposes edits while the application renders and checks them. This is therefore a development trace, not a fixed-system success-rate estimate. It demonstrates a completed content--layout revision and retained failures; it does not establish human preference or general quality improvement. Source metadata, preparation steps, prompts, reviews and accepted slides are under \texttt{examples/dio-agent/}.
+
 \subsection{Pilot evidence and interpretation}
 The separate 27-page t-SNE acceptance case increased the main figure from 747.60 to 807.41 points, shortened the question to nine words, and preserved protected result text. An earlier six-poster t-SNE role-based review used a post-hoc checklist; a user reported reviewing those scores. That confirmation does not apply automatically to the new batch. The PosterForest replay matched 34 compared parts on each of two canvases. These pilots demonstrate particular behaviours and rendering consistency, not broad generation quality.
 
@@ -215,29 +247,31 @@ The team worked collaboratively, with the following main contributions:
 \end{itemize}
 
 \subsection{Reused code, libraries, and data}
-PosterForest (Choi et al., 2026) is reused as an optional upstream generator under its pinned revision, including in the t-SNE acceptance case. The fifteen-paper batch uses the compact editor. Paper2Poster (Pang et al., 2025) provides the evaluation data and informs the protocol. The two bundled sample papers are synthetic and generated for redistributable testing. Libraries are pdfplumber, pypdfium2, Pillow, python-pptx, and ReportLab; LibreOffice renders the native preview. These dependencies and their versions are listed in \texttt{requirements.txt}.
+PosterForest (Choi et al., 2026) is reused as an optional upstream generator under its pinned revision, including in the t-SNE acceptance case and the curated DIO-Agent showcase. The fifteen-paper batch uses the compact editor. Paper2Poster (Pang et al., 2025) provides the evaluation data and informs the protocol. The two bundled sample papers are synthetic and generated for redistributable testing. Libraries are pdfplumber, pypdfium2, Pillow, python-pptx, and ReportLab; LibreOffice renders the native preview. These dependencies and their versions are listed in \texttt{requirements.txt}.
 
 \subsection{Experimental scope}
 The batch records all 90 attempts, including failed and unscored cases. Role-conditioned scores are AI-assisted diagnostics. Model-provider cost visibility and the limits of source extraction, typography and spatial editing are documented with the experiment; the report does not equate execution completion with quality acceptance.
 
 \section{AI assistance}
 
-Codex (OpenAI GPT models) assisted with code, synthetic samples, checks, documentation and this report. Runtime prompts are retained in \texttt{paper\_canvas/model.py}, \texttt{paper\_canvas/native\_revision.py} and \texttt{run\_ai\_study.py}; the complete implementation-assistance conversation is not archived. The supplementary role-based scores are AI-generated, with the user-reported review confirmation recorded separately. Credentials are excluded. The authors remain responsible for verifying the code, results and report; the English revision incorporates the user-approved Chinese account of the experiment.
+Codex (OpenAI GPT models) assisted with code, synthetic samples, checks, documentation and this report. Runtime prompts are retained in \texttt{paper\_canvas/model.py}, \texttt{paper\_canvas/native\_revision.py} and \texttt{run\_ai\_study.py}; the complete implementation-assistance conversation is not archived. The supplementary role-based scores are AI-generated, with the user-reported review confirmation recorded separately. The DIO-Agent showcase archives its generation text prompts, image hashes and dialogue requests under \texttt{examples/dio-agent/}; its runtime model is \texttt{gpt-6.1-sol}. Credentials are excluded. The authors remain responsible for verifying the code, results and report; the English revision incorporates the user-approved Chinese account of the experiment.
 
+\needspace{12\baselineskip}
 \section*{References}
 {\small
 \begin{enumerate}
   \item Choi, J., Park, S., Song, S., and Shim, H.\ (2026). PosterForest: Hierarchical Multi-Agent Collaboration for Scientific Poster Generation. In \emph{Proceedings of ACL 2026}, pp.\ 379--401.
   \item Pang, W., Lin, K. Q., Jian, X., He, X., and Torr, P.\ (2025). Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers. In \emph{Advances in Neural Information Processing Systems}, 38.
+  \item Dong, Y., et al.\ (2026). Agentic Reverse Engineering: From I/O to Code with Discovery Agent. In \emph{NeurIPS 2026}. arXiv:2605.15334v2. \url{https://neurips.cc/virtual/2026/poster/154711}.
   \item van der Maaten, L.\ and Hinton, G.\ (2008). Visualizing Data using t-SNE. \emph{Journal of Machine Learning Research}, 9:2579--2605.
   \item Erren, T. C.\ and Bourne, P. E.\ (2007). Ten Simple Rules for a Good Poster Presentation. \emph{PLOS Computational Biology}, 3(5):e102.
-  \item Hadi, M., Tran, E., Nagarajan, B., and Kirpalani, A.\ (2024). Evaluation of ChatGPT as a diagnostic tool for medical learners and clinicians. \emph{PLOS ONE}, 19(3):e0307383.
+  \item Hadi, A., Tran, E., Nagarajan, B., and Kirpalani, A.\ (2024). Evaluation of ChatGPT as a diagnostic tool for medical learners and clinicians. \emph{PLOS ONE}, 19(7):e0307383.
   \item python-pptx. \url{https://python-pptx.readthedocs.io}.
   \item ReportLab. \url{https://www.reportlab.com}.
 \end{enumerate}
 }
 
-\newpage
+\needspace{10\baselineskip}
 \appendix
 \section{Reproducibility}
 \label{sec:repro}
@@ -248,6 +282,8 @@ The submitted snapshot runs without a notebook. Setup and offline checks:
 pip install -r requirements.txt
 python verify_demo.py
 python verify_native_tree_smoke.py
+python verify_api_backend.py
+python verify_table_caption.py
 python verify_panel_transfer.py runs/tsne-jmlr.pdf --out runs/tsne-transfer
 \end{verbatim}
 

@@ -97,7 +97,7 @@ def main():
     p.add_argument("pdf", type=Path)
     p.add_argument("--source", type=Path, required=True)
     p.add_argument("--out", type=Path, required=True)
-    p.add_argument("--backend", choices=["codex", "session"], default="codex")
+    p.add_argument("--backend", choices=["codex", "session", "api"], default="codex")
     p.add_argument("--model", default="codex-default")
     p.add_argument("--soffice", default=shutil.which("soffice"))
     args = p.parse_args()

@@ -1,0 +1,390 @@
+{
+  "pdf_sha256": "a30120eace364ce1c51355d71d51ab42be5897b8155ee26aabb8c48ce1742d82",
+  "source": "dd4b060f3e5e8ed511693bdc9e24a1d1e57165f9",
+  "model": "gpt-6.1-sol",
+  "backend": "api",
+  "pdf_pages": 24,
+  "paper": "discovery-agent.pdf",
+  "canvas_inches": [
+    48.0,
+    36.0
+  ],
+  "slides": 1,
+  "title_verified_on_pdf_page": 1,
+  "editable_text_boxes": 29,
+  "out_of_bounds_shapes": [],
+  "model_requests": {
+    "text": 30,
+    "vision": 25,
+    "reused_exact_requests": 0
+  },
+  "stages": {
+    "1_document_tree": {
+      "title": "Agentic Reverse Engineering: From I/O to Code with Discovery Agent",
+      "children": [
+        {
+          "title": "Abstract",
+          "children": []
+        },
+        {
+          "title": "1 Introduction",
+          "children": []
+        },
+        {
+          "title": "2 Motivation Example",
+          "children": []
+        },
+        {
+          "title": "3 Methodology",
+          "children": [
+            {
+              "title": "3.1 Curriculum-wise Evolution",
+              "children": []
+            },
+            {
+              "title": "3.2 Transformation-priority Guided Mutation",
+              "children": []
+            },
+            {
+              "title": "3.3 Error-Grounded Feedback",
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "4 Experiments",
+          "children": [
+            {
+              "title": "4.1 Main Results",
+              "children": []
+            },
+            {
+              "title": "4.2 Performance Across Different LLMs",
+              "children": []
+            },
+            {
+              "title": "4.3 Ablation Study",
+              "children": []
+            },
+            {
+              "title": "4.4 Comparison with Test-Time Scaling Methods.",
+              "children": []
+            },
+            {
+              "title": "4.5 Further Analysis",
+              "children": []
+            },
+            {
+              "title": "4.6 Autonomous Discovery via Active Exploration",
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "5 Related Work",
+          "children": []
+        },
+        {
+          "title": "6 Conclusion",
+          "children": []
+        }
+      ]
+    },
+    "2_refined_tree": {
+      "title": "Agentic Reverse Engineering: From I/O to Code with Discovery Agent",
+      "children": [
+        {
+          "title": "1 Introduction",
+          "children": []
+        },
+        {
+          "title": "2 Motivation Example",
+          "children": []
+        },
+        {
+          "title": "3 Methodology",
+          "children": [
+            {
+              "title": "3.1 Curriculum-wise Evolution",
+              "children": []
+            },
+            {
+              "title": "3.2 Transformation-priority Guided Mutation",
+              "children": []
+            },
+            {
+              "title": "3.3 Error-Grounded Feedback",
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "4 Experiments",
+          "children": [
+            {
+              "title": "4.1 Main Results",
+              "children": []
+            },
+            {
+              "title": "4.2 Performance Across Different LLMs",
+              "children": []
+            },
+            {
+              "title": "4.3 Ablation Study",
+              "children": []
+            },
+            {
+              "title": "4.4 Comparison with Test-Time Scaling Methods.",
+              "children": []
+            },
+            {
+              "title": "4.5 Further Analysis",
+              "children": []
+            },
+            {
+              "title": "4.6 Autonomous Discovery via Active Exploration",
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "6 Conclusion",
+          "children": []
+        }
+      ]
+    },
+    "3_poster_tree": {
+      "title": "Agentic Reverse Engineering: From I/O to Code with Discovery Agent",
+      "children": [
+        {
+          "title": "Content",
+          "children": []
+        },
+        {
+          "title": "1 Introduction",
+          "children": [
+            {
+              "title": "Content",
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "2 Motivation Example",
+          "children": [
+            {
+              "title": "Content",
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "3 Methodology",
+          "children": [
+            {
+              "title": "3.1 Curriculum-wise Evolution",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "3.2 Transformation-priority Guided Mutation",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "3.3 Error-Grounded Feedback",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "4 Experiments",
+          "children": [
+            {
+              "title": "4.1 Main Results",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "4.2 Performance Across Different LLMs",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "4.3 Ablation Study",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                },
+                {
+                  "title": "Content [2]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "4.4 Comparison with Test-Time Scaling Methods.",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "4.5 Further Analysis",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "4.6 Autonomous Discovery via Active Exploration",
+              "children": [
+                {
+                  "title": "Content",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "6 Conclusion",
+          "children": [
+            {
+              "title": "Content",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "4_panel_count": 28,
+    "5_text_arrangements": 29,
+    "6_feedback_events": {
+      "attempt_start": 2,
+      "layout_iter": 24,
+      "content_check": 17,
+      "critic": 1,
+      "done": 1
+    }
+  },
+  "figures": [
+    {
+      "asset": "figure 1",
+      "page": 2,
+      "crop": [
+        0.1957532679738562,
+        0.07575949494949484,
+        0.8041428675490195,
+        0.2396607595959595
+      ],
+      "caption": "Figure 1: Illustration of IO2Code, where the mainstream NL2Code task evaluates the composition and reuse ability of LLMs, while the IO2Code task evaluates the induction and discovery ability.",
+      "sha256": "9a32cadfc12e194fef22e7745485e0e717798f6246cbafab6061347397a5ccc8"
+    },
+    {
+      "asset": "figure 2",
+      "page": 5,
+      "crop": [
+        0.16339869281045752,
+        0.07575460858585847,
+        0.8365145680555557,
+        0.3502188404040405
+      ],
+      "caption": "Figure 2: Overview of DIO-Agent.",
+      "sha256": "a04382caf1393c2024c224bce2e220905f4e39d464bf2d170689d1ea09d26278"
+    },
+    {
+      "asset": "figure 3",
+      "page": 8,
+      "crop": [
+        0.2088251633986928,
+        0.09091040404040403,
+        0.7911642810457515,
+        0.24740404040404035
+      ],
+      "caption": "Figure 3: Comparison of DIO-Agent with test-time scaling methods.",
+      "sha256": "6fe8ff24cd83d7be5e6a4aa9fec0b7506e47719bdd79717888bcadaf4b7b30cc"
+    },
+    {
+      "asset": "table 3",
+      "page": 7,
+      "crop": [
+        0.16701475377450983,
+        0.17674577646464645,
+        0.8366098102287582,
+        0.29438580585858576
+      ],
+      "caption": "Table 3: Ablation Study, where each",
+      "sha256": "0b947dfb6f5f12ad549bd43648a85a5223984676af2d8c8cdf1ee0ede6ef834c"
+    },
+    {
+      "asset": "figure 4",
+      "page": 8,
+      "crop": [
+        0.16339869281045752,
+        0.3946926767676768,
+        0.8365734640522876,
+        0.5464709595959596
+      ],
+      "caption": "Figure 4: Comparison between DIO-Agent and AlphaEvolve. (a) DIO-Agent produces shorter cor- rect programs. (b) DIO-Agent reduces incorrect early stopping during search. (c) DIO-Agent copies fewer prompt example cases into the generated programs.",
+      "sha256": "e275e40bf74178aaadaa5dd185abf969a84c77048acb35a9e450a458ad9bea68"
+    }
+  ],
+  "slide_text": [
+    "\nAgentic Reverse Engineering: From I/O to Code with Discovery Agent",
+    "\nYihong Dong¹˒², Jiaru Qian³, Haoran Zhang⁴, Peixu Wang⁵, Binhua Li², Zhi Jin³, Yongbin Li², Ge Li³, Xiaokang Yang¹, Xue Jiang²˒³¹ Shanghai Jiao Tong University; ² Tongyi Lab, Alibaba Group; ³ Peking University; ⁴ Renmin University of China; ⁵ National University of Singapore",
+    "\nIntroduction",
+    "\n• IO2Code infers hidden program rules without explicit natural-language specifications.\n◦ Program behavior provides the basis for induction.\n◦ Beyond reuse of familiar programming patterns.\n• DIO-Agent combines curriculum-based evolutionary search with simplicity-guided mutations.\n◦ Discourages memorization of observed behavior.\n◦ Avoids structurally complex dead ends.\n• IO2CodeBench evaluations support effective, generalizable behavior-driven program discovery.\n◦ Discourages memorization and structurally complex dead ends.\n• Target applications include reverse engineering, legacy-system migration, and scientific discovery.",
+    "\nMotivation Example",
+    "\n• Prime factorization exposes rule-discovery challenges from input-output observations alone.\n• Missing language specifications risk memorization and complex but incorrect programs.\n• Increasing expressiveness reveals limitations of successive hypotheses.\n◦ Constants → variables → conditionals → iteration\n• DIO-Agent structures discovery, discourages overfitting, and uses failures to guide refinement.",
+    "\nMethodology",
+    "\nCurriculum-wise Evolution",
+    "\n• Nested curriculum stages introduce structurally simple examples before expanding behavioral specifications.\n• Search islands inherit the preceding stage’s best program, preserving useful discoveries.\n• Replay examples retain learned behavior as candidates adapt to new cases.\n• Held-out tests assess only the final program, separating search from generalization.",
+    "\nTransformation-priority Guided Mutation",
+    "\n• Mutation favors simple changes; complexity increases only when simpler alternatives cannot explain visible examples.\n• Explicit prohibitions reject memorized lookup tables and exact-input matching.",
+    "\nError-Grounded Feedback",
+    "\n• Output mismatches and runtime errors guide mutations.\n◦ Evidence spans curriculum and replay examples.",
+    "\nExperiments",
+    "\nMain Results",
+    "\n• DIO-Agent achieves a 58.63% average score on IO2CodeBench.\n• Matches or exceeds strongest baselines across all benchmark levels.",
+    "\nPerformance Across Different LLMs",
+    "\n• DIO-Agent improves average discovery performance across all three tested backbones.\n◦ DeepSeek V3.2, Qwen-3.6-Plus, Claude-Sonnet-4.6",
+    "\nAblation Study",
+    "\n• All three specialized components contribute to DIO-Agent’s 58.63% average score.",
+    "\n• Removing transformation-priority guidance lowers performance to 53.80%.\n• Removing error-grounded feedback lowers performance to 54.61%.",
+    "\nComparison with Test-Time Scaling Methods.",
+    "\n• DIO-Agent achieves 63.66%, outperforming Best-of-N at 40.28%.\n• Matched sampling budgets of 40 control candidate-generation effort across strategies.",
+    "\nFurther Analysis",
+    "\n• Successful discovery correlates with simplification and stable program structure.\n◦ Continued complexity growth often accompanies overfitting.",
+    "\nAutonomous Discovery via Active Exploration",
+    "\n• DIO-Agent achieves 60.84% average performance versus AlphaEvolve’s 46.61%.\n• Agents construct evidence by selecting inputs and querying a ground-truth oracle.",
+    "\nConclusion",
+    "\n• IO2Code tests program induction from input-output observations, complementing natural-language code generation.\n• IO2CodeBench and DIO-Agent enable benchmarking and structured evolutionary program discovery."
+  ]
+}

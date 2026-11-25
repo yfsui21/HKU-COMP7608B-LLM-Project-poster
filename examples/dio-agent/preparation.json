@@ -1,0 +1,10 @@
+{
+  "raw_sha256": "e3a861437a094be72a3c586a2c67afd79ea03af60a1268309d4267a0b373d35b",
+  "prepared_sha256": "c0ba3fa132d12a14cf6db9335948f6eab2b8a25324a2e7fa8f2efb4a6f7a1ca9",
+  "operations": [
+    "Replace misidentified Table 3 crop with source page 7 ablation table, preserve aspect ratio and center in original box.",
+    "Normalize author and affiliation text to white and center; separate affiliations with line break."
+  ],
+  "assisted_preparation": true,
+  "excluded_from_batch": true
+}

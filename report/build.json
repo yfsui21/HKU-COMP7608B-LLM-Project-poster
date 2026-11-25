@@ -1,0 +1,11 @@
+{
+  "built_at_utc": "2026-11-25T15:54:24.920189+00:00",
+  "compiler": "Tectonic 0.17.0",
+  "sources": {
+    "report/main.tex": "ad5b0f4fe44b4c0dd1dd9ae7414cd0c8b123a397d52084d0612fe9e03e0519da",
+    "report/neurips_2026.sty": "c3fc2894e83d2517ca18b66741d6c595986d97957dc08ec08bb2125a7ec4555a",
+    "report/figs/dio-showcase.png": "e792ca7f3337976b6fa231b1bd09193676fda18785618f8081d3def29a25a076"
+  },
+  "pdf_sha256": "165b00e35c68a2b637a480c57bd8d40f462cdb32048d1e67df83190560712ad2",
+  "overfull_box_warnings": 0
+}

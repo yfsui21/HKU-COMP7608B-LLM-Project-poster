@@ -1,0 +1,78 @@
+{
+  "request": "Make only two short evidence-label corrections: change heading shape 48 paragraph 1 to Sampling and ablations, and replace shape 49 paragraph 1 with a concise explanation that the bar chart compares sampling strategies while the table below tests component removal. Keep all other content and all geometry unchanged. For the new heading and explanation quote the exact source paragraph describing ablations and test-time scaling (source page 6 Experiments). Do not add any numerical values.",
+  "model": "gpt-6.1-sol",
+  "started_at_utc": "2026-11-25T15:44:45.726412+00:00",
+  "before_artifact": "original",
+  "accepted": false,
+  "error": "HTTP Error 400: Bad Request",
+  "after_artifact": "original",
+  "elapsed_seconds": 23.48,
+  "calls": [
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request",
+      "model": "gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 35041,
+        "completion_tokens": 524,
+        "total_tokens": 35565,
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        }
+      }
+    }
+  ],
+  "responses": [
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request. Inspect the current preview,",
+      "response": {
+        "reason": "Correct the evidence labels so the sampling-strategy bar chart is distinguished from the component-removal table below. Only the two requested paragraphs change; no space reallocation or geometry changes are needed.",
+        "splits": {},
+        "texts": [
+          {
+            "shape": "48",
+            "paragraph": 1,
+            "text": "Sampling and ablations",
+            "page": 6,
+            "quote": "We conduct extensive experiments on IO2CodeBench spanning difficulty levels, comparing DIO-\nAgent against both traditional Programming-by-Example (PBE) methods and mainstream evolutionagent baselines. We also provide the generalizability across different base models, test-time scaling\nstrategy comparison, ablation studies, and further analysis. More comprehensive experiments and\ndetailed setups are provided in Appendix A-I."
+          },
+          {
+            "shape": "49",
+            "paragraph": 1,
+            "text": "• The bar chart compares sampling strategies; the table below tests component removal.",
+            "page": 6,
+            "quote": "We conduct extensive experiments on IO2CodeBench spanning difficulty levels, comparing DIO-\nAgent against both traditional Programming-by-Example (PBE) methods and mainstream evolutionagent baselines. We also provide the generalizability across different base models, test-time scaling\nstrategy comparison, ablation studies, and further analysis. More comprehensive experiments and\ndetailed setups are provided in Appendix A-I."
+          }
+        ],
+        "protect": [
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58"
+        ]
+      }
+    }
+  ]
+}

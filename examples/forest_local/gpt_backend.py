@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import tempfile
 import time
+import urllib.request
 from pathlib import Path
 
 
@@ -29,7 +30,30 @@ def complete(payload, key, *, work=Path("."), backend=None):
     prompt = "\n\n".join(prompt)
     (root / "prompt.txt").write_text(prompt, encoding="utf-8")
     model = payload["model"]
-    if (backend or os.environ["FOREST_BACKEND"]) == "session":
+    mode = backend or os.environ["FOREST_BACKEND"]
+    if mode == "api":
+        base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+        if not base.startswith("https://"):
+            raise ValueError("The model API requires an HTTPS base URL")
+        credential = os.environ.get("OPENAI_API_KEY")
+        if not credential:
+            raise ValueError("Set OPENAI_API_KEY for the API backend")
+        request = urllib.request.Request(
+            base + "/chat/completions", data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json", "Authorization": "Bearer " + credential})
+        timeout = max(1, min(1200, int(os.getenv("PAPERCANVAS_INFERENCE_TIMEOUT", "180"))))
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            result = json.load(response)
+        content = result["choices"][0]["message"]["content"]
+        if not isinstance(content, str) or not content.strip():
+            raise ValueError("Model API returned no text")
+        counts = result.get("usage", {})
+        usage = dict(prompt_tokens=counts.get("prompt_tokens", 0),
+                     completion_tokens=counts.get("completion_tokens", 0),
+                     reported="prompt_tokens" in counts and "completion_tokens" in counts)
+        return {"choices": [{"message": {"content": content}}], "usage": usage,
+                "model": result.get("model", model)}
+    elif mode == "session":
         # No desktop login token or API key is exposed to this process.
         pending = work / "pending.json"
         tmp = pending.with_suffix(".tmp")

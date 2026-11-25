@@ -1,0 +1,306 @@
+{
+  "request": "Make the method diagram more prominent and the introduction less repetitive. Increase the Methodology share of its branch from about 0.306 to 0.35, leaving the left Introduction column width unchanged. Shorten the nine Introduction paragraphs in shape 33 to concise single-line or two-line statements, with distinct information in each paragraph; retain the hidden-rule task, generalization, curriculum, simplicity and application context, and use exact source evidence. Keep all numeric experimental results verbatim and protect only Main Results textbox 45. Avoid any unrelated text changes. Use modest reallocation so neighboring experimental labels remain readable.",
+  "model": "gpt-6.1-sol",
+  "started_at_utc": "2026-11-25T15:46:53.562749+00:00",
+  "before_artifact": "edit-96cdfe3e0e",
+  "accepted": true,
+  "after_artifact": "edit-042ec5bae4",
+  "operations": {
+    "splits": [
+      {
+        "node": "internal_11a5176479b049a59a3ed208c66e6c86",
+        "before": 0.3063462386759568,
+        "after": 0.35
+      },
+      {
+        "node": "internal_144982ebd1cd4bf7b97a15fc1d1b5f69",
+        "before": 0.6128731828761504,
+        "after": 0.54
+      }
+    ],
+    "texts": [
+      {
+        "shape": "33",
+        "paragraph": 1,
+        "text": "• IO2Code infers hidden rules from I/O alone.",
+        "page": 3,
+        "quote": "It has no access to the function name,\ndocstring, or NL description, and must recover the rule purely from computational behavior."
+      },
+      {
+        "shape": "33",
+        "paragraph": 2,
+        "text": "◦ Induction replaces code-pattern reuse.",
+        "page": 2,
+        "quote": "This requires abductive reasoning from the specific to the general, in which the composition and reuse strategies effective in NL2Code become inapplicable."
+      },
+      {
+        "shape": "33",
+        "paragraph": 3,
+        "text": "◦ Generalization requires passing unseen tests.",
+        "page": 4,
+        "quote": "A candidate is considered a solution if and only if f (pˆ) = 1.0\non the visible set and it additionally passes all held-out tests—the latter serving as a generalization\ncheck against overfitting to spurious patterns in the visible examples."
+      },
+      {
+        "shape": "33",
+        "paragraph": 4,
+        "text": "• DIO-Agent evolves programs through a curriculum.",
+        "page": 2,
+        "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+      },
+      {
+        "shape": "33",
+        "paragraph": 5,
+        "text": "◦ Mutations explicitly discourage memorization.",
+        "page": 5,
+        "quote": "The LLM is\nalso explicitly instructed to avoid exact input matching, memorized lookup tables, and other hardcoded solutions tied to seen examples."
+      },
+      {
+        "shape": "33",
+        "paragraph": 6,
+        "text": "◦ Simpler hypotheses precede complex constructs.",
+        "page": 5,
+        "quote": "This makes the mutation operator prefer the smallest hypothesis that explains the current evidence before moving to more complex control flow."
+      },
+      {
+        "shape": "33",
+        "paragraph": 7,
+        "text": "• Benchmark gains span difficulty levels and LLMs.",
+        "page": 10,
+        "quote": "Extensive experiments show that DIO-Agent consistently outperforms existing program-by-example and\nevolution-agent baselines across all difficulty levels and various LLMs, while substantially surpassing test-time scaling strategies with equivalent sampling budgets."
+      },
+      {
+        "shape": "33",
+        "paragraph": 8,
+        "text": "◦ Execution errors ground program refinement.",
+        "page": 2,
+        "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+      },
+      {
+        "shape": "33",
+        "paragraph": 9,
+        "text": "• Uses: reverse engineering, legacy migration and scientific discovery.",
+        "page": 1,
+        "quote": "From migrating legacy systems with lost source code\nand reverse-engineering black-box APIs, to abducing algorithms from scientific observations and\ncapturing user intent through input-output demonstrations, these scenarios span system evolution,\nscientific discovery, and human-computer interaction (Collie et al., 2020)."
+      }
+    ],
+    "protected": [
+      "45"
+    ],
+    "artifact": "edit-042ec5bae4",
+    "request": "Make the method diagram more prominent and the introduction less repetitive. Increase the Methodology share of its branch from about 0.306 to 0.35, leaving the left Introduction column width unchanged. Shorten the nine Introduction paragraphs in shape 33 to concise single-line or two-line statements, with distinct information in each paragraph; retain the hidden-rule task, generalization, curriculum, simplicity and application context, and use exact source evidence. Keep all numeric experimental results verbatim and protect only Main Results textbox 45. Avoid any unrelated text changes. Use modest reallocation so neighboring experimental labels remain readable."
+  },
+  "elapsed_seconds": 67.04,
+  "calls": [
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request",
+      "model": "gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 35301,
+        "completion_tokens": 1042,
+        "total_tokens": 36343,
+        "completion_tokens_details": {
+          "reasoning_tokens": 76
+        }
+      }
+    },
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request",
+      "model": "gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 36198,
+        "completion_tokens": 1140,
+        "total_tokens": 37338,
+        "completion_tokens_details": {
+          "reasoning_tokens": 206
+        }
+      }
+    },
+    {
+      "stage": "Independently compare the rendered candidate to the request, previous poster text, constraints,\noriginal wording, cited passages and current branch shares",
+      "model": "gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 20740,
+        "completion_tokens": 203,
+        "total_tokens": 20943,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        }
+      }
+    }
+  ],
+  "responses": [
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request. Inspect the current preview,",
+      "response": {
+        "reason": "Increase Methodology’s share of its existing branch from 0.306 to 0.35 to enlarge the method overview diagram, while leaving the outer split and left Introduction column width unchanged. This modest transfer preserves most experimental space and avoids unrelated layout changes. Condense shape 33’s nine substantive paragraphs into distinct statements covering the hidden-rule task, induction, generalization, curriculum, anti-memorization, simplicity, benchmark evidence, execution feedback and applications. Leave all experimental text and numeric results verbatim; protect only Main Results textbox 45.",
+        "splits": {
+          "internal_11a5176479b049a59a3ed208c66e6c86": 0.35
+        },
+        "texts": [
+          {
+            "shape": "33",
+            "paragraph": 1,
+            "text": "• IO2Code recovers hidden rules from I/O alone, without language specifications.",
+            "page": 3,
+            "quote": "It has no access to the function name,\ndocstring, or NL description, and must recover the rule purely from computational behavior."
+          },
+          {
+            "shape": "33",
+            "paragraph": 2,
+            "text": "◦ Requires induction and discovery, not just code-pattern reuse.",
+            "page": 2,
+            "quote": "Figure 1: Illustration of IO2Code, where the mainstream NL2Code task evaluates the composition\nand reuse ability of LLMs, while the IO2Code task evaluates the induction and discovery ability."
+          },
+          {
+            "shape": "33",
+            "paragraph": 3,
+            "text": "◦ Programs must generalize to held-out cases unseen during search.",
+            "page": 4,
+            "quote": "held-out test cases D = {(x , y )}m that the agent never observes during search."
+          },
+          {
+            "shape": "33",
+            "paragraph": 4,
+            "text": "• DIO-Agent organizes evolutionary search into increasingly difficult curriculum stages.",
+            "page": 2,
+            "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+          },
+          {
+            "shape": "33",
+            "paragraph": 5,
+            "text": "◦ Mutation instructions prohibit exact-input matching and memorized lookup tables.",
+            "page": 5,
+            "quote": "The LLM is\nalso explicitly instructed to avoid exact input matching, memorized lookup tables, and other hardcoded solutions tied to seen examples."
+          },
+          {
+            "shape": "33",
+            "paragraph": 6,
+            "text": "◦ Simplicity-first mutations counter complex, incorrect search dead ends.",
+            "page": 1,
+            "quote": "To prevent the search\nfrom wandering into structurally complex yet incorrect dead ends, we introduce\nthe Transformation Priority Premise as a mutation prior that biases the LLM toward the simplest hypothesis consistent with current evidence, progressively escalating from constants to conditionals to iteration only when simpler constructs are\ninsufficient."
+          },
+          {
+            "shape": "33",
+            "paragraph": 7,
+            "text": "• IO2CodeBench evaluations show gains across difficulty levels and base models.",
+            "page": 10,
+            "quote": "Extensive experiments show that DIO-Agent consistently outperforms existing program-by-example and\nevolution-agent baselines across all difficulty levels and various LLMs, while substantially surpassing test-time scaling strategies with equivalent sampling budgets."
+          },
+          {
+            "shape": "33",
+            "paragraph": 8,
+            "text": "◦ Execution failures provide concrete debugging evidence for refinement.",
+            "page": 6,
+            "quote": "The evaluator returns not only accuracies, but also a small number of concrete failure cases from both\nsets, including mismatched outputs or runtime errors."
+          },
+          {
+            "shape": "33",
+            "paragraph": 9,
+            "text": "• Applications span reverse engineering, legacy migration and scientific discovery.",
+            "page": 1,
+            "quote": "From migrating legacy systems with lost source code\nand reverse-engineering black-box APIs, to abducing algorithms from scientific observations and\ncapturing user intent through input-output demonstrations, these scenarios span system evolution,\nscientific discovery, and human-computer interaction (Collie et al., 2020)."
+          }
+        ],
+        "protect": [
+          "45"
+        ]
+      }
+    },
+    {
+      "stage": "Revise this editable scientific poster in response to the user's request. Inspect the current preview,",
+      "response": {
+        "reason": "Enlarge the diagram supporting DIO-Agent’s structured evolutionary method by increasing Methodology’s branch share to 0.35, without changing the outer split or Introduction column width. Replace shape 33’s repetitive introduction with nine distinct, concise statements. Give the ablation-table branch slightly more height to keep unchanged numerical-result text in shape 50 readable after the experimental column narrows. All experimental wording and numbers remain verbatim; protect only textbox 45.",
+        "splits": {
+          "internal_11a5176479b049a59a3ed208c66e6c86": 0.35,
+          "internal_144982ebd1cd4bf7b97a15fc1d1b5f69": 0.54
+        },
+        "texts": [
+          {
+            "shape": "33",
+            "paragraph": 1,
+            "text": "• IO2Code infers hidden rules from I/O alone.",
+            "page": 3,
+            "quote": "It has no access to the function name,\ndocstring, or NL description, and must recover the rule purely from computational behavior."
+          },
+          {
+            "shape": "33",
+            "paragraph": 2,
+            "text": "◦ Induction replaces code-pattern reuse.",
+            "page": 2,
+            "quote": "This requires abductive reasoning from the specific to the general, in which the composition and reuse strategies effective in NL2Code become inapplicable."
+          },
+          {
+            "shape": "33",
+            "paragraph": 3,
+            "text": "◦ Generalization requires passing unseen tests.",
+            "page": 4,
+            "quote": "A candidate is considered a solution if and only if f (pˆ) = 1.0\non the visible set and it additionally passes all held-out tests—the latter serving as a generalization\ncheck against overfitting to spurious patterns in the visible examples."
+          },
+          {
+            "shape": "33",
+            "paragraph": 4,
+            "text": "• DIO-Agent evolves programs through a curriculum.",
+            "page": 2,
+            "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+          },
+          {
+            "shape": "33",
+            "paragraph": 5,
+            "text": "◦ Mutations explicitly discourage memorization.",
+            "page": 5,
+            "quote": "The LLM is\nalso explicitly instructed to avoid exact input matching, memorized lookup tables, and other hardcoded solutions tied to seen examples."
+          },
+          {
+            "shape": "33",
+            "paragraph": 6,
+            "text": "◦ Simpler hypotheses precede complex constructs.",
+            "page": 5,
+            "quote": "This makes the mutation operator prefer the smallest hypothesis that explains the current evidence before moving to more complex control flow."
+          },
+          {
+            "shape": "33",
+            "paragraph": 7,
+            "text": "• Benchmark gains span difficulty levels and LLMs.",
+            "page": 10,
+            "quote": "Extensive experiments show that DIO-Agent consistently outperforms existing program-by-example and\nevolution-agent baselines across all difficulty levels and various LLMs, while substantially surpassing test-time scaling strategies with equivalent sampling budgets."
+          },
+          {
+            "shape": "33",
+            "paragraph": 8,
+            "text": "◦ Execution errors ground program refinement.",
+            "page": 2,
+            "quote": "This evolutionary process is organized as a curriculum of increasing difficulty, with concrete error signals from execution\ngrounding each mutation in debugging evidence rather than scalar rewards."
+          },
+          {
+            "shape": "33",
+            "paragraph": 9,
+            "text": "• Uses: reverse engineering, legacy migration and scientific discovery.",
+            "page": 1,
+            "quote": "From migrating legacy systems with lost source code\nand reverse-engineering black-box APIs, to abducing algorithms from scientific observations and\ncapturing user intent through input-output demonstrations, these scenarios span system evolution,\nscientific discovery, and human-computer interaction (Collie et al., 2020)."
+          }
+        ],
+        "protect": [
+          "45"
+        ]
+      }
+    },
+    {
+      "stage": "Independently compare the rendered candidate to the request, previous poster text, constraints,",
+      "response": {
+        "passed": true,
+        "verdicts": {
+          "33:1": true,
+          "33:2": true,
+          "33:3": true,
+          "33:4": true,
+          "33:5": true,
+          "33:6": true,
+          "33:7": true,
+          "33:8": true,
+          "33:9": true
+        },
+        "issues": []
+      }
+    }
+  ]
+}
