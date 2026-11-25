@@ -50,18 +50,74 @@ PaperCanvas is an autonomous agent that turns a text-based paper PDF into an edi
 \textbf{Changes.} There is no major objective change. The scope was narrowed for reproducibility: rather than report an unverifiable large run, we freeze fixtures and record traces so every claim in this report can be re-derived from the repository. The native tree editor was added after the proposal to let revisions act directly on the upstream panel hierarchy; it reuses the same grounding and rollback mechanisms.
 
 \section{Design and implementation}
+\label{sec:design}
 
 \subsection{Workflow and autonomous decisions}
-The pipeline is: extract $\rightarrow$ plan $\rightarrow$ render $\rightarrow$ review $\rightarrow$ edit. \texttt{source.py}/\texttt{extract.py} read the PDF and select three sections in order---question, method, key finding---each carrying a label, text, page, verbatim quotation, and required phrases. \texttt{agent.py} alternates two content passes and two layout passes (the ``joint'' schedule); the content-first and layout-first baselines complete one stage before the other. After every pass, \texttt{render.py} emits a PowerPoint and a PNG preview from the same measured scene, and the reviewer reopens the exported slide to report missing context, unsupported numbers, figure--text mismatch, overlap, overflow, and out-of-canvas elements. The agent autonomously decides which claims and figure support the paper, how much space each panel receives, whether an unmet requirement should be fixed by shortening prose or by reallocating space, and whether a user request is supported, conflicting, or requires clarification. The entry point is \texttt{python papercanvas.py demo}, which serves the loopback studio at \texttt{http://127.0.0.1:8765}; the same module exposes \texttt{generate}, \texttt{edit}, \texttt{bind}, \texttt{pipeline}, \texttt{tree-import}, and \texttt{tree-list} subcommands.
+PaperCanvas turns one text-layer PDF into a single-slide poster through the stages in Table~\ref{tab:pipeline}. Only the stages marked \emph{model} call an LLM. The others are deterministic code, so every model decision can be checked against a measurement.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Pipeline stages. Module paths are relative to \texttt{posteragent/}.}
+\label{tab:pipeline}
+\begin{tabular}{@{}p{0.47\linewidth}p{0.25\linewidth}l@{}}
+\toprule
+Stage & Module & Call \\
+\midrule
+PDF $\rightarrow$ page text, markdown, caption-anchored figure/table crops & \texttt{parse.py} & none \\
+Claim agent: question, method, 1--3 findings, each with quote, page, conditions, asset; verified, then frozen & \texttt{claims.py} & text \\
+Parser agent $\rightarrow$ document tree; summarizing agent $\rightarrow$ sections, every claim bound to one section & \texttt{agents.py} & text \\
+Initial allocation from content mass $\rightarrow$ binary split tree & \texttt{layout\_init.py} & none \\
+Render PNG + PPTX, reopen the deck, review & \texttt{render.py}, \texttt{review.py} & vision \\
+Two content and two layout passes in one of three schedules & \texttt{pipeline.py}, \texttt{allocate.py} & text + vision \\
+Dialogue revision (joint or fixed-layout condition) & \texttt{dialogue.py} & text \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Claims are frozen before any layout work.} The claim agent proposes a question, a method and up to three findings. Code then checks each one: the quote must have at least four words and appear on its cited page (a wrong page is corrected), every condition such as a dataset, baseline or metric must appear verbatim in the paper, and the asset must exist in the parsed inventory. After one corrective retry, anything unverifiable is dropped and logged as a failure. The surviving claims cannot be weakened later: a content edit is rejected, and the previous text kept, if it drops a required phrase, alters protected text or introduces a number the paper does not contain.
+
+\textbf{Geometry is never written by a model.} The poster is a binary split tree. Each internal node stores one ratio, and every box is derived from the root. Overlap and out-of-canvas placement are therefore impossible by construction, although review still checks for both. A model can only move a ratio by a bounded step (delta 0--5, at most $0.20$), clamped in code to $[0.25, 0.75]$ ($[0.22, 0.78]$ for column widths).
+
+\textbf{Review after every pass.} Each review renders the draft, reopens the exported PPTX and produces issues of the form \{element, unmet requirement, detail, proposed change, source\}. \emph{Blocking} issues are measurable: overflow at the minimum font scale ($0.72\times$ nominal), overlap, out of canvas, a missing figure, a missing frozen condition, an unsupported number, a claim the vision reviewer judges unfaithful to its quote, and violated user constraints. A draft with no blocking issue is \emph{resolved}. Readability remarks from the vision reviewer guide the next pass but never count as failures, so model judgement does not define success.
+
+\textbf{Content--layout feedback.} A content pass edits at most eight text panels concurrently. Each panel is condensed, expanded toward a 90--100\% fill target, or repaired when a claim check fails. If required text still overflows after condensing, the content agent sets \texttt{needs\_space}. The next layout pass sends that request to a deterministic allocator, which walks the splits above the panel from the innermost outward. It tries ratio steps of $0.03$--$0.15$, re-measures the whole poster for each, keeps the cheapest step that helps, and records the donor panels and any panels it newly crowds. The following content pass receives that crowding as ordinary overflow. A vision layout agent, adapted from PosterForest's annotated-crop prompt, then makes bounded legibility adjustments. Any move that makes text elsewhere overflow, or shrinks a figure below a size the user requested, is undone.
+
+\textbf{Schedules and stopping.} The joint schedule runs content, layout, content, layout. Content-first runs both content passes before both layout passes. Layout-first freezes section boundaries and figure boxes after its layout passes, so later space requests are not served. All three schedules fork from the same initial draft and review, and use identical call caps: 8 content calls and 6 layout vision calls per pass. A run stops after four passes or when the time budget (default 20 minutes, checked between passes) expires. In either case it returns the last rendered poster rather than failing.
+
+\textbf{Dialogue.} An intent agent resolves each request to a target and an operation (enlarge, shrink, shorten, expand, rewrite, protect or unsupported), including references back to earlier turns. Code, not the model, decides feasibility. Requests that conflict with an earlier protection, or a word limit too small for the section's required phrases, are reported and not applied. Each request gets at most two attempts. A request that fails review twice is rolled back with an explanation, and protections declared in that turn remain in force. Under the joint condition, space may come from anywhere on the poster. Under the fixed-layout condition, a figure can grow only at the expense of its split sibling, and only the target section may be reworded.
 
 \subsection{Model, prompts, and tools}
-The local path is deterministic and needs no model: an extractive planner selects sentences from section headings and cues, and a recorded fixture drives the synthetic examples. The live path uses a vision-capable Chat Completions model configured through \texttt{PAPERCANVAS\_MODEL} and \texttt{OPENAI\_API\_KEY}, or a signed-in Codex CLI through \texttt{PAPERCANVAS\_CODEX\_MODEL}. PosterForest (Choi et al., 2026) is pinned at the upstream revision \texttt{dd4b060f} (full hash in Appendix~\ref{sec:repro}) and used as the generation stage. All prompts---planning, content, layout, review, intent, claim review, and binding---are plain text in \texttt{paper\_canvas/model.py}; the native editor's planner and reviewer prompts are in \texttt{paper\_canvas/native\_revision.py}. Tools are pdfplumber and pypdfium2 for extraction and crops, python-pptx and ReportLab for the editable deck and preview, and LibreOffice for the native-tree preview and text-coverage measurement.
+\textbf{Models.} PaperCanvas uses one text model and one vision-capable model, both chosen through configuration. The text model serves the claim, parser, summarizing, content and dialogue agents. The vision model serves the reviewer and the layout agent, which judge the rendered poster. All runs reported here used \texttt{gpt-6.1-sol} for both roles, as recorded in each run's trace. No model is fine-tuned; all behaviour comes from prompting and the deterministic checks around it.
+
+\textbf{Prompts.} Each agent has one prompt with the same structure: a task, explicit rules, the inputs it may use, and a JSON output schema. Their roles are:
+\begin{itemize}
+  \item \emph{Claim}: select the research question, method and key findings, each with a verbatim quote, its page, short verbatim conditions and a supporting figure or table.
+  \item \emph{Parser} and \emph{summarizing}: build a document tree in the paper's own wording, then prune and merge it into 5--7 poster sections with short bullets, keeping each figure with the text that explains it.
+  \item \emph{Content}: condense, expand or repair one panel toward its fill target. The prompt lists the panel's required phrases, its source passages and the text of neighbouring panels so the agent can remove repetition. It may ask for more space instead of cutting required content.
+  \item \emph{Layout}: adapted from PosterForest's layout agent. It sees an annotated crop of one split and answers only with a direction and a bounded step, judged by legibility rather than panel area.
+  \item \emph{Review}: inspect the rendered poster beside the frozen claims and report unreadable elements, missing explanations and figure--text mismatches, plus a faithful/unfaithful verdict for every claim.
+  \item \emph{Intent} and \emph{edit}: resolve a user request to a target and an operation, including references to earlier turns, then rewrite the target text. The intent prompt does not judge feasibility; code does.
+\end{itemize}
+Three rules recur across the prompts: use only facts present in the supplied source passages, never introduce a number the source does not contain, and keep every required phrase word for word. Code checks all three after each reply. A reply that is malformed or breaks a rule leaves the panel unchanged.
+
+\textbf{Tools.} The agents act through deterministic tools rather than producing files or coordinates directly:
+\begin{itemize}
+  \item a PDF parser that extracts page text and caption-anchored figure and table crops (PyMuPDF);
+  \item a source verifier that matches quotes, conditions and numbers against the paper's pages;
+  \item a measuring renderer that wraps text with font metrics, reports each panel's fill ratio and draws the preview (Pillow);
+  \item a space allocator that searches split ratios and re-measures the whole poster for each candidate;
+  \item a PPTX exporter that writes the editable slide and reopens it to confirm its text matches the tree (python-pptx);
+  \item geometry checks for overflow, overlap, out-of-canvas elements and figure sizes.
+\end{itemize}
 
 \subsection{Data, state, and traces}
-Each session persists \texttt{initial.json}, \texttt{state.json} (the committed pointer to the accepted version), \texttt{evidence.png} (the source crop with its SHA-256), \texttt{trace.jsonl} (event log), and versioned \texttt{poster.pptx}/\texttt{preview.png}/\texttt{review.json} directories. Every claim stores its page, quotation, required phrases, and asset hash; the reviewer verifies these against the reopened slide. Task traces connect the claims in this report to code: the dialogue recovery and protected-text rejection are in \texttt{evaluation/offline-dialogue.jsonl}; the standalone run is in \texttt{examples/tsne/independent-cli/trace.jsonl}, \texttt{audit.json}, and \texttt{acceptance.json}; the replay audit is \texttt{evaluation/posterforest-replay.json}.
+Each run directory holds \texttt{session.json}, containing the split tree, frozen claims, claim and asset failures, protected spans, word limits, per-pass rounds and dialogue history. It also holds \texttt{trace.json}, which records every model call with agent, tokens, latency and outcome, plus pipeline events. Each pass or dialogue turn gets its own folder with \texttt{preview.png}, \texttt{poster.pptx} and \texttt{review.json}. The final \texttt{poster.pptx}/\texttt{poster.png} sit at the top level. Runs can be resumed from \texttt{session.json}.
+
+\textbf{Example trace (joint, synthetic paper).} Parsing found 2 figures and 1 table. Five claims were verified and frozen with no rejections, and the outline had 7 sections. The initial review reported 8 issues, 2 of them blocking: two text panels needed 324\% and 737\% of their space at the minimum font. In pass~1 (content), two condense replies were unusable, so those panels were kept and one blocking overflow remained. In pass~2 (layout), the allocator took space for the overflowing panel from the adjacent results panel and its table, and the draft became resolved. Pass~3 (content) condensed three panels. In pass~4 (layout), three vision-proposed moves were undone because they would have made text elsewhere overflow. The run made 31 model calls with 0 failures, about 216k prompt and 15k completion tokens, and 482\,s of model time.
 
 \subsection{Key choices and trade-offs}
-We favour \emph{measurement over learned layout}: text is wrapped with font metrics and figures are fit to available space, so a change is accepted only if the measured scene passes. We favour \emph{determinism for testing}: the offline fixture and extractive planner make regression checks reproducible without an API key, at the cost of a narrower planner that assumes English text PDFs with captions below figures. We favour \emph{transactional edits}: a single-writer lock and a state pointer make rollback simple, at the cost of serializing edits from one local user.
+\emph{Measured geometry over model-authored layout.} Overlap cannot occur and every layout change is verified, but section \emph{topology} is fixed at initialization: passes can re-weight splits but cannot regroup sections, which makes \texttt{layout\_init.py} the most consequential heuristic. \emph{Deterministic checks decide success; model judgement steers.} This keeps results reproducible, but readability problems the reviewer only describes, such as a chart lacking axis labels, can persist in a resolved poster. \emph{Frozen requirements.} They prevent passing review by deleting context, at the cost of occasionally keeping a panel denser than a human designer would. \emph{PIL preview instead of rendering the PPTX.} It avoids a LibreOffice dependency. The deck is reopened and its text compared with the tree, and PowerPoint's Arial is narrower than the DejaVu measurement font, so fitted text still fits. \emph{Caption-anchored figure extraction.} It is simple and auditable but can merge neighbouring figures on crowded pages, and scanned PDFs without a text layer are rejected.
 
 \section{Reliability and recovery}
 
