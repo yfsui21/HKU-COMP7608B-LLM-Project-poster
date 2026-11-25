@@ -1,0 +1,133 @@
+{
+  "paper": "paper-082.pdf",
+  "area": 0.75,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-082\\paper-082\\area-0.75\\layout-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question identifies general-purpose autoregressive vision, uneven data across tasks, and reduced reliance on large models. It leaves the limited training-data condition implicit."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster omits VQGAN tokenization, visual sentences formed from multiple images, and causal next-token training with cross-entropy."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster omits example input–output pairs, autoregressive generation from a tokenized query, and VQGAN decoding."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster omits the LLaMA-300M single-task experiments at 12K steps, the SA-1B subset comparison, the COCO-Pose crop and flip conditions, and the improvements in validation loss and perplexity."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The method names augmentation for Rain13K and COCO-Pose. It omits the LLaMA-300M training schedule, dataset proportions, three-way balancing comparison, and held-out evaluation datasets."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster gives no augmentation-versus-repeated-sampling result or comparison with the unbalanced mixture, including its segmentation and deraining accuracy advantages."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "Table 12 and the result text describe LLaMA-80M. The checklist calls for distillation from LLaMA-1B into LLaMA-300M and the corresponding gains in loss, token accuracy, and perplexity across all three augmentation-balanced tasks."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits the unshuffled LLaMA-300M training sequence and the lowest validation perplexity on the most recently trained task at each stage."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster presents validation metrics but gives no separate Pascal-5i foreground segmentation mIoU evaluation with three example pairs, zero-shot and fine-tuned results, or limitation on quantifying predictions from decoded images."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 1,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The six perplexity values match the displayed table, and the LLaMA-1B row has the lowest perplexity on all three tasks. The figure mismatch is the use of the LLaMA-80M table for the checklist's LLaMA-300M distillation experiment. The caption and headline are consistent with the displayed LLaMA-80M table. Section headings are clear, but the table labels and entries are small at the supplied size. The title comes first, and the left column places the question above the method. The large dark results panel competes with that reading sequence."
+    },
+    {
+      "role": 2,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers general-purpose autoregression, uneven data across tasks, and reduced reliance on large models. It omits the limited training-data condition and leaves model compactness implicit."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method omits VQGAN tokenization, visual sentences formed from multiple images, and causal next-token training with cross-entropy."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster omits example input–output pairs as prompts, autoregressive output generation, and VQGAN decoding."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster mentions COCO-Pose augmentation for balancing but omits the single-task comparisons, the 12K-step LLaMA-300M setting, the SA-1B subset increase, random crops and flips, and the improvements in validation loss and perplexity."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The poster names Rain13K and COCO-Pose and mentions balancing by augmentation. It omits the 35K-iteration LLaMA-300M setup, training-data proportions, all three mixture settings, and the withheld evaluation sets. The displayed metrics accompany a distillation comparison."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster omits the comparison with repeated sampling and the unbalanced mixture, including the pose estimation and deraining gains and the unbalanced mixture's advantages in segmentation and deraining accuracy."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster and table compare LLaMA-80M with and without distillation, with LLaMA-1B as a reference. The checklist requires the LLaMA-1B teacher and LLaMA-300M student result across all three augmentation-balanced tasks."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits the unshuffled SA-1B, COCO-Pose, then Rain13K training sequence and the lowest validation perplexity on the most recently trained task at each stage."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster displays validation metrics but omits their distinction from task-level metrics, the Pascal-5i mIoU evaluation with three example pairs and separate zero-shot and fine-tuned results, and the difficulty of extracting quantifiable predictions from decoded images."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "All six quoted perplexities match the displayed table, and the LLaMA-1B perplexity is lower on each task. The 80M versus 300M difference is a checklist coverage gap because the poster consistently presents the 80M experiment. Source page labels cannot be independently verified from the supplied material. The title and section headings are easy to scan, but the table's small labels and values require close reading, and KD is unexplained in the caption. The question, method, and finding are visually grouped, though the method gives little context for the shift from augmentation to distillation. This is an AI review."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-082\\paper-082\\area-0.75\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Table 12\", \"problem\": \"The column headings and numerical entries are small relative to the surrounding text and require close inspection at the supplied poster size.\", \"change\": \"Enlarge the table using more of the finding panel’s available space. Use a higher-resolution crop or typeset the table at a larger font size if enlargement alone leaves the text indistinct.\"}]",
+  "elapsed_s": 208.25
+}

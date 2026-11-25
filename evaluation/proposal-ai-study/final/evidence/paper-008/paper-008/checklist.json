@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: what causes training instability in systems with feedback loops, and can algorithmic interventions mitigate it with the data held fixed?",
+      "page": 2,
+      "quote": "What causes instabilities in learning systems with feedback loops? To what extent can they be\nmitigated by algorithmic interventions alone, without resorting to collecting additional data?"
+    },
+    {
+      "id": "C02",
+      "requirement": "Describe the offline behavior cloning setup: train on one-step expert-action prediction using deterministic Soft Actor Critic demonstrations in MuJoCo, with Walker2d-v4 as the main example. Give the standard split of 900 training and 100 validation trajectories.",
+      "page": 26,
+      "quote": "Split the collected trajectories into a training set of size N = 900 and a validation set of size 100\ntrajectories."
+    },
+    {
+      "id": "C03",
+      "requirement": "Distinguish held-out one-step behavior cloning loss from cumulative reward on 1,000-step closed-loop rollouts. For the Walker2d-v4 comparison, identify mean reward over 20 fixed initial conditions and note that reward can swing between consecutive updates while validation loss stays smooth.",
+      "page": 7,
+      "quote": "show mean rewards over 20 initial conditions, while teal dots show disaggregated per-episode rewards"
+    },
+    {
+      "id": "C04",
+      "requirement": "Explain gradient variance amplification (GVA): unstable closed-loop dynamics amplify small parameter changes from minibatch gradient noise into large changes in long-horizon performance.",
+      "page": 1,
+      "quote": "the chaotic propagation of minibatch SGD noise through unstable closed-loop dynamics"
+    },
+    {
+      "id": "C05",
+      "requirement": "Summarize the diagnostic controls: rollout oscillations persisted with fresh independent expert trajectories at each step and across tested architectures and standard regularizers. Larger batches and aggressive learning-rate decay reduced oscillations at a computational cost.",
+      "page": 6,
+      "quote": "with “infinite” training data (i.e., fresh trajectories with i.i.d. initial conditions at each training step),\nrollout oscillations persist."
+    },
+    {
+      "id": "C06",
+      "requirement": "Identify exponential moving averaging (EMA) of model parameters as the main intervention. Compare averaged checkpoints with the corresponding raw optimizer iterates and state that EMA substantially reduced rollout oscillations without requiring a change to batch size or the learning-rate schedule.",
+      "page": 9,
+      "quote": "Iterate averaging significantly mitigates GVA-induced reward oscillations, without needing to\nchange the learning rate schedule or batch size."
+    },
+    {
+      "id": "C07",
+      "requirement": "Describe the language experiment using the 270M-parameter TinyStories Transformer. Define switching cost as the fraction of held-out prefixes whose greedy completions differ between consecutive checkpoints, and report that switching was much less frequent with EMA. Keep this metric distinct from validation perplexity.",
+      "page": 40,
+      "quote": "we record a switching cost: the fraction of prefixes\n(“in-distribution prompts”) for which generations from θt−1 and θt differ"
+    },
+    {
+      "id": "C08",
+      "requirement": "Bound the language claims to the evidence: TinyStories is a synthetic proxy, the English Wikipedia experiment was a preliminary natural-corpus check, and greedy completion agreement measures stability. The paper did not systematically assess generation quality.",
+      "page": 41,
+      "quote": "we do not attempt to evaluate generation quality systematically\nin this work"
+    },
+    {
+      "id": "C09",
+      "requirement": "Qualify the control result by task and EMA configuration. Ant and Humanoid showed milder oscillations, and infrequent EMA updates could fail. The paper recommends updating every iterate with an initial burn-in and a tuned averaging schedule.",
+      "page": 9,
+      "quote": "EMA at every iterate, with an initial burn-in phase, and with a tuned γ(t) = t−α decay, to avoid divergence\nor slower progress."
+    }
+  ]
+}

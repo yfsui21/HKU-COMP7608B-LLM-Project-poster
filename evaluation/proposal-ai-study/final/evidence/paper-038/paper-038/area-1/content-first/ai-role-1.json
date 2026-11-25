@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining color cues for recognition, but omits generalization to underrepresented colors."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes input-layer weight sharing and tracking discrete hue rotations, but does not explain that hue occupies a feature-map dimension that shifts with input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Neither ColorMNIST task is described. The digit-and-color labels, imbalanced training and balanced testing, and the role of hue dispersion are absent."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The ColorMNIST comparators, approximate parameter matching, primary comparison without augmentation, and averaging over ten random initializations are absent."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "Table 1 shows eight benchmark columns, several with abbreviated labels, but the poster omits which benchmarks use ResNet-44 and which use ResNet-18."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Table 1 shows the baseline, CEConv variants, CIConv-W, and jitter and AugMix conditions. The poster does not identify the full and early-stage hybrid architectures, approximate parameter matching, or the use of three discrete hue rotations."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The table separates original and hue-shifted test results, and the callout identifies the Flowers result as an average. The poster omits the −180° to +180° sweep and does not define the hue-shifted metric across the table as a mean over that sweep. No hue-response curve is shown."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption reports comparable original-test accuracy and improved hue-shift robustness, and the callout gives one dataset and variant comparison. The poster does not explain the stronger gains without training jitter, the complementary role of jitter, or how gains vary across datasets and variants."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits increased compute cost, the potential capacity loss from narrowing networks to match parameters, and approximate equivariance due to clipping or reprojection after RGB rotation."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The Flowers callout matches the hue-shifted rows in the displayed Table 1. The question heading cites p. 1 while the frozen checklist locates its supporting passage on p. 2. The supplied evidence does not establish whether p. 1 also supports the question. The table labels are readable at the supplied image size, though the dense rows and small footer take closer inspection. AI review based on the supplied export and editable text."
+}

@@ -1,0 +1,13 @@
+{
+  "paper": "paper-029.pdf",
+  "area": 1,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-1\\joint",
+  "status": "generation_failed",
+  "ratings": [],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-1\\joint\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Table 1\", \"problem\": \"The table is small relative to its panel. Several adjacent metric headers and bold values run together at poster size, making column boundaries hard to follow.\", \"change\": \"Use the available panel space to enlarge the table. If the source crop still has crowded columns, typeset the table with more column spacing while preserving the values, emphasis, and caption.\"}, {\"target\": \"Key finding\", \"problem\": \"The Table 1 reference wraps across lines and leaves “1).” on a line by itself.\", \"change\": \"Keep “(Table 1)” together by using a nonbreaking space and reflow the finding.\"}]",
+  "error": "No verified checklist; no numerical rating may be invented",
+  "elapsed_s": 201.14
+}

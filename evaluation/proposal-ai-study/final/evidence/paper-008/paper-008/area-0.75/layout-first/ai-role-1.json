@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what causes instability in learning systems with feedback loops and how much algorithmic interventions can reduce it without collecting more data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method gives a broad intervention count, and the figure identifies Walker2d-v4. The poster omits the offline one-step expert-action prediction setup, deterministic Soft Actor Critic demonstrations in MuJoCo, and the 900/100 trajectory split."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The figure labels distinguish reward from behavior cloning error, but the poster does not define held-out one-step loss or cumulative reward over 1,000-step closed-loop rollouts. It also omits the 20 fixed initial conditions and the comparison between consecutive reward swings and smooth validation loss."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The title names SGD noise and the caption attributes reward oscillations to GVA. Neither explains how unstable closed-loop dynamics amplify small parameter changes from minibatch noise into large changes in long-horizon performance."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method lists intervention categories, and the figure shows architecture and learning-rate comparisons. The poster omits the fresh independent trajectory control, persistence across standard regularizers, and the reduction from larger batches and aggressive learning-rate decay at a computational cost."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The figure pairs reward and behavior cloning error curves with their EMA counterparts, and the caption reports reduced oscillations without changing batch size or the learning-rate schedule. The poster calls the intervention EMA iterate averaging but never explicitly identifies it as exponential moving averaging of model parameters."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the 270M-parameter TinyStories Transformer experiment, the definition of switching cost, the reduction in switching with EMA, and the distinction from validation perplexity."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits TinyStories as a synthetic proxy, the preliminary English Wikipedia check, the interpretation of greedy completion agreement as stability, and the lack of systematic generation-quality assessment."
+    },
+    {
+      "id": "C09",
+      "met": true,
+      "reason": "The low-GVA column shows Ant and Humanoid with milder reward oscillations, and the failure-mode column shows poor EMA reward with infrequent updates. The caption recommends updating every iterate with initial burn-in and tuned averaging decay."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 1,
+  "overlaps": 1,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The question's last line extends below the section divider, which crosses the text. This is one overflow and one overlap at the same location. All visible content stays within the page. The title and section headings establish a clear reading order, but the divider disrupts the transition from question to method. The figure's small panel labels and axis ticks require close reading. No displayed number contradicts the supplied checklist. The checklist does not independently verify the count of 278 interventions."
+}

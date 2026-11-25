@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: Can recent changes in the global ocean carbon sink be tracked with monthly, geographically resolved estimates that reduce the roughly one-year lag of annual Global Carbon Budget estimates?",
+      "page": 2,
+      "quote": "that lag behind actual conditions by 1 year1."
+    },
+    {
+      "id": "C02",
+      "requirement": "Identify the historical benchmarks used to generate CMO-NRT: monthly surface ocean fCO2 outputs from 10 Global Ocean Biogeochemical Models (GOBMs) and 8 observation-based data products contributing to Global Carbon Budget 2022, available through December 2021.",
+      "page": 4,
+      "quote": "utilize monthly data from 10 GOBMs and 8 data products that contributed to the\nGlobal Carbon Budget 20221,23, with data up to the end of 2021"
+    },
+    {
+      "id": "C03",
+      "requirement": "Describe the core method as a semi-supervised convolutional neural network that learns nonlinear relationships between environmental predictors and each benchmark's surface ocean fCO2. Explain that training combines supervised prediction error with a consistency loss between weakly and strongly feature-masked inputs.",
+      "page": 2,
+      "quote": "employing Convolutional Neural Networks and semi-supervised learning methods to\nlearn the non-linear relationship"
+    },
+    {
+      "id": "C04",
+      "requirement": "Specify that CMO-NRT provides monthly global surface ocean fCO2 and air–sea CO2 flux estimates for January 2022 through July 2023 on a 1° × 1° grid, with estimates for each of the 18 benchmarks.",
+      "page": 7,
+      "quote": "provides monthly global oceanic surface fCO2 and air-sea CO2 flux data. This dataset\nspans from January 2022 through July 2023 and is structured into a 1° x 1° grid."
+    },
+    {
+      "id": "C05",
+      "requirement": "Distinguish surface ocean fCO2 in µatm from air–sea CO2 flux density in gC/m²/day. Describe flux as a bulk calculation using the air–sea CO2 partial-pressure difference, gas transfer velocity, CO2 solubility, and the ice-free fraction. Positive flux denotes ocean-to-atmosphere transfer.",
+      "page": 7,
+      "quote": "gC/m²/day with a positive value indicating an upward direction."
+    },
+    {
+      "id": "C06",
+      "requirement": "Specify the validation baseline and split: train on 2000–2019, predict monthly fCO2 for the held-out years 2020–2021, and compare predictions with each model or product's original outputs for those same months.",
+      "page": 8,
+      "quote": "values from GOBMs or data products and observed predictors during 2000-2019. We\nthen produced monthly fCO2 predictions for 2020-2021."
+    },
+    {
+      "id": "C07",
+      "requirement": "Report the main validation finding that held-out fCO2 predictions agreed strongly with the original benchmark outputs, with most benchmark comparisons yielding R² above 0.9. Attribute this statistic to the fCO2 correlation analysis.",
+      "page": 9,
+      "quote": "with most having an R2 value above 0.9."
+    },
+    {
+      "id": "C08",
+      "requirement": "Report that global monthly mean fCO2 predictions reproduced the seasonality of both benchmark groups during 2020–2021 and were generally slightly higher than the original values, with most differences below 3 µatm.",
+      "page": 10,
+      "quote": "Generally, our estimated values were slightly higher than the\noriginal values, with most differences being less than 3 µatm."
+    },
+    {
+      "id": "C09",
+      "requirement": "State the spatial limitations: fCO2 extremes were harder to predict, with larger errors in the equatorial Pacific and Arctic. Note that frequent gaps in historical Arctic data reduced predictive accuracy for MPI-SOMFFN.",
+      "page": 11,
+      "quote": "Our model tends to perform less accurately in\npredicting extremes compared to values closer to the mean"
+    }
+  ]
+}

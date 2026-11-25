@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether peers can share embeddings and retain predictive power. It leaves out sensitive data, complementary features for the same observations, and a common downstream task."
+    },
+    {
+      "id": "C02",
+      "met": true,
+      "reason": "The question and method together describe sharing autoencoder representations, joining them by observation ID, and training a downstream predictive model on the joined features. The supervised step is implied by the predictive model and test metrics."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names Buzz in Social Media. It omits House Pricing, MNIST Numbers, and the explicit task mapping across the three benchmarks."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Scenario 0 appears in the table and finding. The poster does not identify it as the supervised baseline using one original raw dataset or mention randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method describes individual autoencoders in Scenario 2. It omits the full set of shared and per-peer variants, the target-aware multitask setup, and the requirement that both peers have access to the target."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster presents downstream metrics but omits reconstruction loss and the average per-feature rate of observations reconstructed with less than 5% MAPE."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The Buzz table labels train, validation, and test results and shows R² and MAPE. The poster omits XGBoost, the House Pricing evaluation, and MNIST's multinomial logistic regression and accuracy, precision, and recall metrics."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The finding shows retained predictive utility in one Buzz comparison. It does not summarize how losses vary across datasets, scenarios, and metrics. The poster does not cite the less-than-10-percentage-point summary."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method identifies two simulated peers. It omits the use of public datasets, the privacy assumption, and future work on quantitative privacy measurement, resistance to decoding, and validation on real organizational data."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 4,
+  "notes": "All four highlighted test values match the displayed table. The section headings are easy to scan. The smaller table labels and source note take more effort to read, and MAPE is unexplained. The question and method read naturally down the left column, but switching from Scenario 2 in the method to Scenario 3 in the finding requires readers to track two different scenario references. The supplied evidence does not establish whether the question's p. 2 label is wrong, since the checklist cites a supporting passage on p. 3."
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question clearly asks whether two samples of networks came from the same distribution. It omits the condition that graphs were sampled independently."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method refers to empirical subgraph densities, and the figure names graph moments. The poster does not define moments as injective homomorphism densities or explain distinct-node mappings, required motif edges, and allowed extra host edges."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method says that subgraph densities are converted into cumulant estimates. It omits the adjustment for smaller motifs and the disjoint-union identity used to construct the unbiased estimator."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The method states that both tests use subgraph counts and have the same computational complexity. It omits squared Mahalanobis distance, weighting by the inverse of the summed covariance estimates, the connected-motif restriction with r = 3, and the need for counts through order 2r."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The result gives the simulated network sizes. It omits the two stochastic block models, their equal-sized blocks and shared expected edge density, and how they differ in degree heterogeneity and assortativity."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits both FunCoup species comparisons, edge-density matching by removing the lowest-weight edges, and node subsampling to obtain induced subgraphs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The figure labels AUC and the result mentions statistical power. The poster omits how thresholds on squared Mahalanobis distance produce the ROC curve, what AUC summarizes, and how power is defined at a specified false-positive rate."
+    },
+    {
+      "id": "C08",
+      "met": true,
+      "reason": "The key finding reports higher statistical power for cumulants, especially with few graphs per sample, and explicitly says the cumulant test worked with a single graph per sample in the simulations."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The result mentions that the moment test was inapplicable with one graph per sample, and the plotted moment series begin at four. The poster omits the graphon assumption, chi-square null calibration, stronger finite-sample agreement for cumulants, and the singular covariance estimates that made the r = 3 moment test unusable below four graphs per sample."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "One of nine items is fully met. The title, question, method, key finding, figure, and caption form a clear reading sequence. Most labels are readable, though the small diagonal annotation about comparing single graphs takes more effort. A reader unfamiliar with ROC analysis also has to interpret AUC without a definition. The visible figure agrees with the poster text on node counts, relative performance, and single-graph applicability. Exact plotted values cannot be independently verified from the supplied checklist. Missing scientific conditions are reflected in the checklist decisions. This is an AI review."
+}

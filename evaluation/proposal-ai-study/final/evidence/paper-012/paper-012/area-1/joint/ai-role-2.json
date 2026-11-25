@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether sharing embeddings preserves predictive power, but omits sensitive data, complementary features for the same observations, and the common downstream task."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes creating representations with autoencoders, joining them by observation ID, and training a downstream model. It leaves the sharing step implicit and does not identify the training as supervised."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Only Buzz in Social Media is named. House Pricing, MNIST Numbers, and the benchmark-to-task mapping are missing."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Scenario 0 appears in the results without an explanation of the supervised raw-feature baseline, the original single dataset, or the randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method describes individual autoencoders for Scenario 2 only. It does not explain the four embedding configurations or state that both peers need access to the target in the target-aware setup."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster reports downstream metrics but omits reconstruction loss and the average per-feature rate of correctly reconstructed observations under the less-than-5% MAPE threshold."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The Buzz table labels training, validation, and test results and shows R2 and MAPE. The poster omits the downstream model names, the House Pricing evaluation, and the MNIST classification metrics."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The Buzz test comparison illustrates substantial retained predictive utility for one scenario, but the poster does not state how losses vary across datasets, scenarios, and metrics. It does not cite the less-than-10-percentage-point summary."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method identifies two simulated peers but omits the use of public datasets, the privacy assumption, and the future work on measuring privacy, testing resistance to decoding, and validating on real organizational data."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 4,
+  "notes": "The four highlighted test values match the displayed table, and the Buzz test MAPE row matches the supplied source excerpt. The question heading cites p. 2 while C01 points to p. 3. The supplied excerpt does not establish whether the question also appears on p. 2, so no page-number error was counted. The heading hierarchy makes the question, method, and finding easy to locate. The method describes Scenario 2 while the finding compares Scenarios 0 and 3, leaving the reader without definitions for the scenarios being compared. Table labels are readable, though the small footer and unexplained R2 and MAPE make the poster less approachable for a newer reader. This is an AI review of the supplied image, editable text, and checklist excerpts."
+}

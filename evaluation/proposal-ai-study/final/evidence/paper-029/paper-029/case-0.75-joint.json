@@ -1,0 +1,13 @@
+{
+  "paper": "paper-029.pdf",
+  "area": 0.75,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-0.75\\joint",
+  "status": "generation_failed",
+  "ratings": [],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-0.75\\joint\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Table 1\", \"problem\": \"The table corresponds to its caption and supports both reported gains, but the small headers and tightly spaced values are difficult to read at poster size.\", \"change\": \"Crop the white margins and enlarge the table. If the columns are still crowded, typeset the table with more space between columns so readers can verify the MVTec AD PRO and VisA pixel-AP values.\"}]",
+  "error": "No verified checklist; no numerical rating may be invented",
+  "elapsed_s": 203.2
+}

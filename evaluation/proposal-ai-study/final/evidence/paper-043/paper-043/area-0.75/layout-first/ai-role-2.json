@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question identifies two samples and asks whether they came from the same distribution. It omits independent sampling."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster names moments and mentions empirical subgraph densities. It does not define injective homomorphism densities or explain distinct-node mappings, edge preservation, and allowance for extra host edges."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method mentions estimating cumulants from densities but omits the adjustment for smaller motifs and the disjoint-union identity used in the unbiased estimator."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster reports equal computational complexity but omits squared Mahalanobis distance, covariance weighting, the connected-motif cutoff of r = 3, and the need for counts through order 2r."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The simulation node counts are present. The poster omits the two stochastic block models, their equal-sized blocks and shared expected edge density, and their contrasting degree and community structure."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the FunCoup species comparisons, edge-density matching by removing the lowest-weight edges, and node subsampling to obtain induced subgraphs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The chart labels its vertical axis AUC, but the poster does not define AUC, explain how distance thresholds produce an ROC curve, or define power at a specified false-positive rate."
+    },
+    {
+      "id": "C08",
+      "met": true,
+      "reason": "The key finding reports higher power for cumulants, the largest advantage with few graphs per sample, and successful testing with one graph per sample in simulations."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the graphon sampling assumption, chi-square null calibration, stronger finite-sample agreement for cumulants, and the singular moment covariance that made the r = 3 test unusable below four graphs per sample."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, key finding, and figure follow a clear reading order. The small angled chart annotations take extra effort to read, and the undefined acronym AUC makes the figure harder to interpret for a reader unfamiliar with ROC analysis. The visible figure is consistent with its caption. Exact plotted values and source pagination cannot be independently verified from the supplied material. Missing scientific conditions are counted only in checklist coverage."
+}

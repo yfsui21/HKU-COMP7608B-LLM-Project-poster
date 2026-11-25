@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "Frame the research question as a two-sample test of whether two sets of independently sampled graphs come from the same underlying distribution.",
+      "page": 1,
+      "quote": "How might one test the hypothesis that networks were sampled from the same distribution?"
+    },
+    {
+      "id": "C02",
+      "requirement": "Identify the baseline as the analogous test using graph moments, defined as injective homomorphism densities. Explain that these densities count distinct-node mappings that preserve the motif's edges and allow extra edges in the host graph.",
+      "page": 4,
+      "quote": "the fraction that are\n“counts” is known as the injective homomorphism density"
+    },
+    {
+      "id": "C03",
+      "requirement": "Explain that graph cumulants adjust a motif's density for contributions from smaller motifs. Describe how the unbiased estimator uses the graphon identity equating products of moments with the moment of the disjoint union.",
+      "page": 8,
+      "quote": "products of graph moments are equal to\nthe moment of their disjoint union"
+    },
+    {
+      "id": "C04",
+      "requirement": "Show that both tests use squared Mahalanobis distance between estimated feature vectors, weighted by the inverse of the sum of their estimated covariance matrices. Use connected motifs with at most r edges, with r = 3 for the main comparison. Note that covariance estimation requires counts through order 2r, giving both tests the same computational complexity.",
+      "page": 7,
+      "quote": "we use the squared Mahalanobis distance (Mahalanobis, 1936)\nA B\nbetween their inferred moments/cumulants"
+    },
+    {
+      "id": "C05",
+      "requirement": "Describe the controlled simulation as a comparison of two stochastic block models with two equal-sized blocks and a shared expected edge density. Identify one model as degree-heterogeneous without community structure and the other as assortative with homogeneous expected degree.",
+      "page": 10,
+      "quote": "with two equal-sized communities and expected edge density ρ."
+    },
+    {
+      "id": "C06",
+      "requirement": "Identify the real-data comparisons as FunCoup gene-interaction networks for Arabidopsis versus Mouse and Human versus Rat. Explain that the authors matched edge density by removing the lowest-weight edges from the denser network and generated observed graphs by node subsampling to obtain induced subgraphs.",
+      "page": 13,
+      "quote": "removing the lowest-weight edges from the network with\nlarger edge density until it had the same density as the other."
+    },
+    {
+      "id": "C07",
+      "requirement": "Describe how thresholds on squared Mahalanobis distance produce ROC curves of true-positive rate against false-positive rate. Identify AUC as the summary across thresholds and power as the true-positive rate at a specified false-positive rate.",
+      "page": 11,
+      "quote": "To compare ROC curves, we summarize them with a single scalar value, viz., the Area\n4\nUnder the Curve (AUC)."
+    },
+    {
+      "id": "C08",
+      "requirement": "Report that the cumulant test achieved higher statistical power than the moment test in the reported comparisons, with the largest gains at small sample sizes. Include that the cumulant test worked with a single graph per sample in the simulations.",
+      "page": 11,
+      "quote": "The use of graph cumulants consistently results in greater\nstatistical power, especially when the number of graphs per sample is small"
+    },
+    {
+      "id": "C09",
+      "requirement": "State that the analysis assumes graphon-generated samples and uses a chi-square approximation for null calibration. Describe its stronger finite-sample agreement for cumulants and explain that singular moment covariance estimates made the r = 3 moment test unusable below four graphs per sample in the reported comparison.",
+      "page": 12,
+      "quote": "The test using moments (with at most r = 3 edges) fails to give an answer for\ns < 4 (see Appendix B)."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question identifies a fixed discrete dataset, multiclass 0–1 loss, and a test-time attacker. It omits the soft-classifier restriction, the explicit worst-case objective, and the perturbation model."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies training examples as vertices and describes overlap across classes. It does not specify that all neighborhoods in a hyperedge must share a single common point and that the labels must be mutually distinct."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method mentions the linear program and the soft-classifier optimum but omits the probability-weighted worst-case correctness objective, nonnegativity, the per-hyperedge sum constraint, and the exact achievable loss as one minus the maximum."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The figure identifies MNIST digits 1, 4, and 7 and CIFAR-10 classes by indices 0, 2, and 8. The poster omits the CIFAR-10 class names, 1,000 samples per class, and use of the full training sets for the ten-class bounds."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The plots show 0–1 loss across perturbation budgets. The headline names TRADES, while the caption labels the plotted baseline AT and mentions APGD. The poster omits the ℓ₂ norm and the full APGD-CE from AutoAttack identification, and it does not explicitly connect TRADES to the AT curve."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster highlights the three-class CIFAR-10 gap, and the figure shows three-class gaps at small plotted budgets. The ten-class gap relative to the bounds is missing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The caption describes an edge-only lower bound for the three-class figure. The ten-class truncation levels, maximum-weight coupling of pairwise binary optima, and their observed comparison are missing."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The generalized Caro–Wei upper bound, its applicability to hard and soft classifiers, and its empirical agreement with the truncated lower bounds at small budgets are missing."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits how computational cost grows with budget, sample size, and class count. It also omits the interpretation of the gap as robust fit to training data and the open question of closing it while maintaining generalization."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The editable headline contains ϵ, but the export renders it as a square. The headline gives no numerical budget, so the reader cannot identify a specific plotted point from the text alone. The low-budget end of the CIFAR-10 plot is consistent with AT loss near 0.6 and optimal loss near zero. The supplied evidence does not establish a discrepancy between TRADES and AT. The figure axes, legends, and footer are small but readable on close inspection. The title, question, method, and finding are easy to locate. No visible clipping, overlap, or content beyond the canvas was observed. This is an AI review of the supplied export and editable text."
+}

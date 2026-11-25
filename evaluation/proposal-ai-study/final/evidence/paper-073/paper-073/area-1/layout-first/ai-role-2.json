@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks for the lowest multiclass 0–1 loss under a test-time attacker, but does not specify worst-case loss, a soft classifier, a fixed finite-support distribution, or a perturbation model."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies one vertex per training example and mentions cross-class overlaps. It does not state that every example in a hyperedge has a distinct label and that all their adversarial neighborhoods share a single point."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method mentions a linear program and an attainable bound, but omits the probability-weighted worst-case correctness objective, nonnegativity, the sum-at-most-one constraint on each hyperedge, and the exact soft-classifier loss as one minus the maximum."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The figure lists MNIST digits 1, 4, and 7 and CIFAR-10 class IDs 0, 2, and 8. The poster does not name the CIFAR-10 classes or report 1,000 samples per class and the use of full training sets for the ten-class bounds."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The plots show 0–1 loss across ε budgets. The headline names TRADES and the caption names APGD, but the poster does not specify the ℓ₂ norm or identify the evaluation as APGD-CE from AutoAttack."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The figure shows a large gap from the three-class optimum for both plotted datasets at the low end of the tested budgets, and the headline highlights CIFAR-10. The poster omits the gap relative to the ten-class bounds."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The caption describes an edge-only lower bound for the three-class figure. It does not describe ten-class truncation at degrees 2, 3, and 4 or the looser bound from maximum-weight coupling of pairwise binary optima."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the generalized Caro–Wei independent-set upper bound for hard and soft classifiers and its observed agreement with truncated lower bounds at small tested budgets."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the computational scaling limitation, the interpretation of the gap as a measure of robust fit to the training data, and the open problem of closing it while maintaining generalization."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The editable headline contains ϵ, but the export renders it as a white square. The plotted data are consistent with the headline’s approximate loss values. Axis labels and legends are readable at full size but small relative to the poster, and the two-column layout gives a clear path from question and method to finding and figure. Missing experimental conditions count against checklist coverage. Figure consistency was assessed from the supplied export and text."
+}

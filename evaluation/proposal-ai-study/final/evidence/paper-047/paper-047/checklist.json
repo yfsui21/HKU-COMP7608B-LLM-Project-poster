@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: what population misclassification guarantees can logistic regression provide for agnostic learning of homogeneous halfspaces from i.i.d. labeled samples?",
+      "page": 1,
+      "quote": "agnostic learning of homogeneous halfspaces"
+    },
+    {
+      "id": "C02",
+      "requirement": "Define OPT as the smallest population zero-one risk among homogeneous halfspaces. Measure performance by the probability that the predicted sign disagrees with the observed label.",
+      "page": 1,
+      "quote": "the best zero-one/misclassification risk\ne\nof a homogeneous halfspace"
+    },
+    {
+      "id": "C03",
+      "requirement": "Identify the lower-bound example as a constructed four-part distribution Q in two dimensions, with bounded feature density and support and a feature marginal that becomes isotropic after rescaling.",
+      "page": 4,
+      "quote": "we can further normalize Q to unit variance and make it isotropic"
+    },
+    {
+      "id": "C04",
+      "requirement": "State that even a global minimizer of population logistic risk can incur Ω(√OPT) zero-one risk on Q. Explain that this matches the square-root dependence of Frei et al. (2021b) and holds at the population level.",
+      "page": 4,
+      "quote": "our lower bound matches the upper\nbound in (Frei et al., 2021b)."
+    },
+    {
+      "id": "C05",
+      "requirement": "Specify the shared distributional conditions for the upper bounds. Every two-dimensional feature projection must have a density bounded below near the origin and bounded above by a radial envelope with finite zeroth and first moments. The tail cases are bounded features and sub-exponential features.",
+      "page": 5,
+      "quote": "onto an arbitrary two-dimensional subspace V"
+    },
+    {
+      "id": "C06",
+      "requirement": "State the improved logistic-only guarantee under radial Lipschitzness, which controls changes in each projected density with angle at fixed radius. With bounded features and a constant integrated Lipschitz coefficient, the population minimizer achieves O(OPT) zero-one risk. The sub-exponential bound includes a logarithmic factor in OPT and depends on the integrated coefficient.",
+      "page": 6,
+      "quote": "under Assumptions 3.2 and 3.3"
+    },
+    {
+      "id": "C07",
+      "requirement": "Describe both convex phases. Use projected gradient descent on empirical logistic loss to obtain a unit direction v, then warm-start projected stochastic gradient descent on hinge loss at v, constraining the inner product with v to be at least one.",
+      "page": 10,
+      "quote": "Run projected SGD over the domain defined in eq. (6) starting from w := v"
+    },
+    {
+      "id": "C08",
+      "requirement": "Report the two-phase bounds under Assumption 3.2 without radial Lipschitzness. The expected minimum population zero-one risk across the second-phase iterates is O(OPT + ε) for bounded features and O(OPT ln(1/OPT) + ε) for sub-exponential features.",
+      "page": 10,
+      "quote": "We show the following result on the expectation"
+    },
+    {
+      "id": "C09",
+      "requirement": "Identify the remaining gap for the sub-exponential case. Prior methods can achieve O(OPT + ε), and reaching that guarantee with a small constant number of convex optimization phases remains open in this paper.",
+      "page": 11,
+      "quote": "a small constant number\nof convex optimization phases that achieves O(OPT + ǫ) risk?"
+    }
+  ]
+}

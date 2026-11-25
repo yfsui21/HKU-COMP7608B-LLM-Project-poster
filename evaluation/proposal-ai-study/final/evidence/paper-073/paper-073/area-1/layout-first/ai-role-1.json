@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question gives the multiclass 0–1 loss objective and mentions a test-time attacker, but does not specify worst-case loss for a soft classifier, a fixed finite-support distribution, or a perturbation model."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method places one vertex per training example and mentions cross-class overlaps, but does not specify that every example in a hyperedge has a distinct label and that all their neighborhoods share one common point."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method mentions a linear program and attainability, but omits the probability-weighted objective, nonnegativity, the per-hyperedge sum constraint, and the formula for exact soft-classifier loss as one minus the optimum."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The figure gives MNIST digits 1, 4, and 7 and CIFAR-10 class IDs 0, 2, and 8. The poster omits the CIFAR-10 class names, the 1,000 samples per class, and the use of full training sets in the ten-class experiments."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The plots show 0–1 loss over perturbation budgets. The finding names TRADES and the caption mentions APGD, but the poster omits the ℓ₂ norm, the APGD-CE variant, and AutoAttack."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The figure shows gaps relative to the three-class optimum at small tested budgets, and the finding highlights CIFAR-10. The poster omits the corresponding gaps relative to the ten-class bounds."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the ten-class truncation levels, the maximum-weight coupling of pairwise binary optima, and the comparison between their lower bounds. The edge-only curve shown is for the three-class experiments."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the generalized Caro–Wei upper bound for hard and soft classifiers and its observed agreement with the truncated lower bounds at small budgets."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits how computational cost grows with budget, sample size, and class count, the interpretation of the gap as robust training-data fit, and the open question of closing it while maintaining generalization."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The perturbation symbol ϵ appears in the editable finding but renders as a square in the exported headline. The plot ticks and legends are small but readable at the supplied resolution. The title, question, method, finding, and caption follow a clear reading order. The CIFAR-10 curve is consistent with the approximate 0.6 claim where the optimum is near zero. The curve is labeled AT, so the image alone cannot independently confirm the training method or the APGD variant."
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers finite training patches, arbitrarily large fields of view, and image coherence. It omits realistic local detail and leaves global structure implicit."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "Both synthesizers are named. The description omits coordinate conditioning, global appearance, local latent variation, the local features passed between stages, and fine-grained noise."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The table shows O(1) inference memory for InfinityGAN. The poster does not explain how independent queries return consistent pixel values at the same location, making seamless patch assembly and constant-memory patchwise generation possible."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Flickr-Landscape is named, and the InfinityGAN row shows full and training sizes of 197 and 101. The poster omits the 450,000-image dataset size and does not explicitly say that the 101×101 training crops come from 197×197 images."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table lists all five comparator rows, and the caption gives the 128-to-197 resize sequence. The poster leaves NCI and PFG unexplained and omits the 197/128 test-output scaling and its field-of-view rationale."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table separates training FID from ScaleInv FID. The poster omits bilinear downsampling to training-data size, the lack of large-field-of-view real references, and the resulting assumption of landscape self-similarity."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The summary reports the 4× lead, and the table also shows the lowest ScaleInv FID at 8×. The caption mentions a disadvantageous setting without explaining how differences in training crop field of view and resolution limit absolute FID comparisons."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The summary reports over 90% preference, and the table supports that result for each reported comparison at 4× and 8×. The poster omits the two-alternative forced-choice format, the realism and structural plausibility criteria, 50 participants, 30 queries per participant, and 16 random samples per method in each query."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "Neither failure mode appears. Mixing landscape scales can introduce artifacts, and foliage near the top of training photos can lead to tree-like content in generated skies."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The 4× values in the summary match the visible table, and the reported preference percentages support the over-90% claim where comparisons are shown. The section headings are clear, but the small table labels and dense caption make the evidence harder to scan. The title, question, method, and finding give a clear path, although the prominent finding panel may draw readers in before the method. This AI review uses the supplied export, editable text, and checklist excerpts. Legibility at print size was not verified."
+}

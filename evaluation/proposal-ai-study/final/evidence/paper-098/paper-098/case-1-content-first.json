@@ -1,0 +1,13 @@
+{
+  "paper": "paper-098.pdf",
+  "area": 1,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-098\\paper-098\\area-1\\content-first",
+  "status": "generation_failed",
+  "ratings": [],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-098\\paper-098\\area-1\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Key finding and Figure 1 caption\", \"problem\": \"The exponent in the relative error tolerance is rendered on the baseline, so ε = 10−1 can be read as subtraction. The caption also displays the decision-variable count as 1013, which reads as 1,013.\", \"change\": \"Render the tolerance as ε = 10⁻¹ in both places and the decision-variable count as 10¹³ in the caption.\"}, {\"target\": \"Figure 1\", \"problem\": \"The legend, axis labels, instance names, and timeout markers are small at the supplied poster scale.\", \"change\": \"Use more of the available panel height for the chart and enlarge its labels, legend, and timeout markers.\"}]",
+  "error": "No verified checklist; no numerical rating may be invented",
+  "elapsed_s": 150.23
+}

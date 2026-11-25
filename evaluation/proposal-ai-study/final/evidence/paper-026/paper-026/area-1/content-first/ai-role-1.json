@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question addresses robustness to an observation-process shift, and the method gives the 24-hour window and in-hospital outcome. The poster does not ask whether explicit modelling also improves prediction or specify that the shift concerns how tests are ordered."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The shared LSTM, the Gaussian lab-value task, the temporal point-process task, the Bernoulli test-observation task, and the DeepSurv head are omitted."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method identifies MIMIC III and the 24-hour laboratory window. It omits the cohort size, adult and single-centre criteria, minimum survival, and the requirement that each of the 17 tests was measured at least once."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Table 6 names all six comparison methods. The poster omits the imputation procedure, the shared use of DeepSurv, and the modelling distinction between Feature and DeepJointFeature."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster gives the three evaluation horizons, identifies C-index in the finding, and mentions 95% confidence intervals in the caption. It omits the patient-level split, the last-observation prediction rule, the time-dependent metric specification, Brier scores, and the 100 test-set bootstrap iterations."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The caption describes the comparison on the weekday-admission test set. The reverse transfer, weekday boundary, and weekend oversampling are omitted."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The random-split C-index results, the narrowing of discrimination differences at longer horizons, and the similarity of Brier scores are omitted."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The finding gives the correct one-day changes for weekend training evaluated on weekday admissions. It omits absolute discrimination, interpretation across horizons and both transfer directions, and the fully fine-tuned variant's tendency to overfit."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method identifies the laboratory-test setting, but the poster does not explicitly bound the robustness conclusion to this cohort and within-hospital shift. External validation, competing risks, and patient independence are omitted."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The reported +0.007 and −0.047 match the visible one-day Table 6 entries, and the caption identifies the corresponding comparison. No clipping, overlap, or out-of-bounds content is visible. The table labels and small source note are readable, though less clear than the main text. The title leads into the question and method, then the finding and its supporting table. Checklist deductions reflect missing scientific content. Page references and table entries beyond the supplied evidence could not be independently verified."
+}

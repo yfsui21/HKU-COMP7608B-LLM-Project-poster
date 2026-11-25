@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question identifies near-real-time tracking and the one-year lag, but omits recent changes and the monthly, geographically resolved estimates proposed to track them. The method mentions monthly global grids."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster gives the correct benchmark counts and identifies Global Carbon Budget 2022, but does not specify that the historical inputs were monthly surface-ocean fCO2 outputs, that the eight products were observation-based, or that coverage extended through December 2021."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names convolutional neural networks and semi-supervised learning, but omits the nonlinear relationship to each benchmark's surface-ocean fCO2 and the combination of supervised prediction error with weak-versus-strong feature-mask consistency loss."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Both monthly global variables and the January 2022 through July 2023 period are stated. The 1° × 1° resolution and the availability of estimates for each of the 18 benchmarks are missing."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The result uses µatm for fCO2 differences, but the poster omits the flux-density unit, the four inputs to the bulk flux calculation, and the ocean-to-atmosphere sign convention."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster gives the 2020–2021 monthly comparison with original outputs, but omits training on 2000–2019, the held-out status of 2020–2021, and the same-month validation against each individual benchmark."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster reports close spatial agreement for grouped averages. It does not report that most benchmark comparisons had R² above 0.9 or attribute that statistic to the fCO2 correlation analysis."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster discusses spatial patterns in 2020–2021, but omits the reproduced seasonality of both global monthly mean series, the generally higher predictions, and the finding that most differences were below 3 µatm."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the difficulty predicting fCO2 extremes, the larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN accuracy."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "Poster headings and body text are clear. The figure's axis labels, tick values, and legend are small at the exported size. The title, question, method, finding, figure, and caption form a clear reading sequence. The caption limits Figure 11 to the 10-model average, while the adjacent finding also discusses the eight-product average. The supplied evidence does not independently verify the under-10 µatm statement. It refers to a spatial comparison, while the checklist's under-3 µatm threshold refers to global monthly means, so the differing thresholds do not establish a numerical error."
+}

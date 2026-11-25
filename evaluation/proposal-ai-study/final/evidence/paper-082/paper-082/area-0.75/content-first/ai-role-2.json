@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers autoregression, multiple tasks, and uneven data distribution. It leaves the limited training-data condition unstated and only implies a compact model."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster omits VQGAN tokenization, visual sentences, and causal next-token training with cross-entropy."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits example input–output pairs, autoregressive generation of output tokens, and VQGAN decoding."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The method mentions augmentation but omits the LLaMA-300M single-task experiments, their 12K-step setting, the SA-1B subset comparison, the crop and flip operations, and the validation improvements."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method names two augmented datasets but omits the model, training budget, full data mixture, three comparison settings, and held-out evaluation setup."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the augmentation-versus-repeated-sampling result and the task-specific trade-offs against the unbalanced mixture."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The text and table report an 80M student experiment. The required 300M student, teacher-to-student relationship, and improvements across all three metrics in the augmentation-balanced setting are not established."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the unshuffled training sequence and the finding that the most recently trained task had the lowest validation perplexity at each stage."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster presents token-level validation metrics but omits the distinction from task-level evaluation, the Pascal-5i mIoU setup and results, and the difficulty of extracting quantifiable predictions from decoded images."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The perplexity values and model labels in the key finding agree with the displayed table. The 80M experiment leaves the required 300M experiment uncovered. The supplied material does not establish whether the poster and checklist use the same pagination. Section headings are easy to scan, but the table headers and values are small at the supplied scale. Expanding KD and explaining validation perplexity would help a less experienced reader connect the table to the finding. The title and section headings guide the reader from question to method to finding, although the prominent result panel may draw attention before the method."
+}

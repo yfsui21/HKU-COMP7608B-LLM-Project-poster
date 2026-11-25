@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what destabilizes learning with feedback loops and how much algorithmic interventions can help without collecting more data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes TinyStories. It omits one-step expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, Walker2d-v4, and the 900/100 trajectory split."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster distinguishes language-model loss from completion switching but omits the Walker2d-v4 comparison of held-out one-step loss with cumulative reward on 1,000-step rollouts. It also omits the mean over 20 fixed initial conditions and the reward swings between consecutive updates despite smooth validation loss."
+    },
+    {
+      "id": "C04",
+      "met": true,
+      "reason": "The key finding explains the mechanism: feedback loops amplify small minibatch SGD updates into large changes in long-horizon rollouts."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits the fresh independent expert trajectories, the architecture and regularizer controls, and the reduction in oscillations from larger batches and aggressive learning-rate decay at a computational cost."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster compares raw and EMA checkpoints for language-model switching. It omits the reduction in control rollout oscillations with parameter EMA while keeping batch size and the learning-rate schedule fixed."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster identifies the 270M-parameter TinyStories Transformer and reports much lower switching with EMA. The editable text defines switching separately from next-token loss, but it omits that the prefixes were held out, and the figure covers most of the definition in the export."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia check, and the scope limit that greedy completion agreement measures stability and generation quality was not systematically assessed."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the milder oscillations on Ant and Humanoid, the potential failure of infrequent EMA updates, and the recommendation to average every iterate after an initial burn-in using a tuned schedule."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 1,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 3,
+  "notes": "The title and section headings are easy to scan. The figure covers most of the paragraph that explains how to read it, counted as one overlap. The plot labels are small, and the caption's garbled checkpoint notation and EMA symbols make it harder to recover the switching definition. The plot rows and training windows agree with the editable description. The supplied evidence supports the approximate switching levels but does not independently verify each reported decimal. Missing numerical conditions reduce checklist coverage and are excluded from the wrong-number count."
+}

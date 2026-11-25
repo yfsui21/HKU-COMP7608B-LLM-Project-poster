@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question as finding the minimum worst-case multiclass 0–1 loss achievable by a soft classifier for a fixed finite-support distribution and a specified test-time perturbation model.",
+      "page": 2,
+      "quote": "we characterize the optimal 0 − 1 loss for any discrete distribution (e.g. training set)\nin the presence of a test-time attacker."
+    },
+    {
+      "id": "C02",
+      "requirement": "Define the conflict hypergraph with labeled support examples as vertices and hyperedges for sets of examples with distinct labels whose adversarial neighborhoods share a common point.",
+      "page": 3,
+      "quote": "all vertices in S belong to different\nV,N\n(cid:84)\nclasses and the neighborhoods of all vertices in S overlap"
+    },
+    {
+      "id": "C03",
+      "requirement": "Explain that the linear program maximizes probability-weighted worst-case correct-classification probabilities subject to nonnegativity and a sum of at most one on each hyperedge. One minus the maximum is the exact, achievable soft-classifier robust loss.",
+      "page": 4,
+      "quote": "1 − L∗(P, N, H ) = max pT q s.t q ≥ 0, Bq ≤ 1."
+    },
+    {
+      "id": "C04",
+      "requirement": "Identify the empirical training samples used in the main experiments. The three-class runs use MNIST digits 1, 4, and 7 and CIFAR-10 plane, bird, and ship, with 1,000 samples per class. The ten-class bounds use the full training sets.",
+      "page": 8,
+      "quote": "for 3-class MNIST (classes ‘1’, ‘4’, ‘7’) and 3-class CIFAR-10 (‘plane’, ‘bird’ and ‘ship’ classes)\nwith 1000 samples per class"
+    },
+    {
+      "id": "C05",
+      "requirement": "Report robust 0–1 loss across test-time ℓ₂ perturbation budgets ϵ and identify the three-class baseline as TRADES adversarial training evaluated with APGD-CE from AutoAttack.",
+      "page": 8,
+      "quote": "We evaluate models using APGD-CE from AutoAttack (9)."
+    },
+    {
+      "id": "C06",
+      "requirement": "Report the main empirical finding that adversarially trained classifiers showed a large robust-loss gap relative to the exact three-class optimum and the ten-class bounds, including at small tested perturbation budgets.",
+      "page": 10,
+      "quote": "For both datasets, we see a large gap\nbetween the performance of adversarial training and our bounds"
+    },
+    {
+      "id": "C07",
+      "requirement": "Identify both ten-class lower-bound methods and their observed tradeoff. Truncated conflict hypergraphs retain hyperedges up to degree 2, 3, or 4, while maximum-weight coupling of pairwise binary optima gives a looser lower bound.",
+      "page": 9,
+      "quote": "obtained bound is much looser compared to that from truncated hypergraphs."
+    },
+    {
+      "id": "C08",
+      "requirement": "Identify the generalized Caro–Wei independent-set bound as an upper bound on optimal hard- and soft-classifier loss. Describe its close agreement with the truncated lower bounds at small tested budgets as an empirical finding.",
+      "page": 9,
+      "quote": "the lower bounds obtained through truncated hypergraphs (L∗(2), L∗(3), and\nL∗(4)) are close to the value of this upper bound"
+    },
+    {
+      "id": "C09",
+      "requirement": "State that computation becomes expensive as the perturbation budget, sample size, and number of classes grow. Frame the main empirical gap as a measure of robust fit to the training data and leave closing the gap while maintaining generalization as an open problem.",
+      "page": 10,
+      "quote": "One major limitation of our work is the computational expense at\nlarger budgets, sample sizes and class sizes."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what causes instability in feedback-loop systems and how much algorithmic interventions can reduce it without additional data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method covers TinyStories. It omits one-step expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, Walker2d-v4, and the 900/100 trajectory split."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The TinyStories loss and switch-fraction plots do not cover the Walker2d-v4 comparison between held-out one-step loss and cumulative reward on 1,000-step rollouts. The 20 fixed initial conditions and the contrast between reward swings and smooth validation loss are absent."
+    },
+    {
+      "id": "C04",
+      "met": true,
+      "reason": "The key finding describes the mechanism: feedback loops amplify small minibatch SGD updates into large changes in long-horizon rollouts even when one-step loss barely changes."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits the fresh independent trajectory control, the architecture and regularizer checks, and the effects and computational cost of larger batches and aggressive learning-rate decay."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster compares raw and EMA checkpoints for TinyStories but omits the reduction in control-task reward oscillations with batch size and learning-rate schedule held fixed."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster identifies the 270M-parameter TinyStories Transformer, defines greedy completion disagreement between consecutive checkpoints, and shows lower switching with EMA on a separate axis from LM loss. It does not identify the prompts as held out or explicitly connect the separate loss measure to validation perplexity."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia check, and the limitation that generation quality was not systematically evaluated."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the milder oscillations in Ant and Humanoid, the potential failure of infrequent EMA updates, and the recommendation to update every iterate with burn-in and a tuned averaging schedule."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 1,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The caption's final sentence describes fewer than 5% of EMA iterates as exceeding a disagreement threshold, while the figure plots the fraction of prompts that switch at each checkpoint pair. This metric mismatch is counted once. The caption also has corrupted checkpoint and EMA notation, including a displaced minus sign and a visible '(cid:101)' token. The supplied excerpts do not establish exact window means, and the plotted levels are consistent with the reported percentages at the available resolution. Axis ticks and the legend are small in the export. The title, left-column question and method, and right-column finding, figure, and caption form a clear reading sequence."
+}

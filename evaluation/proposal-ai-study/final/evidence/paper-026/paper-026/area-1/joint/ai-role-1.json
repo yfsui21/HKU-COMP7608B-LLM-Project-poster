@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks about robustness to observation-process shift. The method supplies the in-hospital endpoint and 24-hour timing separately, but the question omits whether explicit modelling improves predictive performance itself and does not identify changes in test ordering as the shift."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster omits the shared LSTM, the Gaussian lab-value model, the temporal point process, the Bernoulli test-observation model, and the DeepSurv head."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster identifies MIMIC III laboratory tests but omits the cohort size, adult and single-centre status, minimum 24-hour survival, and requirement that all 17 selected tests be measured at least once in that window."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The table names all six comparison methods. The poster omits the imputation procedure, shared use of DeepSurv, and the distinction between Feature's inputs and DeepJointFeature's joint modelling."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table gives the 1-, 7-, and 14-day horizons after the last observation and labels the intervals as 95% CIs. The poster omits the patient-level 90%/10% random split, the prediction-time selection rule within the first 24 hours, the two evaluation metrics, and the 100 test-set bootstrap iterations."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster shows weekend-trained versus weekday-trained models on the same weekday test set. It omits the reverse transfer, the weekday time boundaries, and weekend training oversampling."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the random-split C-index results, the narrowing of discrimination differences at longer horizons, and the similarity of Brier scores."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The headline quantifies the model comparison at one day on the weekday test set, and the table gives longer horizons for that direction. The poster omits the reverse direction, evidence of strong absolute discrimination, and the fully fine-tuned variant's overfitting finding."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster identifies the laboratory-test dataset but does not explicitly limit the robustness conclusion to that cohort and the within-hospital shift. It omits external validation, competing risks, and the assumption of patient independence."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The highlighted values match the named rows and 1-day column in the visible Table 6. The poster does not name the metric behind those differences, which limits interpretation but is not an observed numerical error or figure mismatch. The table is readable at the supplied resolution, though its dense entries and the small caption and footer take extra effort. The title, left-column question and method, and right-column finding and table form a clear reading order. This AI review is limited to the supplied checklist, editable text, and export. The underlying paper was not independently checked."
+}

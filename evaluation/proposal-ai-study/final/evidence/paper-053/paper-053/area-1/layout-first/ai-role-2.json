@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers real-world pedestrian–robot interactions but leaves out how the dataset supports pedestrian perception and motion prediction for social navigation."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method gives the indoor and outdoor settings, sensor counts, and 360-degree camera coverage. It omits manual operation, crowded locations in Seoul, and pulse-per-second synchronization."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method gives 20-second sequences sampled at 10 Hz. It omits the totals of 60 scenes, 60K images, and 12K point-cloud frames, as well as 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster does not describe robot ego-motion compensation or the use of different scenes in the training, validation, and test subsets."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The finding names all three comparison datasets and states that SiT has more instances meeting both criteria. The caption explains shared semantic space and proximity within 2 meters."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the 3D detection and tracking baselines, the center-distance thresholds used for detection mAP, and the tracking metrics."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the history and prediction windows, the candidate counts for minimum ADE and FDE, the forecasting baselines, and the reported reductions in displacement error from semantic maps."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the seven-second benchmark for predicting future 3D boxes and trajectories from raw sensor data, the compared models and variants, and the four evaluation measures."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, and key finding are easy to follow. The chart ticks, legends, and source note are small at the supplied image size. The caption defines the interaction criteria, although “semantic space” remains abstract without an example. The density plot abbreviates Waymo Open as “Waymo,” while the bar chart and finding give the full name. No contradictory values, figure mismatches, or layout collisions are visible. This AI review is based on the supplied export, editable text, and checklist."
+}

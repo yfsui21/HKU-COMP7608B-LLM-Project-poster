@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what causes instability in systems with feedback loops and how much algorithmic interventions can reduce it without additional data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster omits offline expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, Walker2d-v4, and the 900 training and 100 validation trajectory split."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster compares next-token loss with completion switching. It omits the Walker2d-v4 comparison of held-out one-step loss and cumulative reward on 1,000-step rollouts, including the mean over 20 fixed initial conditions and the swings in reward despite smooth validation loss."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The key finding describes small minibatch SGD updates producing large changes in long-horizon rollouts, but it does not identify gradient variance amplification or explain that minibatch gradient noise perturbs model parameters and that unstable closed-loop dynamics amplify those perturbations."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits the fresh-trajectory control, the architecture and regularizer comparisons, and the computational trade-off of larger batches and aggressive learning-rate decay."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster compares optimizer and EMA iterates and shows much less switching with EMA. It does not explicitly say that EMA averages model parameters or that the rollout oscillation reduction required no changes to batch size or the learning-rate schedule."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster identifies the 270M-parameter TinyStories Transformer, defines greedy completion switching between consecutive checkpoints, and reports lower switching with EMA separately from next-token loss. It does not specify that the prompts were held out or identify the distinction from validation perplexity."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia experiment, and the limitation that generation quality was not systematically assessed."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the milder oscillations on Ant and Humanoid, the possible failure of infrequent EMA updates, and the recommendation to update every iterate with an initial burn-in and a tuned averaging schedule."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The title and section headings are clear, and the layout supports a reading path from the question and method to the finding and figure. The plot ticks, axis labels, and legend are small at the supplied image size. The caption has visibly corrupted checkpoint and EMA notation, including a displaced minus sign and a literal '(cid:101)' token. Its final sentence also blurs the distinction between the fraction of prompts that switch and the fraction of iterates exceeding a threshold. The method gives a clearer definition. The plotted trends are consistent with the reported switch fractions, but the exact means cannot be verified from the image and checklist quotations alone."
+}

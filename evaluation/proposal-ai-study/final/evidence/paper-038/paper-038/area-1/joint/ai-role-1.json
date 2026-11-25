@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining useful color cues, but omits generalization to underrepresented colors."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method explains input-layer weight sharing across discrete hue rotations and preservation of color in equivariant feature maps. It does not explain that a feature-map dimension shifts with input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Neither ColorMNIST task nor its experimental conditions appears."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The ColorMNIST comparison models, approximate parameter matching, lack of augmentation, and averaging over ten random initializations are absent."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table shows shorthand labels for all eight benchmarks. The poster omits ResNet-44 for CIFAR and ResNet-18 for the other benchmarks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table shows rows with and without jitter, plus CIConv-W and AugMix comparisons. The poster does not specify approximate parameter matching, three hue rotations, or which CE-ResNet variant is full versus early-stage hybrid."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The table separates original and hue-shifted test results, but the poster omits that shifted accuracy is averaged across shifts from −180° to +180°. No hue-response curve is shown."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption reports comparable original-test accuracy and improved robustness, and the callout gives one Flowers comparison. The poster omits that gains were especially pronounced without training jitter, does not describe jitter as complementary, and does not qualify the broader claim by dataset and model variant."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits added compute cost, the potential capacity loss from narrowing networks to match parameter counts, and approximate equivariance due to clipping or reprojection after RGB rotation."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The Flowers callout matches the visible CEConv and Baseline entries in the hue-shifted table. The deductions reflect missing scientific conditions and explanations. Table labels and the footer source note are small but readable in the supplied image. The title, question, method, finding, table, and caption have a clear reading order. Page references could not be independently verified from the supplied excerpts. This is an AI review."
+}

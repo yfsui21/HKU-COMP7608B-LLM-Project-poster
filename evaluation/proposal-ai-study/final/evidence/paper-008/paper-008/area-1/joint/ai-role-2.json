@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what causes instability in feedback-loop systems and whether algorithmic interventions can reduce it without collecting more data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method covers TinyStories only. It omits one-step expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, Walker2d-v4, and the 900/100 trajectory split."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster contrasts next-token loss with completion switching. It omits held-out one-step control loss, cumulative reward on 1,000-step closed-loop rollouts, the mean over 20 fixed Walker2d-v4 initial conditions, and the contrast between reward swings and smooth validation loss."
+    },
+    {
+      "id": "C04",
+      "met": true,
+      "reason": "The key finding conveys the core GVA mechanism by linking small minibatch SGD updates to large changes in long-horizon rollouts through feedback. It leaves the term GVA and the role of unstable closed-loop dynamics implicit."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits the fresh independent trajectory control, the architecture and regularizer comparisons, and the computational tradeoff of larger batches and aggressive learning-rate decay."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster compares raw and EMA checkpoints and shows substantially lower switching with EMA. It leaves parameter averaging implicit and omits the control result and its unchanged batch size and learning-rate schedule."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster identifies the 270M-parameter TinyStories Transformer, defines consecutive-checkpoint greedy completion disagreement, and reports lower switching with EMA. The plot displays loss and switching separately, but the poster omits that the prefixes were held out and does not explicitly distinguish switching from validation perplexity."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "Greedy completion agreement is presented as a stability measure. The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia check, and the limit on systematic generation-quality evaluation."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the milder oscillations on Ant and Humanoid, the potential failure with infrequent EMA updates, and the recommendation for every-iterate updates with burn-in and a tuned averaging schedule."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The title, question, method, key finding, and figure establish a clear reading path. The plot matches the stated three evaluation windows and the approximate switch fractions. The supplied evidence does not independently establish the exact means. Axis ticks and legend text are small at the supplied image size. The caption contains garbled checkpoint notation, a stray minus sign, and a malformed glyph near the end. The main result gives the consecutive-step definition clearly. This is an AI review of the supplied image and editable text."
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question gives the multiclass 0–1 objective, fixed discrete dataset, and test-time attacker. It omits the worst-case formulation and the specified perturbation model. Soft classifiers appear in the method but are omitted from the question."
+    },
+    {
+      "id": "C02",
+      "met": true,
+      "reason": "The method identifies training examples as vertices and defines hyperedges through overlapping adversarial neighborhoods of examples from distinct classes. The overlap wording conveys the common-point condition, though it could state it more explicitly."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names the linear program and its purpose but omits the probability-weighted worst-case objective, nonnegativity, the per-hyperedge sum constraint, and the exact achievable loss formula."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The plots identify MNIST digits 1, 4, and 7 and CIFAR-10 class IDs 0, 2, and 8. The poster omits the CIFAR-10 class names, 1,000 samples per class, and the use of full training sets for the ten-class bounds."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The plots show 0–1 loss across perturbation budgets, the finding names TRADES, and the caption mentions APGD. The poster omits the ℓ₂ norm and the APGD-CE and AutoAttack identifiers."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster reports a large three-class CIFAR-10 gap, and the plots show gaps for both three-class datasets at small plotted budgets. The ten-class comparison is absent, and the finding gives no numeric budget."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the ten-class comparison between degree-2, degree-3, and degree-4 truncations and the looser maximum-weight coupling bound."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the generalized Caro–Wei upper bound for hard and soft classifiers and its observed agreement with truncated lower bounds at small budgets."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits computational scaling with budget, sample size, and class count, as well as the training-fit interpretation and the open problem of closing the gap while maintaining generalization."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The editable finding contains ϵ, but the export renders it as a white square. The plot ticks and legends are small, though the title, section headings, and two-column reading order are clear. The CIFAR-10 panel is consistent with the approximate 0.6 versus near-zero comparison at the low end of the plotted budgets. The finding leaves the numeric budget unspecified. No visible clipping, overlap, or out-of-bounds elements were observed. This is an AI review based on the supplied image, editable text, and checklist."
+}

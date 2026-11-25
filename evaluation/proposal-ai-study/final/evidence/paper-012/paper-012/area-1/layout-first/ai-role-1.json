@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question captures embedding sharing and retention of predictive power. It omits sensitive data, complementary features for the same observations, and the common downstream task."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes creating representations with autoencoders, joining them by observation ID, and training a downstream model. It does not explicitly describe sharing the representations as a pipeline step or identify the downstream training as supervised."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names Buzz in Social Media but does not explicitly identify its regression task. House Pricing, MNIST Numbers, and their tasks are absent."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Scenario 0 appears in the comparison and table. The poster does not identify it as the supervised baseline trained on the original single dataset or mention randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method describes per-peer autoencoders in Scenario 2. It omits the shared autoencoder setup, the distinction between standard and target-aware multitask variants, and the assumption that both peers have access to the target."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster reports downstream metrics but does not present or distinguish reconstruction quality, reconstruction loss, or the average per-feature rate of observations reconstructed with less than 5% MAPE."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The Buzz table distinguishes train, validation, and test results and labels R2 and MAPE. The poster does not name either downstream model or identify the evaluation metrics for House Pricing and MNIST."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The Buzz comparison shows substantial retained predictive utility for Scenario 3, and the table shows variation across Buzz scenarios and metrics. The poster does not report how losses vary across datasets. It makes no less-than-10-percentage-point claim."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method mentions two simulated peers. It does not identify public datasets as the basis of the evaluation, state that privacy preservation was assumed, or cover the three future-work items."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "All four headline values match the Buzz table's test rows for Scenarios 0 and 3. The table and caption align with the headline, while the method describes Scenario 2 and leaves the setup behind the headline comparison unexplained. The question heading cites p. 2 while the checklist locates its supporting quote on p. 3. The supplied evidence does not establish whether p. 2 also supports the question, so that difference was not counted as an error. The table labels, caption, and source note are readable at the supplied resolution but smaller than the main text. The title, question, method, and finding have a clear reading order. This is an AI review of the supplied image and editable text."
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question identifies near-real-time monitoring and the one-year lag. The method supplies the monthly cadence and geographic resolution by describing monthly global grids."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method names Global Carbon Budget 2022 and gives the correct counts. It omits that the historical benchmarks were monthly surface-ocean fCO₂ outputs available through December 2021 and that the eight products were observation-based."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method names convolutional neural networks and semi-supervised learning. It omits the nonlinear relationship learned for each benchmark and both training loss components, including the comparison between weakly and strongly feature-masked inputs."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The method gives both variables, monthly global coverage, and the correct dates. It omits the 1° × 1° grid spacing and the separate estimates for each of the 18 benchmarks."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The result uses µatm for fCO₂ differences. The poster omits the flux density units, the positive-flux convention, and the four inputs to the bulk flux calculation."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The result gives the 2020–2021 comparison period. It omits the 2000–2019 training period, the held-out status of 2020–2021, and the comparison with each benchmark's original outputs for the same months."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The result describes agreement in spatial patterns. It omits the fCO₂ correlation analysis and its finding that most benchmark comparisons had R² above 0.9."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports spatial agreement for 2020–2021. It omits the global monthly mean findings on reproduced seasonality in both groups, the slight positive bias, and most differences being below 3 µatm."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits reduced accuracy for extremes, larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The title, headings, and main text are readable. The figure’s axis labels, color scale, and legend are difficult to read at the supplied size. The question and method read naturally down the left column, though the larger result panel can draw attention before the method. Expanding GOBMs where it first appears and explicitly linking fCO₂ to CO₂ fugacity would help a reader new to the topic. The 10 µatm statement concerns spatial differences, while the checklist’s 3 µatm threshold concerns global monthly means. The supplied checklist does not independently verify the spatial threshold. The caption identifies the figure as the 10-model average, so the figure itself illustrates that group."
+}

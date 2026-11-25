@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether highlighting helps programmers spot code that needs review. It omits effects on editing and the explicit comparison between likely-edit and low-probability highlighting."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes which tokens the edit model highlights but omits the preliminary data from nine coders and their instructions to correct Codex outputs until the tasks were completed properly."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster gives the sample size and three easy LeetCode tasks. It omits the participants' employment and Python experience and the randomization of task order and tool-to-task assignments."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster identifies the shared Davinci-002 Codex model, all three conditions, and both thresholds. It omits that the thresholds matched total highlight counts across the three tasks."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "All three means and both p-values are correctly associated, and the caption gives the 10-minute cap. The result does not explicitly distinguish the significant comparison with Generation probability from the trend versus Prediction only."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Panel (b) shows the expected survival pattern, but the exact rates are not printed. The poster does not define survival as a token remaining untouched or explain how the pattern indicates more localized editing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Panel (c) shows higher preference for Edit model highlights on a scale that reaches 7. The poster omits the exact means, p-value, survey items, and reverse coding of distraction."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits that the edit model was trained on the evaluated completions and that comparable effects on unseen tasks remain unverified."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits that the effects on oversight accuracy and automation bias remain untested."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The title and section headings establish a clear path from question and method to finding and figure. Plot ticks, category labels, and the legend are small at the supplied image size. The three caption descriptions match their panels. Bar heights support approximate comparisons only, so unprinted values are treated as coverage omissions."
+}

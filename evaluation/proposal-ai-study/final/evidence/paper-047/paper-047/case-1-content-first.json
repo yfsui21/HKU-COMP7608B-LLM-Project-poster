@@ -1,0 +1,10 @@
+{
+  "paper": "paper-047.pdf",
+  "area": 1,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-047\\paper-047\\area-1\\content-first",
+  "status": "generation_failed",
+  "ratings": [],
+  "error": "[Errno 2] No such file or directory: 'runs\\\\proposal-live-study\\\\per-paper\\\\paper-047\\\\paper-047\\\\area-1\\\\joint\\\\initial.json'",
+  "elapsed_s": 0.0
+}

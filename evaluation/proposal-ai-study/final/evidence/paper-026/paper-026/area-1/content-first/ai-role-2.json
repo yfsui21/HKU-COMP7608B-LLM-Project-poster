@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks about robustness to an observation-process shift, and the method gives the first-24-hour ICU context. The poster does not ask whether explicit modelling also improves in-hospital survival prediction or explain the shift as a change in how tests are ordered."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The shared LSTM, the three clinical presence tasks, and the DeepSurv proportional hazards head are absent."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method identifies MIMIC III and the first 24 hours of laboratory data. It omits the single-centre setting, the count of 30,834 adults, the 24-hour survival criterion, and the requirement that each of the 17 tests was measured at least once."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "All six comparison methods appear in Table 6. The poster omits the imputation procedure, the shared use of DeepSurv, and the distinction between Feature's inputs and DeepJointFeature's joint modelling."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "Table 6 shows the 1-, 7-, and 14-day horizons, and the poster mentions C-index and 95% confidence intervals. It omits the patient-level 90%/10% split, the prediction at the last observation within the first 24 hours, the time-dependent specification of the C-index, the Brier score, and the 100 test-set bootstrap iterations."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The finding and caption describe weekend-to-weekday transfer using the same weekday test set for both models. The reverse direction, the weekday definition, and weekend training oversampling are missing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster reports transfer differences. It gives neither the random-split C-index values and ranking nor the findings on narrower discrimination differences at longer horizons and similar Brier scores."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The highlighted result shows a smaller absolute C-index change for DeepJointFeature than for Feature at one day on weekday admissions. The table adds longer horizons for that direction. The poster omits DeepJointFeature's strong absolute discrimination, the fully fine-tuned variant's overfitting tendency, and how robustness varies in the reverse transfer direction."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster mentions laboratory tests but does not explicitly limit the robustness conclusion to this cohort and the within-hospital shift. External validation, competing risks, and the patient-independence assumption are absent."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 4,
+  "notes": "The two highlighted C-index changes match the displayed Table 6. The supplied evidence supports that internal check but does not independently confirm the full table against the original paper. The title and section headings are clear. The large Key Finding panel draws attention before the Method, and the dense table, small caption, and unexplained C-index make the result harder for a less experienced reader to interpret. Checklist deductions reflect missing scientific context."
+}

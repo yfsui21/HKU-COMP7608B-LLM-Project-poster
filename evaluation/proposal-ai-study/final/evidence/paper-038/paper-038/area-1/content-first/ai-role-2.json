@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining color cues for recognition, but omits generalization to underrepresented colors."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method states input-layer weight sharing and mentions discrete hue rotations, but does not explain that the feature maps have a hue dimension that shifts with the input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Neither ColorMNIST task is described. The long-tailed train–test balance and the role of hue dispersion in the biased task are missing."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The ColorMNIST comparison models, approximate parameter matching, absence of augmentation in the primary comparison, and averaging over ten random initializations are missing."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table shows eight benchmark columns, several with abbreviated labels. The poster omits the ResNet-44 and ResNet-18 assignments."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table shows vanilla and CE variants, runs with and without jitter, and CIConv-W and AugMix comparisons. The poster does not explain which CE variant is full or early-stage hybrid, state approximate parameter matching, or specify three hue rotations."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The table distinguishes original from hue-shifted results, and the Flowers callout identifies its value as an average. The poster omits the −180° to +180° range. No hue-response curve is present, so axis labeling does not apply."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption gives the overall accuracy and robustness trends. It omits that the robustness gains were especially pronounced without training jitter, does not explain jitter as complementary, and does not qualify the gains by dataset and model variant."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the higher compute cost, the potential capacity loss from narrowing networks to match parameters, and the effect of clipping or reprojection on hue equivariance."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The Flowers callout matches the displayed table for CEConv (33.33%) and Baseline (13.41%). The question is labeled p. 1 while the checklist cites p. 2. The supplied evidence does not establish whether p. 1 also supports the question, so this is not counted as a wrong number. The main headings and reading order are clear. The dense table, abbreviated benchmark labels, and small source note require closer reading. This is an AI review of the supplied image and editable text."
+}

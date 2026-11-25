@@ -1,0 +1,17 @@
+{
+  "turns": [
+    {
+      "paper": "paper-008.pdf",
+      "condition": "joint",
+      "completed": false,
+      "reason": "Joint starting draft unavailable"
+    },
+    {
+      "paper": "paper-008.pdf",
+      "condition": "layout-first",
+      "completed": false,
+      "reason": "Joint starting draft unavailable"
+    }
+  ],
+  "judging": "System decisions only; separate AI and human dialogue review remains required"
+}

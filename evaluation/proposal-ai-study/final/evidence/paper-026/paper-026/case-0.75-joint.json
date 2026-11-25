@@ -1,0 +1,133 @@
+{
+  "paper": "paper-026.pdf",
+  "area": 0.75,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-026\\paper-026\\area-0.75\\joint",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers observation-process shifts and robustness, but omits the in-hospital endpoint, the first 24 hours after ICU admission, and whether explicitly modelling the observation process improves prediction."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method names the three clinical presence processes and the survival outcome at a high level. It omits the shared LSTM representation, the Gaussian, temporal point-process and Bernoulli formulations, and the DeepSurv proportional hazards head."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster identifies MIMIC III laboratory tests but omits the single-centre adult cohort of 30,834 patients, the 24-hour survival criterion, and the requirement that each of the 17 selected tests was measured within that window."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The finding mentions Last, Feature and DeepJointFeature. The poster omits Count, Ignore, Resample and GRU-D, the two-stage imputation procedure, shared use of DeepSurv, and the distinction between Feature inputs and DeepJointFeature's joint modelling."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The figure legend shows horizons of 1, 7 and 14 and the caption states 95% confidence intervals. The poster omits the patient-level 90%/10% split, the prediction time, the time-dependent C-index and Brier score, the horizon units and reference point, and the 100 test-set bootstrap iterations."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The finding and caption together describe weekend-to-weekday transfer and the weekday-trained comparator evaluated on the weekday test set. The reverse direction, the weekday boundary, and weekend oversampling are omitted."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster omits the random-split 1-day C-index values and ranking, the narrowing discrimination differences at longer horizons, and the similarity of Brier scores."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The finding reports better retention of discrimination for DeepJointFeature than for Feature and specifies weekend-to-weekday transfer. It does not qualify the finding by horizon, cover the reverse direction, or report the fully fine-tuned variant's tendency to overfit."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster names MIMIC III laboratory tests but does not explicitly limit the robustness conclusion to the laboratory-test cohort and within-hospital shift. It omits the need for external validation, the omission of competing risks, and the assumption of independence between patients."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The omissions reduce checklist coverage. The visible figure axes agree with the caption, with weekend-to-weekday transfer on the y-axis and weekday-to-weekday evaluation on the x-axis. The supplied evidence does not establish that the method's page 1 label is wrong, although the checklist points to page 4 for the detailed architecture. Axis labels, tick values and legend entries are small at the exported size. The title and section headings make the reading order clear. AI review based on the supplied image and editable text."
+    },
+    {
+      "role": 2,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks about ICU survival prediction and robustness to observation shifts. It leaves out in-hospital survival, the first 24-hour observation window, and whether explicitly modelling test ordering improves prediction."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method names a multitask recurrent network and broadly describes the three observation processes. It omits the shared LSTM representation, the Gaussian, temporal point-process and Bernoulli formulations, and the DeepSurv proportional hazards head."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster identifies MIMIC III laboratory tests. It omits the single-centre setting, the 30,834 adults, the 24-hour survival criterion, and the requirement that each of the 17 tests was measured at least once during that window."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "Last and Feature are named, while Count, Ignore, Resample and GRU-D are omitted. The poster also omits the imputation procedure, the shared use of DeepSurv, and the modelling distinction between Feature and DeepJointFeature."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The figure shows horizons of 1, 7 and 14 and the caption states 95% confidence intervals. The poster omits the patient-level 90%/10% split, the prediction time, the two evaluation metrics, the timing of the horizons relative to the observation window, and the 100 test-set bootstrap iterations."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster describes weekend-to-weekday transfer and the weekday-trained comparison on the weekday test set. It omits weekday-to-weekend transfer and its corresponding comparison, the weekday time boundaries, and weekend training oversampling."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The random-split results are omitted, including DeepJointFineTune's lead, the four requested 1-day C-index values, the narrowing discrimination differences at longer horizons, and the similar Brier scores."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The finding describes better retention of discrimination for DeepJointFeature than for Feature in the weekend-to-weekday direction. It gives no horizon-specific interpretation, reverse-direction result, or warning about overfitting in the fully fine-tuned variant."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The method mentions MIMIC III laboratory tests, but the robustness conclusion does not explicitly limit its scope to that cohort and the within-hospital shift. External validation, competing risks, and the patient-independence assumption are omitted."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The editable text matches the visible poster. The displayed figure's transfer direction and axes agree with the result and caption. Small axis labels, tick values, and legend entries are hard to read at the supplied size, so exact plotted estimates could not be checked. The title and section headings give a clear reading path, though the prominent finding draws attention before the method. Terms such as clinical presence and oracle lack explanation for an MSc reader. Missing numerical details are counted as checklist omissions."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-026\\paper-026\\area-0.75\\joint\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Figure 5\", \"problem\": \"The axis labels, tick values, and legend are difficult to read at poster size. The plot occupies a small portion of the evidence panel.\", \"change\": \"Trim the figure’s outer white margins and use more of the evidence panel to enlarge the plots and legend. Preserve the axis scales, confidence intervals, and caption.\"}]",
+  "elapsed_s": 265.67
+}

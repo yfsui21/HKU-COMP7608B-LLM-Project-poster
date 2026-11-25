@@ -1,0 +1,13 @@
+{
+  "paper": "paper-029.pdf",
+  "area": 0.75,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-0.75\\layout-first",
+  "status": "generation_failed",
+  "ratings": [],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-0.75\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Table 1\", \"problem\": \"The table’s small type and tightly spaced metric headers make it hard to match values to columns at poster size. The zero-shot rows support both comparisons in the key finding.\", \"change\": \"Enlarge the table within the finding panel and increase spacing between metric headers so readers can trace the MVTec AD PRO-segm and VisA AP-segm values.\"}, {\"target\": \"Source note\", \"problem\": \"The page 7 attribution sits in the lower-left footer, far from the table, and calls it a figure.\", \"change\": \"Place the page 7 attribution directly below the Table 1 caption and identify the source as a table.\"}]",
+  "error": "No verified checklist; no numerical rating may be invented",
+  "elapsed_s": 144.06
+}

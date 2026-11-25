@@ -1,0 +1,133 @@
+{
+  "paper": "paper-008.pdf",
+  "area": 1,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-1\\layout-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 2,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what destabilizes learning with feedback loops and how much algorithmic interventions can help with the available data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster describes TinyStories training but omits the offline MuJoCo behavior cloning setup, deterministic Soft Actor Critic demonstrations, Walker2d-v4, and the 900/100 trajectory split."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster omits the Walker2d-v4 comparison between held-out one-step loss and cumulative reward over 1,000-step rollouts, including the mean over 20 fixed initial conditions and the swings in reward despite smooth validation loss."
+        },
+        {
+          "id": "C04",
+          "met": true,
+          "reason": "The key finding conveys the mechanism of gradient variance amplification. Feedback amplifies small minibatch SGD updates into large changes in long-horizon rollouts."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The poster omits the fresh independent trajectory control, the architecture and regularization checks, and the computational tradeoff of larger batches and aggressive learning-rate decay."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The editable text expands EMA and compares averaged checkpoints with raw optimizer iterates in TinyStories. It omits the control result that parameter averaging reduced reward oscillations with the batch size and learning-rate schedule held fixed."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster identifies the 270M-parameter TinyStories Transformer and reports substantially lower switching with EMA. The editable text defines switching separately from next-token loss, but it does not identify the prompts as held out or discuss validation perplexity explicitly. The figure also obscures the definition in the export."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits the synthetic-proxy limitation, the preliminary English Wikipedia check, and the distinction between measuring completion stability and systematically assessing generation quality."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the milder oscillations in Ant and Humanoid, the potential failure of infrequent EMA updates, and the recommendation to average every iterate with burn-in and a tuned schedule."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 1,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "Figure 15 covers the continuation of its explanatory text, counted once as an overlap. No separate overflow or content outside the poster is visible. The three windows and plotted measures match the editable description. The reported switch fractions are visually consistent with the plotted series, although the image and checklist excerpts do not establish the exact means independently. The caption contains malformed checkpoint and EMA notation, including a visible extraction token, which is a text defect rather than a verified numerical error. The title and section headings are clear. Small plot labels need closer inspection, and the overlap interrupts an otherwise clear reading sequence. This is an AI review of the supplied export and editable text."
+    },
+    {
+      "role": 2,
+      "checklist_met": 2,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what destabilizes learning with feedback loops and how much algorithmic interventions can help without collecting more data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method describes TinyStories. It omits one-step expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, Walker2d-v4, and the 900/100 trajectory split."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster distinguishes language-model loss from completion switching but omits the Walker2d-v4 comparison of held-out one-step loss with cumulative reward on 1,000-step rollouts. It also omits the mean over 20 fixed initial conditions and the reward swings between consecutive updates despite smooth validation loss."
+        },
+        {
+          "id": "C04",
+          "met": true,
+          "reason": "The key finding explains the mechanism: feedback loops amplify small minibatch SGD updates into large changes in long-horizon rollouts."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The poster omits the fresh independent expert trajectories, the architecture and regularizer controls, and the reduction in oscillations from larger batches and aggressive learning-rate decay at a computational cost."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster compares raw and EMA checkpoints for language-model switching. It omits the reduction in control rollout oscillations with parameter EMA while keeping batch size and the learning-rate schedule fixed."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster identifies the 270M-parameter TinyStories Transformer and reports much lower switching with EMA. The editable text defines switching separately from next-token loss, but it omits that the prefixes were held out, and the figure covers most of the definition in the export."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia check, and the scope limit that greedy completion agreement measures stability and generation quality was not systematically assessed."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the milder oscillations on Ant and Humanoid, the potential failure of infrequent EMA updates, and the recommendation to average every iterate after an initial burn-in using a tuned schedule."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 1,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 3,
+      "notes": "The title and section headings are easy to scan. The figure covers most of the paragraph that explains how to read it, counted as one overlap. The plot labels are small, and the caption's garbled checkpoint notation and EMA symbols make it harder to recover the switching definition. The plot rows and training windows agree with the editable description. The supplied evidence supports the approximate switching levels but does not independently verify each reported decimal. Missing numerical conditions reduce checklist coverage and are excluded from the wrong-number count."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-1\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [\"result overflows fixed text box\", \"figure overlaps result\", {\"target\": \"result / figure mount\", \"problem\": \"The Figure 15 mount covers the explanation after “The top,” hiding the row descriptions and the definition of switch fraction. The six visible percentages and their assignments to optimizer and EMA iterates agree with page 40.\", \"change\": \"Move the figure mount down so the full explanation appears between the key finding and the plot. Use the available space below the figure to keep the caption visible.\"}, {\"target\": \"Figure 15 caption\", \"problem\": \"The caption contains a broken sentence, malformed checkpoint notation, and a visible extraction artifact. Its last sentence also confuses the share of completions that switch with the share of EMA iterates.\", \"change\": \"State that switch fraction measures the share of prompts whose greedy completions differ between consecutive checkpoints. If retaining the quantitative comparison, report the page 40 values as mean switch fractions for each window.\"}, {\"target\": \"result\", \"problem\": \"Unmet scientific requirement\", \"change\": [\"Restore source support\"]}]",
+  "elapsed_s": 217.25
+}

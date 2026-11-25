@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question captures training on finite patches, arbitrarily large fields of view, and both realism and global coherence."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method names both stages and their roles. It omits coordinate conditioning, global appearance, local latent variation, the local features passed between stages, and fine-grained noise."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The table indicates constant inference memory. The poster does not explain how consistent pixel values across independent spatial queries enable seamless patch assembly and constant memory during patchwise generation."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster names Flickr-Landscape, and the InfinityGAN row lists 101 under Train and 197 under Full. The poster omits the 450,000-image dataset size and leaves the crop relationship implicit."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table lists all five comparator rows using abbreviated variant names, and the caption gives the 128-to-197 resize sequence. The poster omits the explanation that test dimensions are scaled by 197/128 to align fields of view."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table separates training FID from ScaleInv FID. The poster omits bilinear downsampling to training-data size, the landscape self-similarity assumption, and the lack of real large-field-of-view references."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The headline correctly reports the lowest ScaleInv FID at 4× and 8×. The caption mentions a disadvantageous setting without explaining how differences in training crop field of view and resolution limit direct comparison of absolute FID values."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption gives the over-90% preference headline, and the table supports it for each reported comparison at both extensions. The poster omits the two-alternative forced-choice design, the realism and structural plausibility criteria, and the counts of 50 participants, 30 queries per participant, and 16 random samples per method per query."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits both reported failure modes: artifacts from mixing landscape scales and tree-like content appearing in generated skies."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "AI review based on the supplied export and editable text. The visible Table 1 supports the headline and its numeric comparison. Missing scientific conditions affect checklist coverage. Section headings are clear and the path from question and method to result and evidence is easy to follow. Small table headers and entries take effort to read at the supplied image size, and ScaleInv FID and NCI are unexplained."
+}

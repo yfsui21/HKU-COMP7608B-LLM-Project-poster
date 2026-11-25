@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether highlighting helps programmers identify code to review. It does not ask how highlighting affects editing or whether highlighting likely edits works better than highlighting low-probability tokens."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster identifies likely edits as the prediction target but omits the preliminary data from nine coders who corrected Codex outputs until the tasks were completed properly."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster reports 30 participants and three easy LeetCode tasks. It omits the participants’ employer and Python experience, as well as randomization of task order and tool-to-task assignments."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The method lists Davinci-002 Codex, all three conditions, and both thresholds. It does not explain that the thresholds equalized the total number of highlights across the three tasks for the two highlighting conditions."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "All three means and both p-values match the checklist, and the caption gives the 10-minute cap. The result does not distinguish the statistically significant advantage over Generation probability from the trend versus Prediction only."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Panel (b) shows bar heights consistent with the five survival rates, but exact rates are not labeled. The poster does not define survival as a token remaining untouched or explain how the pattern indicates more localized editing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Panel (c) shows higher preference for Edit model highlights on a scale from 1 to 7. The poster omits the exact means, p-value, the three rating topics, and the reverse coding for distraction."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits that the edit model was trained on the same completions evaluated in the study and that comparable effects on unseen tasks remain unverified."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits that the study did not test whether the observed benefits translate into more accurate human oversight or reduced automation bias."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "Each checklist item requires all of its stated elements. Missing details reduced coverage. The chart heights are consistent with the supplied values at the resolution shown, but exact values cannot be verified from bar heights alone. The figure’s axis labels, condition names, and legend are small. The title and section headings are easy to scan, though the prominent results panel can draw the eye before the method defines the conditions. This is an AI review."
+}

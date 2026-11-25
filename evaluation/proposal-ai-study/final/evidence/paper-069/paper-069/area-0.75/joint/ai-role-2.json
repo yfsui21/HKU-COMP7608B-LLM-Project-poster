@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks whether a network can predict correspondences and whether doing so improves absolute pose estimation. The method text supplies the partially overlapping image setting and the occluded and out-of-view cases."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method gives the inputs, per-keypoint target-plane probability distribution, and three visibility cases. It omits the shared CNN, learned target-descriptor padding, and cross-attention with positional encoding."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits Neural Reprojection Error, the negative log-likelihood at the geometrically reprojected location, and the training requirements for ground-truth source depth and relative camera pose without visibility-class labels."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "ScanNet appears in the pose result, but the poster omits the indoor and outdoor training datasets, the held-out correspondence evaluations, the qualitative transfer datasets, and the protocol of 2,500 pairs per dataset with 2% to 80% overlap."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits both held-out correspondence results: lower NRE than a uniform map and argmax pixel errors below the mean random-prediction error across the three tasks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The pose figure names LoFTR, DRCNet, and S2D, but the poster omits their inpainting and outpainting comparisons on ScanNet and MegaDepth, the pixel-distance score, and the baselines’ restriction to the target image boundaries."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The figure names identity and feature-matching baselines and shows cumulative precision as the pose-error threshold varies for pairs with 2% to 5% overlap. The checklist asks for cumulative overlap ranges at two fixed threshold pairs, along with the 2,500 held-out pairs and the use of source depth and NeurHal correspondence maps."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster shows a low-overlap pose advantage. It omits the overall robustness result, how the advantage changes with overlap, the ablation showing that outpainting drove the gain and inpainting added little, and the slight advantage for local matching at high overlap."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The limitations line mentions quadratic attention complexity and ends mid-reference. It omits the precision limit from low-resolution maps, the finite reach of padding, the less-peaked inpainting maps, and the caveat about noisy MegaDepth inpainting labels."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 1,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "Figure 13 matches its caption and the low-overlap finding. It counts as one figure mismatch against C07 because it varies error thresholds at fixed overlap, whereas C07 calls for varying the overlap range at fixed threshold pairs. The displayed 2% to 5% range belongs to Figure 13. Small axis labels and a dense legend make the chart harder to read at poster scale. The headings support a question-to-method-to-result reading order, though the prominent result panel draws the eye first. The limitations sentence ends at the same point in the editable text and the image, so there is no observed layout overflow. This review uses the supplied image and editable text."
+}

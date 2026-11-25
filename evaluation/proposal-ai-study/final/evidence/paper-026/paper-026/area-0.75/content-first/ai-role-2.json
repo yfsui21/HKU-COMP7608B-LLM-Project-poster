@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question addresses robustness to changes in the observation process but omits whether explicit modelling improves in-hospital survival prediction after the first 24 hours of ICU admission."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method names a multitask recurrent network and the three observation processes but omits the shared LSTM representation, the Gaussian lab-value model, the temporal point-process model for time to the next observation, the Bernoulli model for which tests are observed, and the DeepSurv proportional hazards head."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "MIMIC III laboratory tests are mentioned, but the poster omits the single-centre setting, the 30,834 adults, the 24-hour survival criterion, and the requirement that each of the 17 tests be measured at least once in that window."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Last and Feature are named, while Count, Ignore, Resample and GRU-D are omitted. The poster also omits the imputation procedure, shared use of DeepSurv, and the difference between Feature's inputs and DeepJointFeature's joint modelling."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The figure legend lists horizons of 1, 7 and 14 and the caption gives 95% confidence intervals. The poster omits the 90%/10% patient-level split, the use of the last observation within 24 hours, the named metrics, the timing of the horizons relative to the observation period, and the 100 bootstrap iterations."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster describes the weekend-to-weekday transfer and compares both training groups on the same weekday test set. It omits the reverse direction, the definition of weekdays, and weekend training oversampling."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the random-split 1-day C-index results, the narrowing of discrimination differences at longer horizons, and the similarity of Brier scores."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The finding specifies weekend-to-weekday transfer and reports that DeepJointFeature retained discrimination better than Feature. It does not explain how the result varies by horizon or direction, or mention the fully fine-tuned variant's tendency to overfit."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster mentions laboratory tests but does not explicitly limit the robustness conclusion to the laboratory-test cohort and within-hospital shift. It also omits external validation, competing risks, and the assumption of independence between patients."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The title and section headings make the path from question and method to finding and figure clear. The plot's axis labels, tick values and legend require zooming at the supplied image size. The caption and finding agree with the visible axis directions. The broader claims about Last are difficult to assess from this figure alone because only one transfer direction is shown and the plotted comparisons vary by horizon. The checklist deductions reflect missing conditions and context. No incorrect numbers or layout collisions are apparent. This is an AI review of the supplied export and editable text."
+}

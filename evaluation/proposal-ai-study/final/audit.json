@@ -1,0 +1,28 @@
+{
+  "expected_cases": 90,
+  "attempted_cases": 90,
+  "exported_candidates": 81,
+  "accepted_outputs": 21,
+  "accepted_and_two_role_scored": 20,
+  "rejected_candidate_two_role_scored": 49,
+  "unscored_cases": 21,
+  "missing_score_reasons": {
+    "No verified checklist; no numerical rating may be invented": 12,
+    "The Figure 1 caption on page 4 is interleaved with body text. Recovering the complete caption would require separating the columns, and no other figure or table caption supports the finding.": 1,
+    "[Errno 2] No such file or directory: 'runs\\\\proposal-live-study\\\\per-paper\\\\paper-047\\\\paper-047\\\\area-1\\\\joint\\\\initial.json'": 2,
+    "The Figure 1 caption on page 4 is interleaved with body text. The complete caption cannot be copied verbatim without merging columns.": 1,
+    "[Errno 2] No such file or directory: 'runs\\\\proposal-live-study\\\\per-paper\\\\paper-047\\\\paper-047\\\\area-0.75\\\\joint\\\\initial.json'": 2,
+    "Unverifiable source plan after two attempts: Source passage missing for method": 1,
+    "[Errno 2] No such file or directory: 'runs\\\\proposal-live-study\\\\per-paper\\\\paper-082\\\\paper-082\\\\area-1\\\\joint\\\\initial.json'": 2
+  },
+  "planned_dialogue_turns": 30,
+  "attempted_dialogue_turns": 12,
+  "blocked_dialogue_turns": 18,
+  "accepted_dialogue_turns": 0,
+  "correct_conflicts": 0,
+  "successful_quality_pairs": 11,
+  "paired_papers": 4,
+  "raw_results_sha256": "45d5072da4d7a654c020c9b655078e90ce7fbe47e505ab5a8b41e9e7289fc2ea",
+  "evaluation_type": "AI role-conditioned review; not independent human evaluation",
+  "publication_status": "LOCAL REVIEW ONLY; no git commit or push"
+}

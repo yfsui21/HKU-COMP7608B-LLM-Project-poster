@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers real-world interactions between pedestrians and a mobile robot but omits how SiT supports pedestrian perception and motion prediction for social navigation."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method mentions a mobile robot and indoor and outdoor scenes. It omits manual operation, crowded locations in Seoul, the two 3D LiDARs and five cameras, pulse-per-second synchronization, and 360-degree camera coverage."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method gives 20-second clips at 10 Hz but omits the 60 scenes, 60K images, 12K point-cloud frames, 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits robot ego-motion compensation and the use of different scenes for training, validation, and testing."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The finding states that SiT has more instances meeting both criteria. The finding and caption define shared semantic space and proximity within 2 meters, and the figure identifies Waymo Open, Argoverse 2, and nuScenes."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the 3D detection and tracking baselines, center-distance AP thresholds and their role in mAP, and the tracking metrics."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The method gives 9 seconds of trajectory data but omits the 2-second history and 7-second forecast, minimum ADE and FDE over 5 and 20 candidates, the three baselines, and the reduction in displacement errors with semantic maps for Y-Net and NSP-SFM."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the raw-sensor benchmark for predicting future 3D boxes and trajectories over 7 seconds, the Fast and Furious and FutureDet baselines, and the four evaluation metrics."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, and key finding are easy to follow. The small axis labels and legends require close reading, and the abbreviated ‘Sharing&Proxi.’ label is easier to understand with the caption. The 9-second duration is consistent with the checklist’s 2-second history plus 7-second forecast. The missing breakdown reduces C07 coverage without adding a numerical error. No layout defects are visible in the supplied export."
+}

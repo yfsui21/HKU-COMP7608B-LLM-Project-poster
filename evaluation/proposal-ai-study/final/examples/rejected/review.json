@@ -1,0 +1,305 @@
+{
+  "issues": [
+    {
+      "target": "Source footer",
+      "problem": "The footer says “Source figure: p. 8,” although the evidence is labeled Table 1.",
+      "change": "Use “Source: Table 1, p. 8.”"
+    }
+  ],
+  "elements": [
+    {
+      "id": "publication",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 14,
+      "w": 1116.0,
+      "h": 12.389999999999999,
+      "lines": [
+        "RESEARCH ARTICLE"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "title",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 30,
+      "w": 1116.0,
+      "h": 38.94,
+      "lines": [
+        "Color Equivariant Convolutional Networks"
+      ],
+      "size": 33,
+      "color": "202E49",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "masthead",
+      "kind": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 1200.0,
+      "h": 85.94,
+      "color": "FAF7EE",
+      "background": true
+    },
+    {
+      "id": "header-rule",
+      "kind": "rect",
+      "x": 0,
+      "y": 85.94,
+      "w": 1200.0,
+      "h": 1.3,
+      "color": "202E49",
+      "background": false
+    },
+    {
+      "id": "source-note",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 883.38,
+      "w": 1116.0,
+      "h": 10.62,
+      "lines": [
+        "Source figure: p. 8"
+      ],
+      "size": 9,
+      "color": "485568",
+      "font": "Helvetica"
+    },
+    {
+      "id": "question-heading",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 99.94,
+      "w": 401.376,
+      "h": 12.389999999999999,
+      "lines": [
+        "QUESTION / P. 1"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "question",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 117.33,
+      "w": 401.376,
+      "h": 63.72,
+      "lines": [
+        "Can CNNs handle color distribution shifts between",
+        "training and test time while retaining valuable color",
+        "information for object recognition?"
+      ],
+      "size": 18,
+      "color": "202E49",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "method-rule",
+      "kind": "rect",
+      "x": 42.00000000000001,
+      "y": 189.05,
+      "w": 401.376,
+      "h": 0.7,
+      "color": "C3C9CB",
+      "background": false
+    },
+    {
+      "id": "method-heading",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 198.05,
+      "w": 401.376,
+      "h": 12.389999999999999,
+      "lines": [
+        "METHOD / P. 2"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "method",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 215.44,
+      "w": 401.376,
+      "h": 73.16,
+      "lines": [
+        "Color Equivariant Convolutions (CEConvs) share weights",
+        "across hue-transformed filters in the input layer to achieve",
+        "equivariance to discrete hue rotations and preserve color",
+        "information in hue-equivariant feature maps."
+      ],
+      "size": 15.5,
+      "color": "202937",
+      "font": "Helvetica"
+    },
+    {
+      "id": "finding-panel",
+      "kind": "rect",
+      "x": 474.57599999999996,
+      "y": 94.94,
+      "w": 683.424,
+      "h": 778.44,
+      "color": "202E49",
+      "background": true
+    },
+    {
+      "id": "result-heading",
+      "kind": "text",
+      "x": 488.57599999999996,
+      "y": 106.94,
+      "w": 655.424,
+      "h": 12.389999999999999,
+      "lines": [
+        "KEY FINDING / P. 8"
+      ],
+      "size": 10.5,
+      "color": "F9BA92",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "result",
+      "kind": "text",
+      "x": 488.57599999999996,
+      "y": 124.33,
+      "w": 655.424,
+      "h": 44.839999999999996,
+      "lines": [
+        "On the hue-shifted Flowers test set, CEConv achieved 33.33% classification",
+        "accuracy versus 13.41% for the Baseline."
+      ],
+      "size": 19,
+      "color": "FFFFFF",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "figure-mount",
+      "kind": "rect",
+      "x": 488.57599999999996,
+      "y": 178.17,
+      "w": 655.424,
+      "h": 440.63911111111105,
+      "color": "FFFFFF",
+      "background": true
+    },
+    {
+      "id": "figure",
+      "kind": "image",
+      "x": 554.1184,
+      "y": 225.03391111111108,
+      "w": 524.3392,
+      "h": 346.91128888888886
+    },
+    {
+      "id": "caption",
+      "kind": "text",
+      "x": 488.57599999999996,
+      "y": 623.8091111111111,
+      "w": 655.424,
+      "h": 42.48,
+      "lines": [
+        "Table 1: Classification accuracy in % of vanilla vs. color equivariant (CE-)ResNets, evaluated both on the original and",
+        "hue-shifted test sets. Color equivariant CNNs perform on par with vanilla CNNs on the original test sets, but are",
+        "significantly more robust to test-time hue shifts."
+      ],
+      "size": 12,
+      "color": "E4EAF1",
+      "font": "Helvetica"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "question",
+      "elements": [
+        "question"
+      ],
+      "text": "can cnns handle color distribution shifts between training and test time while retaining valuable color information for object recognition?",
+      "source": [
+        {
+          "page": 1,
+          "quote": "This naturally leads to color distribution shifts between training and test time,\nand an imbalance in the training data where less frequently occurring colors are underrepresented.\nAs CNNs often fail to generalize to out-of-distribution test samples, this can have significant impact\non many real-world applications, e.g. a model trained mostly on red cars may struggle to recognize\nthe exact same car in blue.\nColor invariance addresses this issue through features that are by design invariant to color changes\nand therefore generalize better under appearance variations [14, 17]. However, color invariance\ncomes at the loss of discriminative power as valuable color information is removed from the model’s"
+        }
+      ],
+      "conditions": [
+        "color distribution shifts between training and test time",
+        "valuable color information"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "method",
+      "elements": [
+        "method"
+      ],
+      "text": "color equivariant convolutions (ceconvs) share weights across hue-transformed filters in the input layer to achieve equivariance to discrete hue rotations and preserve color information in hue-equivariant feature maps.",
+      "source": [
+        {
+          "page": 2,
+          "quote": "We introduce Color Equivariant Convolutions (CEConvs) as a novel\ndeep learning building block, which implements equivariance to the H symmetry group of discrete\nn\nhue rotations. CEConvs share parameters across hue-transformed filters in the input layer and store\ncolor information in hue-equivariant feature maps."
+        }
+      ],
+      "conditions": [
+        "Color Equivariant Convolutions (CEConvs)",
+        "hue rotations",
+        "hue-transformed filters in the input layer",
+        "hue-equivariant feature maps"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "result",
+      "elements": [
+        "result"
+      ],
+      "text": "on the hue-shifted flowers test set, ceconv achieved 33.33% classification accuracy versus 13.41% for the baseline.",
+      "source": [
+        {
+          "page": 8,
+          "quote": "Original test set Caltech C-10 C-100 Flowers Ox-Pet Cars STL10 ImageNet\nBaseline 71.61 93.69 71.28 66.79 69.87 76.54 83.80 69.71\nCIConv-W 72.85 75.26 38.81 68.71 61.53 79.52 80.71 65.81\nCEConv 70.16 93.71 71.37 68.18 70.24 76.22 84.24 66.85\nCEConv-2 71.50 93.94 72.20 68.38 70.34 77.06 84.50 70.02\nBaseline + jitter 73.93 93.03 69.23 68.75 72.71 80.59 83.91 69.37\nCIConv-W + jitter 74.38 77.49 42.27 75.05 64.23 81.56 81.88 65.95\nCEConv + jitter 73.58 93.51 71.12 74.17 73.29 79.79 84.16 65.57\nCEConv-2 + jitter 72.61 93.86 71.35 71.72 72.80 80.32 84.46 69.42\nBaseline + AugMix 71.92 94.13 72.64 75.49 76.02 82.32 84.99 -\nCEConv + AugMix 70.74 94.22 72.48 78.10 75.90 80.81 85.46 -\nHue-shifted test set\nBaseline 51.14 85.26 47.01 13.41 37.56 55.59 67.60 54.72\nCIConv-W 71.92 74.88 37.09 59.03 60.54 78.71 79.92 64.62\nCEConv 62.17 90.90 59.04 33.33 54.02 67.16 78.25 56.90"
+        }
+      ],
+      "conditions": [
+        "Flowers",
+        "CEConv",
+        "33.33",
+        "Baseline",
+        "13.41"
+      ],
+      "assets": [
+        "Table 1: Classification accuracy in % of vanilla vs. color equivariant (CE-)ResNets, evaluated both\non the original and hue-shifted test sets. Color equivariant CNNs perform on par with vanilla CNNs\non the original test sets, but are significantly more robust to test-time hue shifts."
+      ],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    }
+  ],
+  "suggestions": [
+    {
+      "target": "Table 1",
+      "problem": "The two Flowers values are legible but take time to locate in the full table.",
+      "change": "Highlight the 33.33 and 13.41 cells in the hue-shifted test set block."
+    }
+  ]
+}

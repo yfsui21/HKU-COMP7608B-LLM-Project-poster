@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers general-purpose autoregression and uneven data across tasks. It leaves limited training data unstated and only indirectly suggests a compact model."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster omits VQGAN tokenization, multi-image visual sentences, and causal next-token training with cross-entropy."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits example input–output pairs, autoregressive output generation, and VQGAN decoding."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The single-task experiments are absent, including the LLaMA-300M setup, 12K steps, the SA-1B subset comparison, and the COCO-Pose crop and flip results."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method mentions augmentation for Rain13K and COCO-Pose. It omits the 35K-iteration LLaMA-300M setup, dataset proportions, three-way balancing comparison, and held-out evaluation datasets."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster reports a distillation comparison and omits the balancing results and the segmentation and deraining accuracy trade-offs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster and table report LLaMA-80M, while the checklist requires LLaMA-300M. The table shows improvements across all three metrics for the 80M student. The prose highlights perplexity and leaves the teacher–student relationship implicit."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the unshuffled training sequence and the finding that the most recent task had the lowest validation perplexity at each stage."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the distinction between token-level and task-level metrics, the Pascal-5i mIoU setup and results, and the difficulty of extracting quantifiable predictions from decoded images."
+    }
+  ],
+  "wrong_numbers": 1,
+  "figure_mismatches": 1,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The wrong-number count records the 80M versus 300M student size once. The figure mismatch reflects the same discrepancy in the displayed experiment. All six highlighted perplexity values agree with the displayed table. The title and section headings are easy to follow, but the table headers and values are small. The phrase 'scored lower' is clearest when explicitly tied to perplexity, and the caption uses 'KD' without defining it there. The supplied material does not establish whether the poster's page labels refer to a different pagination."
+}

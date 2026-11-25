@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question identifies near-real-time monitoring of the global ocean carbon sink and the one-year lag in annual Global Carbon Budget estimates. The adjacent method specifies monthly global grids, supplying the temporal and geographic detail."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster gives the correct counts and budget edition. It omits the December 2021 cutoff and does not explicitly identify the historical inputs as monthly surface ocean fCO₂ or the eight products as observation-based."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names convolutional neural networks and semi-supervised learning. It omits the nonlinear relationship to each benchmark’s surface ocean fCO₂, the supervised prediction error, and the consistency loss between weakly and strongly feature-masked inputs."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster gives the two variables, monthly global coverage, and the correct date range. It omits the 1° × 1° resolution and the availability of estimates for each of the 18 benchmarks."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The result uses µatm for fCO₂ differences. The poster omits the flux density units, the bulk calculation and its inputs, and the positive-flux convention."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster identifies the 2020–2021 prediction period and compares predictions with original outputs for the GOBM average. It omits the 2000–2019 training period and the comparison with each individual benchmark’s original outputs for the same months."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster describes spatial agreement. It omits the fCO₂ correlation analysis and the finding that most benchmark comparisons had R² above 0.9."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports spatial differences for benchmark-group averages. It omits the global monthly mean seasonal agreement, the slight positive bias, and the finding that most differences were below 3 µatm."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the difficulty of predicting extremes, the larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN accuracy."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The visible figure and caption agree on the 12 monthly maps and latitude profiles for the 10-GOBM average. The key finding also discusses the eight data products, whose results are not shown in this figure. The supplied checklist does not independently verify the under-10 µatm spatial claim. Its under-3 µatm threshold concerns global monthly means, so the two numbers do not establish a contradiction. Poster headings are clear, but the figure’s axis labels and legend are small at the exported scale. The title, section headings, and caption establish a clear reading order. This is an AI review of the supplied image and text."
+}

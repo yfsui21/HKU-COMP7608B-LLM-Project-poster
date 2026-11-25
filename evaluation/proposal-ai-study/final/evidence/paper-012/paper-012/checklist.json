@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: can peers with complementary features for the same observations share learned representations of sensitive data while retaining predictive utility for a common downstream task?",
+      "page": 3,
+      "quote": "as a privacy-preserving strategy and share it among them without losing predictive power."
+    },
+    {
+      "id": "C02",
+      "requirement": "Describe the core pipeline: use autoencoders to create latent representations, share those representations, join them by a common observation ID, and train a supervised downstream model on the joined features.",
+      "page": 3,
+      "quote": "peers will join each data representation to train a\nshared supervised downstream task"
+    },
+    {
+      "id": "C03",
+      "requirement": "Identify the three public benchmarks and their tasks: House Pricing and Buzz in Social Media for regression, and MNIST Numbers for multiclass digit classification.",
+      "page": 3,
+      "quote": "selected three public data sources: House Pricing [17], Mnist Numbers [18], and Buzz in Social\nMedia [19]."
+    },
+    {
+      "id": "C04",
+      "requirement": "Identify Scenario 0 as the supervised raw-feature baseline trained on the original single dataset, with randomized hyperparameter search.",
+      "page": 4,
+      "quote": "Scenario 0 | Baseline Trains a predictive model for the downstream task using a single data source,\nwhich is considered as the raw dataset in this work."
+    },
+    {
+      "id": "C05",
+      "requirement": "Distinguish the four embedding scenarios: shared and per-peer autoencoders, each with a standard and a target-aware multitask variant. State that the target-aware setup assumes both peers have access to the predictive target.",
+      "page": 5,
+      "quote": "Taking into account that both peers have access to the predictive variable"
+    },
+    {
+      "id": "C06",
+      "requirement": "Distinguish reconstruction quality from downstream predictive performance. Identify autoencoder reconstruction loss and the average per-feature rate of correctly reconstructed observations, using the paper's threshold of less than 5% MAPE.",
+      "page": 6,
+      "quote": "average correctly estimated observations per feature, which is defined\nas an observation with less than 5% MAPE."
+    },
+    {
+      "id": "C07",
+      "requirement": "Identify the downstream models and evaluation metrics by task: XGBoost regression with R² and MAPE for House Pricing and Buzz in Social Media, and multinomial logistic regression with accuracy, precision, and recall for MNIST. Distinguish training, validation, and test results.",
+      "page": 7,
+      "quote": "Test Precision 92% 88% 84% 91% 84%\nRecall 92% 88% 84% 91% 84%"
+    },
+    {
+      "id": "C08",
+      "requirement": "Report that the embeddings retained substantial downstream predictive utility, with performance losses varying by dataset, scenario, and metric. If citing the authors' less-than-10-percentage-point summary, qualify its scope because some reported MAPE increases exceed that threshold.",
+      "page": 8,
+      "quote": "Test MAPE 23.87% 28.94% 33.23% 25.94% 31.89%"
+    },
+    {
+      "id": "C09",
+      "requirement": "State the evaluation limits: the study simulated two peers using public datasets, treated privacy preservation as an assumption, and left quantitative privacy measurement, resistance to decoding, and validation on real organizational data for future work.",
+      "page": 8,
+      "quote": "even if we assume that dimensionality reduction keeps data privacy, we\nwill develop measurements to quantify the privacy level for each dataset."
+    }
+  ]
+}

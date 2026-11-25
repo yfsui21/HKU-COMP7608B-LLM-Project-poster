@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State both research questions. Can a network learn to predict correspondences for occluded or out-of-view keypoints in partially overlapping images, and does this improve absolute camera pose estimation?",
+      "page": 1,
+      "quote": "is correspondence hallucination beneficial for absolute pose estimation?"
+    },
+    {
+      "id": "C02",
+      "requirement": "Explain that NeurHal takes two partially overlapping images and source keypoints and outputs a target-plane probability map per keypoint. Describe the shared CNN, learned padding of target descriptors, and cross-attention with positional encoding. Distinguish identifying visible points, inpainting occluded points, and outpainting points beyond the target image.",
+      "page": 5,
+      "quote": "of a cross-attention-based backbone F with positional encoding."
+    },
+    {
+      "id": "C03",
+      "requirement": "Explain that Neural Reprojection Error (NRE) trains all three tasks with the negative log-likelihood at the geometrically reprojected location. Training uses ground-truth source keypoint depths and relative camera poses without requiring visibility-class labels.",
+      "page": 4,
+      "quote": "evaluates the negative log-likelihood at this location."
+    },
+    {
+      "id": "C04",
+      "requirement": "Distinguish the quantitative evaluation on held-out ScanNet and MegaDepth scenes from the qualitative transfer examples on NYU Depth and ETH-3D. Identify ScanNet and MegaDepth as the indoor and outdoor training datasets, respectively, and give the reported correspondence evaluation protocol of 2,500 test image pairs per dataset with 2% to 80% overlap.",
+      "page": 6,
+      "quote": "and evaluate it on the disjoint set of validation scenes."
+    },
+    {
+      "id": "C05",
+      "requirement": "Report that on held-out ScanNet and MegaDepth scenes, NeurHal achieved lower NRE at ground-truth locations than a uniform map and that its argmax pixel-error distributions lay below the mean random-prediction error for identification, inpainting, and outpainting.",
+      "page": 6,
+      "quote": "the NRE of a uniform correspondence map."
+    },
+    {
+      "id": "C06",
+      "requirement": "Describe the inpainting and outpainting comparison with LoFTR, DRCNet, and S2D on ScanNet and MegaDepth. Define the plotted score as the percentage of predicted correspondents within a given pixel distance of ground truth, and note that the local matching baselines search within the target image boundaries.",
+      "page": 7,
+      "quote": "function of x, for (a-c) the inpainting task and (b-d) the outpainting task."
+    },
+    {
+      "id": "C07",
+      "requirement": "Specify the absolute pose evaluation on 2,500 held-out ScanNet pairs using source depth and NeurHal correspondence maps. Include the identity-pose and local feature matching baselines, and define the reported score as the fraction of correct poses over cumulative overlap ranges from 2% to x%. Give both translation and rotation threshold pairs, 1.5 m and 20°, and 1.0 m and 15°.",
+      "page": 9,
+      "quote": "(a) τ = 1.5m, τ = 20◦ (b) τ = 1.0m, τ = 15◦"
+    },
+    {
+      "id": "C08",
+      "requirement": "Report that NeurHal improved absolute pose robustness overall, with the largest advantage at low overlap. The training ablation found that outpainting drove the low-overlap gain and inpainting added little. At high overlap, local feature matching methods performed slightly better.",
+      "page": 7,
+      "quote": "plays a critical role in improving localization of low-overlap image pairs."
+    },
+    {
+      "id": "C09",
+      "requirement": "State the main limitations. Low-resolution maps limit localization precision, finite padding limits how far outpainting can reach, and inpainting maps can be less peaked than outpainting maps. Flag noisy MegaDepth inpainting labels when interpreting the comparison between the two tasks.",
+      "page": 8,
+      "quote": "our correspondence maps have a finite size."
+    }
+  ]
+}

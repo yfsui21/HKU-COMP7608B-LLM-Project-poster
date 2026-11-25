@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks about learning correspondences and improving absolute pose estimation. The method supplies the partial-overlap context, but the question leaves readers to infer that hallucination means predicting occluded or out-of-view correspondences."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method gives the inputs and per-keypoint target-plane probability output and lists the three visibility cases. It omits the shared CNN, learned target-descriptor padding, and cross-attention with positional encoding, and leaves identification, inpainting, and outpainting unnamed."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits Neural Reprojection Error, the negative log-likelihood at geometrically reprojected locations, the use of ground-truth depths and relative poses, and training without visibility-class labels."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster names ScanNet for the pose result. It omits the indoor and outdoor training datasets, the held-out correspondence evaluations, the qualitative transfer examples, and the 2,500-pair-per-dataset protocol with 2% to 80% overlap."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits both correspondence results on held-out ScanNet and MegaDepth scenes: NRE relative to a uniform map and argmax pixel error relative to the mean random-prediction error for all three tasks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "LoFTR, DRCNet, and S2D appear in the camera pose legend. The poster omits their inpainting and outpainting comparison on ScanNet and MegaDepth, the percentage-within-pixel-distance score, and the target-image search boundary."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The figure includes identity and local feature matching baselines. It varies angular and translation thresholds for pairs with 2% to 5% overlap. The poster omits the 2,500 held-out pairs, source depth and correspondence-map inputs, the cumulative overlap score from 2% to x%, and both fixed threshold pairs."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports a pose advantage at 2% to 5% overlap. It omits the overall robustness result, the evidence that the advantage was largest at low overlap, the ablation findings about outpainting and inpainting, and the slight advantage for local matching at high overlap."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The limitations line mentions quadratic attention complexity and ends mid-reference. It omits the localization cost of low-resolution maps, the finite reach of padding, the less peaked inpainting maps, and the caveat about noisy MegaDepth inpainting labels."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The displayed plots match the caption's angular and translation threshold sweeps for the reported 2% to 5% overlap subset. The missing overlap protocol and fixed threshold pairs reduce checklist coverage. The axis tick labels and crowded legend are small at the supplied image size. The title, question, method, and finding are easy to locate, but the large gap before the limitations strip makes it easy to miss. The limitations sentence ends at the same point in the editable text and the image, with no visible evidence of layout clipping. This review uses the supplied checklist, editable text, and poster image."
+}

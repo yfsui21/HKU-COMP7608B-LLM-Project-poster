@@ -1,0 +1,133 @@
+{
+  "paper": "paper-008.pdf",
+  "area": 0.75,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-0.75\\content-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 3,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what causes instability in feedback-loop learning systems and how much algorithmic interventions can reduce it without collecting more data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster names behavior cloning and features Walker2d-v4, but omits offline one-step expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, and the 900-training and 100-validation trajectory split."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The figure labels reward and BC error separately. The poster omits the held-out one-step loss and cumulative 1,000-step closed-loop reward definitions, the mean over 20 fixed initial conditions, and the contrast between consecutive-update reward swings and smooth validation loss."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The title mentions SGD noise and error amplification, and the caption uses GVA. The poster does not explain how unstable closed-loop dynamics amplify small parameter changes from minibatch gradient noise into large changes in long-horizon performance."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The method names architecture, regularization, and optimization as intervention categories. It omits persistence with fresh independent expert trajectories at each step and across architectures and standard regularizers, as well as the reduction from larger batches and aggressive learning-rate decay and its computational cost."
+        },
+        {
+          "id": "C06",
+          "met": true,
+          "reason": "The headline identifies EMA iterate averaging as the main intervention, the figure compares reward with EMA reward, and the caption states that oscillations decrease substantially without changing batch size or the learning-rate schedule. The expansion of EMA and the raw-checkpoint terminology are implicit."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster omits the 270M-parameter TinyStories experiment, the held-out greedy-completion switching metric, the EMA switching result, and the distinction from validation perplexity."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits TinyStories as a synthetic proxy, the preliminary English Wikipedia check, greedy completion agreement as a stability measure, and the limit on generation-quality assessment."
+        },
+        {
+          "id": "C09",
+          "met": true,
+          "reason": "Ant and Humanoid appear under the figure's low-GVA heading, and the caption describes milder oscillations in some tasks and explicitly names Humanoid-v4. The infrequent-EMA panel is grouped under failure modes, and the caption recommends updating every iterate with initial burn-in and a tuned averaging schedule."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "AI review of the supplied export and editable text. The title and section headings establish a clear reading order. The figure's axis labels and tick values are small at the supplied scale. The checklist excerpts do not establish whether the stated count of 278 interventions is correct. Omitted numerical conditions reduce checklist coverage and were excluded from the wrong-number count."
+    },
+    {
+      "role": 2,
+      "checklist_met": 3,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what causes instability in learning systems with feedback loops and how much algorithmic interventions can reduce it without collecting more data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method names behavior cloning and continuous control, and the figure centers on Walker2d-v4. The offline one-step expert-action prediction setup, deterministic Soft Actor Critic demonstrations in MuJoCo, and 900/100 trajectory split are missing."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The figure labels reward and behavior cloning error separately. The poster does not explain the held-out one-step loss versus cumulative reward on 1,000-step closed-loop rollouts, the mean over 20 fixed initial conditions, or the contrast between reward swings on consecutive updates and smooth validation loss."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The caption uses GVA without defining it or explaining how unstable closed-loop dynamics amplify small parameter changes from minibatch gradient noise into large changes in long-horizon performance."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The method lists the intervention categories but does not report that oscillations persisted with fresh independent expert trajectories at each step and across architectures and standard regularizers. It also omits the reduction from larger batches and aggressive learning-rate decay and their computational cost."
+        },
+        {
+          "id": "C06",
+          "met": true,
+          "reason": "The headline identifies EMA iterate averaging as the main intervention, and the figure compares reward and behavior cloning error for the raw and averaged iterates. The caption states that oscillations decreased without changing the batch size or learning-rate schedule."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster omits the 270M-parameter TinyStories Transformer experiment, the definition of switching cost using greedy completions on held-out prefixes at consecutive checkpoints, the reduction with EMA, and the distinction from validation perplexity."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits the synthetic-proxy role of TinyStories, the preliminary English Wikipedia check, the interpretation of greedy completion agreement as a stability measure, and the lack of systematic generation-quality assessment."
+        },
+        {
+          "id": "C09",
+          "met": true,
+          "reason": "The figure groups Ant and Humanoid under low-GVA tasks and labels infrequent EMA as a failure mode. The caption notes milder oscillations for Humanoid and recommends updating every iterate with an initial burn-in and a tuned averaging schedule."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The title, question, method, and key finding are easy to locate. Small subplot labels and the dense caption take closer reading, and undefined acronyms make the figure harder to interpret for a reader new to the topic. The averaging formula appears as t−α in the export and editable text, where the intended exponent is visually unclear. The omitted split and rollout counts reduce checklist coverage. The supplied evidence does not independently verify the count of 278 interventions, and no numerical contradiction is visible. This is an AI review of the supplied poster and checklist."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-0.75\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Figure 3\", \"problem\": \"The ten-panel plot is small in the supplied render. Tick labels and vertical axis labels are difficult to read, and the thin, pale blue reward traces are hard to follow.\", \"change\": \"Crop the white margins and enlarge the plot using the available space in the evidence panel. Use a higher-resolution source if needed to keep the labels and traces sharp.\"}, {\"target\": \"Figure 3 caption\", \"problem\": \"The decay formula renders as γ(t) = t−α with a baseline exponent, which can be read as subtraction.\", \"change\": \"Set −α in superscript so the decay formula reads γ(t) = t⁻ᵅ.\"}]",
+  "elapsed_s": 210.58
+}

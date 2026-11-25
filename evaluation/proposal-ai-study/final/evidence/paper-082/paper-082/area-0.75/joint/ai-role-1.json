@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question captures general-purpose autoregression, multiple tasks, and uneven data. It implies interest in smaller models but omits the limited training-data condition."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "VQGAN tokenization, multi-image visual sentences, and causal next-token training with cross-entropy are absent."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits example-pair prompting, autoregressive output generation, and VQGAN decoding."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits the LLaMA-300M single-task experiments at 12K steps, the 1% to 10% SA-1B comparison, the crop and flip conditions, and the validation improvements."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method mentions augmentation for Rain13K and COCO-Pose but omits the 35K-step LLaMA-300M setup, dataset proportions, three-way balancing comparison, and held-out evaluation datasets. The displayed metrics belong to a different experiment."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits augmentation's advantage over repeated sampling, its pose and deraining gains over the unbalanced mixture, and the unbalanced mixture's segmentation and deraining-accuracy advantages."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Table 12 reports LLaMA-80M. The checklist requires the LLaMA-1B to LLaMA-300M distillation experiment under augmentation-balanced training, with gains in loss, token accuracy, and perplexity across all three tasks and the teacher retaining the best scores."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the unshuffled LLaMA-300M training sequence and the lowest perplexity on the most recently trained task at each stage."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the distinction between token-level and task-level metrics, the three-example-pair Pascal-5i mIoU evaluation with separate zero-shot and fine-tuned results, and the difficulty of extracting quantifiable predictions from decoded images."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The six reported perplexity values match Table 12, and LLaMA-1B has lower perplexity on all three tasks. The table matches its caption and adjacent finding. Its use in place of the required LLaMA-300M evidence is a coverage omission under C07. Section headings are clear, while the small table headers and values require close inspection. The question-to-method-to-finding sequence is discernible, though the dark findings panel draws attention before the left column. Page references cannot be independently verified from the supplied materials."
+}

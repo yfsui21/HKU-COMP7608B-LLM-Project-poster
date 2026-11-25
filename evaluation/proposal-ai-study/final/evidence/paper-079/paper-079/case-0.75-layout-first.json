@@ -1,0 +1,133 @@
+{
+  "paper": "paper-079.pdf",
+  "area": 0.75,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-079\\paper-079\\area-0.75\\layout-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question gives the monthly cadence and one-year lag but omits geographic resolution and does not identify the Global Carbon Budget estimates as annual."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method gives the counts and Global Carbon Budget 2022 but omits the monthly surface-ocean fCO2 benchmark variable, the observation-based nature of the eight products, and the December 2021 cutoff."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method names convolutional neural networks and semi-supervised learning but does not specify nonlinear learning of each benchmark’s surface-ocean fCO2 or the supervised and feature-mask consistency losses."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The method gives the variables, monthly gridding, and dates. It does not explicitly specify global coverage for both outputs, the 1° × 1° resolution, or separate estimates for each of the 18 benchmarks."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The figure labels fCO2 in µatm. The poster omits flux density units, the bulk calculation and its inputs, and the positive-flux convention."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The caption compares monthly predictions with original GOBM outputs for 2020–2021. The poster omits the 2000–2019 training period, the held-out status of 2020–2021, and the corresponding comparison for each data product."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "Individual GOBM panels display R² values, but the poster does not report that most benchmark comparisons exceeded 0.9 or attribute that result to the fCO2 correlation analysis."
+        },
+        {
+          "id": "C08",
+          "met": true,
+          "reason": "The result text states the period, global monthly mean, seasonal agreement across both benchmark groups, slight positive bias, and the threshold of 3 µatm for most differences."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the difficulty predicting extremes, the larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN accuracy."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "This is an AI review. The caption correctly limits Figure 7 to the 10 GOBMs. The figure illustrates the GOBM portion of the finding, while the data-product portion is stated in the result text. The subplot titles, axis ticks, legend, and statistics are small at the supplied scale and benefit from magnification. The headings and columns make the path from question and method to finding, figure, and caption easy to follow. Omitted conditions were counted as checklist gaps."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question includes monthly tracking and the one-year lag, but omits geographic resolution and does not explicitly frame the goal as tracking recent changes against annual estimates."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster gives the counts and names Global Carbon Budget 2022, but does not identify the products as observation-based, specify monthly surface ocean fCO2 as the benchmark variable, or give the December 2021 cutoff."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster names convolutional neural networks and semi-supervised learning, but omits the nonlinear, benchmark-specific fCO2 relationships and the two training loss components, including consistency between weakly and strongly feature-masked inputs."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster gives the monthly cadence, variables, and date range, but does not explicitly state global coverage for both outputs, the 1° × 1° resolution, or that estimates are provided for each of the 18 benchmarks."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The figure gives fCO2 in µatm, but the poster omits the flux density units, bulk calculation inputs, and meaning of positive flux."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The caption compares predictions with original model outputs in 2020–2021, but the poster omits the 2000–2019 training period and does not explicitly describe the held-out split or the same-month comparison for each data product."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "Individual R² values appear in the model panels, but the poster does not report that most benchmark comparisons had R² above 0.9 or attribute that finding to the fCO2 correlation analysis."
+        },
+        {
+          "id": "C08",
+          "met": true,
+          "reason": "The key finding states the 2020–2021 period, seasonal agreement for both benchmark groups, a generally slight positive bias, and most differences below 3 µatm."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the difficulty predicting extremes, the larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN accuracy."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The title and section headings establish a clear path from the question and method to the finding and figure. The panel titles, axis labels, legend, and fit statistics are small at the supplied image size. Defining fCO2 would help a reader new to the topic. The caption correctly scopes Figure 7 to the 10 models. The figure supports the model portion of the key finding, while the data-product portion agrees with the supplied checklist. Omitted scientific conditions count against checklist coverage."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-079\\paper-079\\area-0.75\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Figure 7\", \"problem\": \"At the supplied poster size, the axis ticks, legend, and R² and RMSE annotations are difficult to read. Wide white margins reduce the space available for the plots.\", \"change\": \"Trim the outer white margins and enlarge the plot panels. Increase the axis, legend, and annotation text sizes if the source figure can be re-exported.\"}]",
+  "elapsed_s": 201.56
+}

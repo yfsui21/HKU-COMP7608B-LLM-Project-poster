@@ -1,0 +1,13 @@
+{
+  "paper": "paper-029.pdf",
+  "area": 0.75,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-0.75\\content-first",
+  "status": "generation_failed",
+  "ratings": [],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-029\\paper-029\\area-0.75\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Table 1\", \"problem\": \"The small type and tightly spaced headers make the metric columns and zero-shot values difficult to scan at poster size.\", \"change\": \"Crop the white margins around the table and enlarge it using the available space below it. Keep the caption directly beneath the table.\"}, {\"target\": \"Source footer\", \"problem\": \"The footer calls the evidence a figure, while the exhibit and its caption identify it as Table 1.\", \"change\": \"Use “Source: Table 1 (p. 7)” in the footer.\"}]",
+  "error": "No verified checklist; no numerical rating may be invented",
+  "elapsed_s": 144.0
+}

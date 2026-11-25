@@ -1,0 +1,133 @@
+{
+  "paper": "paper-073.pdf",
+  "area": 1,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-073\\paper-073\\area-1\\joint",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks for the lowest loss under a test-time attacker, but omits the soft-classifier formulation, fixed finite-support distribution, and specified perturbation model. It does not explicitly state the worst-case objective."
+        },
+        {
+          "id": "C02",
+          "met": true,
+          "reason": "The method gives one vertex per training example and links examples from different classes whose adversarial neighborhoods share a common point."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method names a linear program and calls its result a tight lower bound. It omits the probability-weighted objective, nonnegativity, per-hyperedge constraints, and the fact that one minus the maximum is achievable by a soft classifier."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The panels identify MNIST digits 1, 4, and 7 and CIFAR-10 classes by indices 0, 2, and 8. The poster omits the CIFAR-10 class names, the 1,000 samples per class, and the use of full training sets for the ten-class bounds."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The plots show 0–1 loss across ε, and the finding names TRADES for CIFAR-10. The poster does not specify the ℓ₂ norm or identify the evaluation as APGD-CE from AutoAttack. The caption only names APGD."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The finding reports a large gap for three-class CIFAR-10 near the low end of the plotted budgets, and the figure shows a gap for three-class MNIST. The poster omits the comparison with ten-class bounds."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The caption describes an edge-only lower bound for the three-class figure. It omits the ten-class degree-2, degree-3, and degree-4 truncations and the looser bound from maximum-weight coupling of pairwise binary optima."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits the generalized Caro–Wei upper bound for hard and soft classifiers and its observed agreement with the truncated lower bounds at small budgets."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the computational scaling limitation, the interpretation of the gap as robust fit to training data, and the open problem of closing it while maintaining generalization."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The exported finding shows a square in place of the ε present in the editable text. The plot labels and legends are small but readable, and the headings and panel grouping make the reading order clear. The CIFAR-10 panel supports the approximate 0.6 versus near-zero comparison at the low end of the plotted budgets. The text gives no exact ε for that comparison. The omitted scientific conditions are reflected in checklist coverage."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks for the minimum multiclass 0–1 loss under a test-time attacker, but leaves out worst-case loss, soft classifiers, the fixed finite-support distribution, and the specified perturbation model."
+        },
+        {
+          "id": "C02",
+          "met": true,
+          "reason": "The method assigns one vertex per training example and defines hyperedges using examples from distinct classes whose adversarial neighborhoods share a point."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method mentions a linear program and a tight lower bound, but omits the probability-weighted worst-case correctness objective, nonnegativity, the per-hyperedge constraint, and the exact achievable soft-classifier loss given by one minus the optimum."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The figure identifies MNIST digits 1, 4, and 7 and gives CIFAR-10 class indices. The poster omits the CIFAR-10 class names, the 1,000 samples per class, and the use of full training sets for the ten-class bounds."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The plots show 0–1 loss across ε budgets, and the surrounding text mentions TRADES and APGD. The poster omits the ℓ₂ norm and the specific evaluation method, APGD-CE from AutoAttack."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The headline and figure show a large gap at small plotted budgets for three-class CIFAR-10, and the MNIST panel shows a three-class gap as well. The poster omits the comparison with the ten-class bounds."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The caption mentions an edge-only lower bound for the three-class figure. The poster omits both ten-class methods, the truncation degrees, and the observation that pairwise coupling produces a looser bound."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits the generalized Caro–Wei upper bound for hard and soft classifiers and its observed agreement with the truncated lower bounds at small budgets."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the computational scaling limitation, the interpretation of the gap as robust fit to training data, and the open question of closing it while maintaining generalization."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The editable finding contains ϵ, but the export renders it as a square, obscuring the perturbation-budget symbol. The plot axes, ticks, and legends are small relative to the surrounding text, and the notation takes effort to connect to the caption. The title, question, method, finding, and caption have a clear reading order. The CIFAR-10 plot visually supports the approximate 0.6 versus near-zero comparison, but the supplied material does not establish an exact ε for that statement. No wrong numerical value or figure-caption mismatch was observed."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-073\\paper-073\\area-1\\joint\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"result\", \"problem\": \"The required ϵ renders as a white square, obscuring the perturbation-radius condition. The cited page 8 passage supports the comparison between TRADES loss near 0.6 and optimal loss near 0.\", \"change\": \"Render ϵ with a font that supports the glyph and verify that the exported headline reads “at an ϵ where the optimal loss is near 0.”\"}, {\"target\": \"result\", \"problem\": \"Unmet scientific requirement\", \"change\": [\"Restore source support\"]}]",
+  "elapsed_s": 306.69
+}

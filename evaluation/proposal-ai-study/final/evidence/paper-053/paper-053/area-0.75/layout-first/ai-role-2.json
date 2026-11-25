@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers real-world interactions between pedestrians and a mobile robot but omits how the dataset would support pedestrian perception and motion prediction for social navigation."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method mentions indoor and outdoor collection by a mobile robot. It omits manual operation, crowded locations in Seoul, the two 3D LiDARs and five cameras, pulse-per-second synchronization, and 360-degree camera coverage."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method gives 20-second clips at 10 Hz. It omits the totals of 60 scenes, 60K images, and 12K point-cloud frames, as well as 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster does not explain robot ego-motion compensation or state that the training, validation, and test subsets contain different scenes."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The key finding reports more instances satisfying both conditions for SiT than for Waymo Open, Argoverse 2, and nuScenes. The finding and caption identify the conditions as sharing semantic space and being within 2 meters, and the caption identifies the robot or ego vehicle as the reference."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the 3D detection and tracking baselines, the center-distance thresholds used for detection mAP, and the tracking metrics."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The method gives 9 seconds of trajectory data per sample. It omits the split into 2 seconds of history and 7 seconds of future motion, minimum ADE and FDE over 5 and 20 candidates, the forecasting baselines, and the reported benefit of semantic maps."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the raw-sensor benchmark for forecasting future 3D boxes and trajectories over 7 seconds, Fast and Furious and both FutureDet variants, and the distinction among standard mAP, forecasting mAP, and ADE and FDE at five candidates."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, key finding, figure, and caption form a clear reading sequence. The plot legends, tick labels, and abbreviated category labels are small relative to the surrounding text. The caption helps decode “Sharing & Proxi.” but leaves “semantic space” without a concrete example. The figure supports the reported comparison. The stated 9-second sample duration is consistent with the checklist’s 2-second history and 7-second forecast, though the poster omits that split. Counts reflect visible issues in the supplied export and discrepancies verifiable from the supplied text and checklist."
+}

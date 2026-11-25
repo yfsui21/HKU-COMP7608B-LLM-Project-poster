@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers sharing embeddings and retaining predictive power. The method supplies the shared-observation and downstream-task context, but the question leaves complementary features and data sensitivity implicit."
+    },
+    {
+      "id": "C02",
+      "met": true,
+      "reason": "The question and method together convey sharing autoencoder representations, joining them by observation ID, and training a downstream predictive model on the joined vectors. Supervised training is implicit in this description."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Only Buzz in Social Media is named. House Pricing, MNIST Numbers, and the benchmark-to-task mapping are missing."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Scenario 0 appears in the comparison, but the poster omits its role as the supervised baseline trained on a single original raw dataset and its randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method describes per-peer autoencoders for Scenario 2. It omits the four-way distinction between shared and per-peer autoencoders with standard and target-aware variants, and the assumption that both peers have access to the target."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster reports downstream metrics but omits reconstruction loss and the average per-feature share of observations reconstructed with less than 5% MAPE."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The table distinguishes training, validation, and test results and gives R² and MAPE for Buzz in Social Media. The poster omits XGBoost, House Pricing evaluation, and MNIST's multinomial logistic regression and accuracy, precision, and recall metrics."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The result accurately describes test performance for one Buzz in Social Media comparison. It omits the broader finding about retained predictive utility and how losses vary across datasets, scenarios, and metrics."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method identifies two simulated peers. The poster omits the use of public datasets, the privacy assumption, and the future work on quantifying privacy, testing resistance to decoding, and validating on real organizational data."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "All four reported test values match the Scenario 0 and Scenario 3 columns in Table 5. The callout explicitly distinguishes that comparison from the Scenario 2 method. The table labels and source note are readable at the supplied scale, though both are smaller than the surrounding text. The title, question, method, and finding have a clear reading order. The question heading cites p. 2 and C01 cites p. 3. The supplied excerpt does not establish whether p. 2 also supports the question. This is an AI review of the supplied image and text."
+}

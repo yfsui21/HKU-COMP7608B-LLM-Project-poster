@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether peers can share autoencoder embeddings while retaining predictive power. It omits sensitive data, complementary features for the same observations, and a common downstream task."
+    },
+    {
+      "id": "C02",
+      "met": true,
+      "reason": "Read together, the question and method describe sharing autoencoder embeddings, joining the per-peer vectors by observation ID, and training a downstream predictive model. Supervision is conveyed implicitly through the predictive training step."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names Buzz in Social Media. It omits House Pricing, MNIST Numbers, and the full mapping from benchmarks to tasks."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster compares results with Scenario 0 but does not identify it as the supervised baseline trained on the original single dataset with raw features and randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method mentions per-peer autoencoders. It omits the shared configuration, the standard and target-aware multitask variants, and the assumption that both peers have access to the predictive target."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table reports downstream metrics. The poster omits reconstruction loss, the average per-feature correct reconstruction rate, and the less-than-5% MAPE criterion."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The Buzz table distinguishes training, validation, and test results and reports R² and MAPE. The poster omits XGBoost, the House Pricing evaluation, and the MNIST model and metrics."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The Buzz comparison shows substantial retained predictive utility and a decline on both reported metrics. It does not establish how losses vary across datasets, and it offers no broader synthesis across scenarios or metrics."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method states that two peers were simulated. The poster omits the use of public datasets, the privacy assumption, and future work on quantitative privacy measurement, resistance to decoding, and validation on real organizational data."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The four headline values match the visible Buzz test rows, and the caption matches the displayed table. The table labels and source footer are readable at the supplied size, though smaller than the main text. Page references were not independently verified from the supplied excerpts. This is an AI review of the supplied image and editable text."
+}

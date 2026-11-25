@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether two sets of networks came from the same distribution but leaves independent sampling unstated."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster identifies the graph-moment test as the comparator but omits injective homomorphism densities and the distinct-node, edge-preserving mapping rule that allows extra host edges."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names graph cumulants but omits the adjustment for smaller motifs and the disjoint-union identity used by the unbiased estimator."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster gives squared Mahalanobis distance for both tests, connected motifs with at most r edges, and r = 3 in the result. It omits feature-vector weighting by the inverse of the summed estimated covariances, the need for counts through order 2r, and the resulting equal computational complexity."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits the stochastic block model comparison, including the equal block sizes, shared expected edge density, and contrasting degree and community structure."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the FunCoup species comparisons, edge-density matching by removal of the lowest-weight edges, and node subsampling to obtain induced subgraphs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster reports AUC but leaves unexplained how distance thresholds produce ROC curves, how AUC summarizes the curve, and how power is measured at a specified false-positive rate."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports higher AUC especially with few graphs per sample and states that the cumulant test worked with a single graph per sample. It omits the higher statistical power finding and leaves the simulation context implicit."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster gives the r = 3 moment-test cutoff below four graphs per sample. It omits the graphon assumption, chi-square null calibration, stronger finite-sample agreement for cumulants, and singular moment covariance as the cause of the cutoff."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The figure shows the reported node counts and sample-size pattern, and its plotted series agree with the caption. The small, angled annotations and small footer take extra effort to read. The headings make the sequence from question to method to finding and figure clear. Both series for 256 nodes approach the top of the plot, where exact differences are difficult to resolve from the export. This AI review uses the supplied image, editable text, and frozen checklist."
+}

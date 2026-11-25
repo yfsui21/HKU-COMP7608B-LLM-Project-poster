@@ -1,0 +1,132 @@
+{
+  "paper": "paper-012.pdf",
+  "area": 0.75,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-012\\paper-012\\area-0.75\\content-first",
+  "status": "ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks whether peers can share autoencoder embeddings while retaining predictive power. It omits sensitive data, complementary features for the same observations, and a common downstream task."
+        },
+        {
+          "id": "C02",
+          "met": true,
+          "reason": "Read together, the question and method describe sharing autoencoder embeddings, joining the per-peer vectors by observation ID, and training a downstream predictive model. Supervision is conveyed implicitly through the predictive training step."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster names Buzz in Social Media. It omits House Pricing, MNIST Numbers, and the full mapping from benchmarks to tasks."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster compares results with Scenario 0 but does not identify it as the supervised baseline trained on the original single dataset with raw features and randomized hyperparameter search."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The method mentions per-peer autoencoders. It omits the shared configuration, the standard and target-aware multitask variants, and the assumption that both peers have access to the predictive target."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The table reports downstream metrics. The poster omits reconstruction loss, the average per-feature correct reconstruction rate, and the less-than-5% MAPE criterion."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The Buzz table distinguishes training, validation, and test results and reports R² and MAPE. The poster omits XGBoost, the House Pricing evaluation, and the MNIST model and metrics."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The Buzz comparison shows substantial retained predictive utility and a decline on both reported metrics. It does not establish how losses vary across datasets, and it offers no broader synthesis across scenarios or metrics."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The method states that two peers were simulated. The poster omits the use of public datasets, the privacy assumption, and future work on quantitative privacy measurement, resistance to decoding, and validation on real organizational data."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 4,
+      "reading_order_1_5": 5,
+      "notes": "The four headline values match the visible Buzz test rows, and the caption matches the displayed table. The table labels and source footer are readable at the supplied size, though smaller than the main text. Page references were not independently verified from the supplied excerpts. This is an AI review of the supplied image and editable text."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks whether sharing embeddings preserves predictive power, but omits sensitive data, complementary features for the same observations, and the common downstream task."
+        },
+        {
+          "id": "C02",
+          "met": true,
+          "reason": "The question and method together describe sharing autoencoder representations, joining them by observation ID, and training a downstream predictive model. Supervision is implicit rather than named."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster names Buzz in Social Media only and does not identify the three benchmarks and their task types."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "Scenario 0 appears as a comparator, but the poster does not identify it as the supervised baseline trained on the original raw dataset or mention randomized hyperparameter search."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The method mentions individual autoencoders, but does not distinguish the four embedding setups or state that both peers need access to the target in the target-aware variants."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster shows downstream metrics only. It does not explain reconstruction loss or the average per-feature rate of observations reconstructed with less than 5% MAPE."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "Table 5 distinguishes training, validation, and test and shows R² and MAPE for Buzz. The poster omits XGBoost, the House Pricing evaluation, and the MNIST model and metrics."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The highlighted Buzz comparison shows substantial retained predictive utility in one scenario, but the poster does not explain how losses vary across datasets, scenarios, and metrics. It makes no less-than-10-percentage-point claim."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The method mentions two simulated peers, but omits the public-data setting, the privacy assumption, and future work on privacy measurement, decoding resistance, and validation on real organizational data."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 4,
+      "reading_order_1_5": 4,
+      "notes": "The four highlighted test values match Table 5. The table text and source note are smaller than the surrounding copy, and MAPE is unexplained. The headings establish a readable sequence, though the dark results panel can draw the eye before the method. The question label cites p. 2, while C01 cites supporting text on p. 3. The supplied excerpts do not establish whether p. 2 also supports the question."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-012\\paper-012\\area-0.75\\content-first\\04-layout",
+  "accepted": true,
+  "elapsed_s": 191.91
+}

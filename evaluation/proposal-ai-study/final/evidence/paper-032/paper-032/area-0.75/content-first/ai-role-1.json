@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question connects training on finite patches to generating realistic, globally coherent images with an arbitrarily large field of view. Local detail is implied by realism."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "Both stages are named, but coordinate conditioning, global appearance, local latent variation, and fine-grained noise are omitted."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Table 1 lists constant inference memory for InfinityGAN, but the poster does not explain consistency across independent queries or how it enables seamless patch assembly with constant memory."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster names Flickr-Landscape, and Table 1 shows training and full image sizes of 101 and 197. It omits the 450,000-image dataset size and does not explicitly describe the crop relationship."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "Table 1 lists all five comparators, and the caption gives the 128-to-197 resize sequence. The poster omits the 197/128 test-dimension adjustment and its field-of-view alignment purpose."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Table 1 separates training FID from ScaleInv FID, but the poster does not explain bilinear downsampling before FID, the lack of large-field-of-view real references, or the landscape self-similarity assumption."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The lowest ScaleInv FID at 4× and 8× is correctly reported. The caption mentions a disadvantageous setting without explaining how differences in training crop field of view and resolution limit comparisons of absolute FID."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption reports over 90% preference, and the table gives comparison-specific rates where available. The poster omits the two-alternative forced-choice design, the realism and structural plausibility criteria, and the participant, query, and sample counts."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "Neither cross-scale composition artifacts nor tree-like content appearing in the sky is described."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The headline values and Table 1 reference agree with the displayed table. The table's small labels, entries, and superscripts are harder to read than the surrounding text. Section headings and the placement of the table directly beneath the finding make the reading order clear. This AI review is based on the supplied export, editable text, and checklist."
+}

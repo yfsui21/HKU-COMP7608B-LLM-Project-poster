@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what causes instability in learning systems with feedback loops and how much algorithmic interventions can reduce it without collecting more data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method names behavior cloning and continuous control, and the figure centers on Walker2d-v4. The offline one-step expert-action prediction setup, deterministic Soft Actor Critic demonstrations in MuJoCo, and 900/100 trajectory split are missing."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The figure labels reward and behavior cloning error separately. The poster does not explain the held-out one-step loss versus cumulative reward on 1,000-step closed-loop rollouts, the mean over 20 fixed initial conditions, or the contrast between reward swings on consecutive updates and smooth validation loss."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The caption uses GVA without defining it or explaining how unstable closed-loop dynamics amplify small parameter changes from minibatch gradient noise into large changes in long-horizon performance."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method lists the intervention categories but does not report that oscillations persisted with fresh independent expert trajectories at each step and across architectures and standard regularizers. It also omits the reduction from larger batches and aggressive learning-rate decay and their computational cost."
+    },
+    {
+      "id": "C06",
+      "met": true,
+      "reason": "The headline identifies EMA iterate averaging as the main intervention, and the figure compares reward and behavior cloning error for the raw and averaged iterates. The caption states that oscillations decreased without changing the batch size or learning-rate schedule."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the 270M-parameter TinyStories Transformer experiment, the definition of switching cost using greedy completions on held-out prefixes at consecutive checkpoints, the reduction with EMA, and the distinction from validation perplexity."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the synthetic-proxy role of TinyStories, the preliminary English Wikipedia check, the interpretation of greedy completion agreement as a stability measure, and the lack of systematic generation-quality assessment."
+    },
+    {
+      "id": "C09",
+      "met": true,
+      "reason": "The figure groups Ant and Humanoid under low-GVA tasks and labels infrequent EMA as a failure mode. The caption notes milder oscillations for Humanoid and recommends updating every iterate with an initial burn-in and a tuned averaging schedule."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, and key finding are easy to locate. Small subplot labels and the dense caption take closer reading, and undefined acronyms make the figure harder to interpret for a reader new to the topic. The averaging formula appears as t−α in the export and editable text, where the intended exponent is visually unclear. The omitted split and rollout counts reduce checklist coverage. The supplied evidence does not independently verify the count of 278 interventions, and no numerical contradiction is visible. This is an AI review of the supplied poster and checklist."
+}

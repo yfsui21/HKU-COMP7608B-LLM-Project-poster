@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question identifies a general-purpose autoregressive vision model and uneven data across tasks. Reduced reliance on large models suggests compactness, but the question does not explicitly state that training data are limited."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster omits VQGAN tokenization, visual sentences, and causal next-token training with cross-entropy."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits example input–output pairs, autoregressive output generation, and VQGAN decoding."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits the LLaMA-300M single-task experiments at 12K steps, the SA-1B subset comparison, the COCO-Pose crop and flip conditions, and the corresponding validation improvements."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method names augmentation and two datasets. It omits the LLaMA-300M model, 35K iterations per setting, training-set proportions, the unbalanced and repeated-sampling settings, and the held-out evaluation datasets and metrics for this comparison."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the comparison of augmentation with repeated sampling and the unbalanced mixture, including the segmentation and deraining accuracy trade-offs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster and Table 12 report a LLaMA-80M comparison with and without distillation. They do not establish the required LLaMA-1B-to-LLaMA-300M experiment or its three-metric improvements under augmentation balancing."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the unshuffled LLaMA-300M training sequence and the finding that validation perplexity was lowest on the most recently trained task at each stage."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster presents token-level validation metrics but omits the Pascal-5i mIoU evaluation, its three example pairs, the separate zero-shot and fine-tuned results, and the limitation of extracting quantifiable predictions from decoded images."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 1,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The six reported perplexity values match the visible table. The figure mismatch is relative to C07: Table 12 supports the poster's LLaMA-80M claim and caption, while the checklist requires evidence for LLaMA-300M. The section labels are clear, but the table headers and values are small at the supplied export size. The title, question, method, and key finding follow a clear reading order. This AI review uses the supplied checklist, editable text, and image. The source paper and page references could not be independently verified."
+}

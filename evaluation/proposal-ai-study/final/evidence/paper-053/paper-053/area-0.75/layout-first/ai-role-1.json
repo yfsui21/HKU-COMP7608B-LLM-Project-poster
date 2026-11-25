@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers real-world pedestrian–robot interactions but omits how the dataset supports pedestrian perception and motion prediction for social navigation."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method mentions a mobile robot and indoor and outdoor scenes. It omits manual operation, crowded locations in Seoul, the two 3D LiDARs and five cameras, pulse-per-second synchronization, and 360-degree camera coverage."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method gives 20-second clips at 10 Hz but omits the totals of 60 scenes, 60K images, and 12K point-cloud frames, as well as 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits ego-motion compensation and the use of distinct scenes for training, validation, and test subsets."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The finding names all three comparison datasets and reports more instances satisfying both criteria. The caption defines shared semantic space and proximity within 2 meters, and panel (b) shows the combined comparison."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the detection and tracking baselines, the center-distance AP thresholds and averaging rule, and the tracking metrics."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster gives a 9-second trajectory sample but omits the 2-second history and 7-second forecast split, minimum ADE and FDE over 5 and 20 candidates, the forecasting baselines, and the reported semantic-map benefit."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the raw-sensor benchmark for predicting future 3D boxes and associated trajectories over 7 seconds, the three baselines, and the four comparison metrics."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The title, left-column question and method, and right-column finding and figure establish a clear reading order. Axis labels and legends are readable at the supplied resolution but small relative to the surrounding text. The caption correctly associates panel (a) with distance density and panel (b) with interaction counts. The supplied checklist supports 20 seconds, 10 Hz, and the 2-meter criterion. The stated 9-second sample is consistent with the checklist’s 2-second history plus 7-second future, though the supplied excerpts do not independently establish that every sample uses that duration."
+}

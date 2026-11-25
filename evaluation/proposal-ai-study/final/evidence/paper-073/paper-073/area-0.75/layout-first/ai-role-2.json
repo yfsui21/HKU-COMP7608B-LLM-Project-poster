@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question identifies a fixed discrete dataset, multiclass 0–1 loss, and a test-time attacker. The method mentions soft classifiers, but the question leaves the worst-case objective implicit and does not specify the perturbation model."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies training examples as vertices and cross-class neighborhood overlaps as hyperedges. It does not require every example in a hyperedge to have a distinct label or all neighborhoods to share one common point."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster links a linear program to optimal soft-classifier loss but omits the probability-weighted worst-case correct-classification objective, nonnegativity, the sum constraint on each hyperedge, and the exact achievable loss formula of one minus the maximum."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The figure identifies MNIST digits 1, 4, and 7 and gives CIFAR-10 class indices 0, 2, and 8. The poster does not name the CIFAR-10 classes or state the 1,000 samples per class and the use of full training sets for the ten-class bounds."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The plots show 0–1 loss across perturbation budgets. TRADES is named for the CIFAR-10 result, and the caption mentions APGD. The poster does not specify the ℓ₂ norm, APGD-CE from AutoAttack, or explicitly identify TRADES as the baseline for both three-class runs."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The headline reports a large gap at a small tested CIFAR-10 budget, and the plots show gaps against the three-class optima for both datasets. The ten-class comparison is missing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The caption mentions an edge-only lower bound for the three-class figure. It does not describe the ten-class truncations at degrees 2, 3, and 4 or the looser lower bound from maximum-weight coupling of pairwise binary optima."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the generalized Caro–Wei independent-set upper bound for hard and soft classifiers and its observed close agreement with the truncated lower bounds at small budgets."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits how computational cost grows with budget, sample size, and class count. It also omits the interpretation of the gap as robust fit to the training data and the open problem of closing it while maintaining generalization."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "All nine items have missing conditions or context. The approximate CIFAR-10 losses of 0.6 and near zero are consistent with the curves at the low end of the plotted budgets. The editable result contains ϵ, but the export displays a square in its place. That is a glyph-rendering defect. The plot ticks and legends are small, and L∗(2), L∗(3), and AT take effort to connect to the caption. The section headings give a clear reading path, though the prominent results panel draws attention before the method."
+}

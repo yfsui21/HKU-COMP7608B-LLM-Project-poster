@@ -1,0 +1,10 @@
+{
+  "paper": "paper-082.pdf",
+  "area": 1,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-082\\paper-082\\area-1\\joint",
+  "status": "generation_failed",
+  "ratings": [],
+  "error": "Unverifiable source plan after two attempts: Source passage missing for method",
+  "elapsed_s": 51.39
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks both whether a network can predict occluded or out-of-view correspondences and whether those predictions improve absolute pose estimation. The adjacent Method section supplies the partially overlapping image condition."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The Method gives the inputs, describes a target-plane probability distribution in general terms, and distinguishes visible, occluded, and out-of-view cases. It omits the shared CNN, learned target descriptor padding, and cross-attention with positional encoding. It also leaves the per-source-keypoint output implicit and does not name identification, inpainting, or outpainting."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits Neural Reprojection Error, the negative log-likelihood at the geometrically reprojected location, the use of ground-truth source depths and relative camera poses, and the fact that all three tasks train without visibility-class labels."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster mentions ScanNet only for the pose result. It omits the held-out correspondence evaluations on ScanNet and MegaDepth, their respective roles as indoor and outdoor training datasets, the qualitative transfer examples on NYU Depth and ETH-3D, and the protocol of 2,500 test pairs per dataset with 2% to 80% overlap."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits both held-out correspondence results on ScanNet and MegaDepth: lower NRE than a uniform map and argmax pixel errors below the mean random-prediction error for all three tasks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "LoFTR, DRCNet, and S2D appear in the pose figure legend. The poster omits their inpainting and outpainting comparison on ScanNet and MegaDepth, the percentage-within-pixel-distance metric, and the restriction of local matching to the target image boundaries."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Figure 13 shows threshold sweeps for ScanNet pairs with 2% to 5% overlap and includes identity and feature-matching baselines. The poster omits the 2,500 held-out pairs, the use of source depth and NeurHal correspondence maps, scoring over cumulative overlap ranges from 2% to x%, and the threshold pairs of 1.5 m with 20° and 1.0 m with 15°."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports a low-overlap advantage. It omits the overall improvement in robustness, the evidence that the advantage was largest at low overlap, the ablation finding that outpainting drove that gain and inpainting added little, and the slight advantage of local matching at high overlap."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The limitations text ends mid-reference after mentioning the quadratic complexity of attention. It omits the precision limits of low-resolution maps, the reach imposed by finite padding, the potentially less peaked inpainting maps, and the caveat about noisy MegaDepth inpainting labels."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "AI review from an MSc-reader perspective using the supplied export, editable text, and checklist. The 2% to 5% range is stated for the Figure 13 threshold sweep. The broader protocols and fixed threshold pairs are missing coverage. The limitations sentence ends at the same point in the editable text and export, so it counts as incomplete copy. Section headings are clear, while the plot ticks, legend, and source note are small at the supplied size. The title, question, method, and result are easy to locate, though the large blank area separates the main content from the limitations footer."
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question conveys finite-patch training, an arbitrarily large field of view, global coherence, and realistic appearance."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "Both stages are named, but coordinate conditioning, global appearance, local latent variation, and fine-grained noise are omitted."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The table shows constant inference memory for InfinityGAN, but the poster does not explain pixel agreement across independent queries, seamless patch assembly, or the patch-by-patch condition."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Flickr-Landscape is named and the table gives sizes of 101 and 197. The poster omits the 450,000-image dataset count and does not explicitly describe training on 101×101 crops from 197×197 images."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table lists all five comparators, using abbreviations for the StyleGAN2 variants. The caption gives the 128-to-197 resize sequence but omits the 197/128 test-output scaling and its field-of-view purpose."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table separates training FID from ScaleInv FID, but the poster omits the bilinear downsampling procedure, the assumed landscape self-similarity, and the lack of real large-field-of-view references."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The lowest ScaleInv FID at 4× and 8× is correctly reported. The caption alludes to a disadvantageous setting but does not explain how differences in training crop field of view and resolution limit absolute FID comparisons."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption reports over 90% preference generally, but does not explicitly tie that result to each reported comparison at both scales. The forced-choice format, judging criteria, and participant, query, and sample counts are omitted."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "Neither the artifacts from composing landscapes at different scales nor the tree-like content in generated skies is reported."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The section headings make the path from question to method to result clear. The embedded table uses small type, and NCI and ScaleInv FID are unexplained, making the evidence harder to interpret. The visible table supports the highlighted numerical comparison. Checklist deductions reflect omitted details and qualifications."
+}

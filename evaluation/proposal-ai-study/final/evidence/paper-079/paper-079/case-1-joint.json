@@ -1,0 +1,133 @@
+{
+  "paper": "paper-079.pdf",
+  "area": 1,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-079\\paper-079\\area-1\\joint",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question identifies near-real-time monitoring of the global ocean carbon sink and the one-year lag in annual Global Carbon Budget estimates. The adjacent method specifies monthly global grids, supplying the temporal and geographic detail."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster gives the correct counts and budget edition. It omits the December 2021 cutoff and does not explicitly identify the historical inputs as monthly surface ocean fCO₂ or the eight products as observation-based."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster names convolutional neural networks and semi-supervised learning. It omits the nonlinear relationship to each benchmark’s surface ocean fCO₂, the supervised prediction error, and the consistency loss between weakly and strongly feature-masked inputs."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster gives the two variables, monthly global coverage, and the correct date range. It omits the 1° × 1° resolution and the availability of estimates for each of the 18 benchmarks."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The result uses µatm for fCO₂ differences. The poster omits the flux density units, the bulk calculation and its inputs, and the positive-flux convention."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster identifies the 2020–2021 prediction period and compares predictions with original outputs for the GOBM average. It omits the 2000–2019 training period and the comparison with each individual benchmark’s original outputs for the same months."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster describes spatial agreement. It omits the fCO₂ correlation analysis and the finding that most benchmark comparisons had R² above 0.9."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster reports spatial differences for benchmark-group averages. It omits the global monthly mean seasonal agreement, the slight positive bias, and the finding that most differences were below 3 µatm."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the difficulty of predicting extremes, the larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN accuracy."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The visible figure and caption agree on the 12 monthly maps and latitude profiles for the 10-GOBM average. The key finding also discusses the eight data products, whose results are not shown in this figure. The supplied checklist does not independently verify the under-10 µatm spatial claim. Its under-3 µatm threshold concerns global monthly means, so the two numbers do not establish a contradiction. Poster headings are clear, but the figure’s axis labels and legend are small at the exported scale. The title, section headings, and caption establish a clear reading order. This is an AI review of the supplied image and text."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question identifies near-real-time monitoring and the one-year lag. The method supplies the monthly cadence and geographic resolution by describing monthly global grids."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method names Global Carbon Budget 2022 and gives the correct counts. It omits that the historical benchmarks were monthly surface-ocean fCO₂ outputs available through December 2021 and that the eight products were observation-based."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method names convolutional neural networks and semi-supervised learning. It omits the nonlinear relationship learned for each benchmark and both training loss components, including the comparison between weakly and strongly feature-masked inputs."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The method gives both variables, monthly global coverage, and the correct dates. It omits the 1° × 1° grid spacing and the separate estimates for each of the 18 benchmarks."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The result uses µatm for fCO₂ differences. The poster omits the flux density units, the positive-flux convention, and the four inputs to the bulk flux calculation."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The result gives the 2020–2021 comparison period. It omits the 2000–2019 training period, the held-out status of 2020–2021, and the comparison with each benchmark's original outputs for the same months."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The result describes agreement in spatial patterns. It omits the fCO₂ correlation analysis and its finding that most benchmark comparisons had R² above 0.9."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster reports spatial agreement for 2020–2021. It omits the global monthly mean findings on reproduced seasonality in both groups, the slight positive bias, and most differences being below 3 µatm."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits reduced accuracy for extremes, larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The title, headings, and main text are readable. The figure’s axis labels, color scale, and legend are difficult to read at the supplied size. The question and method read naturally down the left column, though the larger result panel can draw attention before the method. Expanding GOBMs where it first appears and explicitly linking fCO₂ to CO₂ fugacity would help a reader new to the topic. The 10 µatm statement concerns spatial differences, while the checklist’s 3 µatm threshold concerns global monthly means. The supplied checklist does not independently verify the spatial threshold. The caption identifies the figure as the 10-model average, so the figure itself illustrates that group."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-079\\paper-079\\area-1\\joint\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Figure 11\", \"problem\": \"The latitude ticks, profile axes, color scale values, and legend are difficult to read at poster size. The caption correctly identifies the figure as the comparison for the 10-GOBM average. The cited passage supports the under-10 µatm result for both ensemble averages.\", \"change\": \"Trim the white margins and enlarge the figure into the available space below. Reflow the monthly panels into fewer columns if needed, using a vector or high-resolution source with readable axis labels, scale values, and legend text.\"}]",
+  "elapsed_s": 259.42
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question states the monthly tracking goal and one-year lag, but omits geographic resolution and the annual cadence of the Global Carbon Budget estimates."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method gives the correct benchmark counts and budget edition, but does not identify the historical inputs as monthly surface ocean fCO2 through December 2021 or specify that the eight products are observation-based."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method identifies semi-supervised convolutional neural networks and nonlinear learning, but omits the per-benchmark surface ocean fCO2 target and the training losses for supervised prediction and consistency between weakly and strongly masked inputs."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The method gives the variables, monthly global coverage, and correct dates, but omits the 1° × 1° resolution and the availability of estimates for each of the 18 benchmarks."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The result and plot use µatm for fCO2, but the poster omits the flux-density units, bulk calculation and its inputs, and the positive-flux direction."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The caption identifies the 2020–2021 monthly comparisons with original GOBM outputs. The poster omits the 2000–2019 training period and does not describe the held-out comparison against each data product's original outputs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The figure shows per-panel R² values for the GOBMs, but the poster does not report that most benchmark comparisons exceeded 0.9 or attribute that finding to the fCO2 correlation analysis."
+    },
+    {
+      "id": "C08",
+      "met": true,
+      "reason": "The result states the period, global monthly mean seasonality across both benchmark groups, generally higher predictions, and differences mostly below 3 µatm."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the reduced accuracy for extremes, larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN accuracy."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The poster headings and body text are clear, but the figure's axis labels, legend, and fit statistics are small at the supplied export size. The title, left-column question and method, and right-column finding, figure, and caption have a clear reading order. Figure 7 matches its caption and shows the 10 GOBMs. The finding also covers data products, which cannot be checked from the displayed panels alone. Missing scientific details are counted in checklist coverage."
+}

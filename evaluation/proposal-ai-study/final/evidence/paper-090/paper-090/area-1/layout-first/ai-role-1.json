@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether token-level highlighting helps users spot where to edit. It omits the explicit comparison between highlighting likely edits and highlighting low-probability tokens."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method states what the edit model predicts but omits the preliminary data from nine coders who corrected Codex outputs until the tasks were completed properly."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster gives the sample size and the number and difficulty of the LeetCode tasks. It omits the employer context, participants’ Python experience, and randomization of task order and tool-to-task assignments."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster identifies the shared Codex model, the three conditions, and both thresholds. It omits that the thresholds were chosen to match the total highlight counts across the three tasks."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The finding gives all three mean times and both p-values, distinguishes the significant comparison from the one that fell short of significance, and pairs with panel (a), whose caption states the 10-minute cap."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Panel (b) shows bars consistent with the five survival rates, but the exact values are unlabeled. The poster also omits the definition of survival as a token remaining untouched and the connection to more localized editing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Panel (c) shows higher preference for Edit model highlights on an axis from 1 to 7. The exact means, p-value, three rating topics, and reverse coding of distraction are omitted."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits that the edit model was trained on the evaluated completions and that comparable effects on unseen tasks with a general-purpose model remain unverified."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster does not state that more accurate human oversight and reduced automation bias remain untested."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The section headings and main text are clear, but the figure’s axis labels, condition names, and legend are small at the supplied image size. The title leads into the question and method on the left, with the finding directly above its figure and caption on the right. The unlabeled bar heights in panels (b) and (c) support approximate comparisons. Exact values cannot be verified visually."
+}

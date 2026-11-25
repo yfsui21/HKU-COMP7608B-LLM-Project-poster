@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining useful color cues, but omits generalization to underrepresented colors."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes input-layer weight sharing across discrete hue rotations, but does not explain that hue is stored along a feature-map dimension that shifts with the input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Neither ColorMNIST task is described. The long-tailed task's class definition and train–test balance, and the biased task's use of hue dispersion, are missing."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The ColorMNIST comparison models, approximate parameter matching, primary no-augmentation condition, and averaging over ten initializations are missing."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table has eight benchmark columns, several with abbreviated names. The poster does not specify ResNet-44 for CIFAR and ResNet-18 for the other benchmarks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table shows rows with and without jitter and includes CIConv-W and AugMix. The poster does not explain the full and early-stage hybrid CE-ResNet configurations, approximate parameter matching, or the use of three discrete hue rotations."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The table separates original and hue-shifted test results, but the poster does not say that the latter are mean accuracies over shifts from −180° to +180°. No hue-response curve is shown."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption reports comparable original-test accuracy and improved hue-shift robustness, and the headline gives a Flowers example. The poster omits that gains were generally stronger without training jitter, does not explain how jitter complements the method, and does not qualify the overall result by dataset and model variant."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the increased compute cost, the possible capacity loss from narrowing networks to match parameters, and the approximate equivariance caused by clipping or reprojection after RGB rotation."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, and key finding are easy to follow. The dense table uses small type and abbreviated benchmark labels that may slow a first-time reader. The headline's Flowers values match the CEConv and Baseline entries in the hue-shifted section. No numeric or figure mismatch is visible in the supplied evidence. The checklist deductions reflect omitted scientific details."
+}

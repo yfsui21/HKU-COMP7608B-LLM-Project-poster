@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question gives the minimization objective, fixed discrete dataset, and test-time attacker. It does not specify worst-case loss under a defined perturbation model or identify the classifier as soft in the question."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies examples as vertices and mentions cross-class neighborhood overlap, but does not require distinct labels within each hyperedge and a single point common to all its neighborhoods."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method mentions a linear program for soft classifiers but omits the weighted objective, nonnegativity, per-hyperedge sum constraint, and exact achievable loss as one minus the maximum."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The figure gives the class IDs, but the poster omits the CIFAR-10 class names, the 1,000 samples per class, and use of the full training sets for the ten-class bounds."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The figure plots loss across ε and the finding names TRADES. The poster omits the ℓ₂ norm and identifies the evaluation only as APGD, without specifying APGD-CE from AutoAttack."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The finding reports a large gap for one three-class CIFAR-10 comparison, but omits the gap relative to the ten-class bounds and does not explicitly identify the comparison budget as small."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The caption explains the edge-only bound in the three-class figure, but omits the ten-class truncation degrees, binary-optimum coupling, and relative tightness."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The generalized Caro–Wei upper bound, its applicability to hard and soft classifiers, and its observed agreement with truncated lower bounds at small budgets are absent."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits computational scaling, the interpretation as robust fit to training data, and the open problem of closing the gap while maintaining generalization."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The exported finding shows a square where the editable text has ϵ. Plot ticks and legends are small but readable at the supplied resolution. The title, question, method, and finding are easy to follow. The CIFAR-10 plot supports the approximate 0.6 versus near-zero comparison at the low end of the plotted budgets. The finding does not identify a specific ε value. The checklist locates supporting passages for the question and hypergraph on pp. 2 and 3, while both poster headings cite p. 1. The supplied excerpts do not establish whether p. 1 also supports those statements, so those references were not counted as wrong numbers."
+}

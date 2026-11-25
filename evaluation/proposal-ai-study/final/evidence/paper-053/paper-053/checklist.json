@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: how can a dataset collected by a moving robot capture real-world pedestrian–robot interactions and support pedestrian perception and motion prediction for social navigation?",
+      "page": 2,
+      "quote": "reflects\nthe interactive behaviors between pedestrians and a mobile robot in the real world"
+    },
+    {
+      "id": "C02",
+      "requirement": "Describe collection by a manually operated robot in crowded indoor and outdoor locations in Seoul, with two 3D LiDARs and five cameras synchronized by a pulse-per-second trigger and providing 360-degree camera coverage.",
+      "page": 5,
+      "quote": "we employed a pulse per second (PPS) signal generator to trigger two 3D LiDARs and five cameras."
+    },
+    {
+      "id": "C03",
+      "requirement": "Report the dataset scale of 60 scenes, 60K images, and 12K point-cloud frames, with 20-second sequences sampled at 10 Hz. Identify the 2D and 3D box annotations, object IDs, and multilayer semantic maps.",
+      "page": 3,
+      "quote": "Our entire dataset comprises 60 scenes, totaling 60K images and 12K point cloud frames."
+    },
+    {
+      "id": "C04",
+      "requirement": "Explain that pedestrian trajectories compensate for robot ego-motion and that training, validation, and test subsets contain different scenes.",
+      "page": 6,
+      "quote": "We split\nthe dataset so that each subset encompasses different scenes."
+    },
+    {
+      "id": "C05",
+      "requirement": "Report that SiT has more trajectory instances meeting both interaction criteria than Waymo Open, Argoverse 2, and nuScenes. Define the criteria as occupying the same semantic space and being within 2 meters of the robot or ego vehicle.",
+      "page": 7,
+      "quote": "the SiT dataset exhibits a significantly higher number of\ninstances that satisfy these two conditions compared to the other three autonomous driving datasets."
+    },
+    {
+      "id": "C06",
+      "requirement": "Identify the 3D detection baselines FCOS3D, PointPillars, CenterPoint, and TransFusion, and the tracking baselines AB3DMOT with PointPillars or CenterPoint detections and the CenterPoint tracker. Specify that detection mAP averages center-distance AP at 0.25, 0.5, 1.0, and 2.0 meters, and that tracking uses sAMOTA, AMOTA, AMOTP, MOTA, MOTP, and identity switches.",
+      "page": 8,
+      "quote": "we adopt AP based on the distance metric using the thresholds of\n0.25, 0.5, 1.0, and 2.0m."
+    },
+    {
+      "id": "C07",
+      "requirement": "Describe the trajectory forecasting protocol using 2 seconds of history and 7 seconds of future motion, with minimum ADE and FDE over 5 and 20 candidates. Name Social-LSTM, Y-Net, and NSP-SFM, and report that semantic maps reduced displacement errors for Y-Net and NSP-SFM in the reported comparisons.",
+      "page": 9,
+      "quote": "we confirm the benefit of utilizing scene contexts\nfor trajectory prediction."
+    },
+    {
+      "id": "C08",
+      "requirement": "Describe the end-to-end benchmark as predicting future 3D boxes and associated trajectories from raw sensor data over 7 seconds. Identify Fast and Furious and the two FutureDet variants, and distinguish standard mAP, forecasting mAP, ADE at five candidates, and FDE at five candidates in the reported comparison.",
+      "page": 8,
+      "quote": "the models take raw\nsensor data as input and generate future 3D bounding boxes"
+    },
+    {
+      "id": "C09",
+      "requirement": "State the authors’ dataset-scale limitation: time constraints prevented collection at the scale of hundreds of thousands of frames.",
+      "page": 9,
+      "quote": "we were unable to scale the size of the dataset up to hundreds\nof thousands of frames due to time constraints."
+    }
+  ]
+}

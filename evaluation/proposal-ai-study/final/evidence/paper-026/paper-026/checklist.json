@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: does explicitly modelling the clinical observation process improve in-hospital survival prediction after the first 24 hours of ICU admission and make predictions more robust to changes in how tests are ordered?",
+      "page": 2,
+      "quote": "how a shift in the observation process might impact performance and how explicit modelling of\nclinical presence might offer more robust medical models."
+    },
+    {
+      "id": "C02",
+      "requirement": "Describe DeepJoint as a multitask model that shares an LSTM representation across three clinical presence tasks (Gaussian prediction of lab values, temporal point-process modelling of time to the next observation, and Bernoulli modelling of which tests are observed) and a DeepSurv proportional hazards head.",
+      "page": 4,
+      "quote": "An LSTM network extracts an embedding h which is leveraged to model the clinical presence\nmechanisms"
+    },
+    {
+      "id": "C03",
+      "requirement": "Identify the cohort as 30,834 adults from the single-centre MIMIC III dataset who survived at least 24 hours after ICU admission and had each of the 17 selected laboratory tests measured at least once in that window.",
+      "page": 6,
+      "quote": "This leads to a subset of 30,834 patients\nwith 17 different laboratory tests"
+    },
+    {
+      "id": "C04",
+      "requirement": "Name the comparison methods Last, Count, Ignore, Resample, GRU-D and Feature. Specify last-observation-carried-forward imputation with patient-specific test means for remaining gaps and the use of DeepSurv across methods. Distinguish Feature, which adds missingness indicators and elapsed time as inputs, from DeepJointFeature, which also jointly models clinical presence.",
+      "page": 7,
+      "quote": "last observation carried forward data with\npatient-mean imputation"
+    },
+    {
+      "id": "C05",
+      "requirement": "Specify the random 90%/10% patient-level train/test split, the use of the last observation within the first 24 hours to generate survival predictions, and evaluation with time-dependent C-index and Brier score at 1, 7 and 14 days after the observation period, with 95% confidence intervals from 100 test-set bootstrap iterations.",
+      "page": 7,
+      "quote": "using time-dependent C-index [51] and Brier score [52] evaluated at time horizons of 1, 7 and 14\ndays after the observation period."
+    },
+    {
+      "id": "C06",
+      "requirement": "Describe transfer in both directions between weekday and weekend admission groups. For each direction, compare a transferred model with a model trained in the target group on the same held-out target test set. Define weekdays as Monday 8 a.m. to Saturday 8 a.m. and state that weekend training data were oversampled to match weekday training size.",
+      "page": 8,
+      "quote": "The two resulting models are comparable as\nthey are applied to the same test set."
+    },
+    {
+      "id": "C07",
+      "requirement": "Report that DeepJointFineTune achieved the highest 1-day C-index on the random split (0.878), with 0.862 for DeepJoint and 0.873 for both Feature and DeepJointFeature. State that discrimination differences narrowed at longer horizons and Brier scores were similar across methods.",
+      "page": 17,
+      "quote": "DeepJointFineTune 0.878 (0.003) 0.751 (0.002) 0.700 (0.002)"
+    },
+    {
+      "id": "C08",
+      "requirement": "Report that DeepJointFeature combined strong discrimination with relatively stable performance under weekday–weekend transfer, while Feature was sensitive to the shift and the fully fine-tuned variant was prone to overfitting. Qualify the robustness claim by horizon and transfer direction.",
+      "page": 9,
+      "quote": "DeepJointFeature\npresents better property under this clinical presence shift with robust discriminative performance."
+    },
+    {
+      "id": "C09",
+      "requirement": "Limit the robustness conclusion to the laboratory-test cohort and the within-hospital shift studied. Note the need for external validation, the omission of competing risks, and the assumption of independence between patients.",
+      "page": 10,
+      "quote": "this focuses on one\nhospital, external validation would allow the quantification of the methodology’s robustness under\ndifferent shifts."
+    }
+  ]
+}

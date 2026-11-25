@@ -1,0 +1,133 @@
+{
+  "paper": "paper-032.pdf",
+  "area": 0.75,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-032\\paper-032\\area-0.75\\joint",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question links training on finite patches to generating realistic, globally coherent images with an arbitrarily large field of view."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method names both stages but omits coordinate conditioning, global appearance, local latent variation, the local features passed between stages, and fine-grained noise."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "Table 1 gives constant inference memory for InfinityGAN. The poster omits how independent queries return consistent pixels at the same location and how patchwise generation enables seamless assembly with constant memory."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster names Flickr-Landscape and Table 1 lists full and training sizes of 197 and 101. It omits the 450,000-image dataset size and does not explicitly describe the 101×101 crops from 197×197 images."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "Table 1 lists all five comparators, using abbreviations for the StyleGAN2 variants. The caption gives the 128-to-197 resizing sequence but omits the 197/128 test-output scaling used to align fields of view."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "Table 1 labels training FID and ScaleInv FID separately. The poster omits bilinear downsampling to training-data size, the landscape self-similarity assumption, and the lack of large-field-of-view real references."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The headline correctly reports the lowest ScaleInv FID at 4× and 8×. The caption mentions a disadvantageous setting but does not explain how differences in training-crop field of view and resolution limit direct comparisons of absolute FID."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The caption reports over 90% preference overall, and the table supports that threshold in each comparison with reported values at 4× and 8×. The poster omits the two-alternative forced-choice design, the realism and structural plausibility criteria, and the participant, query, and sample counts."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits artifacts from composing landscapes at different scales and tree-like content in generated skies associated with foliage near the top of training photos."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The headline's 4× scores match Table 1, and the caption is associated with the displayed table. The table's small headers and dense entries need close inspection at the supplied image size. The title, left-column question and method, and right-column result, table, and caption have a clear reading order. Layout counts apply to the visible export."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question captures training on finite patches, arbitrarily large fields of view, and both realism and global coherence."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method names both stages and their roles. It omits coordinate conditioning, global appearance, local latent variation, the local features passed between stages, and fine-grained noise."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The table indicates constant inference memory. The poster does not explain how consistent pixel values across independent spatial queries enable seamless patch assembly and constant memory during patchwise generation."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster names Flickr-Landscape, and the InfinityGAN row lists 101 under Train and 197 under Full. The poster omits the 450,000-image dataset size and leaves the crop relationship implicit."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The table lists all five comparator rows using abbreviated variant names, and the caption gives the 128-to-197 resize sequence. The poster omits the explanation that test dimensions are scaled by 197/128 to align fields of view."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The table separates training FID from ScaleInv FID. The poster omits bilinear downsampling to training-data size, the landscape self-similarity assumption, and the lack of real large-field-of-view references."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The headline correctly reports the lowest ScaleInv FID at 4× and 8×. The caption mentions a disadvantageous setting without explaining how differences in training crop field of view and resolution limit direct comparison of absolute FID values."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The caption gives the over-90% preference headline, and the table supports it for each reported comparison at both extensions. The poster omits the two-alternative forced-choice design, the realism and structural plausibility criteria, and the counts of 50 participants, 30 queries per participant, and 16 random samples per method per query."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits both reported failure modes: artifacts from mixing landscape scales and tree-like content appearing in generated skies."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "AI review based on the supplied export and editable text. The visible Table 1 supports the headline and its numeric comparison. Missing scientific conditions affect checklist coverage. Section headings are clear and the path from question and method to result and evidence is easy to follow. Small table headers and entries take effort to read at the supplied image size, and ScaleInv FID and NCI are unexplained."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-032\\paper-032\\area-0.75\\joint\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Table 1\", \"problem\": \"The column headings and numerical entries are small at poster size, making the 4× and 8× ScaleInv FID comparisons difficult to verify.\", \"change\": \"Trim the white margins and enlarge the table within the available space so the method names, column headings, and scores can be read at poster size.\"}, {\"target\": \"Table 1 caption\", \"problem\": \"The line-break hyphen in the supplied caption appears as an internal hyphen and space in “Infinity- GAN.”\", \"change\": \"Render the model name as “InfinityGAN.”\"}]",
+  "elapsed_s": 262.66
+}

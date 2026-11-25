@@ -1,0 +1,23 @@
+[
+  {
+    "label": "accepted",
+    "paper": "paper-053.pdf",
+    "area": 1,
+    "condition": "joint",
+    "path": "examples/accepted"
+  },
+  {
+    "label": "rejected",
+    "paper": "paper-038.pdf",
+    "area": 1,
+    "condition": "joint",
+    "path": "examples/rejected"
+  },
+  {
+    "label": "missing-score",
+    "paper": "paper-098.pdf",
+    "area": 1,
+    "condition": "joint",
+    "path": "examples/missing-score"
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question connects training on finite patches to generating arbitrarily large fields of view with realistic appearance and global coherence."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The two stages are named, but the poster omits coordinate conditioning, global appearance, local latent variation, the features passed between stages, and fine-grained noise."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The table lists constant inference memory for InfinityGAN, but the poster does not explain consistent pixel values across independent queries, seamless assembly, or the patch-by-patch generation condition."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster names Flickr-Landscape, and the table lists full and training sizes of 197 and 101. It omits the 450,000-image dataset size and does not explain that the 101×101 training patches are cropped from 197×197 images."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table lists all five comparators, and the caption gives the 128-to-197 resizing sequence. The poster does not expand NCI or PFG or explain that InfinityGAN's test outputs are generated at 197/128 times the baseline dimensions to align fields of view."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table separates training FID from ScaleInv FID, but the poster does not explain bilinear downsampling to training-data size, the landscape self-similarity assumption, or the lack of real large-field-of-view references."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The headline correctly identifies the lowest ScaleInv FID at 4× and 8×. The caption calls the setting disadvantageous without explaining how differences in training crop field of view and resolution limit direct comparisons of absolute FID."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption reports over 90% preference, and the table shows baseline preference rates below 10% wherever reported at 4× and 8×. The poster omits the two-alternative forced-choice format, the realism and structural plausibility criteria, and the counts of 50 participants, 30 queries per participant, and 16 random samples per method per query."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits both failure modes, including artifacts from composing landscapes at different scales and tree-like content appearing in the generated sky."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "AI review based on the supplied export and editable text. The question, method, and finding are easy to locate. The table labels and values are small at the supplied image size, and the unexplained terms ScaleInv FID, NCI, and PFG make the evidence harder to interpret. The caption's awkward phrasing also slows reading. The headline's 4× scores match the table. The preference columns contain dashes for the patched baseline, so no result is inferred for those cells."
+}

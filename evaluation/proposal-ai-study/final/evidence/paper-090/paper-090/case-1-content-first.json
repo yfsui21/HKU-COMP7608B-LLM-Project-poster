@@ -1,0 +1,133 @@
+{
+  "paper": "paper-090.pdf",
+  "area": 1,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-090\\paper-090\\area-1\\content-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks whether token-level highlighting helps users identify edits, but omits the explicit comparison between highlighting likely edits and highlighting low-probability tokens."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster states what the edit model predicts but omits the preliminary data from nine coders who corrected Codex outputs until the tasks were completed properly."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster reports 30 participants and three easy LeetCode tasks. It omits the participants’ employment context and Python experience, along with randomization of task order and tool-to-task assignments."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster identifies Davinci-002 Codex, all three conditions, and both thresholds. It omits that the thresholds matched total highlight counts across the three tasks for the two highlighting conditions."
+        },
+        {
+          "id": "C05",
+          "met": true,
+          "reason": "The poster gives all three means with the correct conditions and distinguishes the significant advantage over Generation probability from the comparison with Prediction only. The figure caption states the 10-minute cap."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "Panel (b) shows survival bars by condition and highlight status, with heights consistent with the checklist at the displayed resolution. The poster does not explicitly give the five values, define survival as a token remaining untouched, or connect the pattern to more localized editing."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "Panel (c) shows higher preference for Edit model, with bar heights consistent with the checklist at the displayed resolution. The poster does not explicitly report the exact means, p-value, or survey item wording and reverse coding."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits that the edit model was trained on the evaluated completions and that comparable effects on unseen tasks remain unverified."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits that effects on the accuracy of human oversight and on automation bias remain untested."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The figure caption correctly associates panels (a), (b), and (c) with task time, token survival, and preference. The inset axis labels, condition labels, and legend are small at the supplied resolution, and the bar heights support approximate comparisons only. The title and section headings make the reading order clear. Counts reflect observed errors. Missing scientific details are recorded in the checklist decisions."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks whether token-level highlighting helps users identify what to edit. It omits the explicit comparison between highlighting likely edits and highlighting low-probability tokens."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method describes what the edit model predicts but omits the preliminary data from nine coders who corrected Codex outputs until the tasks were completed properly."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster gives the sample size and the number and difficulty of the tasks. It omits the participants’ employment at a large US technology company, their Python experience, and randomization of task order and tool-to-task assignments."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The method identifies Davinci-002 Codex, all three presentation conditions, and both thresholds. It omits that the thresholds were chosen to match total highlight counts across the three tasks."
+        },
+        {
+          "id": "C05",
+          "met": true,
+          "reason": "The result gives all three mean times with the correct conditions and distinguishes the significant advantage over Generation probability from the comparison with Prediction only. The caption gives the 10-minute cap."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "Panel (b) visually shows the expected survival pattern. The poster leaves the exact rates to be estimated from the bars, does not define survival as a token remaining untouched, and does not explain how the pattern indicates more localized editing."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "Panel (c) shows higher preference for Edit model highlights and a scale ending at 7. The poster omits the exact means, p-value, item topics, and reverse-coding of distraction."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits that the edit model was trained on the same completions evaluated in the study and that comparable effects on unseen tasks remain unverified."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits that more accurate human oversight and reduced automation bias remain untested."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The title and section headings are easy to scan. The three figure panels have small axis labels, condition names, and legend text that are difficult to read at the supplied size. The question-to-method sequence is clear, though the prominent results panel may draw the eye before the method. Bar heights appear consistent with the checklist at the available resolution, which does not support checking exact values from the bars alone. This assessment is an AI review."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-090\\paper-090\\area-1\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Figure 1\", \"problem\": \"At the supplied poster size, the axis labels, condition names, tick labels, and panel (b) legend are difficult to read. Wide white margins inside the figure and unused space below the caption leave room to enlarge the plots.\", \"change\": \"Trim the figure’s outer margins and enlarge the three plots within the key finding panel. Keep the panel letters and caption together.\"}]",
+  "elapsed_s": 196.39
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether highlighting helps programmers identify code to review. It omits the effect on editing and the comparison between highlighting likely edits and highlighting low-probability tokens."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies likely edits as the prediction target. It omits the preliminary data from nine coders who corrected Codex output until the tasks were completed properly."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster gives the sample size and three easy LeetCode tasks. It omits the participants’ employment at a large US technology company, Python experience, and randomization of task order and tool-to-task assignments."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The shared Codex model, three conditions, and thresholds are present. The poster omits that the thresholds matched total highlight counts across the three tasks for the two highlighting conditions."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The three means and both p-values are correct, and the caption gives the 10-minute cap. The text omits the distinction between the significant advantage over Generation probability and the trend versus Prediction only."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Panel (b) shows the survival pattern, but the poster gives no exact rates, does not define survival as a token remaining untouched, and does not connect the pattern to more localized editing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Panel (c) shows higher preference for Edit model highlights on an axis ending at 7. The exact means, p-value, item topics, and reverse coding for distraction are absent."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits that the edit model was trained on the same completions evaluated in the study and that comparable effects on unseen tasks with a general-purpose model remain unverified."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits that the study left untested whether the observed benefits translate into more accurate human oversight or reduced automation bias."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "AI review of the supplied export and editable text. The title and section hierarchy make the reading order clear. The figure’s axis labels, condition names, and legend are small at the supplied resolution. Bar heights support the reported directions, with limited precision for verifying exact values. The caption correctly identifies all three panels."
+}

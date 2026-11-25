@@ -1,0 +1,133 @@
+{
+  "paper": "paper-038.pdf",
+  "area": 1,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-038\\paper-038\\area-1\\content-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers train–test color shifts and retaining color cues for recognition, but omits generalization to underrepresented colors."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method describes input-layer weight sharing and tracking discrete hue rotations, but does not explain that hue occupies a feature-map dimension that shifts with input hue."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "Neither ColorMNIST task is described. The digit-and-color labels, imbalanced training and balanced testing, and the role of hue dispersion are absent."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The ColorMNIST comparators, approximate parameter matching, primary comparison without augmentation, and averaging over ten random initializations are absent."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "Table 1 shows eight benchmark columns, several with abbreviated labels, but the poster omits which benchmarks use ResNet-44 and which use ResNet-18."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "Table 1 shows the baseline, CEConv variants, CIConv-W, and jitter and AugMix conditions. The poster does not identify the full and early-stage hybrid architectures, approximate parameter matching, or the use of three discrete hue rotations."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The table separates original and hue-shifted test results, and the callout identifies the Flowers result as an average. The poster omits the −180° to +180° sweep and does not define the hue-shifted metric across the table as a mean over that sweep. No hue-response curve is shown."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The caption reports comparable original-test accuracy and improved hue-shift robustness, and the callout gives one dataset and variant comparison. The poster does not explain the stronger gains without training jitter, the complementary role of jitter, or how gains vary across datasets and variants."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits increased compute cost, the potential capacity loss from narrowing networks to match parameters, and approximate equivariance due to clipping or reprojection after RGB rotation."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 4,
+      "reading_order_1_5": 5,
+      "notes": "The Flowers callout matches the hue-shifted rows in the displayed Table 1. The question heading cites p. 1 while the frozen checklist locates its supporting passage on p. 2. The supplied evidence does not establish whether p. 1 also supports the question. The table labels are readable at the supplied image size, though the dense rows and small footer take closer inspection. AI review based on the supplied export and editable text."
+    },
+    {
+      "role": 2,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers train–test color shifts and retaining color cues for recognition, but omits generalization to underrepresented colors."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method states input-layer weight sharing and mentions discrete hue rotations, but does not explain that the feature maps have a hue dimension that shifts with the input hue."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "Neither ColorMNIST task is described. The long-tailed train–test balance and the role of hue dispersion in the biased task are missing."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The ColorMNIST comparison models, approximate parameter matching, absence of augmentation in the primary comparison, and averaging over ten random initializations are missing."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The table shows eight benchmark columns, several with abbreviated labels. The poster omits the ResNet-44 and ResNet-18 assignments."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The table shows vanilla and CE variants, runs with and without jitter, and CIConv-W and AugMix comparisons. The poster does not explain which CE variant is full or early-stage hybrid, state approximate parameter matching, or specify three hue rotations."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The table distinguishes original from hue-shifted results, and the Flowers callout identifies its value as an average. The poster omits the −180° to +180° range. No hue-response curve is present, so axis labeling does not apply."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The caption gives the overall accuracy and robustness trends. It omits that the robustness gains were especially pronounced without training jitter, does not explain jitter as complementary, and does not qualify the gains by dataset and model variant."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the higher compute cost, the potential capacity loss from narrowing networks to match parameters, and the effect of clipping or reprojection on hue equivariance."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 4,
+      "reading_order_1_5": 5,
+      "notes": "The Flowers callout matches the displayed table for CEConv (33.33%) and Baseline (13.41%). The question is labeled p. 1 while the checklist cites p. 2. The supplied evidence does not establish whether p. 1 also supports the question, so this is not counted as a wrong number. The main headings and reading order are clear. The dense table, abbreviated benchmark labels, and small source note require closer reading. This is an AI review of the supplied image and editable text."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-038\\paper-038\\area-1\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Footer source label\", \"problem\": \"The footer calls the evidence a figure, while the displayed evidence and its caption identify it as Table 1.\", \"change\": \"Use “Source table / Table 1, p. 8” in the footer.\"}]",
+  "elapsed_s": 193.62
+}

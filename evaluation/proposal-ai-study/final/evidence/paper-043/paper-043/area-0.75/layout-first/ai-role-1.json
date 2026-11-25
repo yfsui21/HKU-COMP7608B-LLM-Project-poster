@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether two network samples came from the same distribution, but omits independent sampling."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster identifies the moments baseline and mentions empirical subgraph densities, but does not define injective homomorphism densities or explain that mappings use distinct nodes, preserve motif edges, and permit extra host edges."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method says subgraph densities are converted to cumulant estimates. It omits the adjustment for smaller motifs and the disjoint-union identity used to obtain unbiased estimates."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster reports equal computational complexity, but omits squared Mahalanobis distance, inverse weighting by the sum of the estimated covariances, connected motifs with r = 3, and covariance counts through order 2r."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster gives the simulated node counts, but does not identify the two stochastic block models, their equal-sized blocks and shared expected edge density, or their contrasting degree and community structures."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits both FunCoup species comparisons, edge-density matching by removing the lowest-weight edges, and node subsampling to obtain induced subgraphs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The figure labels AUC, but the poster does not explain how distance thresholds trace a ROC curve, how AUC summarizes it, or how power is measured at a specified false-positive rate."
+    },
+    {
+      "id": "C08",
+      "met": true,
+      "reason": "The key finding reports higher power for cumulants, especially with few graphs per sample, and states that the cumulant test worked with one graph per sample in the simulations."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The plotted moments series start at four graphs per sample, but the poster omits the graphon assumption, chi-square null calibration, stronger finite-sample agreement for cumulants, and the singular covariance estimates that prevented the r = 3 moments test from running below four graphs per sample."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The editable text matches the visible poster, and no numerical contradictions or figure mismatches are evident in the supplied materials. The figure plots AUC across sample sizes, so it supports the comparative performance trend without directly showing power at a fixed false-positive rate. Small diagonal annotations take more effort to read. The title, question and method, and key finding with its figure and caption form a clear reading sequence. This is an AI review of the supplied export and text."
+}

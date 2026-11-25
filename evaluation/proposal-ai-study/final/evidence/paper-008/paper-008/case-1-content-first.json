@@ -1,0 +1,133 @@
+{
+  "paper": "paper-008.pdf",
+  "area": 1,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-1\\content-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 2,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what causes instability in systems with feedback loops and whether algorithmic interventions can reduce it without additional data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster omits the offline MuJoCo setup, deterministic Soft Actor Critic demonstrations, one-step expert-action training objective, Walker2d-v4 example, and 900/100 trajectory split."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster discusses language-model loss and completion switching. It omits held-out behavior cloning loss, cumulative reward on 1,000-step Walker2d-v4 rollouts, the mean over 20 fixed initial conditions, and the contrast between consecutive-update reward swings and smooth validation loss."
+        },
+        {
+          "id": "C04",
+          "met": true,
+          "reason": "The finding conveys the core mechanism by linking small minibatch SGD updates to large changes in long-horizon rollouts through feedback. It leaves the name gradient variance amplification and the instability of the closed-loop dynamics implicit."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The poster omits the fresh independent trajectory control, architecture and regularizer checks, and the effects and computational cost of larger batches and aggressive learning-rate decay."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster expands EMA and compares EMA iterates with raw optimizer iterates for language switching. It does not explicitly identify model parameters as what is averaged or state that EMA reduced control rollout oscillations with the batch size and learning-rate schedule held fixed."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster gives the 270M TinyStories Transformer setup, defines greedy completion switching between consecutive checkpoints, and reports much less switching with EMA. It does not specify that the prompts are held-out prefixes. The figure and method distinguish switching from next-token prediction loss, though validation perplexity is not explicitly named."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia check, and the limitation that generation quality was not systematically assessed."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the milder oscillations on Ant and Humanoid, the risk of infrequent EMA updates, and the recommendation to update every iterate with burn-in and a tuned averaging schedule."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 1,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The figure's rows, checkpoint windows, and series broadly agree with the method and finding. The caption's final sentence, as written, treats <5% as a share of EMA iterates satisfying the preceding >50% disagreement condition. The plotted EMA line and headline instead describe the share of prompts that switch between consecutive EMA checkpoints. This is counted as a mismatch in metric interpretation. The caption also contains a broken checkpoint expression and a visible extraction artifact in the EMA notation. The exact reported means cannot be independently verified from the plotted lines or the supplied excerpts. Section headings are clear, but the plot ticks, legend, and caption are small in the export. The section hierarchy makes the reading order clear. This is an AI review of the supplied materials."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what causes instability in systems with feedback loops and how much algorithmic interventions can reduce it without additional data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster omits offline expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, Walker2d-v4, and the 900 training and 100 validation trajectory split."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster compares next-token loss with completion switching. It omits the Walker2d-v4 comparison of held-out one-step loss and cumulative reward on 1,000-step rollouts, including the mean over 20 fixed initial conditions and the swings in reward despite smooth validation loss."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The key finding describes small minibatch SGD updates producing large changes in long-horizon rollouts, but it does not identify gradient variance amplification or explain that minibatch gradient noise perturbs model parameters and that unstable closed-loop dynamics amplify those perturbations."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The poster omits the fresh-trajectory control, the architecture and regularizer comparisons, and the computational trade-off of larger batches and aggressive learning-rate decay."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster compares optimizer and EMA iterates and shows much less switching with EMA. It does not explicitly say that EMA averages model parameters or that the rollout oscillation reduction required no changes to batch size or the learning-rate schedule."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster identifies the 270M-parameter TinyStories Transformer, defines greedy completion switching between consecutive checkpoints, and reports lower switching with EMA separately from next-token loss. It does not specify that the prompts were held out or identify the distinction from validation perplexity."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia experiment, and the limitation that generation quality was not systematically assessed."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the milder oscillations on Ant and Humanoid, the possible failure of infrequent EMA updates, and the recommendation to update every iterate with an initial burn-in and a tuned averaging schedule."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The title and section headings are clear, and the layout supports a reading path from the question and method to the finding and figure. The plot ticks, axis labels, and legend are small at the supplied image size. The caption has visibly corrupted checkpoint and EMA notation, including a displaced minus sign and a literal '(cid:101)' token. Its final sentence also blurs the distinction between the fraction of prompts that switch and the fraction of iterates exceeding a threshold. The method gives a clearer definition. The plotted trends are consistent with the reported switch fractions, but the exact means cannot be verified from the image and checklist quotations alone."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-1\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Figure 15 caption\", \"problem\": \"The rendered caption breaks the definition of rollout disagreement. It drops the verb describing how generations differ, separates the minus sign from t−1, and displays a stray “(t)” and “(cid:101)” in the EMA sentence. The closing wording also makes it unclear which percentage measures disagreement between completions.\", \"change\": \"Replace the corrupted lines with a plain-language definition of switch fraction as the share of prompts whose greedy completions differ between consecutive checkpoints, t and t−1. If summarizing the comparison in the caption, identify the percentages as mean switch fractions within each window.\"}]",
+  "elapsed_s": 210.86
+}

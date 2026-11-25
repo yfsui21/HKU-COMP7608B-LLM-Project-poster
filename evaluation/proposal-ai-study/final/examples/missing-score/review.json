@@ -1,0 +1,324 @@
+{
+  "issues": [
+    {
+      "target": "result and Figure 1 caption",
+      "problem": "The displayed tolerance reads ε = 10−1, with the −1 on the baseline. This can be read as subtraction and obscures the reported tolerance of 0.1. The caption also renders the decision-variable count as 1013, with the exponent on the baseline.",
+      "change": "Render the tolerance as ε = 10⁻¹ in both places and the decision-variable count as 10¹³ in the caption."
+    },
+    {
+      "target": "result",
+      "problem": "Unmet scientific requirement",
+      "change": [
+        "Restore source support"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "publication",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 14,
+      "w": 1116.0,
+      "h": 12.389999999999999,
+      "lines": [
+        "RESEARCH ARTICLE"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "title",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 30,
+      "w": 1116.0,
+      "h": 77.88,
+      "lines": [
+        "Fast, Scalable, Warm-Start Semidefinite Programming with Spectral Bundling",
+        "and Sketching"
+      ],
+      "size": 33,
+      "color": "202E49",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "masthead",
+      "kind": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 1200.0,
+      "h": 124.88,
+      "color": "FAF7EE",
+      "background": true
+    },
+    {
+      "id": "header-rule",
+      "kind": "rect",
+      "x": 0,
+      "y": 124.88,
+      "w": 1200.0,
+      "h": 1.3,
+      "color": "202E49",
+      "background": false
+    },
+    {
+      "id": "source-note",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 883.38,
+      "w": 1116.0,
+      "h": 10.62,
+      "lines": [
+        "Source figure: p. 8"
+      ],
+      "size": 9,
+      "color": "485568",
+      "font": "Helvetica"
+    },
+    {
+      "id": "question-heading",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 138.88,
+      "w": 325.44,
+      "h": 12.389999999999999,
+      "lines": [
+        "QUESTION / P. 1"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "question",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 156.26999999999998,
+      "w": 325.44,
+      "h": 63.72,
+      "lines": [
+        "Can an SDP solver converge as quickly as",
+        "the problem size grows and make effective",
+        "use of warm-start initializations?"
+      ],
+      "size": 18,
+      "color": "202E49",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "method-rule",
+      "kind": "rect",
+      "x": 42.00000000000001,
+      "y": 227.98999999999998,
+      "w": 325.44,
+      "h": 0.7,
+      "color": "C3C9CB",
+      "background": false
+    },
+    {
+      "id": "method-heading",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 236.98999999999998,
+      "w": 325.44,
+      "h": 12.389999999999999,
+      "lines": [
+        "METHOD / P. 4"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "method",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 254.37999999999997,
+      "w": 325.44,
+      "h": 73.16,
+      "lines": [
+        "USBS uses a spectral bundle method to solve",
+        "SDPs with equality and inequality constraints",
+        "and can use a matrix sketching technique to",
+        "improve scalability."
+      ],
+      "size": 15.5,
+      "color": "202937",
+      "font": "Helvetica"
+    },
+    {
+      "id": "finding-panel",
+      "kind": "rect",
+      "x": 398.64,
+      "y": 133.88,
+      "w": 759.36,
+      "h": 739.5,
+      "color": "202E49",
+      "background": true
+    },
+    {
+      "id": "result-heading",
+      "kind": "text",
+      "x": 412.64,
+      "y": 145.88,
+      "w": 731.36,
+      "h": 12.389999999999999,
+      "lines": [
+        "KEY FINDING / P. 8"
+      ],
+      "size": 10.5,
+      "color": "F9BA92",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "result",
+      "kind": "text",
+      "x": 412.64,
+      "y": 163.26999999999998,
+      "w": 731.36,
+      "h": 112.1,
+      "lines": [
+        "On ten DIMACS10 MaxCut instances ranging from 16K to 3.7M vertices, the study",
+        "measured convergence time (in seconds) for CGAL and USBS at ε = 10−1 with and",
+        "without warm-starting on 99% of initial data. USBS reached the target on all ten",
+        "instances in 28 hours or less from a cold start. CGAL failed to reach the target on 7 out of",
+        "10 instances within 72 hours."
+      ],
+      "size": 19,
+      "color": "FFFFFF",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "figure-mount",
+      "kind": "rect",
+      "x": 412.64,
+      "y": 284.37,
+      "w": 731.36,
+      "h": 214.27120689655172,
+      "color": "FFFFFF",
+      "background": true
+    },
+    {
+      "id": "figure",
+      "kind": "image",
+      "x": 485.77599999999995,
+      "y": 308.5971206896552,
+      "w": 585.0880000000001,
+      "h": 165.8169655172414
+    },
+    {
+      "id": "caption",
+      "kind": "text",
+      "x": 412.64,
+      "y": 503.6412068965517,
+      "w": 731.36,
+      "h": 99.11999999999999,
+      "lines": [
+        "Figure 1: Convergence time (sec) to moderate relative error tolerance (↓). The time (in seconds) for CGAL and USBS to achieve an",
+        "ε-approximate solution for ε = 10−1 with and without warm-starting on 99% of initial data on ten DIMACS10 MaxCut instances. The bars",
+        "marked with † indicate an ε-approximate solution was not achieved in 72 hours. The datasets are sorted in ascending order by n, ranging",
+        "from 16K to 3.7M (more than 1013 decision variables for 333SP). Note that warm-starting generally improves convergence, but does not",
+        "always (e.g. 598a). We observe USBS achieves an extraordinary improvement in convergence over CGAL which fails to reach an",
+        "accurate solution on 7 out of 10 instances. In contrast, USBS is able to reach a solution on all of the problem instances in 28 hours or less",
+        "without a warm-start initialization."
+      ],
+      "size": 12,
+      "color": "E4EAF1",
+      "font": "Helvetica"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "question",
+      "elements": [
+        "question"
+      ],
+      "text": "can an sdp solver converge as quickly as the problem size grows and make effective use of warm-start initializations?",
+      "source": [
+        {
+          "page": 1,
+          "quote": "However, these methods achieve scalability at the cost of an increase in the number\nof necessary iterations, resulting in slower convergence as the problem size grows. Furthermore, they require iteration-dependent parameter schedules that prohibit effective utilization\nof warm-start initializations important in practical applications with incrementally-arriving\ndata or mixed-integer programming."
+        }
+      ],
+      "conditions": [
+        "as the problem size grows",
+        "warm-start initializations"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "method",
+      "elements": [
+        "method"
+      ],
+      "text": "usbs uses a spectral bundle method to solve sdps with equality and inequality constraints and can use a matrix sketching technique to improve scalability.",
+      "source": [
+        {
+          "page": 4,
+          "quote": "Our proposed spectral bundle method is a unified algorithm for solving SDPs with both\nequality and inequality constraints and can be integrated with a matrix sketching technique for\ndramatically improved scalability as demonstrated in Section 4."
+        }
+      ],
+      "conditions": [
+        "spectral bundle method",
+        "equality and inequality constraints",
+        "matrix sketching technique"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "result",
+      "elements": [
+        "result"
+      ],
+      "text": "on ten dimacs10 maxcut instances ranging from 16k to 3.7m vertices, the study measured convergence time (in seconds) for cgal and usbs at ε = 10−1 with and without warm-starting on 99% of initial data. usbs reached the target on all ten instances in 28 hours or less from a cold start. cgal failed to reach the target on 7 out of 10 instances within 72 hours.",
+      "source": [
+        {
+          "page": 8,
+          "quote": "Figure 1: Convergence time (sec) to moderate relative error tolerance (↓). The time (in seconds)\nfor CGAL and USBS to achieve an ε-approximate solution for ε = 10−1 with and without warm-starting on\n99% of initial data on ten DIMACS10 MaxCut instances. The bars marked with † indicate an ε-approximate\nsolution was not achieved in 72 hours. The datasets are sorted in ascending order by n, ranging from\n16K to 3.7M (more than 1013 decision variables for 333SP). Note that warm-starting generally improves\nconvergence, but does not always (e.g. 598a). We observe USBS achieves an extraordinary improvement\nin convergence over CGAL which fails to reach an accurate solution on 7 out of 10 instances. In contrast,\nUSBS is able to reach a solution on all of the problem instances in 28 hours or less without a warm-start\ninitialization."
+        }
+      ],
+      "conditions": [
+        "ten DIMACS10 MaxCut instances",
+        "16K to 3.7M",
+        "time (in seconds)",
+        "CGAL and USBS",
+        "ε = 10−1",
+        "with and without warm-starting",
+        "99% of initial data",
+        "28 hours or less",
+        "7 out of 10 instances",
+        "72 hours"
+      ],
+      "assets": [
+        "Figure 1: Convergence time (sec) to moderate relative error tolerance (↓). The time (in seconds)\nfor CGAL and USBS to achieve an ε-approximate solution for ε = 10−1 with and without warm-starting on\n99% of initial data on ten DIMACS10 MaxCut instances. The bars marked with † indicate an ε-approximate\nsolution was not achieved in 72 hours. The datasets are sorted in ascending order by n, ranging from\n16K to 3.7M (more than 1013 decision variables for 333SP). Note that warm-starting generally improves\nconvergence, but does not always (e.g. 598a). We observe USBS achieves an extraordinary improvement\nin convergence over CGAL which fails to reach an accurate solution on 7 out of 10 instances. In contrast,\nUSBS is able to reach a solution on all of the problem instances in 28 hours or less without a warm-start\ninitialization."
+      ],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": false,
+      "semantic_passed": false,
+      "equivalents": {}
+    }
+  ],
+  "suggestions": [
+    {
+      "target": "Figure 1",
+      "problem": "The legend, dataset labels, and axis ticks are small relative to the available space.",
+      "change": "Use some of the empty space below the caption to enlarge the plot and its labels."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "turns": [
+    {
+      "paper": "paper-026.pdf",
+      "condition": "joint",
+      "turn": 1,
+      "label": "feasible",
+      "request": "enlarge figure by 35% and protect result",
+      "accepted": false,
+      "target": "figure",
+      "operation": "enlarge",
+      "reason": "Unresolved after two attempts: [\"figure wider than allocated result column\", {\"target\": \"Key finding panel\", \"problem\": \"The navy panel extends far below the Table 6 caption, leaving a large empty area and making the layout bottom-heavy.\", \"change\": \"End the navy panel shortly below the caption while preserving the table\\u2019s current display size.\"}]"
+    },
+    {
+      "paper": "paper-026.pdf",
+      "condition": "joint",
+      "turn": 2,
+      "label": "feasible",
+      "request": "shorten question to 6 words",
+      "accepted": false,
+      "target": "question",
+      "operation": "shorten",
+      "reason": "Unresolved after two attempts: [\"question exceeds word limit\", {\"target\": \"Key finding panel\", \"problem\": \"The navy background extends far below the Table 6 caption, leaving a large empty area that makes the poster bottom-heavy.\", \"change\": \"End the panel shortly below the caption while preserving the table\\u2019s current display size.\"}]"
+    },
+    {
+      "paper": "paper-026.pdf",
+      "condition": "joint",
+      "turn": 3,
+      "label": "conflict",
+      "request": "shorten protected section to 2 words",
+      "accepted": false,
+      "target": "result",
+      "operation": "shorten",
+      "reason": "Unresolved after two attempts: [\"result exceeds word limit\", {\"target\": \"Key finding panel\", \"problem\": \"The navy background extends far below the Table 6 caption, leaving a large empty area that makes the poster bottom-heavy.\", \"change\": \"End the panel shortly below the caption while preserving the table\\u2019s display size.\"}]"
+    },
+    {
+      "paper": "paper-026.pdf",
+      "condition": "layout-first",
+      "turn": 1,
+      "label": "feasible",
+      "request": "enlarge figure by 35% and protect result",
+      "accepted": false,
+      "target": "figure",
+      "operation": "enlarge",
+      "reason": "Unresolved after two attempts: [\"figure wider than allocated result column\", \"figure outside canvas\", \"caption overlaps figure\", {\"target\": \"Table 6 figure\", \"problem\": \"The table extends beyond the finding panel and the poster\\u2019s right edge, clipping the 14-day values and confidence intervals.\", \"change\": \"Fit the full table proportionally within the figure mount and use the available space below to keep the entries readable.\"}, {\"target\": \"Table 6 caption\", \"problem\": \"The caption overlaps the bottom rows, including the DeepJointFeature row cited in the finding. The pale text also has low contrast against the white table.\", \"change\": \"Place the caption in a dedicated area directly below the full table, with clear padding and high-contrast text.\"}]"
+    },
+    {
+      "paper": "paper-026.pdf",
+      "condition": "layout-first",
+      "turn": 2,
+      "label": "feasible",
+      "request": "shorten question to 6 words",
+      "accepted": false,
+      "target": "question",
+      "operation": "shorten",
+      "reason": "Unresolved after two attempts: [\"question exceeds word limit\"]"
+    },
+    {
+      "paper": "paper-026.pdf",
+      "condition": "layout-first",
+      "turn": 3,
+      "label": "conflict",
+      "request": "shorten protected section to 2 words",
+      "accepted": false,
+      "target": "result",
+      "operation": "shorten",
+      "reason": "Unresolved after two attempts: [\"result exceeds word limit\"]"
+    }
+  ],
+  "judging": "System decisions only; separate AI and human dialogue review remains required"
+}

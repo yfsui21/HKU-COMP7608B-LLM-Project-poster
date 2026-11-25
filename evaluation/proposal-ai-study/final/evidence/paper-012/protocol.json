@@ -1,0 +1,140 @@
+{
+  "source_plan": {
+    "seed": 56,
+    "population": "Official Paper2Poster train 100, ordered by row_idx; sample20 then 5/15",
+    "metadata_sha256": "e893397631990f26fc70d46e7af326e09c25078e6cc3d6bea720ff70b395869d",
+    "development": [
+      "paper-071.pdf",
+      "paper-001.pdf",
+      "paper-060.pdf",
+      "paper-083.pdf",
+      "paper-066.pdf"
+    ],
+    "evaluation": [
+      "paper-038.pdf",
+      "paper-098.pdf",
+      "paper-069.pdf",
+      "paper-053.pdf",
+      "paper-090.pdf",
+      "paper-029.pdf",
+      "paper-012.pdf",
+      "paper-047.pdf",
+      "paper-079.pdf",
+      "paper-008.pdf",
+      "paper-043.pdf",
+      "paper-082.pdf",
+      "paper-032.pdf",
+      "paper-073.pdf",
+      "paper-026.pdf"
+    ],
+    "dialogues": {
+      "paper-038.pdf": [
+        [
+          "enlarge figure by 35% and protect result",
+          "feasible"
+        ],
+        [
+          "shorten question to 6 words",
+          "feasible"
+        ],
+        [
+          "shorten protected section to 2 words",
+          "conflict"
+        ]
+      ],
+      "paper-029.pdf": [
+        [
+          "enlarge figure by 35% and protect result",
+          "feasible"
+        ],
+        [
+          "shorten question to 6 words",
+          "feasible"
+        ],
+        [
+          "shorten protected section to 2 words",
+          "conflict"
+        ]
+      ],
+      "paper-008.pdf": [
+        [
+          "enlarge figure by 35% and protect result",
+          "feasible"
+        ],
+        [
+          "shorten question to 6 words",
+          "feasible"
+        ],
+        [
+          "shorten protected section to 2 words",
+          "conflict"
+        ]
+      ],
+      "paper-032.pdf": [
+        [
+          "enlarge figure by 35% and protect result",
+          "feasible"
+        ],
+        [
+          "shorten question to 6 words",
+          "feasible"
+        ],
+        [
+          "shorten protected section to 2 words",
+          "conflict"
+        ]
+      ],
+      "paper-026.pdf": [
+        [
+          "enlarge figure by 35% and protect result",
+          "feasible"
+        ],
+        [
+          "shorten question to 6 words",
+          "feasible"
+        ],
+        [
+          "shorten protected section to 2 words",
+          "conflict"
+        ]
+      ]
+    },
+    "size": [
+      1200,
+      900
+    ],
+    "status": "FROZEN for formal batch after development failure analysis; no general quality claim",
+    "scoring_method": "AI role-based review with separately documented human review; not two independent human raters",
+    "calibration_note": "1200x900 compact live layout; one source-plan correction and one crop correction; source caption display joins PDF line endings. Both development batches and their failures retained.",
+    "development_evidence": [
+      "runs/proposal-development/results.json",
+      "runs/proposal-development-v2/results.json"
+    ],
+    "implementation_hashes": {
+      "paper_canvas\\agent.py": "b4bccb3cec75ceaf973db0908359bf7103ff29eb6f91e0aa8ea20eb22d02b85d",
+      "paper_canvas\\render.py": "a4ed99e10965dd44201c836101f7209a8faa4d6c9719c8aee48e5e854c0e82c4",
+      "run_ai_study.py": "a8242de6a96746d95536a930cd2bbdc2b9739112639a494c1b8f6bc6f482905d",
+      "batch_ai_study.py": "646df373370a18148b088e7a18de49ec34dd198a3b6dde3f1a0ca6f8617b9768"
+    },
+    "candidate_scoring": "Rejected rendered candidates may receive diagnostic AI scores but remain failures"
+  },
+  "mode": "evaluation",
+  "scoring": "Two separate AI role-conditioned calls using same backend; not independent human raters",
+  "human_raters": 0,
+  "human_review_status": "Not yet reviewed",
+  "inference_timeout_seconds": 180,
+  "limitations": [
+    "Direct Codex backend does not enforce the API max_tokens parameter.",
+    "Shared initial planning cost is reported with joint generation; do not infer matched total costs.",
+    "Source checklist is AI-authored, not an independent human checklist.",
+    "Default dimensions and dialogue values require development calibration."
+  ],
+  "prompt_sha256": "a8242de6a96746d95536a930cd2bbdc2b9739112639a494c1b8f6bc6f482905d",
+  "implementation_sha256": {
+    "paper_canvas\\agent.py": "b4bccb3cec75ceaf973db0908359bf7103ff29eb6f91e0aa8ea20eb22d02b85d",
+    "paper_canvas\\model.py": "45eef309a592e82e4d2a929cce5f4717a858d3cf7e5757491afc9a1d0c36ca1d",
+    "paper_canvas\\render.py": "a4ed99e10965dd44201c836101f7209a8faa4d6c9719c8aee48e5e854c0e82c4",
+    "paper_canvas\\source.py": "b11b3689d27d58dc48fb7bd5c63f3d4096aaff81b8b2f5fc2275ce8ed6adec2e",
+    "examples\\forest_local\\gpt_backend.py": "03e1a7834988b96ac74ac3f8f876ed50412b7cbd4ff598294f1f2c9490d26e26"
+  }
+}

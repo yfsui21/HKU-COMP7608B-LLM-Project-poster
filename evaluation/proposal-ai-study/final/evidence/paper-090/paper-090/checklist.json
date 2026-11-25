@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: How does token-level highlighting of AI-generated code affect how users review and edit suggestions, and does highlighting likely edits work better than highlighting low-probability tokens?",
+      "page": 1,
+      "quote": "we explore the value of token-level highlighting in a code generation\nscenario."
+    },
+    {
+      "id": "C02",
+      "requirement": "Explain that the edit model predicts which tokens users are likely to edit, using preliminary data from nine coders who corrected Codex outputs until the tasks were completed properly.",
+      "page": 2,
+      "quote": "Coders were asked to edit the Codex output until the task was completed\nproperly."
+    },
+    {
+      "id": "C03",
+      "requirement": "Describe the study sample and tasks: 30 employees of a large US technology company with Python experience completed three easy LeetCode tasks, with task order and tool-to-task assignments randomized.",
+      "page": 2,
+      "quote": "Participants\nwere asked to complete three coding tasks, selected from Leetcode’s “easy” setting [10]"
+    },
+    {
+      "id": "C04",
+      "requirement": "Identify the three presentation conditions using the same Davinci-002 Codex model: Prediction only with no highlighting, Generation probability highlighting at a 71% threshold, and Edit model highlighting at a 66% threshold. State that the thresholds matched total highlight counts across the three tasks for the two highlighting conditions.",
+      "page": 2,
+      "quote": "We chose the highlighting thresholds such that the total number of highlights shown across\nall three tasks for each condition were equivalent."
+    },
+    {
+      "id": "C05",
+      "requirement": "Report mean task times of 8.59 minutes for Edit model, 9.27 for Prediction only, and 9.61 for Generation probability under the 10-minute cap. Distinguish the significant Edit model advantage over Generation probability (p = 0.003) from the trend versus Prediction only (p = 0.06).",
+      "page": 2,
+      "quote": "The difference between the two highlighting conditions is highly significant\n(p = 0.003)"
+    },
+    {
+      "id": "C06",
+      "requirement": "Use token survival, meaning a token remained untouched, to show more localized editing. Survival for non-highlighted tokens was 0.87 for Edit model, 0.81 for Generation probability, and 0.79 for Prediction only. Survival for highlighted tokens was 0.35 for Edit model and 0.74 for Generation probability.",
+      "page": 2,
+      "quote": "Survival of tokens in each condition, separated\nby whether the token was highlighted or not."
+    },
+    {
+      "id": "C07",
+      "requirement": "Report that participants rated Edit model highlights more favorably than Generation probability highlights (3.94 versus 2.88, p = 0.001) on 7-point items about helpfulness, willingness to pay, and distraction, with distraction reverse-coded.",
+      "page": 2,
+      "quote": "Here we find an average response of 3.94 for\nthe edit conditions vs 2.88 for generation probability condition (Fig 1c)"
+    },
+    {
+      "id": "C08",
+      "requirement": "State that the edit model was trained on the same AI-generated completions evaluated in the study and that comparable effects for a general-purpose model on unseen tasks remain unverified.",
+      "page": 2,
+      "quote": "our work relies\non a closed-world edit model, learned on the very AI-generations evaluated in our study."
+    },
+    {
+      "id": "C09",
+      "requirement": "State that whether faster completion, more targeted edits, and higher preference translate into more accurate human oversight or reduced automation bias remains untested.",
+      "page": 3,
+      "quote": "it remains to be demonstrated that the observed benefits (task completion time,\ntargeted edits, preference), translate to important high-level outcomes such as more accurate human\noversight and reduced automation bias."
+    }
+  ]
+}

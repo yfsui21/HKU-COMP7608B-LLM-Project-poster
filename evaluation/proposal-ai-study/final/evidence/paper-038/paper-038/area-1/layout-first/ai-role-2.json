@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining useful color information, but does not explicitly ask about generalizing to underrepresented colors."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes input-layer weight sharing and predictable transformations under discrete hue rotations, but does not explain that the feature map has a hue dimension that shifts with the input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits both ColorMNIST tasks, including the long-tailed training and balanced test setup and the role of hue dispersion in the biased task."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits the ColorMNIST model comparisons, approximate parameter matching, the primary comparison without augmentation, and averaging over ten random initializations."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table identifies all eight benchmarks by full or abbreviated labels, but the poster does not specify ResNet-44 for CIFAR and ResNet-18 for the other benchmarks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table shows baseline and CEConv rows with and without jitter, plus CIConv-W and AugMix comparisons. The poster does not identify which CE-ResNet is full or early-stage hybrid, specify approximate parameter matching, or give the three-rotation setting."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The table distinguishes the original and hue-shifted test sets, but the poster does not say that shifted accuracy is averaged across shifts from −180° to +180°. No hue-response curve is shown."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The caption reports comparable original-test accuracy and better hue-shift robustness, and the headline gives one Flowers comparison. The poster does not explain that gains were especially apparent without training jitter, describe jitter as complementary, or qualify the general claim by dataset and model variant."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the added compute cost, the potential loss of capacity when narrowing networks to match parameter counts, and the approximate equivariance caused by clipping or reprojection after RGB rotation."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The headline values match the Flowers column in the displayed hue-shifted table. The source checklist locates the research question on p. 2, while the poster heading points to p. 1. The supplied evidence does not establish whether both pages discuss the question, so this was not counted as a wrong number. Section headings are easy to scan, but the dense table and abbreviated labels slow lookup, and the two-column layout makes it easy to jump to the finding before reading the method. This is an AI review of the supplied image and editable text."
+}

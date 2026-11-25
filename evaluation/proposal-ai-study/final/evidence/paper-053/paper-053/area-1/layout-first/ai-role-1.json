@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers real-world interactions between pedestrians and a mobile robot but does not state how the dataset would support pedestrian perception and motion prediction for social navigation."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method names indoor and outdoor collection, two 3D LiDARs, and five cameras with 360-degree coverage. It omits manual operation, crowded locations in Seoul, and pulse-per-second synchronization."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method gives 20-second sequences at 10 Hz but omits the 60 scenes, 60K images, 12K point-cloud frames, 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits ego-motion compensation and the use of different scenes for training, validation, and test subsets."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The finding names all three comparison datasets and states that SiT has more instances meeting both criteria. The caption identifies the robot or ego vehicle and explains the combined category in panel (b)."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the 3D detection and tracking baselines, the center-distance AP thresholds and averaging protocol, and the tracking metrics."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the trajectory forecasting time windows, minimum ADE and FDE at both candidate counts, the three forecasting baselines, and the reported reduction in displacement errors with semantic maps."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the raw-sensor benchmark, the seven-second prediction of future 3D boxes and associated trajectories, the model variants, and the four comparison metrics."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The missing scientific details reduce checklist coverage. The stated sequence duration, sampling rate, and proximity threshold agree with the checklist. The caption matches the visible panels. The plot legends and x-axis category labels are small but readable at the supplied resolution. The title, question and method, then key finding and figure form a clear reading order."
+}

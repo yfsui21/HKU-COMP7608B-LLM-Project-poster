@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether peers can share embeddings and retain predictive power. It omits sensitive data, complementary features for the same observations, and the common downstream task."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method describes creating representations with per-peer autoencoders, joining them by observation ID, and training a downstream model. It leaves representation sharing implicit and does not specify supervised training."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names Buzz in Social Media only. It omits House Pricing, MNIST Numbers, and the benchmark task assignments."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster reports Scenario 0 scores but does not identify it as the supervised baseline trained on the original single dataset or mention randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method identifies per-peer autoencoders in Scenario 2. It does not distinguish the four embedding variants or state that both peers have access to the target in the target-aware setup."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster reports downstream metrics but omits reconstruction loss, the average per-feature rate of correctly reconstructed observations, and the less-than-5% MAPE threshold."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The Buzz table distinguishes training, validation, and test results and shows R² and MAPE. The poster omits the downstream model names, the House Pricing evaluation, and the MNIST accuracy, precision, and recall metrics."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The Scenario 0 versus Scenario 3 comparison shows substantial retained utility for Buzz, and the table shows variation across scenarios and metrics for that benchmark. The poster does not establish how losses vary across datasets. It does not cite the less-than-10-percentage-point summary."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method mentions two simulated peers. The poster omits the use of public datasets as an evaluation limit, the privacy assumption, and the future work on privacy measurement, resistance to decoding, and validation on real organizational data."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "All four headline values match the corresponding test cells in the Buzz table. The caption identifies the displayed table correctly. The question heading points to page 2 while the checklist cites page 3. The supplied evidence does not establish whether page 2 also supports the question, so the difference was not counted as a confirmed error. The source note is small and the table text is slightly soft but readable. The title, question, method, and finding follow a clear reading order. This is an AI review of the supplied image and editable text."
+}

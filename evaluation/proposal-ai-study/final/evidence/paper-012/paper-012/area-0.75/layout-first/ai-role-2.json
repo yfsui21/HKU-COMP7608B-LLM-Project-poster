@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether peers can share autoencoder embeddings and retain predictive power. It leaves implicit that the peers hold complementary sensitive features for the same observations and are working toward a common downstream task."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The question and method together show that peers share autoencoder representations, join them by observation ID, and train a downstream model on the joined vectors. The poster does not identify that training as supervised."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Only Buzz in Social Media is named. House Pricing and MNIST Numbers are missing, and the regression and multiclass digit classification tasks are not identified."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Scenario 0 appears in the comparison, but the poster does not identify it as the supervised baseline trained on the original single raw-feature dataset or mention randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "Scenario 2 is identified as using individual autoencoders. The poster does not distinguish all four embedding setups or state that both peers have access to the predictive target in the target-aware variants."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster reports downstream metrics only. It does not explain reconstruction loss or the average per-feature rate of observations reconstructed with less than 5% MAPE."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The Buzz table distinguishes training, validation, and test results and reports R² and MAPE. The poster omits XGBoost, the House Pricing evaluation, and the MNIST multinomial logistic regression evaluation with accuracy, precision, and recall."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The Buzz comparison illustrates retained predictive utility and a performance loss for Scenario 2. It does not state the broader finding that losses vary by dataset, scenario, and metric. The poster makes no less-than-10-percentage-point claim."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method states that two peers were simulated. The poster does not identify the datasets as public, state the privacy assumption, or describe future work on quantitative privacy measurement, resistance to decoding, and validation on real organizational data."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 4,
+  "notes": "AI review. The four headline values match the displayed test rows, and the table caption matches the displayed content. The supplied evidence does not independently verify every table cell or page reference. The title, question, method, and finding are easy to locate, although the prominent findings panel may draw readers in before the method. The table labels are readable at the supplied size, but its small type, numbered scenarios, and unexplained MAPE abbreviation make the comparison harder for a reader new to the study."
+}

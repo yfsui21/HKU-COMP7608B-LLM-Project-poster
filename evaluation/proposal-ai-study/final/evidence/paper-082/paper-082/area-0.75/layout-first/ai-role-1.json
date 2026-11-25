@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question identifies general-purpose autoregressive vision, uneven data across tasks, and reduced reliance on large models. It leaves the limited training-data condition implicit."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster omits VQGAN tokenization, visual sentences formed from multiple images, and causal next-token training with cross-entropy."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits example input–output pairs, autoregressive generation from a tokenized query, and VQGAN decoding."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits the LLaMA-300M single-task experiments at 12K steps, the SA-1B subset comparison, the COCO-Pose crop and flip conditions, and the improvements in validation loss and perplexity."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method names augmentation for Rain13K and COCO-Pose. It omits the LLaMA-300M training schedule, dataset proportions, three-way balancing comparison, and held-out evaluation datasets."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster gives no augmentation-versus-repeated-sampling result or comparison with the unbalanced mixture, including its segmentation and deraining accuracy advantages."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Table 12 and the result text describe LLaMA-80M. The checklist calls for distillation from LLaMA-1B into LLaMA-300M and the corresponding gains in loss, token accuracy, and perplexity across all three augmentation-balanced tasks."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the unshuffled LLaMA-300M training sequence and the lowest validation perplexity on the most recently trained task at each stage."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster presents validation metrics but gives no separate Pascal-5i foreground segmentation mIoU evaluation with three example pairs, zero-shot and fine-tuned results, or limitation on quantifying predictions from decoded images."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 1,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The six perplexity values match the displayed table, and the LLaMA-1B row has the lowest perplexity on all three tasks. The figure mismatch is the use of the LLaMA-80M table for the checklist's LLaMA-300M distillation experiment. The caption and headline are consistent with the displayed LLaMA-80M table. Section headings are clear, but the table labels and entries are small at the supplied size. The title comes first, and the left column places the question above the method. The large dark results panel competes with that reading sequence."
+}

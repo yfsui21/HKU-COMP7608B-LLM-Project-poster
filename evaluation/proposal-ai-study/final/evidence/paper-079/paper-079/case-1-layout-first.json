@@ -1,0 +1,133 @@
+{
+  "paper": "paper-079.pdf",
+  "area": 1,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-079\\paper-079\\area-1\\layout-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question identifies near-real-time tracking and the one-year Global Carbon Budget lag. The method text supplies the monthly, geographically resolved framing through its reference to global monthly grids."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The poster identifies 10 GOBMs, 8 data products, and Global Carbon Budget 2022. It omits that the historical benchmarks were monthly surface ocean fCO₂ outputs available through December 2021 and that the data products were observation-based."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster names convolutional neural networks and semi-supervised learning. It omits the nonlinear relationship to each benchmark’s surface ocean fCO₂ and the combination of supervised prediction error with a consistency loss between weakly and strongly feature-masked inputs."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster gives both monthly global variables and the January 2022 through July 2023 period. It omits the 1° × 1° grid resolution and the availability of estimates for each of the 18 benchmarks."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The finding uses µatm for fCO₂ discrepancies. The poster omits the flux-density units, the four inputs to the bulk flux calculation, and the positive-flux direction."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The finding and caption identify the 2020–2021 prediction period and a comparison with the original GOBM average. They omit the 2000–2019 training period, the held-out status of 2020–2021, and the same-month comparison for each original model or product."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster omits the fCO₂ correlation analysis and its finding that most benchmark comparisons had R² above 0.9."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster reports spatial agreement. It omits the reproduced seasonality of global monthly means for both benchmark groups, the generally positive prediction bias, and the finding that most differences were below 3 µatm."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the difficulty predicting extremes, the larger errors in the equatorial Pacific and Arctic, and the reduced accuracy for MPI-SOMFFN associated with frequent historical Arctic data gaps."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 1,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The caption identifies Figure 11 as the 10-GOBM average, while the adjacent finding also covers the 8-product average, which has no displayed panel. This is one mismatch in the scope of the displayed evidence. The supplied checklist does not independently verify the under-10 µatm spatial claim. Its under-3 µatm threshold applies to differences in global monthly means, so the omitted result reduces coverage without establishing a numerical error. Section headings and the caption are readable, but the figure’s axes, color scale, and line legend are small. The title, question, method, finding, and caption follow a clear reading order."
+    },
+    {
+      "role": 2,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question identifies near-real-time monitoring and the one-year lag. It does not ask about tracking recent changes using monthly, geographically resolved estimates. Monthly global grids are mentioned later in the method."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method gives the counts of models and products and names Global Carbon Budget 2022. It does not identify the products as observation-based or specify that the historical benchmarks are monthly surface ocean fCO2 outputs available through December 2021."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method names convolutional neural networks and semi-supervised learning. It omits the nonlinear relationship learned for each benchmark, the supervised prediction error, and the consistency loss between weakly and strongly feature-masked inputs."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster gives both monthly global outputs and the January 2022 to July 2023 date range. It omits the 1° × 1° resolution and does not say that estimates are provided for each of the 18 benchmarks."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The poster names fugacity and flux and uses µatm for the fCO2 discrepancy. It omits the flux-density units, the inputs to the bulk flux calculation, and the direction of positive flux."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The result gives 2020–2021 and the caption compares predictions with original GOBM outputs in aggregate. The poster omits the 2000–2019 training period, the held-out status of 2020–2021, and the same-month comparison for each model or product."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster reports spatial agreement but gives no fCO2 correlation result or statement that most benchmark comparisons yielded R² above 0.9."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster reports spatial agreement in 2020–2021. It does not report that the global monthly means reproduced seasonality in both groups, were generally slightly higher than the originals, and differed by less than 3 µatm in most cases."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster does not discuss errors at fCO2 extremes, larger errors in the equatorial Pacific and Arctic, or how historical Arctic data gaps reduced MPI-SOMFFN accuracy."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The under-10 µatm statement describes spatial discrepancies, while the checklist's under-3 µatm threshold concerns global monthly means. The caption identifies Figure 11 as showing the GOBM average. The poster image alone cannot verify the separate claim about the data-product average. Section labels are clear, but map axes, latitude labels, and legends are small at the supplied scale. The title and section headings guide the reading order, though the dominant right panel can draw the eye before the method introduces CMO-NRT."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-079\\paper-079\\area-1\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Figure 11\", \"problem\": \"The maps and monthly layout are visible, but the axis labels, color scale values, and line legend are too small to read reliably at the rendered poster size.\", \"change\": \"Reduce the white margins around the figure, enlarge the plot within the right column, and use a higher-resolution source or larger labels where available.\"}, {\"target\": \"Key finding panel\", \"problem\": \"The dark panel extends far below the caption, leaving a large empty area that visually outweighs the finding and its evidence.\", \"change\": \"Bring the panel’s lower edge closer to the caption after resizing the figure.\"}]",
+  "elapsed_s": 201.66
+}

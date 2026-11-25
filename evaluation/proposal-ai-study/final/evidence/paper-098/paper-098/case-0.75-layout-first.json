@@ -1,0 +1,13 @@
+{
+  "paper": "paper-098.pdf",
+  "area": 0.75,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-098\\paper-098\\area-0.75\\layout-first",
+  "status": "generation_failed",
+  "ratings": [],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-098\\paper-098\\area-0.75\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"method\", \"problem\": \"The cited page 4 passage supports using matrix sketching to improve scalability, but does not identify reduced memory use as the specific benefit.\", \"change\": \"Use “It can be combined with matrix sketching to improve scalability” or cite a passage that explicitly supports reduced memory use.\"}, {\"target\": \"result\", \"problem\": \"The tolerance appears as baseline 10−1, which can be read as subtraction. The cited timing comparison is for a relative error tolerance of one tenth.\", \"change\": \"Render the target as ε = 10⁻¹. Keep the cold-start USBS result of 28 hours or less on all ten instances and the CGAL result of seven instances missing the target by 72 hours.\"}, {\"target\": \"Figure 1 caption\", \"problem\": \"Flattened exponents make both the tolerance and the decision-variable count ambiguous. The count appears as 1013.\", \"change\": \"Render the values as ε = 10⁻¹ and more than 10¹³ decision variables.\"}, {\"target\": \"Figure 1\", \"problem\": \"In the supplied render, the legend, axis labels, instance names, and timeout daggers are small relative to the poster text.\", \"change\": \"Enlarge the chart within the finding panel and increase the label and dagger sizes while preserving the correspondence between the four series and the caption.\"}, {\"target\": \"method\", \"problem\": \"Unmet scientific requirement\", \"change\": [\"Restore source support\"]}, {\"target\": \"result\", \"problem\": \"Unmet scientific requirement\", \"change\": [\"Restore source support\"]}]",
+  "error": "No verified checklist; no numerical rating may be invented",
+  "elapsed_s": 152.62
+}

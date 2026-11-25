@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining color cues, but omits generalization to underrepresented colors. The result addresses rare classes separately."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method mentions sharing shape features across hues and using discrete rotations. It omits input-layer filter weight sharing and the feature-map hue dimension that shifts with the input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster identifies both tasks and describes the long-tailed class labels. It omits the balanced test set and does not explain how hue dispersion changes the informativeness of color about digit identity."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The long-tailed panel legend identifies vanilla Z2CNN, grayscale Z2CNN, and coset-pooled CECNN. Approximate parameter matching, the absence of augmentation, and averaging over ten random initializations are missing."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The eight natural-image benchmarks and their ResNet backbone assignments are absent."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The natural-image comparisons, including the full and hybrid CE-ResNet variants, parameter matching, rotation count, color-jitter conditions, CIConv-W, and AugMix, are absent."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster does not distinguish original-test accuracy from mean accuracy over hue shifts from −180° to +180°. Panel (b) plots accuracy against dataset standard deviation."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The natural-image accuracy and robustness findings, the complementary role of color jitter, and qualifications by dataset and model variant are absent."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits compute cost, potential capacity loss from narrowing networks, and approximate equivariance caused by clipping or reprojection after RGB rotation."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The caption correctly maps panel (a) to the long-tailed task and panel (b) to the color-biased task. The figure’s legends and ticks are small, particularly the class labels in panel (a). The rotation symbol after 120 renders as a solid square, and the caption’s distribution formula has detached indices. The question heading cites p. 1, while the checklist cites p. 2 for its supporting quote. The supplied excerpts cannot establish whether p. 1 also supports the question or independently verify the exact reported accuracies. Counts reflect observed errors in the supplied evidence."
+}

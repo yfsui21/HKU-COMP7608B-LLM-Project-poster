@@ -1,0 +1,16 @@
+﻿paper,title,attempts,exported,accepted,accepted_scored,diagnostic_scored,unscored
+paper-008.pdf,Butterfly Effects of SGD Noise: Error Amplification in Behavior Cloning and Autoregression,6,6,0,0,6,0
+paper-012.pdf,Privacy-Preserving Machine Learning for Collaborative Data Sharing via Auto-encoder Latent Space Embeddings,6,6,5,5,1,0
+paper-026.pdf,DeepJoint: Robust Survival Modelling Under Clinical Presence Shift,6,6,1,1,5,0
+paper-029.pdf,MuSc: Zero-Shot Industrial Anomaly Classification and Segmentation with Mutual Scoring of the Unlabeled Images,6,6,1,0,0,6
+paper-032.pdf,InfinityGAN: Towards Infinite-Pixel Image Synthesis,6,6,2,2,4,0
+paper-038.pdf,Color Equivariant Convolutional Networks,6,6,0,0,6,0
+paper-043.pdf,Quantifying Network Similarity using Graph Cumulants,6,6,6,6,0,0
+paper-047.pdf,Agnostic Learnability of Halfspaces via Logistic Loss,6,0,0,0,0,6
+paper-053.pdf,SiT Dataset: Socially Interactive Pedestrian Trajectory Dataset for Social Navigation Robots,6,6,6,6,0,0
+paper-069.pdf,Visual Correspondence Hallucination,6,6,0,0,6,0
+paper-073.pdf,Characterizing the Optimal $0-1$ Loss for Multi-class Classification with a Test-time Attacker,6,6,0,0,6,0
+paper-079.pdf,Near-real-time monitoring of global ocean carbon sink,6,6,0,0,6,0
+paper-082.pdf,Data-efficient Large Vision Models through Sequential Autoregression,6,3,0,0,3,3
+paper-090.pdf,Generation Probabilities are Not Enough: Improving Error Highlighting for AI Code Suggestions,6,6,0,0,6,0
+paper-098.pdf,"Fast, Scalable, Warm-Start Semidefinite Programming with Spectral Bundling and Sketching",6,6,0,0,0,6

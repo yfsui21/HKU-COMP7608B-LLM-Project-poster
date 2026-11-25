@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question states both research aims. The method section supplies the partially overlapping image setting, and the figure caption identifies the pose experiment as camera pose estimation."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method states the inputs and per-keypoint target-plane probability output. It mentions occlusion and out-of-view points but omits the shared CNN, learned target-descriptor padding, cross-attention with positional encoding, and the explicit distinction among identification, inpainting, and outpainting."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits NRE, the negative log-likelihood at the reprojected location, the ground-truth source depths and relative poses used in training, and the absence of a visibility-label requirement."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster identifies ScanNet for the pose result but omits the indoor and outdoor training datasets, the held-out correspondence evaluations, the qualitative transfer examples, and the correspondence protocol of 2,500 pairs per dataset spanning 2% to 80% overlap."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits both the NRE comparison against a uniform map and the argmax pixel-error comparison against the mean random-prediction error for the three tasks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The pose figure names LoFTR, DRCNet, and S2D, but the poster omits their inpainting and outpainting comparisons on ScanNet and MegaDepth, the pixel-distance score, and the baselines' target-image search boundary."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Figure 13 includes identity and local matching baselines, but shows separate angular and translation threshold sweeps on pairs with 2% to 5% overlap. The poster omits the 2,500 held-out pairs, the use of source depth and NeurHal maps, the score over cumulative overlap ranges from 2% to x%, and both fixed threshold pairs."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The shown result supports a low-overlap advantage. The poster omits the overall robustness result, the evidence that the advantage was largest at low overlap, the outpainting and inpainting ablation findings, and the slight advantage of local matchers at high overlap."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The limitations text ends mid-reference and mentions attention complexity without stating the effects of low map resolution or finite padding, the difference in map peakedness, or the caveat about noisy MegaDepth inpainting labels."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 1,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The headline claims superiority at every tested combination of angular and translation thresholds. Figure 13 shows separate sweeps, so it does not establish superiority for each joint combination. The 2% to 5% range matches the figure caption. Missing protocol numbers count against checklist coverage. Axis labels, tick labels, and legend text are small relative to the poster. The title and section headings make the reading sequence clear. The limitations sentence ends at the same point in the image and editable text, with no visible evidence of layout clipping."
+}

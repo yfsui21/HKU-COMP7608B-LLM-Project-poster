@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers real-world pedestrian–robot interactions, but omits how the dataset supports pedestrian perception and motion prediction for social navigation."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method mentions a mobile robot and indoor and outdoor scenes. It omits manual operation, crowded locations in Seoul, two 3D LiDARs, five cameras, pulse-per-second synchronization, and 360-degree camera coverage."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method correctly reports 20-second sequences sampled at 10 Hz. It omits the totals of 60 scenes, 60K images, and 12K point-cloud frames, as well as 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster omits robot ego-motion compensation and the use of different scenes in the training, validation, and test subsets."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The finding names Waymo Open, Argoverse 2, and nuScenes and states that SiT has more instances meeting both criteria. The finding and caption define the criteria as sharing the same semantic space and being within 2 meters, and the caption identifies the ego vehicle as the comparison reference."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the detection and tracking baselines, the four center-distance thresholds used to calculate detection mAP, and the tracking metrics."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The method gives a 9-second trajectory duration, but omits the 2-second history and 7-second forecast split, minimum ADE and FDE over 5 and 20 candidates, the forecasting baselines, and the reported reductions in displacement error with semantic maps."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits the end-to-end task of predicting future 3D boxes and trajectories from raw sensor data over 7 seconds, the three benchmark entries, and the four comparison metrics."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The reading order is clear from the title through the question and method to the highlighted finding, figure, and caption. The figure’s legends and axis labels are small at the supplied size. The legend label “Ours” and the abbreviation “Sharing&Proxi.” require readers to connect the plot with the surrounding text. The caption explains that the combined category requires both criteria, though “semantic space” remains abstract without an example. No numeric contradiction is visible in the supplied materials. The 9-second duration is consistent with the checklist’s 2-second history plus 7-second forecast, but the poster does not explain that split. The visible panels match the caption and support the direction of the stated comparison. Exact bar counts and statistical significance cannot be verified from the image alone."
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether the networks came from the same distribution, and the method names a two-sample test. Independent sampling of the graphs is unspecified."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "Graph moments appear as the baseline, but the poster omits injective homomorphism densities and the rules for distinct-node mappings, preserved motif edges, and extra host edges."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names graph cumulants without explaining the smaller-motif adjustment or the disjoint-union identity used for unbiased estimation."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster gives the squared Mahalanobis distance between estimated feature vectors, the connected-motif cutoff, and r = 3 for the reported comparison. It omits weighting by the inverse of the summed covariance estimates, counts through order 2r, and equal computational complexity."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits the two stochastic block models, their equal-sized blocks and shared expected edge density, and their differing degree and community structure."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the FunCoup species comparisons, edge-density matching by removing the lowest-weight edges, and node subsampling to obtain induced subgraphs."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster plots and reports AUC but omits how distance thresholds generate the ROC curve, what AUC summarizes, and how power is defined at a specified false-positive rate."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports higher AUC at small sample sizes and successful use of one graph per sample in the plotted comparison. It leaves the simulation context implicit and omits the broader statistical-power finding at fixed false-positive rates."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster reports the r = 3 moment test failure for s < 4. It omits the graphon sampling assumption, the chi-square null approximation, its stronger finite-sample agreement for cumulants, and singular moment covariance as the cause of failure."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, and finding establish a clear reading order. The plot labels are readable, though the angled single-graph annotation takes more effort to read. The displayed graph sizes, missing moments results below four graphs per sample, and single-graph cumulant results agree with the poster text. The checklist deductions reflect missing scientific details. Exact plotted AUC values cannot be independently verified from the supplied excerpts."
+}

@@ -1,0 +1,132 @@
+{
+  "paper": "paper-053.pdf",
+  "area": 1,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-053\\paper-053\\area-1\\joint",
+  "status": "ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers real-world pedestrian–robot interactions through pedestrian trajectories. It omits collection by a moving robot and the goal of supporting pedestrian perception and motion prediction for social navigation."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method identifies indoor and outdoor recording, two 3D LiDARs, five cameras, and 360-degree camera coverage. It omits manual operation, crowded locations in Seoul, and pulse-per-second synchronization."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method gives 20-second scenes sampled at 10 Hz. It omits the 60 scenes, 60K images, 12K point-cloud frames, 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster omits ego-motion compensation and the use of different scenes for training, validation, and testing."
+        },
+        {
+          "id": "C05",
+          "met": true,
+          "reason": "The finding names all three comparison datasets and reports that SiT has more instances meeting both criteria. The caption defines shared semantic space and proximity within 2 meters, and panel (b) shows the combined count."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster omits the detection and tracking baselines, the center-distance thresholds used for detection mAP, and the tracking metrics."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster omits the forecasting history and horizon, minimum ADE and FDE over 5 and 20 candidates, the three baselines, and the reported semantic-map benefit for Y-Net and NSP-SFM."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits the raw-sensor-to-future-box-and-trajectory task, the 7-second horizon, the three model configurations, and the four comparison metrics."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 4,
+      "reading_order_1_5": 5,
+      "notes": "One of nine checklist items is fully met. Scientific omissions account for the coverage deductions. The reported 20 seconds, 10 Hz, and 2 meters agree with the checklist. The caption correctly associates panel (a) with normalized distance density and panel (b) with interaction counts. Axis ticks and legends are small at the supplied export size but readable. The title, question, method, and finding have a clear reading order. Layout counts reflect visible content in the supplied export."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers real-world pedestrian–robot interactions and pedestrian trajectories. It omits the moving-robot data collection framing and the goals of pedestrian perception and motion prediction for social navigation."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method gives indoor and outdoor collection, two 3D LiDARs, five cameras, and 360-degree coverage. It omits manual operation, crowded locations in Seoul, and pulse-per-second synchronization."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method gives 20-second scenes at 10 Hz. It omits the totals of 60 scenes, 60K images, and 12K point-cloud frames, as well as 2D and 3D box annotations, object IDs, and multilayer semantic maps."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "Robot ego-motion compensation and the use of different scenes in the training, validation, and test subsets are both absent."
+        },
+        {
+          "id": "C05",
+          "met": true,
+          "reason": "The finding names all three comparison datasets and reports that SiT has more instances meeting both criteria. The text and caption define the criteria as sharing the same semantic space and being within 2 meters, and the caption identifies the ego vehicle as the robot counterpart."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The detection and tracking baselines, detection mAP thresholds, and tracking metrics are absent."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The forecasting time windows, candidate counts, minimum ADE and FDE, model names, and reported effect of semantic maps are absent."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The end-to-end benchmark is absent, including its raw-sensor input, seven-second outputs, compared models, and four evaluation measures."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits the authors’ statement that time constraints prevented collection at the scale of hundreds of thousands of frames."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The title and section headings make the reading order clear. The chart legends and axis labels are small in the export. The left horizontal axis appears to read “Pedestrain,” and the abbreviated “Sharing&Proxi.” label takes a caption lookup to interpret. The displayed comparison supports the stated finding. Missing scientific details are reflected in checklist coverage."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-053\\paper-053\\area-1\\joint\\04-layout",
+  "accepted": true,
+  "elapsed_s": 252.53
+}

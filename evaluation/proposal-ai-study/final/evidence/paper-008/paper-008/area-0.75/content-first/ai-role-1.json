@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what causes instability in feedback-loop learning systems and how much algorithmic interventions can reduce it without collecting more data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster names behavior cloning and features Walker2d-v4, but omits offline one-step expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, and the 900-training and 100-validation trajectory split."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The figure labels reward and BC error separately. The poster omits the held-out one-step loss and cumulative 1,000-step closed-loop reward definitions, the mean over 20 fixed initial conditions, and the contrast between consecutive-update reward swings and smooth validation loss."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The title mentions SGD noise and error amplification, and the caption uses GVA. The poster does not explain how unstable closed-loop dynamics amplify small parameter changes from minibatch gradient noise into large changes in long-horizon performance."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method names architecture, regularization, and optimization as intervention categories. It omits persistence with fresh independent expert trajectories at each step and across architectures and standard regularizers, as well as the reduction from larger batches and aggressive learning-rate decay and its computational cost."
+    },
+    {
+      "id": "C06",
+      "met": true,
+      "reason": "The headline identifies EMA iterate averaging as the main intervention, the figure compares reward with EMA reward, and the caption states that oscillations decrease substantially without changing batch size or the learning-rate schedule. The expansion of EMA and the raw-checkpoint terminology are implicit."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the 270M-parameter TinyStories experiment, the held-out greedy-completion switching metric, the EMA switching result, and the distinction from validation perplexity."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits TinyStories as a synthetic proxy, the preliminary English Wikipedia check, greedy completion agreement as a stability measure, and the limit on generation-quality assessment."
+    },
+    {
+      "id": "C09",
+      "met": true,
+      "reason": "Ant and Humanoid appear under the figure's low-GVA heading, and the caption describes milder oscillations in some tasks and explicitly names Humanoid-v4. The infrequent-EMA panel is grouped under failure modes, and the caption recommends updating every iterate with initial burn-in and a tuned averaging schedule."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "AI review of the supplied export and editable text. The title and section headings establish a clear reading order. The figure's axis labels and tick values are small at the supplied scale. The checklist excerpts do not establish whether the stated count of 278 interventions is correct. Omitted numerical conditions reduce checklist coverage and were excluded from the wrong-number count."
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks about robustness to a shift in the observation process. The method supplies the in-hospital outcome and 24-hour timing, but the poster does not ask whether modelling the process also improves predictive performance or explain the shift in terms of changes in test ordering."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The shared LSTM representation, the Gaussian lab-value prediction task, the temporal point process for the next observation, the Bernoulli test-observation task, and the DeepSurv head are absent."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method names MIMIC III and laboratory tests. It omits the single-centre setting, the 30,834 adults, the 24-hour survival eligibility criterion, and the requirement that all 17 selected tests were measured within that window."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The table names all six comparison methods. The poster does not describe last-observation-carried-forward imputation, patient-specific test means, the common DeepSurv approach, or how Feature and DeepJointFeature differ."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table shows horizons of 1, 7 and 14 days after the last observation, and the caption mentions 95% confidence intervals. The poster omits the random patient-level 90%/10% split, the use of the last observation within the first 24 hours to generate predictions, the two evaluation metrics, and the 100 test-set bootstrap iterations."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The result compares weekend-trained and weekday-trained models on the same weekday-admission test set. The reverse direction, weekday time boundaries, and oversampling of weekend training data are absent."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster presents transfer differences. It omits the random-split 1-day C-index values and ranking, the narrowing of discrimination differences at longer horizons, and the similarity of Brier scores."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The headline gives the one-day comparison on the weekday-admission test set, and the table shows that direction at three horizons. The poster does not establish strong discrimination, interpret the relative stability across horizons and both transfer directions, or discuss the fully fine-tuned variant's tendency to overfit."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster does not explicitly limit its robustness conclusion to the laboratory-test cohort and within-hospital shift. External validation, competing risks, and the assumption of independence between patients are also absent."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 4,
+  "notes": "The headline values match the one-day entries in the visible table. Missing numerical results and study conditions were counted against checklist coverage. The supplied excerpts do not allow independent verification of every table entry. The title, section headings, and main finding are easy to locate. The table is readable, though its dense entries and smaller caption take more effort to scan. The question and method sit together on the left, while the finding, table, and caption form a clear sequence on the right. The headline leaves the performance metric unnamed, and the reader must consult the caption to learn that a difference closer to zero indicates greater stability."
+}

@@ -1,0 +1,10 @@
+{
+  "paper": "paper-047.pdf",
+  "area": 1,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-047\\paper-047\\area-1\\joint",
+  "status": "generation_failed",
+  "ratings": [],
+  "error": "The Figure 1 caption on page 4 is interleaved with body text. Recovering the complete caption would require separating the columns, and no other figure or table caption supports the finding.",
+  "elapsed_s": 42.64
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question mentions monthly tracking and the one-year lag. It omits geographic resolution and does not identify the lagging estimates as annual."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies the 10 GOBMs and 8 data products associated with Global Carbon Budget 2022. It does not specify that the benchmarks are monthly surface-ocean fCO2, that the products are observation-based, or that the historical data extend through December 2021."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method identifies convolutional neural networks, semi-supervised learning, and nonlinear relationships with observed predictors. It does not explicitly identify each benchmark’s surface-ocean fCO2 as the prediction target or explain the supervised prediction error and consistency loss between weakly and strongly feature-masked inputs."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The method states the monthly global variables and the January 2022 through July 2023 period. The 1° × 1° resolution and separate estimates for each of the 18 benchmarks are missing."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The figure labels fCO2 in µatm. The poster omits the flux-density units, the four inputs to the bulk flux calculation, and the direction indicated by positive flux."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The finding and caption identify 2020–2021, and the caption describes comparison against original GOBM outputs. The poster omits the 2000–2019 training period, the explicit held-out split, and the corresponding comparison for each data product."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The individual R² labels in Figure 7 do not report the correlation-analysis finding that most benchmark comparisons had R² above 0.9."
+    },
+    {
+      "id": "C08",
+      "met": true,
+      "reason": "The finding states that global monthly mean fCO2 reproduced the seasonal cycle across both benchmark groups in 2020–2021, with generally slightly higher estimates and most differences below 3 µatm."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits the difficulty predicting extremes, larger errors in the equatorial Pacific and Arctic, and the effect of historical Arctic data gaps on MPI-SOMFFN accuracy."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The title and section hierarchy make the reading order clear. Axis ticks, the legend, and panel statistics are small at the supplied image size. Figure 7 and its caption consistently cover the 10 GOBMs. The adjacent finding also covers data products, whose comparisons are not shown in this figure. Missing conditions were counted under checklist coverage. The supplied checklist and excerpts do not independently verify every plotted value."
+}

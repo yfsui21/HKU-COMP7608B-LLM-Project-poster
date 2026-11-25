@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers finite training patches, arbitrarily large fields of view, and coherence. It does not explicitly ask for realistic local detail."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies the neural implicit structure synthesizer and padding-free StyleGAN2 texture synthesizer. It omits coordinate conditioning, global appearance, local latent variation, and fine-grained rendering noise."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "Table 1 lists constant inference memory for InfinityGAN. The poster does not explain how independent queries agree at the same location or how that consistency enables seamless patch assembly with constant memory."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster names Flickr-Landscape, and Table 1 gives full and training sizes of 197 and 101. It omits the dataset size of 450,000 images and does not explicitly state that the training crops come from the 197×197 images."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "Table 1 lists the comparator rows by their paper labels, and the caption gives the resize sequence from 128 to 197. The poster does not specify the 197/128 test-dimension ratio or its field-of-view alignment purpose."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Table 1 separates training FID from ScaleInv FID. The poster omits bilinear downsampling to training-data size before computing FID, the landscape self-similarity assumption, and the lack of large-field-of-view real references."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The headline reports the 4× result, and Table 1 shows the lowest ScaleInv FID at both 4× and 8×. The caption refers to a disadvantageous setting without explaining how differences in training crop field of view and resolution limit direct comparison of absolute FID values."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The headline reports over 90% preference, and the reported baseline cells in Table 1 support that threshold at 4× and 8×. The poster omits the two-alternative forced-choice format, the realism and structural plausibility criteria, and the counts of participants, queries, and samples."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits both reported failure modes: artifacts from composing landscapes at different scales and tree-like content appearing in the sky."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "An item is marked met only when all required elements are present. The 4× values 61.41 and 79.83 match Table 1, and dashes in the preference columns are treated as unreported comparisons. The table headers and source note are small but readable in the supplied export. The title and section headings establish a clear reading order. Layout counts reflect visible issues in the supplied export. This is an AI review of the supplied evidence."
+}

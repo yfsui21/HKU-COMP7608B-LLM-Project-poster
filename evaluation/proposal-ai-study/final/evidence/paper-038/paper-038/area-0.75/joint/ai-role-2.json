@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining color cues for recognition, but leaves out generalization to underrepresented colors. The finding about classes with few samples only partly addresses that omission."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method mentions discrete rotations and sharing shape features across hues. It leaves out input-layer filter weight sharing and the feature-map dimension that shifts with input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster identifies both tasks and says long-tailed classes depend on shape and color. It leaves out the balanced test set and does not explain how hue dispersion changes how informative color is about digit identity."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Panel (a) names vanilla Z2CNN, grayscale Z2CNN, and coset-pooled CECNN in the legend. The poster leaves out approximate parameter matching, the absence of augmentation in the primary comparison, and averaging over ten random initializations."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The eight natural-image benchmarks and the ResNet-44 and ResNet-18 assignments are absent."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The natural-image comparison is absent, including the full and early-stage hybrid CE-ResNets, parameter matching, three rotations, training with and without color jitter, and the CIConv-W and AugMix comparisons."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster does not distinguish original-test accuracy from mean accuracy over shifts from −180° to +180°. Panel (b) plots test accuracy against dataset standard deviation, so its horizontal axis is appropriate for the experiment shown."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The findings cover ColorMNIST only. The poster omits the natural-image accuracy and robustness findings, the complementary role of color jitter, and how gains vary by dataset and model variant."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits increased compute cost, possible capacity loss from narrowing networks to match parameters, and the effect of clipping or reprojection on hue equivariance."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, and highlighted finding give the poster a clear reading order. The plots match the caption’s panel assignments, though the small legends and dense class labels are hard to read. The rotation symbol after 120 renders as a square, and the caption’s final formula has detached characters. These are rendering and notation issues. The supplied checklist does not give reference values for the reported accuracies, so those values cannot be independently verified from the supplied material."
+}

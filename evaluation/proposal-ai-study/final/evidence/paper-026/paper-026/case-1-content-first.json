@@ -1,0 +1,133 @@
+{
+  "paper": "paper-026.pdf",
+  "area": 1,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-026\\paper-026\\area-1\\content-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question addresses robustness to an observation-process shift, and the method gives the 24-hour window and in-hospital outcome. The poster does not ask whether explicit modelling also improves prediction or specify that the shift concerns how tests are ordered."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The shared LSTM, the Gaussian lab-value task, the temporal point-process task, the Bernoulli test-observation task, and the DeepSurv head are omitted."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method identifies MIMIC III and the 24-hour laboratory window. It omits the cohort size, adult and single-centre criteria, minimum survival, and the requirement that each of the 17 tests was measured at least once."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "Table 6 names all six comparison methods. The poster omits the imputation procedure, the shared use of DeepSurv, and the modelling distinction between Feature and DeepJointFeature."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The poster gives the three evaluation horizons, identifies C-index in the finding, and mentions 95% confidence intervals in the caption. It omits the patient-level split, the last-observation prediction rule, the time-dependent metric specification, Brier scores, and the 100 test-set bootstrap iterations."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The caption describes the comparison on the weekday-admission test set. The reverse transfer, weekday boundary, and weekend oversampling are omitted."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The random-split C-index results, the narrowing of discrimination differences at longer horizons, and the similarity of Brier scores are omitted."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The finding gives the correct one-day changes for weekend training evaluated on weekday admissions. It omits absolute discrimination, interpretation across horizons and both transfer directions, and the fully fine-tuned variant's tendency to overfit."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The method identifies the laboratory-test setting, but the poster does not explicitly bound the robustness conclusion to this cohort and within-hospital shift. External validation, competing risks, and patient independence are omitted."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 4,
+      "reading_order_1_5": 5,
+      "notes": "The reported +0.007 and −0.047 match the visible one-day Table 6 entries, and the caption identifies the corresponding comparison. No clipping, overlap, or out-of-bounds content is visible. The table labels and small source note are readable, though less clear than the main text. The title leads into the question and method, then the finding and its supporting table. Checklist deductions reflect missing scientific content. Page references and table entries beyond the supplied evidence could not be independently verified."
+    },
+    {
+      "role": 2,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question asks about robustness to an observation-process shift, and the method gives the first-24-hour ICU context. The poster does not ask whether explicit modelling also improves in-hospital survival prediction or explain the shift as a change in how tests are ordered."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The shared LSTM, the three clinical presence tasks, and the DeepSurv proportional hazards head are absent."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The method identifies MIMIC III and the first 24 hours of laboratory data. It omits the single-centre setting, the count of 30,834 adults, the 24-hour survival criterion, and the requirement that each of the 17 tests was measured at least once."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "All six comparison methods appear in Table 6. The poster omits the imputation procedure, the shared use of DeepSurv, and the distinction between Feature's inputs and DeepJointFeature's joint modelling."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "Table 6 shows the 1-, 7-, and 14-day horizons, and the poster mentions C-index and 95% confidence intervals. It omits the patient-level 90%/10% split, the prediction at the last observation within the first 24 hours, the time-dependent specification of the C-index, the Brier score, and the 100 test-set bootstrap iterations."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The finding and caption describe weekend-to-weekday transfer using the same weekday test set for both models. The reverse direction, the weekday definition, and weekend training oversampling are missing."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster reports transfer differences. It gives neither the random-split C-index values and ranking nor the findings on narrower discrimination differences at longer horizons and similar Brier scores."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The highlighted result shows a smaller absolute C-index change for DeepJointFeature than for Feature at one day on weekday admissions. The table adds longer horizons for that direction. The poster omits DeepJointFeature's strong absolute discrimination, the fully fine-tuned variant's overfitting tendency, and how robustness varies in the reverse transfer direction."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster mentions laboratory tests but does not explicitly limit the robustness conclusion to this cohort and the within-hospital shift. External validation, competing risks, and the patient-independence assumption are absent."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 4,
+      "reading_order_1_5": 4,
+      "notes": "The two highlighted C-index changes match the displayed Table 6. The supplied evidence supports that internal check but does not independently confirm the full table against the original paper. The title and section headings are clear. The large Key Finding panel draws attention before the Method, and the dense table, small caption, and unexplained C-index make the result harder for a less experienced reader to interpret. Checklist deductions reflect missing scientific context."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-026\\paper-026\\area-1\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"result\", \"problem\": \"Table 6 and its caption support both signed values, the weekday test cohort, and the switch from weekday to weekend training. The supplied excerpt and caption do not identify the metric as the C-index.\", \"change\": \"Cite a passage that identifies the metric used in Table 6, or describe the values as changes in the reported performance measure.\"}, {\"target\": \"result\", \"problem\": \"Unmet scientific requirement\", \"change\": [\"Restore source support\"]}]",
+  "elapsed_s": 205.98
+}

@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks what causes instability in learning systems with feedback loops and how much algorithmic interventions can reduce it without collecting additional data."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method identifies behavior cloning on continuous-control tasks, and the figure centers Walker2d-v4. The poster omits offline one-step expert-action prediction, deterministic Soft Actor Critic demonstrations in MuJoCo, and the 900-training and 100-validation trajectory split."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The figure separately labels reward and behavior-cloning error. The poster does not define the error as held-out one-step loss or the reward as cumulative reward from 1,000-step closed-loop rollouts averaged over 20 fixed initial conditions. It also does not explicitly describe the contrast between consecutive-update reward swings and smooth validation loss."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The title mentions SGD noise and error amplification, and the caption mentions GVA. Neither explains how unstable closed-loop dynamics amplify small parameter changes from minibatch gradient noise into large changes in long-horizon performance."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster discusses architectures and regularization broadly but does not report that oscillations persisted with fresh independent expert trajectories or across standard regularizers. It also omits the reduction from larger batches and aggressive learning-rate decay and the associated computational cost."
+    },
+    {
+      "id": "C06",
+      "met": true,
+      "reason": "The headline identifies EMA iterate averaging as the main intervention. The paired reward curves show the comparison between ordinary and EMA iterates, and the caption states that oscillations were substantially reduced without changing batch size or the learning-rate schedule. The comparison is conveyed by the figure rather than spelled out in the prose."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster omits the 270M-parameter TinyStories experiment, the definition of switching cost, the reduction in switching with EMA, and the distinction between switching cost and validation perplexity."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster does not report TinyStories as a synthetic proxy, the preliminary English Wikipedia check, greedy completion agreement as a stability measure, or the absence of systematic generation-quality assessment."
+    },
+    {
+      "id": "C09",
+      "met": true,
+      "reason": "The figure groups Ant and Humanoid under low-GVA tasks and shows comparatively mild oscillations. The infrequent-EMA panel is identified as a failure mode and shows low EMA reward. The caption recommends updating every iterate with an initial burn-in and a tuned averaging schedule."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The main headings and body text are clear, but the figure's small tick labels and axis labels require zooming. The layout gives a clear path from the title to the question and method, then to the finding, figure, and caption. The bottom panel in column 2 is labeled with reduced training steps. Its relationship to smaller sample size cannot be verified from the supplied materials alone. The reported count of 278 interventions is also unverified by the supplied excerpts. Neither is counted as an observed error. This is an AI review of the supplied export, editable text, and checklist."
+}

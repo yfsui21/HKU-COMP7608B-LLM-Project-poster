@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers train–test color shifts and retaining color cues, but does not explicitly ask whether CNNs generalize to underrepresented colors."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method mentions sharing shape features across hues and using three rotations, but does not explain input-layer filter weight sharing or the feature-map hue dimension that shifts with the input hue."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster identifies both tasks and says the long-tailed task uses digit shape and color. It omits the balanced test set and does not explain how varying hue dispersion changes how informative color is about digit identity."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The figure legends identify vanilla Z2CNN, grayscale Z2CNN, and coset-pooled CECNN. The poster omits approximate parameter matching, the absence of augmentation in the primary comparison, and averaging over ten random initializations."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The eight natural-image benchmarks and their ResNet architectures are absent."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster omits the vanilla, full, and early-stage hybrid ResNet comparison, its parameter matching and hue rotations, its color-jitter conditions, and the CIConv-W and AugMix comparisons."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster does not distinguish original-test accuracy from mean accuracy across shifts of −180° to +180°. Panel (b) plots test accuracy against dataset standard deviation, so the hue-response axis requirement does not apply to it."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The reported result is limited to ColorMNIST. The poster omits original-test accuracy and hue-shift robustness findings for CE-ResNets, the complementary effect of color jitter, and variation by dataset and model."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster does not discuss compute cost, possible capacity loss from narrowing networks to match parameter counts, or approximate hue equivariance caused by clipping or reprojection."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The checklist excerpts do not provide reference accuracies, so the reported percentages could not be independently verified from the supplied evidence. The caption's panel descriptions match the displayed plots. The degree symbol after 120 renders as a black square, and the caption's final formula has detached subscripts in both the editable text and the export. These are notation defects. The section headings are easy to scan, but the plot legends and tick labels are small, especially the class labels in panel (a). The large key-finding block can draw the eye before the question and method."
+}

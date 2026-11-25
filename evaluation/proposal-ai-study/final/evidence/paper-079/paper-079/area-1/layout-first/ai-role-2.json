@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question identifies near-real-time monitoring and the one-year lag. It does not ask about tracking recent changes using monthly, geographically resolved estimates. Monthly global grids are mentioned later in the method."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method gives the counts of models and products and names Global Carbon Budget 2022. It does not identify the products as observation-based or specify that the historical benchmarks are monthly surface ocean fCO2 outputs available through December 2021."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The method names convolutional neural networks and semi-supervised learning. It omits the nonlinear relationship learned for each benchmark, the supervised prediction error, and the consistency loss between weakly and strongly feature-masked inputs."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster gives both monthly global outputs and the January 2022 to July 2023 date range. It omits the 1° × 1° resolution and does not say that estimates are provided for each of the 18 benchmarks."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster names fugacity and flux and uses µatm for the fCO2 discrepancy. It omits the flux-density units, the inputs to the bulk flux calculation, and the direction of positive flux."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The result gives 2020–2021 and the caption compares predictions with original GOBM outputs in aggregate. The poster omits the 2000–2019 training period, the held-out status of 2020–2021, and the same-month comparison for each model or product."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster reports spatial agreement but gives no fCO2 correlation result or statement that most benchmark comparisons yielded R² above 0.9."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports spatial agreement in 2020–2021. It does not report that the global monthly means reproduced seasonality in both groups, were generally slightly higher than the originals, and differed by less than 3 µatm in most cases."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster does not discuss errors at fCO2 extremes, larger errors in the equatorial Pacific and Arctic, or how historical Arctic data gaps reduced MPI-SOMFFN accuracy."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "The under-10 µatm statement describes spatial discrepancies, while the checklist's under-3 µatm threshold concerns global monthly means. The caption identifies Figure 11 as showing the GOBM average. The poster image alone cannot verify the separate claim about the data-product average. Section labels are clear, but map axes, latitude labels, and legends are small at the supplied scale. The title and section headings guide the reading order, though the dominant right panel can draw the eye before the method introduces CMO-NRT."
+}

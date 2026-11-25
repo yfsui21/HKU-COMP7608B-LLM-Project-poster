@@ -1,0 +1,13 @@
+{
+  "paper": "paper-098.pdf",
+  "area": 0.75,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-098\\paper-098\\area-0.75\\content-first",
+  "status": "generation_failed",
+  "ratings": [],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-098\\paper-098\\area-0.75\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"Key finding and Figure 1 caption\", \"problem\": \"The tolerance is rendered as 10−1 on the baseline, which can be read as subtraction. The caption also renders the decision-variable count as 1013, obscuring the exponent.\", \"change\": \"Typeset the tolerance as 10⁻¹ in both places and the decision-variable count as 10¹³ in the caption.\"}, {\"target\": \"Figure 1\", \"problem\": \"The legend, dataset names, and logarithmic tick labels are small in the supplied poster view, making the cold-start and warm-start series difficult to compare.\", \"change\": \"Use the available space below the caption to enlarge the figure and increase the size of the legend, axis labels, and timeout markers.\"}]",
+  "error": "No verified checklist; no numerical rating may be invented",
+  "elapsed_s": 148.88
+}

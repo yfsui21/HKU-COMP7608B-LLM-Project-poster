@@ -1,0 +1,133 @@
+{
+  "paper": "paper-032.pdf",
+  "area": 0.75,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-032\\paper-032\\area-0.75\\layout-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question connects training on finite patches to generating realistic, globally coherent images with arbitrarily large fields of view."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "Both stages are named. The description omits coordinate conditioning, global appearance, local latent variation, the local features passed between stages, and fine-grained noise."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "Table 1 reports constant inference memory for InfinityGAN. The poster does not explain same-location pixel consistency across independent queries or how it enables seamless patch assembly with constant memory."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster names Flickr-Landscape, and the table gives full and training sizes of 197 and 101. The dataset count of 450,000 is absent, and the poster does not explicitly identify the training inputs as 101×101 crops from 197×197 images."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The table lists the five comparator rows, and the caption gives the 128-to-197 resizing sequence. The poster omits the 197/128 test-dimension ratio and its purpose of aligning fields of view."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The table labels training FID and ScaleInv FID separately. The poster omits bilinear downsampling to training-data size, the landscape self-similarity assumption, and the lack of large-field-of-view real references."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The headline correctly reports the lowest ScaleInv FID at 4× and 8×. The caption mentions a disadvantageous setting without explaining how differences in training crop field of view and resolution limit direct comparisons of absolute FID."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The caption reports over 90% preference, and the table provides preference values for the reported baseline comparisons at both scales. The poster omits the two-alternative forced-choice format, the realism and structural plausibility criteria, and the counts of 50 participants, 30 queries per participant, and 16 random samples per method per query."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits both reported failure modes: artifacts when composing landscapes at different scales and tree-like content appearing in generated skies."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The 4× values of 61.41 and 79.83 agree with Table 1. Missing experimental conditions count against checklist coverage. The title and section headings are clear, while the embedded table uses small type that requires close inspection. The title, question, method, and finding are easy to follow. The patched baseline has dashes in the preference columns, so the preference claim can be checked only for comparisons with reported values. Ratings are based on the supplied export."
+    },
+    {
+      "role": 2,
+      "checklist_met": 1,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question connects training on finite patches to generating arbitrarily large fields of view with realistic appearance and global coherence."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The two stages are named, but the poster omits coordinate conditioning, global appearance, local latent variation, the features passed between stages, and fine-grained noise."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The table lists constant inference memory for InfinityGAN, but the poster does not explain consistent pixel values across independent queries, seamless assembly, or the patch-by-patch generation condition."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The poster names Flickr-Landscape, and the table lists full and training sizes of 197 and 101. It omits the 450,000-image dataset size and does not explain that the 101×101 training patches are cropped from 197×197 images."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The table lists all five comparators, and the caption gives the 128-to-197 resizing sequence. The poster does not expand NCI or PFG or explain that InfinityGAN's test outputs are generated at 197/128 times the baseline dimensions to align fields of view."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The table separates training FID from ScaleInv FID, but the poster does not explain bilinear downsampling to training-data size, the landscape self-similarity assumption, or the lack of real large-field-of-view references."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The headline correctly identifies the lowest ScaleInv FID at 4× and 8×. The caption calls the setting disadvantageous without explaining how differences in training crop field of view and resolution limit direct comparisons of absolute FID."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The caption reports over 90% preference, and the table shows baseline preference rates below 10% wherever reported at 4× and 8×. The poster omits the two-alternative forced-choice format, the realism and structural plausibility criteria, and the counts of 50 participants, 30 queries per participant, and 16 random samples per method per query."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits both failure modes, including artifacts from composing landscapes at different scales and tree-like content appearing in the generated sky."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "AI review based on the supplied export and editable text. The question, method, and finding are easy to locate. The table labels and values are small at the supplied image size, and the unexplained terms ScaleInv FID, NCI, and PFG make the evidence harder to interpret. The caption's awkward phrasing also slows reading. The headline's 4× scores match the table. The preference columns contain dashes for the patched baseline, so no result is inferred for those cells."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-032\\paper-032\\area-0.75\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"figure\", \"problem\": \"Table 1 is readable on close inspection, but its small headers and tightly spaced values make the 4× and 8× ScaleInv FID columns difficult to scan in the poster overview.\", \"change\": \"Enlarge Table 1 within the finding panel using the white margins around the table and the space below the caption.\"}, {\"target\": \"caption\", \"problem\": \"The rendered caption displays the model name as “Infinity- GAN,” carrying a line-break hyphen into the middle of a line.\", \"change\": \"Render the model name as “InfinityGAN.”\"}, {\"target\": \"source-note\", \"problem\": \"The footer calls the evidence a figure, while the displayed evidence and its caption identify it as Table 1.\", \"change\": \"Identify the evidence as “Table 1, p. 6.”\"}]",
+  "elapsed_s": 217.25
+}

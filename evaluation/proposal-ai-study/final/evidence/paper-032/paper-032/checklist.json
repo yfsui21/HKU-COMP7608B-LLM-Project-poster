@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: Can a generator trained on finite image patches synthesize arbitrarily large fields of view with coherent global structure and realistic local details?",
+      "page": 2,
+      "quote": "we aim to build a generator that trains with image patches, and\ninference images of unbounded arbitrary-large size."
+    },
+    {
+      "id": "C02",
+      "requirement": "Describe the two-stage generator. A coordinate-conditioned neural implicit structure synthesizer uses global appearance and local latent variation to produce local features. A padding-free StyleGAN2 texture synthesizer renders those features with fine-grained noise.",
+      "page": 2,
+      "quote": "a neural implicit function, termed structure\nsynthesizer, and a padding-free StyleGAN2 generator, dubbed texture synthesizer."
+    },
+    {
+      "id": "C03",
+      "requirement": "Explain that independent queries give consistent pixel values at the same spatial location, allowing patches to be assembled seamlessly with constant inference memory when generated patch by patch.",
+      "page": 5,
+      "quote": "synthesize consistent pixel values at the same spatial location in the implicit image"
+    },
+    {
+      "id": "C04",
+      "requirement": "Identify the extended-size synthesis benchmark as Flickr-Landscape, with 450,000 landscape images, and specify that InfinityGAN trains on 101×101 crops from 197×197 images.",
+      "page": 6,
+      "quote": "are trained with 101×101 patches cropped from 197×197 real images."
+    },
+    {
+      "id": "C05",
+      "requirement": "Name the Table 1 comparators: SinGAN, COCO-GAN, StyleGAN2 with non-constant input, its patched variant, and its padding-free variant. Describe the comparison protocol in which InfinityGAN's training images pass through 128×128 before resizing to 197×197, and its test outputs are generated at 197/128 times the baseline dimensions to align fields of view.",
+      "page": 7,
+      "quote": "images are first bilinear\ninterpolated into 128×128 before resized into 197×197."
+    },
+    {
+      "id": "C06",
+      "requirement": "Distinguish training-resolution FID from ScaleInv FID. Explain that ScaleInv FID downsamples enlarged generations bilinearly to training-data size before computing FID and relies on assumed landscape self-similarity because large-field-of-view real reference images are unavailable.",
+      "page": 6,
+      "quote": "resizes larger images to the training data size with bilinear interpolation, then computes FID."
+    },
+    {
+      "id": "C07",
+      "requirement": "Report that InfinityGAN has the lowest ScaleInv FID among the tested methods at 4× and 8×. Qualify the result by noting that differences in training crop field of view and resolution limit direct comparison of absolute FID values.",
+      "page": 7,
+      "quote": "InfinityGAN maintains a more steady slope, and surpasses the strongest baseline after\n4× ScaleInv FID."
+    },
+    {
+      "id": "C08",
+      "requirement": "Report that more than 90% of choices favored InfinityGAN in each reported baseline comparison at 4× and 8×. Identify the Flickr-Landscape study as a two-alternative forced choice about realism and structural plausibility, with 50 participants, 30 queries per participant, and 16 random samples per method in each query.",
+      "page": 8,
+      "quote": "the user study shows an over 90% of preference favorable to InfinityGAN against all baselines."
+    },
+    {
+      "id": "C09",
+      "requirement": "Include the reported failure modes: composing landscapes at different scales may introduce artifacts, and foliage near the top of training photos can lead to tree-like content appearing in the generated sky.",
+      "page": 9,
+      "quote": "composes landscapes of different scales together, synthesized images may contain artifacts."
+    }
+  ]
+}

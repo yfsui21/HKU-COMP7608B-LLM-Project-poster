@@ -1,0 +1,311 @@
+{
+  "issues": [],
+  "elements": [
+    {
+      "id": "publication",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 14,
+      "w": 1116.0,
+      "h": 12.389999999999999,
+      "lines": [
+        "RESEARCH ARTICLE"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "title",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 30,
+      "w": 1116.0,
+      "h": 77.88,
+      "lines": [
+        "SiT Dataset: Socially Interactive Pedestrian Trajectory Dataset for Social",
+        "Navigation Robots"
+      ],
+      "size": 33,
+      "color": "202E49",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "masthead",
+      "kind": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 1200.0,
+      "h": 124.88,
+      "color": "FAF7EE",
+      "background": true
+    },
+    {
+      "id": "header-rule",
+      "kind": "rect",
+      "x": 0,
+      "y": 124.88,
+      "w": 1200.0,
+      "h": 1.3,
+      "color": "202E49",
+      "background": false
+    },
+    {
+      "id": "source-note",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 883.38,
+      "w": 1116.0,
+      "h": 10.62,
+      "lines": [
+        "Source figure: p. 7"
+      ],
+      "size": 9,
+      "color": "485568",
+      "font": "Helvetica"
+    },
+    {
+      "id": "question-heading",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 138.88,
+      "w": 433.92,
+      "h": 12.389999999999999,
+      "lines": [
+        "QUESTION / P. 2"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "question",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 156.26999999999998,
+      "w": 433.92,
+      "h": 63.72,
+      "lines": [
+        "How can we capture interactive behaviors between",
+        "pedestrians and a mobile robot in the real world using",
+        "pedestrian trajectories?"
+      ],
+      "size": 18,
+      "color": "202E49",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "method-rule",
+      "kind": "rect",
+      "x": 42.00000000000001,
+      "y": 227.98999999999998,
+      "w": 433.92,
+      "h": 0.7,
+      "color": "C3C9CB",
+      "background": false
+    },
+    {
+      "id": "method-heading",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 236.98999999999998,
+      "w": 433.92,
+      "h": 12.389999999999999,
+      "lines": [
+        "METHOD / P. 3"
+      ],
+      "size": 10.5,
+      "color": "A5462E",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "method",
+      "kind": "text",
+      "x": 42.00000000000001,
+      "y": 254.37999999999997,
+      "w": 433.92,
+      "h": 91.44999999999999,
+      "lines": [
+        "SiT used a mobile robot to record indoor and outdoor scenes",
+        "with two 3D scanning LiDARs, five cameras covering a",
+        "360-degree view, two inertial measurement units (IMUs), and",
+        "real-time kinematic positioning (RTK). Each scene spans 20",
+        "seconds at 10 Hz."
+      ],
+      "size": 15.5,
+      "color": "202937",
+      "font": "Helvetica"
+    },
+    {
+      "id": "finding-panel",
+      "kind": "rect",
+      "x": 507.12,
+      "y": 133.88,
+      "w": 650.88,
+      "h": 739.5,
+      "color": "202E49",
+      "background": true
+    },
+    {
+      "id": "result-heading",
+      "kind": "text",
+      "x": 521.12,
+      "y": 145.88,
+      "w": 622.88,
+      "h": 12.389999999999999,
+      "lines": [
+        "KEY FINDING / P. 7"
+      ],
+      "size": 10.5,
+      "color": "F9BA92",
+      "font": "Helvetica-Bold"
+    },
+    {
+      "id": "result",
+      "kind": "text",
+      "x": 521.12,
+      "y": 163.26999999999998,
+      "w": 622.88,
+      "h": 89.67999999999999,
+      "lines": [
+        "The SiT dataset captured more instances of a robot and pedestrian sharing",
+        "the same semantic space while within 2 meters of each other than the other",
+        "three autonomous driving datasets (Waymo Open, Argoverse2, and",
+        "nuScenes)."
+      ],
+      "size": 19,
+      "color": "FFFFFF",
+      "font": "Times-Bold"
+    },
+    {
+      "id": "figure-mount",
+      "kind": "rect",
+      "x": 521.12,
+      "y": 261.95,
+      "w": 622.88,
+      "h": 249.68051948051945,
+      "color": "FFFFFF",
+      "background": true
+    },
+    {
+      "id": "figure",
+      "kind": "image",
+      "x": 583.408,
+      "y": 289.71805194805194,
+      "w": 498.30400000000003,
+      "h": 194.14441558441558
+    },
+    {
+      "id": "caption",
+      "kind": "text",
+      "x": 521.12,
+      "y": 516.6305194805194,
+      "w": 622.88,
+      "h": 70.8,
+      "lines": [
+        "Figure 8: Comparison with other autonomous vehicle datasets. (a) represents the normalized density graph of the",
+        "distance between the robot (or ego-vehicle) and surrounding pedestrians, while (b) illustrates the number of",
+        "instances that satisfy some criteria. Space sharing condition refers to instances where the robot and pedestrians",
+        "occupy the same semantic space, Proximity condition indicates cases where the distance between the robot and",
+        "pedestrian is within 2 meters, and Sharing & Proxi. indicates cases that fulfill both conditions."
+      ],
+      "size": 12,
+      "color": "E4EAF1",
+      "font": "Helvetica"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "question",
+      "elements": [
+        "question"
+      ],
+      "text": "how can we capture interactive behaviors between pedestrians and a mobile robot in the real world using pedestrian trajectories?",
+      "source": [
+        {
+          "page": 2,
+          "quote": "We aim to expand\nthe research area for pedestrian perception by introducing the HRI-included dataset that reflects\nthe interactive behaviors between pedestrians and a mobile robot in the real world."
+        }
+      ],
+      "conditions": [
+        "interactive behaviors",
+        "a mobile robot",
+        "in the real world"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "method",
+      "elements": [
+        "method"
+      ],
+      "text": "sit used a mobile robot to record indoor and outdoor scenes with two 3d scanning lidars, five cameras covering a 360-degree view, two inertial measurement units (imus), and real-time kinematic positioning (rtk). each scene spans 20 seconds at 10 hz.",
+      "source": [
+        {
+          "page": 3,
+          "quote": "The SiT dataset consists of\n1. Raw data acquired by two 3D scanning LiDARs, five cameras covering a 360-degree view,\ntwo inertial measurement units (IMUs), and real-time kinematic positioning (RTK)\n2. 20 seconds of sequential data sampled at 10 Hz with indoor and outdoor scenes obtained\nfrom a mobile robot,"
+        }
+      ],
+      "conditions": [
+        "SiT",
+        "two 3D scanning LiDARs",
+        "five cameras",
+        "360-degree view",
+        "two inertial measurement units (IMUs)",
+        "real-time kinematic positioning (RTK)",
+        "20 seconds",
+        "10 Hz",
+        "indoor and outdoor scenes",
+        "mobile robot"
+      ],
+      "assets": [],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    },
+    {
+      "claim": "result",
+      "elements": [
+        "result"
+      ],
+      "text": "the sit dataset captured more instances of a robot and pedestrian sharing the same semantic space while within 2 meters of each other than the other three autonomous driving datasets (waymo open, argoverse2, and nuscenes).",
+      "source": [
+        {
+          "page": 7,
+          "quote": "interactive scenarios arise when they occupy the same semantic space. Proximity condition refers\nto cases where the distance between the robot and pedestrian is within 2 meters, indicating close\nphysical proximity. Figure 8b shows that the SiT dataset exhibits a significantly higher number of\ninstances that satisfy these two conditions compared to the other three autonomous driving datasets."
+        }
+      ],
+      "conditions": [
+        "SiT dataset",
+        "same semantic space",
+        "within 2 meters",
+        "the other three autonomous driving datasets"
+      ],
+      "assets": [
+        "Figure 8: Comparison with other autonomous vehicle datasets. (a) represents the normalized density\ngraph of the distance between the robot (or ego-vehicle) and surrounding pedestrians, while (b)\nillustrates the number of instances that satisfy some criteria. Space sharing condition refers to\ninstances where the robot and pedestrians occupy the same semantic space, Proximity condition\nindicates cases where the distance between the robot and pedestrian is within 2 meters, and Sharing\n& Proxi. indicates cases that fulfill both conditions."
+      ],
+      "missing": [],
+      "mismatched": [],
+      "unsupported_numbers": [],
+      "passed": true,
+      "semantic_passed": true,
+      "equivalents": {}
+    }
+  ],
+  "suggestions": [
+    {
+      "target": "Figure 8",
+      "problem": "The plot labels and legends are readable but small relative to the surrounding text and available space.",
+      "change": "Use some of the open space below the figure to stack and enlarge the two panels, keeping the caption immediately beneath them."
+    }
+  ]
+}

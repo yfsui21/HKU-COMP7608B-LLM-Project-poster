@@ -1,0 +1,10 @@
+{
+  "paper": "paper-047.pdf",
+  "area": 0.75,
+  "condition": "joint",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-047\\paper-047\\area-0.75\\joint",
+  "status": "generation_failed",
+  "ratings": [],
+  "error": "The Figure 1 caption on page 4 is interleaved with body text. The complete caption cannot be copied verbatim without merging columns.",
+  "elapsed_s": 43.11
+}

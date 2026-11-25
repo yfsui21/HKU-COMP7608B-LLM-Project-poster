@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether highlighting helps users spot what to edit. It omits the explicit comparison between highlighting likely edits and highlighting low-probability tokens."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method explains what the edit model predicts. It omits the preliminary data from nine coders who corrected Codex outputs until the tasks were completed properly."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster gives the sample size and the three easy LeetCode tasks. It omits the participants’ employment and Python experience, as well as randomization of task order and tool-to-task assignments."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster identifies the shared Codex model, all three conditions, and both thresholds. It omits that the thresholds equalized total highlight counts across the three tasks."
+    },
+    {
+      "id": "C05",
+      "met": true,
+      "reason": "The result gives all three mean times and correctly distinguishes the significant comparison with Generation probability from the comparison with Prediction only. The caption states the 10-minute cap."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "Panel (b) shows bars consistent with the listed survival values at the available visual precision. The exact rates are unlabeled, and the poster neither defines survival as a token remaining untouched nor explains how the pattern indicates more localized editing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Panel (c) shows higher preference for Edit model highlights on an axis running from 1 to 7. The exact means, p-value, questionnaire topics, and reverse coding of distraction are omitted."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster omits that the edit model was trained on the same completions evaluated in the study and that comparable effects on unseen tasks remain unverified."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits that more accurate human oversight and reduced automation bias remain untested."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 4,
+  "notes": "AI review based on the supplied checklist, editable text, and export. The three panels match the caption, and the plotted values appear consistent with the checklist. Exact bar heights cannot be verified visually. The headings and body text are readable, but the chart labels and legend require close inspection. The title and section headings give a clear route through the poster, though the prominent results panel can draw the eye before the question and method."
+}

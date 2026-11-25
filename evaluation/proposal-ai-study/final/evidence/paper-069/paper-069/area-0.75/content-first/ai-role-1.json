@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": true,
+      "reason": "The question asks whether a network can learn to hallucinate correspondences and whether this improves absolute pose estimation. The adjacent method text supplies the partial-overlap setting and identifies occluded and out-of-view keypoints."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The method gives the inputs, per-keypoint target-plane distribution, and three visibility cases. It omits the shared CNN, learned target-descriptor padding, and cross-attention with positional encoding."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster omits NRE training, the negative log-likelihood at the geometrically reprojected location, the ground-truth depth and relative pose inputs, and the absence of a visibility-label requirement."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "The poster names ScanNet for the pose result but omits the indoor and outdoor training datasets, the distinction between held-out quantitative evaluation and qualitative transfer, and the correspondence evaluation protocol of 2,500 pairs per dataset at 2% to 80% overlap."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The poster omits the held-out ScanNet and MegaDepth correspondence results comparing NRE with a uniform map and argmax pixel errors with the mean random-prediction error for the three tasks."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "LoFTR, DRCNet, and S2D appear in the pose figure legend. The poster omits their inpainting and outpainting comparisons on ScanNet and MegaDepth, the pixel-distance score, and the restriction of local matching to the target image boundaries."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Figure 13 includes identity and feature-matching baselines, but it varies pose-error thresholds for a fixed 2% to 5% overlap range. The required evaluation varies the cumulative overlap range at two fixed threshold pairs. The poster also omits the 2,500 held-out pairs and the use of source depth and NeurHal correspondence maps for pose estimation."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The poster reports NeurHal's advantage at 2% to 5% overlap. It omits overall pose robustness, evidence that the advantage is largest at low overlap, the ablation finding that outpainting drove the gain and inpainting added little, and the slight advantage for local matching at high overlap."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The limitations text contains an unfinished sentence about quadratic attention complexity. It omits the precision limit of low-resolution maps, the reach limit of finite padding, the less peaked inpainting maps, and the caveat about noisy MegaDepth inpainting labels."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 4,
+  "notes": "Figure 13 matches its caption and the stated low-overlap result. The missing cumulative-overlap evaluation and threshold pairs reduce checklist coverage. The limitations sentence ends mid-reference in both the editable text and the export, so there is no visible evidence of layout clipping. The plot labels and legend are small at the supplied image size. Section headings provide a clear path, though the prominent findings panel can draw readers to the result before the method."
+}

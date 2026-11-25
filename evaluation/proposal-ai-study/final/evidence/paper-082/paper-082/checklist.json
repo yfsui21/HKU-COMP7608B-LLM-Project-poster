@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: can a compact, general-purpose autoregressive vision model learn multiple tasks from limited and unevenly distributed visual training data?",
+      "page": 2,
+      "quote": "scenarios with long-tail distributions across different tasks."
+    },
+    {
+      "id": "C02",
+      "requirement": "Describe how VQGAN maps images to discrete tokens, how tokens from multiple images form visual sentences, and how a causal transformer learns to predict the next token with cross-entropy.",
+      "page": 2,
+      "quote": "each position, using cross-entropy as the loss function."
+    },
+    {
+      "id": "C03",
+      "requirement": "Explain prompted inference: prepend example input–output image pairs to the tokenized query, generate output tokens autoregressively, and decode them into an image with VQGAN.",
+      "page": 2,
+      "quote": "a visual sentence, which serves as a task definition."
+    },
+    {
+      "id": "C04",
+      "requirement": "Describe the single-task evidence: at 12K training steps with LLaMA-300M, increasing the SA-1B subset from 1% to 10% and increasing COCO-Pose augmentation using random crops and flips both improved validation loss and perplexity in their respective tasks.",
+      "page": 3,
+      "quote": "random flip operations to generate several augmented"
+    },
+    {
+      "id": "C05",
+      "requirement": "Identify the multitask comparison: train LLaMA-300M for 35K iterations per setting on about 10% of SA-1B, all of COCO-Pose, and all of Rain13K. Compare the unbalanced mixture, balancing by repeated sampling, and balancing by augmentation. Evaluate on withheld SA-1B, MPII, and Test2800 using validation loss, token accuracy, and perplexity.",
+      "page": 4,
+      "quote": "35K iterations during the training process."
+    },
+    {
+      "id": "C06",
+      "requirement": "Report the multitask trade-off: augmentation gave better overall results than repeated sampling, and it lowered validation loss and perplexity for pose estimation and deraining relative to the unbalanced mixture. The unbalanced mixture retained the best segmentation scores and slightly higher deraining accuracy.",
+      "page": 4,
+      "quote": "through dataset augmentation yielded the best overall performance."
+    },
+    {
+      "id": "C07",
+      "requirement": "Explain that a LLaMA-1B teacher distilled into LLaMA-300M, and that distillation improved the student's validation loss, token accuracy, and perplexity across all three augmentation-balanced tasks relative to training from scratch. The teacher retained the best scores.",
+      "page": 6,
+      "quote": "improving the performance of the student model across all tasks."
+    },
+    {
+      "id": "C08",
+      "requirement": "Identify the continual-learning limitation: training LLaMA-300M without shuffling, in SA-1B, COCO-Pose, then Rain13K order, produced the lowest validation perplexity on the most recently trained task at each stage.",
+      "page": 7,
+      "quote": "the task corresponding to the most recently used training data."
+    },
+    {
+      "id": "C09",
+      "requirement": "Distinguish token-level validation metrics from task-level evaluation. Identify Pascal-5i foreground segmentation as an mIoU evaluation with three example pairs and separate zero-shot and fine-tuned results. Acknowledge that extracting quantifiable predictions from decoded images remains difficult for more complex tasks.",
+      "page": 9,
+      "quote": "results into quantifiable outputs warrants further exploration."
+    }
+  ]
+}

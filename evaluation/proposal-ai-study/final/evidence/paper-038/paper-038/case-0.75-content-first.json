@@ -1,0 +1,133 @@
+{
+  "paper": "paper-038.pdf",
+  "area": 0.75,
+  "condition": "content-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-038\\paper-038\\area-0.75\\content-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers train–test color shifts and retaining color cues, but omits generalization to underrepresented colors. The result addresses rare classes separately."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method mentions sharing shape features across hues and using discrete rotations. It omits input-layer filter weight sharing and the feature-map hue dimension that shifts with the input hue."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster identifies both tasks and describes the long-tailed class labels. It omits the balanced test set and does not explain how hue dispersion changes the informativeness of color about digit identity."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The long-tailed panel legend identifies vanilla Z2CNN, grayscale Z2CNN, and coset-pooled CECNN. Approximate parameter matching, the absence of augmentation, and averaging over ten random initializations are missing."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The eight natural-image benchmarks and their ResNet backbone assignments are absent."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The natural-image comparisons, including the full and hybrid CE-ResNet variants, parameter matching, rotation count, color-jitter conditions, CIConv-W, and AugMix, are absent."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster does not distinguish original-test accuracy from mean accuracy over hue shifts from −180° to +180°. Panel (b) plots accuracy against dataset standard deviation."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The natural-image accuracy and robustness findings, the complementary role of color jitter, and qualifications by dataset and model variant are absent."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster omits compute cost, potential capacity loss from narrowing networks, and approximate equivariance caused by clipping or reprojection after RGB rotation."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 5,
+      "notes": "The caption correctly maps panel (a) to the long-tailed task and panel (b) to the color-biased task. The figure’s legends and ticks are small, particularly the class labels in panel (a). The rotation symbol after 120 renders as a solid square, and the caption’s distribution formula has detached indices. The question heading cites p. 1, while the checklist cites p. 2 for its supporting quote. The supplied excerpts cannot establish whether p. 1 also supports the question or independently verify the exact reported accuracies. Counts reflect observed errors in the supplied evidence."
+    },
+    {
+      "role": 2,
+      "checklist_met": 0,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": false,
+          "reason": "The question covers train–test color shifts and retaining color cues, but does not explicitly ask whether CNNs generalize to underrepresented colors."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method mentions sharing shape features across hues and using three rotations, but does not explain input-layer filter weight sharing or the feature-map hue dimension that shifts with the input hue."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The poster identifies both tasks and says the long-tailed task uses digit shape and color. It omits the balanced test set and does not explain how varying hue dispersion changes how informative color is about digit identity."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The figure legends identify vanilla Z2CNN, grayscale Z2CNN, and coset-pooled CECNN. The poster omits approximate parameter matching, the absence of augmentation in the primary comparison, and averaging over ten random initializations."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The eight natural-image benchmarks and their ResNet architectures are absent."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The poster omits the vanilla, full, and early-stage hybrid ResNet comparison, its parameter matching and hue rotations, its color-jitter conditions, and the CIConv-W and AugMix comparisons."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster does not distinguish original-test accuracy from mean accuracy across shifts of −180° to +180°. Panel (b) plots test accuracy against dataset standard deviation, so the hue-response axis requirement does not apply to it."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The reported result is limited to ColorMNIST. The poster omits original-test accuracy and hue-shift robustness findings for CE-ResNets, the complementary effect of color jitter, and variation by dataset and model."
+        },
+        {
+          "id": "C09",
+          "met": false,
+          "reason": "The poster does not discuss compute cost, possible capacity loss from narrowing networks to match parameter counts, or approximate hue equivariance caused by clipping or reprojection."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 0,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The checklist excerpts do not provide reference accuracies, so the reported percentages could not be independently verified from the supplied evidence. The caption's panel descriptions match the displayed plots. The degree symbol after 120 renders as a black square, and the caption's final formula has detached subscripts in both the editable text and the export. These are notation defects. The section headings are easy to scan, but the plot legends and tick labels are small, especially the class labels in panel (a). The large key-finding block can draw the eye before the question and method."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-038\\paper-038\\area-0.75\\content-first\\04-layout",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [{\"target\": \"method\", \"problem\": \"The rotation unit after 120 renders as a solid square, obscuring the required angle.\", \"change\": \"Render the phrase as “CEConvs with three rotations of 120°” using a font that supports the degree symbol.\"}, {\"target\": \"Figure 2 panels (a) and (b)\", \"problem\": \"The axis labels, ticks, and legends are too small at poster size. In panel (a), the class labels are particularly difficult to distinguish, and the legend overlaps the plotted data.\", \"change\": \"Use more of the available panel height for the plots, enlarge the labels and legends, and place the panel (a) legend outside the data area.\"}, {\"target\": \"Figure 2 caption\", \"problem\": \"The sampling formula has detached subscripts rendered as trailing “d c,” making the description of panel (b) difficult to read.\", \"change\": \"Restore the subscripts or state in plain text that digit hue is sampled from a normal distribution centered on the class hue with standard deviation σ.\"}, {\"target\": \"method\", \"problem\": \"Unmet scientific requirement\", \"change\": [\"Restore source support\"]}]",
+  "elapsed_s": 200.94
+}

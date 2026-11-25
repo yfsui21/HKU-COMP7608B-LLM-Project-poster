@@ -1,0 +1,133 @@
+{
+  "paper": "paper-008.pdf",
+  "area": 0.75,
+  "condition": "layout-first",
+  "session": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-0.75\\layout-first",
+  "status": "failed_candidate_ai_scored",
+  "ratings": [
+    {
+      "role": 1,
+      "checklist_met": 2,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what causes instability in learning systems with feedback loops and how much algorithmic interventions can reduce it without collecting more data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "The method gives a broad intervention count, and the figure identifies Walker2d-v4. The poster omits the offline one-step expert-action prediction setup, deterministic Soft Actor Critic demonstrations in MuJoCo, and the 900/100 trajectory split."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The figure labels distinguish reward from behavior cloning error, but the poster does not define held-out one-step loss or cumulative reward over 1,000-step closed-loop rollouts. It also omits the 20 fixed initial conditions and the comparison between consecutive reward swings and smooth validation loss."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The title names SGD noise and the caption attributes reward oscillations to GVA. Neither explains how unstable closed-loop dynamics amplify small parameter changes from minibatch noise into large changes in long-horizon performance."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The method lists intervention categories, and the figure shows architecture and learning-rate comparisons. The poster omits the fresh independent trajectory control, persistence across standard regularizers, and the reduction from larger batches and aggressive learning-rate decay at a computational cost."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The figure pairs reward and behavior cloning error curves with their EMA counterparts, and the caption reports reduced oscillations without changing batch size or the learning-rate schedule. The poster calls the intervention EMA iterate averaging but never explicitly identifies it as exponential moving averaging of model parameters."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster omits the 270M-parameter TinyStories Transformer experiment, the definition of switching cost, the reduction in switching with EMA, and the distinction from validation perplexity."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits TinyStories as a synthetic proxy, the preliminary English Wikipedia check, the interpretation of greedy completion agreement as stability, and the lack of systematic generation-quality assessment."
+        },
+        {
+          "id": "C09",
+          "met": true,
+          "reason": "The low-GVA column shows Ant and Humanoid with milder reward oscillations, and the failure-mode column shows poor EMA reward with infrequent updates. The caption recommends updating every iterate with initial burn-in and tuned averaging decay."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 1,
+      "overlaps": 1,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "The question's last line extends below the section divider, which crosses the text. This is one overflow and one overlap at the same location. All visible content stays within the page. The title and section headings establish a clear reading order, but the divider disrupts the transition from question to method. The figure's small panel labels and axis ticks require close reading. No displayed number contradicts the supplied checklist. The checklist does not independently verify the count of 278 interventions."
+    },
+    {
+      "role": 2,
+      "checklist_met": 2,
+      "checklist_total": 9,
+      "decisions": [
+        {
+          "id": "C01",
+          "met": true,
+          "reason": "The question asks what causes instability in learning systems with feedback loops and how much algorithmic interventions can reduce it without collecting more data."
+        },
+        {
+          "id": "C02",
+          "met": false,
+          "reason": "Walker2d-v4 is the main example in the figure. The poster omits the offline one-step expert-action prediction setup, the deterministic Soft Actor Critic demonstrations in MuJoCo, and the 900-training and 100-validation trajectory split."
+        },
+        {
+          "id": "C03",
+          "met": false,
+          "reason": "The figure labels reward and behavior cloning error separately. The poster omits the held-out one-step loss and 1,000-step closed-loop reward definitions, the mean over 20 fixed initial conditions, and the observation that reward can swing between consecutive updates while validation loss stays smooth."
+        },
+        {
+          "id": "C04",
+          "met": false,
+          "reason": "The caption uses GVA without expanding it or explaining how unstable closed-loop dynamics amplify small parameter changes from minibatch gradient noise into large changes in long-horizon performance."
+        },
+        {
+          "id": "C05",
+          "met": false,
+          "reason": "The method lists categories of interventions, and the figure compares architectures. The poster omits the persistence of oscillations with fresh independent expert trajectories and across standard regularizers, as well as the reductions from larger batches and aggressive learning-rate decay and their computational cost."
+        },
+        {
+          "id": "C06",
+          "met": false,
+          "reason": "The figure compares raw and EMA curves, and the caption reports substantially reduced reward oscillations with the same batch size and learning-rate schedule. The poster does not spell out EMA or explain that it exponentially averages model parameters."
+        },
+        {
+          "id": "C07",
+          "met": false,
+          "reason": "The poster omits the 270M-parameter TinyStories Transformer experiment, the switching-cost definition, its reduction with EMA, and its distinction from validation perplexity."
+        },
+        {
+          "id": "C08",
+          "met": false,
+          "reason": "The poster omits TinyStories' role as a synthetic proxy, the preliminary English Wikipedia check, the interpretation of greedy completion agreement as stability, and the absence of a systematic generation-quality assessment."
+        },
+        {
+          "id": "C09",
+          "met": true,
+          "reason": "The figure groups Ant and Humanoid as low-GVA tasks and shows the infrequent-update failure case. The caption recommends updating EMA at every iterate with an initial burn-in and a tuned averaging schedule."
+        }
+      ],
+      "wrong_numbers": 0,
+      "figure_mismatches": 0,
+      "overflow": 0,
+      "overlaps": 1,
+      "outside": 0,
+      "label_legibility_1_5": 3,
+      "reading_order_1_5": 4,
+      "notes": "AI review of the supplied image, editable text, and frozen checklist. The horizontal divider crosses the final line of the research question, crowding the Method heading. The title and section hierarchy are clear, while the inset figure's axis labels and tick values require close inspection. EMA, GVA, and BC are left unexplained for a reader new to the topic. The visible figure and caption agree with the supplied figure evidence. The checklist does not independently verify the count of 278 interventions, so it was not flagged as wrong."
+    }
+  ],
+  "artifact": "runs\\proposal-live-study\\per-paper\\paper-008\\paper-008\\area-0.75\\layout-first\\04-content",
+  "accepted": false,
+  "generation_error": "Review unresolved after two rounds: [\"question overflows fixed text box\", \"method-rule overlaps question\", \"method-heading overlaps question\", {\"target\": \"question, method-rule, and method-heading\", \"problem\": \"The divider crosses the final line of the question, and the Method heading sits immediately below it. This obscures the section break.\", \"change\": \"Give the question enough vertical space for all six lines, then move the divider and Method section down to leave a clear gap.\"}, {\"target\": \"Figure 3\", \"problem\": \"The subplot labels, axis labels, and tick values are difficult to read at poster size. The white mount has margins that could be used to enlarge the plot.\", \"change\": \"Tighten the margins and enlarge the plot within the panel while preserving all axis labels and ticks.\"}, {\"target\": \"Figure 3 caption\", \"problem\": \"The decay exponent is rendered on the baseline as t−α, which can be read as subtraction.\", \"change\": \"Typeset −α as a superscript on t.\"}]",
+  "elapsed_s": 213.47
+}

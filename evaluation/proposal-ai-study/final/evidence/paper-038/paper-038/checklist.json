@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "C01",
+      "requirement": "State the research question: Can CNNs generalize across underrepresented colors and train–test hue shifts while retaining color cues that help distinguish classes?",
+      "page": 2,
+      "quote": "generalize across different colors,\nwhile at the same time also retaining important color information"
+    },
+    {
+      "id": "C02",
+      "requirement": "Explain that CEConvs share input-layer filter weights across discrete hue rotations and preserve hue in a feature-map dimension that shifts with the input hue.",
+      "page": 2,
+      "quote": "CEConvs share parameters across hue-transformed filters in the input layer and store\ncolor information in hue-equivariant feature maps."
+    },
+    {
+      "id": "C03",
+      "requirement": "Describe the two ColorMNIST tasks. In the long-tailed task, classes depend on digit identity and color, and the imbalanced training set is evaluated on a balanced test set. In the biased task, varying hue dispersion controls how informative color is about digit identity.",
+      "page": 7,
+      "quote": "MNIST digits are to be classified based on both shape and color, and a color biased setting"
+    },
+    {
+      "id": "C04",
+      "requirement": "Identify the ColorMNIST comparison against vanilla Z2CNN, grayscale Z2CNN, and coset-pooled CECNN. Specify approximate parameter matching, no augmentation in the primary comparison, and averaging over ten random initializations.",
+      "page": 6,
+      "quote": "data augmentations are used. We report the average performance over ten runs with different random\ninitializations."
+    },
+    {
+      "id": "C05",
+      "requirement": "Identify the eight natural-image benchmarks: CIFAR-10, CIFAR-100, Flowers-102, STL-10, Oxford-IIIT Pet, Caltech-101, Stanford Cars, and ImageNet. Specify ResNet-44 for CIFAR and ResNet-18 for the other benchmarks.",
+      "page": 7,
+      "quote": "CIFAR-10 and CIFAR-100 [27], Flowers-102 [35], STL-10 [6], Oxford-IIIT\nPet [40], Caltech-101 [31], Stanford Cars [26] and ImageNet [10]."
+    },
+    {
+      "id": "C06",
+      "requirement": "Describe the natural-image comparison between vanilla ResNets and approximately parameter-matched full and early-stage hybrid CE-ResNets with three discrete hue rotations. Identify the training conditions with and without color jitter and the additional CIConv-W and AugMix comparisons.",
+      "page": 7,
+      "quote": "parameter count of the baseline ResNets. We have also included AugMix [21] and CIConv [29] as\nbaselines for comparison."
+    },
+    {
+      "id": "C07",
+      "requirement": "Distinguish classification accuracy on the original test set from mean accuracy across test-time hue shifts spanning −180° to +180°. Label any hue-response curve with test accuracy and shift angle.",
+      "page": 8,
+      "quote": "the performance on the original test set, as well as the average accuracy\nover all hue shifts"
+    },
+    {
+      "id": "C08",
+      "requirement": "Report that CE-ResNet variants generally maintained comparable original-test accuracy and improved robustness to test-time hue shifts, especially without training jitter. Describe color jitter as complementary and qualify gains by dataset and model variant.",
+      "page": 8,
+      "quote": "CE-ResNets are also significantly more robust to test-time hue shifts, especially\nwhen trained without color jitter augmentation."
+    },
+    {
+      "id": "C09",
+      "requirement": "State that CEConvs raise compute cost, that parameter matching through narrower networks can reduce capacity, and that clipping or reprojection after RGB rotation can make hue equivariance approximate.",
+      "page": 9,
+      "quote": "Due to this clipping effect the hue equivariance in Eq. (9) only holds\napproximately."
+    }
+  ]
+}

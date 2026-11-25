@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question covers finite training patches, arbitrarily large fields of view, and coherence, but omits realistic local detail as an explicit goal."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "Both synthesis stages are named. The description omits coordinate conditioning, global appearance, local latent variation, and how the texture stage renders local features using fine-grained noise."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The table shows constant inference memory for InfinityGAN. The poster does not explain that independent queries agree at the same location, enabling seamless patch assembly and constant memory during patch-by-patch generation."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Flickr-Landscape is named, and the table lists full and training sizes of 197 and 101. The poster does not state the dataset size or explicitly explain that 101×101 crops come from 197×197 images."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The table lists all five comparators, and the caption gives the 128-to-197 resizing step. The poster does not explain the NCI and PFG abbreviations or the 197/128 test-dimension adjustment used to align fields of view."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The table separates training FID from ScaleInv FID. The poster omits bilinear downsampling to training-data size, the landscape self-similarity assumption, and the lack of real references with large fields of view."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The headline reports the 4× result, and the table shows the lowest ScaleInv FID at both 4× and 8×. The caption mentions a disadvantageous setting without explaining how differences in training-crop field of view and resolution limit comparisons of absolute FID."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The headline reports over 90% preference, and the table supports that result in each comparison with reported preferences at 4× and 8×. The poster omits the two-alternative forced-choice design, the realism and structural plausibility criteria, and the counts of 50 participants, 30 queries per participant, and 16 random samples per method per query."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The poster omits both reported failure modes, namely artifacts from combining landscapes at different scales and tree-like content appearing in the sky."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 3,
+  "reading_order_1_5": 5,
+  "notes": "The title, question, method, and key finding establish a clear reading order. The table is visible in full, though its small labels and values take effort to read, and unexplained abbreviations make it harder to interpret. The stated 4× scores match the table. The preference claim is supported for rows with reported values, and dashes leave the patched variant without a reported preference comparison. Checklist deductions reflect omissions in the visible poster and supplied editable text. Layout counts reflect the exported image."
+}

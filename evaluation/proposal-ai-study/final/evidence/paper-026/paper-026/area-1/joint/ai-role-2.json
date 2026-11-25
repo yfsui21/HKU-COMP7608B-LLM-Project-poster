@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question addresses robustness to a shift in the observation process, and the method gives the in-hospital outcome and 24-hour timing. The poster does not ask whether explicit modelling also improves predictive performance or explain the shift in terms of how tests are ordered."
+    },
+    {
+      "id": "C02",
+      "met": false,
+      "reason": "The poster does not describe the shared LSTM, the three clinical presence tasks, or the DeepSurv proportional hazards head."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster identifies MIMIC III laboratory tests but omits the single-centre setting, the cohort of 30,834 adults, and the eligibility requirements of surviving at least 24 hours and having each of the 17 selected tests measured within that window."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Table 6 names all six comparison methods. The poster omits the imputation procedure, the shared use of DeepSurv, and the distinction between adding missingness and elapsed-time inputs and jointly modelling clinical presence."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "Table 6 shows the 1-, 7-, and 14-day horizons after the last observation, and its caption mentions 95% confidence intervals. The poster omits the random 90%/10% patient-level split, selection of the last observation within the first 24 hours, both evaluation metrics, and the 100 test-set bootstrap iterations."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The headline and caption describe comparing weekend-trained and weekday-trained models on the same weekday test set. The reverse direction, the weekday boundary times, and weekend oversampling are missing."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "The poster gives transfer differences. It omits the random-split C-index results and rankings, the narrowing discrimination differences at longer horizons, and the similarity of Brier scores."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The headline gives the correct 1-day differences for DeepJointFeature and Feature on the weekday test set. The table shows longer horizons for that direction, but the poster does not explain how robustness varies across horizons and both directions or report strong discrimination and the fine-tuned variant's tendency to overfit."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The robustness conclusion is not explicitly limited to the laboratory-test cohort and the within-hospital shift. The poster omits the need for external validation, the omission of competing risks, and the assumption of independence between patients."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 5,
+  "notes": "The title and section headings make the reading sequence clear. The table is readable at the supplied size, though its caption and the bottom source note are small. The headline values agree with the displayed table, and the caption says smaller absolute differences are better. Neither identifies the metric being differenced, which makes the result harder to interpret. Agreement with the original source table cannot be verified beyond the supplied evidence."
+}

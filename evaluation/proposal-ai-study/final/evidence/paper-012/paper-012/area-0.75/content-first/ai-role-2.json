@@ -1,0 +1,57 @@
+{
+  "decisions": [
+    {
+      "id": "C01",
+      "met": false,
+      "reason": "The question asks whether sharing embeddings preserves predictive power, but omits sensitive data, complementary features for the same observations, and the common downstream task."
+    },
+    {
+      "id": "C02",
+      "met": true,
+      "reason": "The question and method together describe sharing autoencoder representations, joining them by observation ID, and training a downstream predictive model. Supervision is implicit rather than named."
+    },
+    {
+      "id": "C03",
+      "met": false,
+      "reason": "The poster names Buzz in Social Media only and does not identify the three benchmarks and their task types."
+    },
+    {
+      "id": "C04",
+      "met": false,
+      "reason": "Scenario 0 appears as a comparator, but the poster does not identify it as the supervised baseline trained on the original raw dataset or mention randomized hyperparameter search."
+    },
+    {
+      "id": "C05",
+      "met": false,
+      "reason": "The method mentions individual autoencoders, but does not distinguish the four embedding setups or state that both peers need access to the target in the target-aware variants."
+    },
+    {
+      "id": "C06",
+      "met": false,
+      "reason": "The poster shows downstream metrics only. It does not explain reconstruction loss or the average per-feature rate of observations reconstructed with less than 5% MAPE."
+    },
+    {
+      "id": "C07",
+      "met": false,
+      "reason": "Table 5 distinguishes training, validation, and test and shows R² and MAPE for Buzz. The poster omits XGBoost, the House Pricing evaluation, and the MNIST model and metrics."
+    },
+    {
+      "id": "C08",
+      "met": false,
+      "reason": "The highlighted Buzz comparison shows substantial retained predictive utility in one scenario, but the poster does not explain how losses vary across datasets, scenarios, and metrics. It makes no less-than-10-percentage-point claim."
+    },
+    {
+      "id": "C09",
+      "met": false,
+      "reason": "The method mentions two simulated peers, but omits the public-data setting, the privacy assumption, and future work on privacy measurement, decoding resistance, and validation on real organizational data."
+    }
+  ],
+  "wrong_numbers": 0,
+  "figure_mismatches": 0,
+  "overflow": 0,
+  "overlaps": 0,
+  "outside": 0,
+  "label_legibility_1_5": 4,
+  "reading_order_1_5": 4,
+  "notes": "The four highlighted test values match Table 5. The table text and source note are smaller than the surrounding copy, and MAPE is unexplained. The headings establish a readable sequence, though the dark results panel can draw the eye before the method. The question label cites p. 2, while C01 cites supporting text on p. 3. The supplied excerpts do not establish whether p. 2 also supports the question."
+}
